@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environment/environment';
 
 export interface UserProfile {
   age: number;
@@ -48,7 +49,7 @@ export interface SportRecommendation {
   providedIn: 'root'
 })
 export class AiService {
-  private apiUrl = 'http://localhost:5000/api';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
