@@ -1,0 +1,111 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-600 via-slate-500 to-slate-400 py-8 px-4" *ngIf="recommendation">
+  <div class="max-w-6xl mx-auto">
+    
+    <div class="bg-white rounded-xl shadow-2xl p-8 mb-6 text-center">
+      <!-- <img [src]="recommendation.imageUrl" alt="{{ recommendation.sport }}" class="mx-auto mb-4 w-32 h-32 object-contain" /> -->
+      <h1 class="text-5xl font-bold text-slate-800 mb-4">
+        {{ recommendation.sport }}
+      </h1>
+      <div class="flex items-center justify-center mb-4">
+        <div class="bg-slate-700 text-white px-6 py-3 rounded-lg text-xl font-semibold">
+          {{ 'RESULTS.COMPATIBILITY_SCORE' | translate }}: {{ recommendation.score }}%
+        </div>
+      </div>
+      <p class="text-xl text-slate-600 italic">
+        {{ recommendation.reason }}
+      </p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-6">
+      <h2 class="text-3xl font-bold text-slate-800 mb-4 flex items-center">
+        <span class="mr-3">💡</span> {{ 'RESULTS.WHY_TITLE' | translate }}
+      </h2>
+      <p class="text-lg text-slate-700 leading-relaxed">
+        {{ recommendation.explanation }}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-6">
+      <div class="bg-white rounded-xl shadow-xl p-6 border-l-4 border-emerald-600">
+        <h3 class="text-2xl font-bold text-emerald-700 mb-4 flex items-center">
+          <span class="mr-2">✅</span> {{ 'RESULTS.BENEFITS_TITLE' | translate }}
+        </h3>
+        <ul class="space-y-3">
+          <li *ngFor="let benefit of recommendation.benefits" class="flex items-start">
+            <span class="text-emerald-600 mr-3 text-xl">•</span>
+            <span class="text-slate-700">{{ benefit }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-xl p-6 border-l-4 border-amber-500">
+        <h3 class="text-2xl font-bold text-amber-700 mb-4 flex items-center">
+          <span class="mr-2">⚠️</span> {{ 'RESULTS.PRECAUTIONS_TITLE' | translate }}
+        </h3>
+        <ul class="space-y-3">
+          <li *ngFor="let precaution of recommendation.precautions" class="flex items-start">
+            <span class="text-amber-600 mr-3 text-xl">•</span>
+            <span class="text-slate-700">{{ precaution }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-6">
+      <h2 class="text-3xl font-bold text-slate-800 mb-6 flex items-center">
+        <span class="mr-3">🏋️</span> {{ 'RESULTS.EXERCISES_TITLE' | translate }}
+      </h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div *ngFor="let exercise of recommendation.exercises" 
+             class="bg-slate-50 rounded-xl p-6 border-2 border-slate-200 hover:shadow-lg hover:border-slate-400 transition-all">
+          
+          <h4 class="text-xl font-bold text-slate-800 mb-3">
+            {{ exercise.name }}
+          </h4>
+          
+          <p class="text-slate-600 mb-4">
+            {{ exercise.description }}
+          </p>
+          
+          <div class="space-y-2 text-sm">
+            <p *ngIf="exercise.duration" class="text-slate-700">
+              <span class="font-semibold">⏱️ {{ 'RESULTS.DURATION' | translate }}:</span> {{ exercise.duration }}
+            </p>
+            <p *ngIf="exercise.repetitions" class="text-slate-700">
+              <span class="font-semibold">🔄 {{ 'RESULTS.REPETITIONS' | translate }}:</span> {{ exercise.repetitions }}
+            </p>
+          </div>
+
+          <div *ngIf="exercise.videoUrl" class="mt-4">
+            <a [href]="exercise.videoUrl" 
+               target="_blank"
+               class="inline-flex items-center bg-slate-700 hover:bg-slate-800 text-white px-4 py-2 rounded-lg transition-colors">
+              <span class="mr-2">▶️</span> {{ 'RESULTS.WATCH_VIDEO' | translate }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button
+        (click)="backToForm()"
+        class="bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl hover:bg-slate-50 transition-all hover:cursor-pointer duration-300">
+        🔄 {{ 'RESULTS.RETRY_TEST' | translate }}
+      </button>
+      <button
+        (click)="backToHome()"
+        class="bg-slate-700 hover:bg-slate-800 text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all hover:cursor-pointer duration-300">
+        🏠 {{ 'RESULTS.BACK_HOME' | translate }}
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="!recommendation" class="min-h-screen bg-slate-100 flex items-center justify-center">
+  <div class="bg-white rounded-xl shadow-xl p-8 text-center">
+    <p class="text-xl text-slate-700 mb-4">{{ 'RESULTS.REDIRECTING' | translate }}</p>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-600 via-slate-500 to-slate-400 flex items-center justify-center p-4">
+  <!-- Language Selector - Top Right -->
+  <div class="fixed top-4 right-4 z-50">
+    <div class="relative">
+      <button 
+        (click)="toggleLanguageMenu()"
+        class="bg-white hover:bg-slate-50 text-slate-700 px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 transition-all">
+        <span class="text-xl">🌐</span>
+        <span class="font-medium">{{ languageService.getCurrentLanguage().toUpperCase() }}</span>
+        <span class="text-xs">▼</span>
+      </button>
+      
+      <div *ngIf="showLanguageMenu" 
+           class="absolute right-0 mt-2 bg-white rounded-lg shadow-xl py-2 min-w-40">
+        <button 
+          *ngFor="let lang of languages"
+          (click)="changeLanguage(lang.code)"
+          class="w-full px-4 py-2 hover:bg-slate-100 flex items-center gap-3 transition-colors"
+          [class.bg-slate-50]="languageService.getCurrentLanguage() === lang.code">
+          <span class="text-xl">{{ lang.flag }}</span>
+          <span class="font-medium text-slate-700">{{ lang.name }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl w-full bg-white rounded-xl shadow-2xl p-8 md:p-12">
+    <div class="text-center">
+      <h1 class="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
+        🏃‍♂️ SportIA
+      </h1>
+      <p class="text-xl md:text-2xl text-slate-600 mb-8">
+        {{ 'HOME.SUBTITLE' | translate }}
+      </p>
+      
+      <div class="bg-slate-50 rounded-lg p-6 mb-8 border border-slate-200">
+        <h2 class="text-2xl font-semibold text-slate-800 mb-4">
+          {{ 'HOME.HOW_IT_WORKS' | translate }}
+        </h2>
+        <div class="text-left space-y-4">
+          <div class="flex items-start">
+            <span class="text-3xl mr-4">📝</span>
+            <div>
+              <h3 class="font-semibold text-lg text-slate-700">1. {{ 'HOME.STEP1_TITLE' | translate }}</h3>
+              <p class="text-slate-600">{{ 'HOME.STEP1_DESC' | translate }}</p>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <span class="text-3xl mr-4">🤖</span>
+            <div>
+              <h3 class="font-semibold text-lg text-slate-700">2. {{ 'HOME.STEP2_TITLE' | translate }}</h3>
+              <p class="text-slate-600">{{ 'HOME.STEP2_DESC' | translate }}</p>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <span class="text-3xl mr-4">🎯</span>
+            <div>
+              <h3 class="font-semibold text-lg text-slate-700">3. {{ 'HOME.STEP3_TITLE' | translate }}</h3>
+              <p class="text-slate-600">{{ 'HOME.STEP3_DESC' | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        [routerLink]="['/formulaire']"
+        class="bg-slate-700 hover:bg-slate-800 text-white px-12 py-4 rounded-lg text-xl font-semibold shadow-lg hover:shadow-xl transition-all hover:cursor-pointer duration-300">
+        {{ 'HOME.START_BUTTON' | translate }}
+      </button>
+
+      <p class="mt-6 text-slate-500 text-sm">
+        ✨ 100% gratuit • 🔒 Données traitées localement • ⚡ Résultats instantanés
+      </p>
+    </div>
+  </div>
+</div>

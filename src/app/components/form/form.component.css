@@ -1,0 +1,7 @@
+input:focus, select:focus, textarea:focus {
+  outline: none;
+}
+
+input[type="checkbox"]:checked {
+  accent-color: #475569;
+}

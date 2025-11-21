@@ -1,0 +1,241 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-600 via-slate-500 to-slate-400 py-8 px-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-white rounded-xl shadow-xl p-8">
+      <h1 class="text-4xl font-bold text-slate-800 mb-2 text-center">
+        📋 {{ 'FORM.TITLE' | translate }}
+      </h1>
+      <p class="text-slate-600 text-center mb-8">
+        {{ 'FORM.SUBTITLE' | translate }}
+      </p>
+
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="space-y-8">
+        
+        <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
+            <span class="mr-2">👤</span> {{ 'FORM.PERSONAL_INFO' | translate }}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.AGE' | translate }} *</label>
+              <input
+                type="number"
+                formControlName="age"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                placeholder="Ex: 25">
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.GENDER' | translate }} *</label>
+              <select
+                formControlName="gender"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="Gender.MALE">{{ 'FORM.MALE' | translate }}</option>
+                <option [value]="Gender.FEMALE">{{ 'FORM.FEMALE' | translate }}</option>
+                <option [value]="Gender.OTHER">{{ 'FORM.OTHER' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
+            <span class="mr-2">📏</span> {{ 'FORM.PHYSICAL_MEASUREMENTS' | translate }}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.HEIGHT' | translate }} *</label>
+              <input
+                type="number"
+                formControlName="height"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                placeholder="Ex: 175">
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.WEIGHT' | translate }} *</label>
+              <input
+                type="number"
+                formControlName="weight"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                placeholder="Ex: 70">
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.LEG_LENGTH' | translate }} *</label>
+              <input
+                type="number"
+                formControlName="legLength"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                placeholder="Ex: 90">
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.ARM_LENGTH' | translate }} *</label>
+              <input
+                type="number"
+                formControlName="armLength"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                placeholder="Ex: 75">
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.WAIST_SIZE' | translate }} *</label>
+              <input
+                type="number"
+                formControlName="waistSize"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                placeholder="Ex: 80">
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
+            <span class="mr-2">💪</span> {{ 'FORM.CURRENT_CONDITION' | translate }}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.ACTIVITY_LEVEL' | translate }} *</label>
+              <select
+                formControlName="activityLevel"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="ActivityLevel.SEDENTARY">{{ 'FORM.SEDENTARY' | translate }}</option>
+                <option [value]="ActivityLevel.LIGHTLY_ACTIVE">{{ 'FORM.LIGHTLY_ACTIVE' | translate }}</option>
+                <option [value]="ActivityLevel.MODERATELY_ACTIVE">{{ 'FORM.MODERATELY_ACTIVE' | translate }}</option>
+                <option [value]="ActivityLevel.VERY_ACTIVE">{{ 'FORM.VERY_ACTIVE' | translate }}</option>
+                <option [value]="ActivityLevel.EXTREMELY_ACTIVE">{{ 'FORM.EXTREMELY_ACTIVE' | translate }}</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.EXERCISE_FREQUENCY' | translate }} *</label>
+              <select
+                formControlName="exerciseFrequency"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="ExerciseFrequency.NEVER">{{ 'FORM.NEVER' | translate }}</option>
+                <option [value]="ExerciseFrequency.ONE_TO_TWO">{{ 'FORM.ONE_TO_TWO' | translate }}</option>
+                <option [value]="ExerciseFrequency.THREE_TO_FOUR">{{ 'FORM.THREE_TO_FOUR' | translate }}</option>
+                <option [value]="ExerciseFrequency.FIVE_PLUS">{{ 'FORM.FIVE_PLUS' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
+            <span class="mr-2">🏥</span> {{ 'FORM.HEALTH_PROBLEMS' | translate }}
+          </h2>
+          <div class="space-y-3">
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input type="checkbox" formControlName="jointProblems" class="w-5 h-5 text-slate-600">
+              <span class="text-slate-700">{{ 'FORM.JOINT_PROBLEMS' | translate }}</span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input type="checkbox" formControlName="kneeProblems" class="w-5 h-5 text-slate-600">
+              <span class="text-slate-700">{{ 'FORM.KNEE_PROBLEMS' | translate }}</span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input type="checkbox" formControlName="backProblems" class="w-5 h-5 text-slate-600">
+              <span class="text-slate-700">{{ 'FORM.BACK_PROBLEMS' | translate }}</span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer">
+              <input type="checkbox" formControlName="heartProblems" class="w-5 h-5 text-slate-600">
+              <span class="text-slate-700">{{ 'FORM.HEART_PROBLEMS' | translate }}</span>
+            </label>
+            <div class="mt-4">
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.OTHER_HEALTH_ISSUES' | translate }}</label>
+              <textarea
+                formControlName="otherHealthIssues"
+                rows="3"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                [placeholder]="'FORM.OTHER_HEALTH_PLACEHOLDER' | translate"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
+            <span class="mr-2">🎯</span> {{ 'FORM.YOUR_GOALS' | translate }}
+          </h2>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.MAIN_GOAL' | translate }} *</label>
+              <select
+                formControlName="mainGoal"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="MainGoal.LOSE_WEIGHT">{{ 'FORM.LOSE_WEIGHT' | translate }}</option>
+                <option [value]="MainGoal.GAIN_MUSCLE">{{ 'FORM.GAIN_MUSCLE' | translate }}</option>
+                <option [value]="MainGoal.ENDURANCE">{{ 'FORM.ENDURANCE' | translate }}</option>
+                <option [value]="MainGoal.FLEXIBILITY">{{ 'FORM.FLEXIBILITY' | translate }}</option>
+                <option [value]="MainGoal.GENERAL_HEALTH">{{ 'FORM.GENERAL_HEALTH' | translate }}</option>
+                <option [value]="MainGoal.COMPETITION">{{ 'FORM.COMPETITION' | translate }}</option>
+                <option [value]="MainGoal.LEISURE">{{ 'FORM.LEISURE' | translate }}</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PRACTISED_SPORTS' | translate }}</label>
+              <textarea
+                formControlName="practisedSports"
+                rows="2"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                [placeholder]="'FORM.PRACTISED_SPORTS_PLACEHOLDER' | translate"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
+            <span class="mr-2">⚙️</span> {{ 'FORM.YOUR_PREFERENCES' | translate }}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.LOCATION_PREFERENCE' | translate }} *</label>
+              <select
+                formControlName="locationPreference"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="LocationPreference.INDOOR">{{ 'FORM.INDOOR' | translate }}</option>
+                <option [value]="LocationPreference.OUTDOOR">{{ 'FORM.OUTDOOR' | translate }}</option>
+                <option [value]="LocationPreference.BOTH">{{ 'FORM.BOTH' | translate }}</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.TEAM_PREFERENCE' | translate }} *</label>
+              <select
+                formControlName="teamPreference"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="TeamPreference.INDIVIDUAL">{{ 'FORM.INDIVIDUAL' | translate }}</option>
+                <option [value]="TeamPreference.TEAM">{{ 'FORM.TEAM' | translate }}</option>
+                <option [value]="TeamPreference.BOTH">{{ 'FORM.BOTH' | translate }}</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.AVAILABLE_TIME' | translate }} *</label>
+              <select
+                formControlName="availableTime"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="AvailableTime.LESS_THAN_TWO">{{ 'FORM.LESS_THAN_TWO' | translate }}</option>
+                <option [value]="AvailableTime.TWO_TO_FOUR">{{ 'FORM.TWO_TO_FOUR' | translate }}</option>
+                <option [value]="AvailableTime.FOUR_TO_SIX">{{ 'FORM.FOUR_TO_SIX' | translate }}</option>
+                <option [value]="AvailableTime.MORE_THAN_SIX">{{ 'FORM.MORE_THAN_SIX' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <div class="text-center pt-6">
+          <button
+            type="submit"
+            [disabled]="isSubmitting || !userForm.valid"
+            class="bg-slate-700 hover:bg-slate-800 text-white px-12 py-4 rounded-lg text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+            <span *ngIf="!isSubmitting">🚀 {{ 'FORM.SUBMIT_BUTTON' | translate }}</span>
+            <span *ngIf="isSubmitting">⏳ {{ 'FORM.SUBMITTING' | translate }}</span>
+          </button>
+          <p class="mt-4 text-slate-500 text-sm">
+            {{ 'FORM.REQUIRED_FIELDS' | translate }}
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
