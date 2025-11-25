@@ -2,48 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environment/environment';
-
-export interface UserProfile {
-  age: number;
-  gender: string;
-  height: number;
-  weight: number;
-  legLength: number;
-  armLength: number;
-  waistSize: number;
-  activityLevel: string;
-  exerciseFrequency: string;
-  jointProblems: boolean;
-  kneeProblems: boolean;
-  backProblems: boolean;
-  heartProblems: boolean;
-  otherHealthIssues: string;
-  mainGoal: string;
-  practisedSports: string;
-  locationPreference: string;
-  teamPreference: string;
-  availableTime: string;
-  language: string;
-}
-
-export interface Exercise {
-  name: string;
-  description: string;
-  duration?: string;
-  repetitions?: string;
-  videoUrl?: string;
-  imageUrl?: string;
-}
-
-export interface SportRecommendation {
-  sport: string;
-  score: number;
-  reason: string;
-  explanation: string;
-  benefits: string[];
-  precautions: string[];
-  exercises: Exercise[];
-}
+import { SportRecommendation } from '../models/SportRecommendation.model';
+import { UserProfile } from '../models/UserProfile.model';
 
 @Injectable({
   providedIn: 'root'

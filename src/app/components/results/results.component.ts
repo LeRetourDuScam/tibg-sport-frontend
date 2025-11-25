@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { SportRecommendation } from '../../services/ai.service';
+import { SportRecommendation } from '../../models/SportRecommendation.model';
 
 @Component({
   selector: 'app-results',
