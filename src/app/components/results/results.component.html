@@ -1,11 +1,10 @@
 <div class="min-h-screen bg-gradient-to-br from-slate-600 via-slate-500 to-slate-400 py-8 px-4" *ngIf="recommendation">
-  <div class="max-w-6xl mx-auto">
-    
+  <div class="max-w-6xl mx-auto"> 
     <div class="bg-white rounded-xl shadow-2xl p-8 mb-6 text-center">
-      <!-- <img [src]="recommendation.imageUrl" alt="{{ recommendation.sport }}" class="mx-auto mb-4 w-32 h-32 object-contain" /> -->
       <h1 class="text-5xl font-bold text-slate-800 mb-4">
         {{ recommendation.sport }}
       </h1>
+
       <div class="flex items-center justify-center mb-4">
         <div class="bg-slate-700 text-white px-6 py-3 rounded-lg text-xl font-semibold">
           {{ 'RESULTS.COMPATIBILITY_SCORE' | translate }}: {{ recommendation.score }}%
@@ -14,6 +13,21 @@
       <p class="text-xl text-slate-600 italic">
         {{ recommendation.reason }}
       </p>
+    </div>
+
+    <div *ngIf="recommendation.alternatives && recommendation.alternatives.length > 0" class="mb-6 text-center">
+      <button
+        (click)="toggleComparison()"
+        class="bg-slate-700 hover:bg-slate-800 text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
+        {{ showComparison ? ('COMPARISON.HIDE' | translate) : ('COMPARISON.SHOW' | translate) }}
+      </button>
+    </div>
+
+    <div *ngIf="showComparison && recommendation.alternatives && recommendation.alternatives.length > 0" class="mb-6">
+      <app-sport-comparison 
+        [mainSport]="recommendation" 
+        [alternatives]="recommendation.alternatives">
+      </app-sport-comparison>
     </div>
 
     <div class="bg-white rounded-xl shadow-xl p-8 mb-6">
@@ -86,6 +100,11 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Training Plan Component -->
+    <div *ngIf="recommendation.trainingPlan" class="mb-6">
+      <app-training-plan [trainingPlan]="recommendation.trainingPlan"></app-training-plan>
     </div>
 
     <div class="flex flex-col sm:flex-row gap-4 justify-center">

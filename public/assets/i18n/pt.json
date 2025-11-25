@@ -166,6 +166,35 @@
     "BACK_HOME": "Voltar ao início",
     "REDIRECTING": "Redirecionando..."
   },
+  "COMPARISON": {
+    "TITLE": "Comparar Esportes",
+    "SHOW": "Comparar Alternativas",
+    "HIDE": "Ocultar Comparação",
+    "CRITERIA": "Critérios",
+    "RECOMMENDED": "Recomendado",
+    "BENEFITS": "Benefícios",
+    "PRECAUTIONS": "Precauções",
+    "NOTE": "O esporte recomendado tem a maior compatibilidade com seu perfil."
+  },
+  "PLAN": {
+    "TITLE": "Seu Plano de Treinamento Personalizado",
+    "DURATION": "Duração",
+    "WEEK": "Semana",
+    "FOCUS": "Foco",
+    "MILESTONE": "Marco",
+    "MONDAY": "Segunda-feira",
+    "TUESDAY": "Terça-feira",
+    "WEDNESDAY": "Quarta-feira",
+    "THURSDAY": "Quinta-feira",
+    "FRIDAY": "Sexta-feira",
+    "SATURDAY": "Sábado",
+    "SUNDAY": "Domingo",
+    "EQUIPMENT": "Equipamento Necessário",
+    "PROGRESSION_TIPS": "Dicas de Progressão"
+  },
+  "SHARE": {
+    "TITLE": "Compartilhe seus resultados:"
+  },
   "LANGUAGE": {
     "SELECT": "Idioma"
   }

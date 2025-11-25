@@ -1,10 +1,9 @@
-<div class="min-h-screen bg-gradient-to-br from-slate-600 via-slate-500 to-slate-400 flex items-center justify-center p-4">
-  <!-- Language Selector - Top Right -->
-  <div class="fixed top-4 right-4 z-50">
+<div class="min-h-screen bg-gradient-to-br from-slate-600 via-slate-500 to-slate-400  flex items-center justify-center p-4">
+  <div class="fixed top-4 right-4 z-50 flex gap-3">
     <div class="relative">
       <button 
         (click)="toggleLanguageMenu()"
-        class="bg-white hover:bg-slate-50 text-slate-700 px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 transition-all">
+        class="bg-white dark:bg-slate-700 hover:bg-slate-50  text-slate-700 dark:text-slate-200 px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 transition-all">
         <span class="text-xl">🌐</span>
         <span class="font-medium">{{ languageService.getCurrentLanguage().toUpperCase() }}</span>
         <span class="text-xs">▼</span>
@@ -16,9 +15,10 @@
           *ngFor="let lang of languages"
           (click)="changeLanguage(lang.code)"
           class="w-full px-4 py-2 hover:bg-slate-100 flex items-center gap-3 transition-colors"
-          [class.bg-slate-50]="languageService.getCurrentLanguage() === lang.code">
+          [class.bg-slate-50]="languageService.getCurrentLanguage() === lang.code"
+          [class.dark:bg-slate-600]="languageService.getCurrentLanguage() === lang.code">
           <span class="text-xl">{{ lang.flag }}</span>
-          <span class="font-medium text-slate-700">{{ lang.name }}</span>
+          <span class="font-medium text-slate-700 dark:text-slate-200">{{ lang.name }}</span>
         </button>
       </div>
     </div>
@@ -26,10 +26,10 @@
 
   <div class="max-w-4xl w-full bg-white rounded-xl shadow-2xl p-8 md:p-12">
     <div class="text-center">
-      <h1 class="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
+      <h1 class="text-5xl md:text-6xl font-bold text-slate-800 dark:text-slate-100 mb-6">
         🏃‍♂️ SportIA
       </h1>
-      <p class="text-xl md:text-2xl text-slate-600 mb-8">
+      <p class="text-xl md:text-2xl text-slate-600  mb-8">
         {{ 'HOME.SUBTITLE' | translate }}
       </p>
       

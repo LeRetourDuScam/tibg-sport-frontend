@@ -166,6 +166,35 @@
     "BACK_HOME": "Back to home",
     "REDIRECTING": "Redirecting..."
   },
+  "COMPARISON": {
+    "TITLE": "Compare Sports",
+    "SHOW": "Compare Alternatives",
+    "HIDE": "Hide Comparison",
+    "CRITERIA": "Criteria",
+    "RECOMMENDED": "Top Choice",
+    "BENEFITS": "Benefits",
+    "PRECAUTIONS": "Precautions",
+    "NOTE": "The recommended sport has the highest compatibility with your profile."
+  },
+  "PLAN": {
+    "TITLE": "Your Personalized Training Plan",
+    "DURATION": "Duration",
+    "WEEK": "Week",
+    "FOCUS": "Focus",
+    "MILESTONE": "Milestone",
+    "MONDAY": "Monday",
+    "TUESDAY": "Tuesday",
+    "WEDNESDAY": "Wednesday",
+    "THURSDAY": "Thursday",
+    "FRIDAY": "Friday",
+    "SATURDAY": "Saturday",
+    "SUNDAY": "Sunday",
+    "EQUIPMENT": "Required Equipment",
+    "PROGRESSION_TIPS": "Progression Tips"
+  },
+  "SHARE": {
+    "TITLE": "Share your results:"
+  },
   "LANGUAGE": {
     "SELECT": "Language"
   }
