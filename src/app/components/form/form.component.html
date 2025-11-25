@@ -10,6 +10,7 @@
 
       <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="space-y-8">
         
+        <!-- PERSONAL INFO -->
         <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
           <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
             <span class="mr-2">👤</span> {{ 'FORM.PERSONAL_INFO' | translate }}
@@ -37,6 +38,7 @@
           </div>
         </section>
 
+        <!-- PHYSICAL MEASUREMENTS -->
         <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
           <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
             <span class="mr-2">📏</span> {{ 'FORM.PHYSICAL_MEASUREMENTS' | translate }}
@@ -85,22 +87,22 @@
           </div>
         </section>
 
+        <!-- HEALTH AND FITNESS -->
         <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
           <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-            <span class="mr-2">💪</span> {{ 'FORM.CURRENT_CONDITION' | translate }}
+            <span class="mr-2">💪</span> {{ 'FORM.HEALTH_AND_FITNESS' | translate }}
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.ACTIVITY_LEVEL' | translate }} *</label>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.FITNESS_LEVEL' | translate }} *</label>
               <select
-                formControlName="activityLevel"
+                formControlName="fitnessLevel"
                 class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
                 <option value="">{{ 'FORM.SELECT' | translate }}</option>
-                <option [value]="ActivityLevel.SEDENTARY">{{ 'FORM.SEDENTARY' | translate }}</option>
-                <option [value]="ActivityLevel.LIGHTLY_ACTIVE">{{ 'FORM.LIGHTLY_ACTIVE' | translate }}</option>
-                <option [value]="ActivityLevel.MODERATELY_ACTIVE">{{ 'FORM.MODERATELY_ACTIVE' | translate }}</option>
-                <option [value]="ActivityLevel.VERY_ACTIVE">{{ 'FORM.VERY_ACTIVE' | translate }}</option>
-                <option [value]="ActivityLevel.EXTREMELY_ACTIVE">{{ 'FORM.EXTREMELY_ACTIVE' | translate }}</option>
+                <option [value]="FitnessLevel.SEDENTARY">{{ 'FORM.FITNESS_SEDENTARY' | translate }}</option>
+                <option [value]="FitnessLevel.LIGHT">{{ 'FORM.FITNESS_LIGHT' | translate }}</option>
+                <option [value]="FitnessLevel.MODERATE">{{ 'FORM.FITNESS_MODERATE' | translate }}</option>
+                <option [value]="FitnessLevel.INTENSE">{{ 'FORM.FITNESS_INTENSE' | translate }}</option>
               </select>
             </div>
             <div>
@@ -116,11 +118,30 @@
               </select>
             </div>
           </div>
+          
+          <div class="mt-4">
+            <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.INJURIES' | translate }}</label>
+            <textarea
+              formControlName="injuries"
+              rows="2"
+              class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+              [placeholder]="'FORM.INJURIES_PLACEHOLDER' | translate"></textarea>
+          </div>
+          
+          <div class="mt-4">
+            <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.ALLERGIES' | translate }}</label>
+            <textarea
+              formControlName="allergies"
+              rows="2"
+              class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+              [placeholder]="'FORM.ALLERGIES_PLACEHOLDER' | translate"></textarea>
+          </div>
         </section>
 
+        <!-- HEALTH CONDITIONS -->
         <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
           <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-            <span class="mr-2">🏥</span> {{ 'FORM.HEALTH_PROBLEMS' | translate }}
+            <span class="mr-2">🏥</span> {{ 'FORM.HEALTH_CONDITIONS' | translate }}
           </h2>
           <div class="space-y-3">
             <label class="flex items-center space-x-3 cursor-pointer">
@@ -150,9 +171,10 @@
           </div>
         </section>
 
+        <!-- GOALS AND MOTIVATIONS -->
         <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
           <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-            <span class="mr-2">🎯</span> {{ 'FORM.YOUR_GOALS' | translate }}
+            <span class="mr-2">🎯</span> {{ 'FORM.GOALS_AND_MOTIVATIONS' | translate }}
           </h2>
           <div class="space-y-4">
             <div>
@@ -171,19 +193,121 @@
               </select>
             </div>
             <div>
-              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PRACTISED_SPORTS' | translate }}</label>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.SPECIFIC_GOALS' | translate }}</label>
               <textarea
-                formControlName="practisedSports"
+                formControlName="specificGoals"
                 rows="2"
                 class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                [placeholder]="'FORM.PRACTISED_SPORTS_PLACEHOLDER' | translate"></textarea>
+                [placeholder]="'FORM.SPECIFIC_GOALS_PLACEHOLDER' | translate"></textarea>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.MOTIVATIONS' | translate }}</label>
+              <textarea
+                formControlName="motivations"
+                rows="2"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                [placeholder]="'FORM.MOTIVATIONS_PLACEHOLDER' | translate"></textarea>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.FEARS' | translate }}</label>
+              <textarea
+                formControlName="fears"
+                rows="2"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                [placeholder]="'FORM.FEARS_PLACEHOLDER' | translate"></textarea>
             </div>
           </div>
         </section>
 
+        <!-- LIFESTYLE AND AVAILABILITY -->
         <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
           <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-            <span class="mr-2">⚙️</span> {{ 'FORM.YOUR_PREFERENCES' | translate }}
+            <span class="mr-2">⏰</span> {{ 'FORM.LIFESTYLE_AND_AVAILABILITY' | translate }}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.AVAILABLE_TIME' | translate }} *</label>
+              <select
+                formControlName="availableTime"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="AvailableTime.FIFTEEN_MIN">{{ 'FORM.FIFTEEN_MIN' | translate }}</option>
+                <option [value]="AvailableTime.THIRTY_MIN">{{ 'FORM.THIRTY_MIN' | translate }}</option>
+                <option [value]="AvailableTime.ONE_HOUR">{{ 'FORM.ONE_HOUR' | translate }}</option>
+                <option [value]="AvailableTime.ONE_HOUR_THIRTY">{{ 'FORM.ONE_HOUR_THIRTY' | translate }}</option>
+                <option [value]="AvailableTime.TWO_HOURS_PLUS">{{ 'FORM.TWO_HOURS_PLUS' | translate }}</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PREFERRED_TIME' | translate }}</label>
+              <select
+                formControlName="preferredTime"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="PreferredTime.MORNING">{{ 'FORM.MORNING' | translate }}</option>
+                <option [value]="PreferredTime.NOON">{{ 'FORM.NOON' | translate }}</option>
+                <option [value]="PreferredTime.EVENING">{{ 'FORM.EVENING' | translate }}</option>
+                <option [value]="PreferredTime.FLEXIBLE">{{ 'FORM.FLEXIBLE' | translate }}</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.AVAILABLE_DAYS' | translate }}</label>
+              <input
+                type="number"
+                formControlName="availableDays"
+                min="0"
+                max="7"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                placeholder="Ex: 3">
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.WORK_TYPE' | translate }}</label>
+              <select
+                formControlName="workType"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="WorkType.OFFICE_SEDENTARY">{{ 'FORM.OFFICE_SEDENTARY' | translate }}</option>
+                <option [value]="WorkType.PHYSICAL">{{ 'FORM.PHYSICAL' | translate }}</option>
+                <option [value]="WorkType.MIXED">{{ 'FORM.MIXED' | translate }}</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.SLEEP_QUALITY' | translate }}</label>
+              <select
+                formControlName="sleepQuality"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="SleepQuality.BAD">{{ 'FORM.BAD' | translate }}</option>
+                <option [value]="SleepQuality.AVERAGE">{{ 'FORM.AVERAGE' | translate }}</option>
+                <option [value]="SleepQuality.GOOD">{{ 'FORM.GOOD' | translate }}</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.STRESS_LEVEL' | translate }}</label>
+              <select
+                formControlName="stressLevel"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="StressLevel.LOW">{{ 'FORM.LOW' | translate }}</option>
+                <option [value]="StressLevel.MEDIUM">{{ 'FORM.MEDIUM' | translate }}</option>
+                <option [value]="StressLevel.HIGH">{{ 'FORM.HIGH' | translate }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="mt-4">
+            <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.LIFESTYLE' | translate }}</label>
+            <input
+              type="text"
+              formControlName="lifestyle"
+              class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+              [placeholder]="'FORM.LIFESTYLE_PLACEHOLDER' | translate">
+          </div>
+        </section>
+
+        <!-- TRAINING PREFERENCES -->
+        <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
+            <span class="mr-2">⚙️</span> {{ 'FORM.TRAINING_PREFERENCES' | translate }}
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -192,32 +316,158 @@
                 formControlName="locationPreference"
                 class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
                 <option value="">{{ 'FORM.SELECT' | translate }}</option>
-                <option [value]="LocationPreference.INDOOR">{{ 'FORM.INDOOR' | translate }}</option>
-                <option [value]="LocationPreference.OUTDOOR">{{ 'FORM.OUTDOOR' | translate }}</option>
-                <option [value]="LocationPreference.BOTH">{{ 'FORM.BOTH' | translate }}</option>
+                <option [value]="LocationPreference.HOME">{{ 'FORM.HOME' | translate }}</option>
+                <option [value]="LocationPreference.PARK">{{ 'FORM.PARK' | translate }}</option>
+                <option [value]="LocationPreference.GYM">{{ 'FORM.GYM' | translate }}</option>
+                <option [value]="LocationPreference.FLEXIBLE">{{ 'FORM.FLEXIBLE' | translate }}</option>
               </select>
             </div>
             <div>
-              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.TEAM_PREFERENCE' | translate }} *</label>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.SOCIAL_PREFERENCE' | translate }}</label>
               <select
-                formControlName="teamPreference"
+                formControlName="socialPreference"
                 class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
                 <option value="">{{ 'FORM.SELECT' | translate }}</option>
-                <option [value]="TeamPreference.INDIVIDUAL">{{ 'FORM.INDIVIDUAL' | translate }}</option>
-                <option [value]="TeamPreference.TEAM">{{ 'FORM.TEAM' | translate }}</option>
-                <option [value]="TeamPreference.BOTH">{{ 'FORM.BOTH' | translate }}</option>
+                <option [value]="TeamPreference.ALONE">{{ 'FORM.ALONE' | translate }}</option>
+                <option [value]="TeamPreference.SMALL_GROUP">{{ 'FORM.SMALL_GROUP' | translate }}</option>
+                <option [value]="TeamPreference.LARGE_GROUP">{{ 'FORM.LARGE_GROUP' | translate }}</option>
               </select>
             </div>
             <div>
-              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.AVAILABLE_TIME' | translate }} *</label>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.MUSIC_PREFERENCE' | translate }}</label>
               <select
-                formControlName="availableTime"
+                formControlName="musicPreference"
                 class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
                 <option value="">{{ 'FORM.SELECT' | translate }}</option>
-                <option [value]="AvailableTime.LESS_THAN_TWO">{{ 'FORM.LESS_THAN_TWO' | translate }}</option>
-                <option [value]="AvailableTime.TWO_TO_FOUR">{{ 'FORM.TWO_TO_FOUR' | translate }}</option>
-                <option [value]="AvailableTime.FOUR_TO_SIX">{{ 'FORM.FOUR_TO_SIX' | translate }}</option>
-                <option [value]="AvailableTime.MORE_THAN_SIX">{{ 'FORM.MORE_THAN_SIX' | translate }}</option>
+                <option [value]="MusicPreference.YES">{{ 'FORM.YES' | translate }}</option>
+                <option [value]="MusicPreference.NO">{{ 'FORM.NO' | translate }}</option>
+                <option [value]="MusicPreference.DEPENDS">{{ 'FORM.DEPENDS' | translate }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="mt-4">
+            <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.EXERCISE_PREFERENCES' | translate }}</label>
+            <textarea
+              formControlName="exercisePreferences"
+              rows="2"
+              class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+              [placeholder]="'FORM.EXERCISE_PREFERENCES_PLACEHOLDER' | translate"></textarea>
+          </div>
+          <div class="mt-4">
+            <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.EXERCISE_AVERSIONS' | translate }}</label>
+            <textarea
+              formControlName="exerciseAversions"
+              rows="2"
+              class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+              [placeholder]="'FORM.EXERCISE_AVERSIONS_PLACEHOLDER' | translate"></textarea>
+          </div>
+          <div class="mt-4">
+            <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.EQUIPMENT_AVAILABLE' | translate }}</label>
+            <textarea
+              formControlName="equipmentAvailable"
+              rows="2"
+              class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+              [placeholder]="'FORM.EQUIPMENT_AVAILABLE_PLACEHOLDER' | translate"></textarea>
+          </div>
+        </section>
+
+        <!-- HISTORY AND EXPERIENCE -->
+        <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
+            <span class="mr-2">📚</span> {{ 'FORM.HISTORY_AND_EXPERIENCE' | translate }}
+          </h2>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PRACTISED_SPORTS' | translate }}</label>
+              <textarea
+                formControlName="practisedSports"
+                rows="2"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                [placeholder]="'FORM.PRACTISED_SPORTS_PLACEHOLDER' | translate"></textarea>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.FAVORITE_ACTIVITY' | translate }}</label>
+              <input
+                type="text"
+                formControlName="favoriteActivity"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                [placeholder]="'FORM.FAVORITE_ACTIVITY_PLACEHOLDER' | translate">
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PAST_EXPERIENCE' | translate }}</label>
+              <select
+                formControlName="pastExperienceWithFitness"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="ExperienceLevel.BEGINNER">{{ 'FORM.BEGINNER' | translate }}</option>
+                <option [value]="ExperienceLevel.INTERMEDIATE">{{ 'FORM.INTERMEDIATE' | translate }}</option>
+                <option [value]="ExperienceLevel.ADVANCED">{{ 'FORM.ADVANCED' | translate }}</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.SUCCESS_FACTORS' | translate }}</label>
+              <textarea
+                formControlName="successFactors"
+                rows="2"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                [placeholder]="'FORM.SUCCESS_FACTORS_PLACEHOLDER' | translate"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- PERSONAL CONTEXT -->
+        <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
+            <span class="mr-2">🧠</span> {{ 'FORM.PERSONAL_CONTEXT' | translate }}
+          </h2>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PRIMARY_CHALLENGES' | translate }}</label>
+              <textarea
+                formControlName="primaryChallenges"
+                rows="2"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                [placeholder]="'FORM.PRIMARY_CHALLENGES_PLACEHOLDER' | translate"></textarea>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.SUPPORT_SYSTEM' | translate }}</label>
+              <input
+                type="text"
+                formControlName="supportSystem"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                [placeholder]="'FORM.SUPPORT_SYSTEM_PLACEHOLDER' | translate">
+            </div>
+          </div>
+        </section>
+
+        <!-- COMMUNICATION PREFERENCES -->
+        <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
+            <span class="mr-2">💬</span> {{ 'FORM.COMMUNICATION_PREFERENCES' | translate }}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PREFERRED_TONE' | translate }}</label>
+              <select
+                formControlName="preferredTone"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="PreferredTone.MOTIVATING">{{ 'FORM.MOTIVATING' | translate }}</option>
+                <option [value]="PreferredTone.FACTUAL">{{ 'FORM.FACTUAL' | translate }}</option>
+                <option [value]="PreferredTone.PLAYFUL">{{ 'FORM.PLAYFUL' | translate }}</option>
+                <option [value]="PreferredTone.STRICT">{{ 'FORM.STRICT' | translate }}</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.LEARNING_STYLE' | translate }}</label>
+              <select
+                formControlName="learningStyle"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="">{{ 'FORM.SELECT' | translate }}</option>
+                <option [value]="LearningStyle.VISUAL">{{ 'FORM.VISUAL' | translate }}</option>
+                <option [value]="LearningStyle.AUDITORY">{{ 'FORM.AUDITORY' | translate }}</option>
+                <option [value]="LearningStyle.KINESTHETIC">{{ 'FORM.KINESTHETIC' | translate }}</option>
+                <option [value]="LearningStyle.READING">{{ 'FORM.READING' | translate }}</option>
               </select>
             </div>
           </div>

@@ -7,12 +7,21 @@ import { AiService } from '../../services/ai.service';
 import { LanguageService } from '../../services/language.service';
 import {
   Gender,
+  FitnessLevel,
   ActivityLevel,
   ExerciseFrequency,
   MainGoal,
   LocationPreference,
   TeamPreference,
-  AvailableTime
+  AvailableTime,
+  PreferredTime,
+  WorkType,
+  SleepQuality,
+  StressLevel,
+  MusicPreference,
+  ExperienceLevel,
+  PreferredTone,
+  LearningStyle
 } from '../../enums/user-profile.enums';
 
 @Component({
@@ -28,12 +37,21 @@ export class FormComponent {
 
   // Expose enums to template
   Gender = Gender;
+  FitnessLevel = FitnessLevel;
   ActivityLevel = ActivityLevel;
   ExerciseFrequency = ExerciseFrequency;
   MainGoal = MainGoal;
   LocationPreference = LocationPreference;
   TeamPreference = TeamPreference;
   AvailableTime = AvailableTime;
+  PreferredTime = PreferredTime;
+  WorkType = WorkType;
+  SleepQuality = SleepQuality;
+  StressLevel = StressLevel;
+  MusicPreference = MusicPreference;
+  ExperienceLevel = ExperienceLevel;
+  PreferredTone = PreferredTone;
+  LearningStyle = LearningStyle;
 
   constructor(
     private fb: FormBuilder,
@@ -42,30 +60,65 @@ export class FormComponent {
     private languageService: LanguageService
   ) {
     this.userForm = this.fb.group({
+      // Basic data
       age: ['', [Validators.required, Validators.min(1), Validators.max(120)]],
       gender: ['', Validators.required],
-
       height: ['', [Validators.required, Validators.min(50), Validators.max(250)]],
       weight: ['', [Validators.required, Validators.min(20), Validators.max(300)]],
       legLength: ['', Validators.required],
       armLength: ['', Validators.required],
       waistSize: ['', Validators.required],
 
-      activityLevel: ['', Validators.required],
+      // Health and fitness
+      fitnessLevel: ['', Validators.required],
+      activityLevel: [''],
       exerciseFrequency: ['', Validators.required],
-
+      healthConditions: [[]],
       jointProblems: [false],
       kneeProblems: [false],
       backProblems: [false],
       heartProblems: [false],
       otherHealthIssues: [''],
+      injuries: [''],
+      allergies: [''],
 
+      // Goals and motivations
       mainGoal: ['', Validators.required],
-      practisedSports: [''],
+      specificGoals: [[]],
+      motivations: [[]],
+      fears: [[]],
 
+      // Lifestyle and availability
+      availableTime: ['', Validators.required],
+      preferredTime: [''],
+      availableDays: [''],
+      workType: [''],
+      sleepQuality: [''],
+      stressLevel: [''],
+
+      // Training preferences
+      exercisePreferences: [[]],
+      exerciseAversions: [[]],
       locationPreference: ['', Validators.required],
-      teamPreference: ['', Validators.required],
-      availableTime: ['', Validators.required]
+      equipmentAvailable: [[]],
+      musicPreference: [''],
+      socialPreference: [''],
+      teamPreference: [''],
+
+      // History and experience
+      practisedSports: [[]],
+      favoriteActivity: [''],
+      pastExperienceWithFitness: [''],
+      successFactors: [[]],
+
+      // Personal context
+      primaryChallenges: [[]],
+      lifestyle: [''],
+      supportSystem: [''],
+
+      // Communication preferences
+      preferredTone: [''],
+      learningStyle: ['']
     }); 
   }
 
