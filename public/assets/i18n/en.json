@@ -179,6 +179,7 @@
   },
   "PLAN": {
     "TITLE": "Your Personalized Training Plan",
+    "GOAL": "Goal",
     "DURATION": "Duration",
     "WEEK": "Week",
     "FOCUS": "Focus",

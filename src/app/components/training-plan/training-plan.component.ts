@@ -12,15 +12,4 @@ import { TrainingPlan } from '../../models/TrainingPlan.model';
 })
 export class TrainingPlanComponent {
   @Input() trainingPlan!: TrainingPlan;
-  
-  selectedWeek = 0;
-
-  selectWeek(index: number): void {
-    this.selectedWeek = index;
-  }
-
-  getDayName(day: number): string {
-    const days = ['PLAN.MONDAY', 'PLAN.TUESDAY', 'PLAN.WEDNESDAY', 'PLAN.THURSDAY', 'PLAN.FRIDAY', 'PLAN.SATURDAY', 'PLAN.SUNDAY'];
-    return days[day - 1] || '';
-  }
 }

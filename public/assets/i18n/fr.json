@@ -179,9 +179,10 @@
   },
   "PLAN": {
     "TITLE": "Votre Plan d'Entraînement Personnalisé",
+    "GOAL": "Objectif",
     "DURATION": "Durée",
     "WEEK": "Semaine",
-    "FOCUS": "Objectif",
+    "FOCUS": "Focus",
     "MILESTONE": "Jalon",
     "MONDAY": "Lundi",
     "TUESDAY": "Mardi",

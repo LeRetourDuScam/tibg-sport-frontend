@@ -1,65 +1,14 @@
 <div *ngIf="trainingPlan" class="bg-white dark:bg-slate-800 rounded-xl shadow-xl p-8 mb-6">
-  <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center">
-    <span class="mr-3">📅</span> {{ 'PLAN.TITLE' | translate }}
+  <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center">
+    <span class="mr-3">🎯</span> {{ 'PLAN.TITLE' | translate }}
   </h2>
-  <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
-    {{ 'PLAN.DURATION' | translate }}: <span class="font-semibold">{{ trainingPlan.duration }}</span>
-  </p>
-
-  <!-- Week Selector -->
-  <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
-    <button
-      *ngFor="let week of trainingPlan.weeks; let i = index"
-      (click)="selectWeek(i)"
-      [class.bg-slate-700]="selectedWeek === i"
-      [class.text-white]="selectedWeek === i"
-      [class.bg-slate-200]="selectedWeek !== i"
-      [class.dark:bg-slate-600]="selectedWeek !== i"
-      [class.text-slate-700]="selectedWeek !== i"
-      [class.dark:text-slate-200]="selectedWeek !== i"
-      class="px-4 py-2 rounded-lg font-semibold transition-colors hover:bg-slate-600 hover:text-white whitespace-nowrap">
-      {{ 'PLAN.WEEK' | translate }} {{ week.weekNumber }}
-    </button>
-  </div>
-
-  <!-- Selected Week Details -->
-  <div *ngIf="trainingPlan.weeks[selectedWeek]" class="space-y-4">
-    <div class="bg-slate-50 dark:bg-slate-700 p-4 rounded-lg">
-      <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">
-        {{ 'PLAN.FOCUS' | translate }}: {{ trainingPlan.weeks[selectedWeek].focus }}
-      </h3>
-      <p *ngIf="trainingPlan.weeks[selectedWeek].milestone" 
-         class="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center">
-        <span class="mr-2">🎯</span>
-        {{ 'PLAN.MILESTONE' | translate }}: {{ trainingPlan.weeks[selectedWeek].milestone }}
-      </p>
-    </div>
-
-    <!-- Training Sessions -->
-    <div class="grid md:grid-cols-2 gap-4">
-      <div
-        *ngFor="let session of trainingPlan.weeks[selectedWeek].sessions"
-        class="bg-slate-100 dark:bg-slate-700 p-4 rounded-lg border-l-4 border-slate-600">
-        <div class="flex justify-between items-center mb-2">
-          <h4 class="font-bold text-slate-800 dark:text-slate-100">
-            {{ getDayName(session.day) | translate }}
-          </h4>
-          <span class="text-sm text-slate-600 dark:text-slate-300">
-            ⏱️ {{ session.duration }}
-          </span>
-        </div>
-        <p class="text-slate-700 dark:text-slate-200 font-semibold mb-2">{{ session.title }}</p>
-        <ul class="space-y-1 text-sm text-slate-600 dark:text-slate-300">
-          <li *ngFor="let exercise of session.exercises" class="flex items-start">
-            <span class="mr-2">•</span>
-            <span>{{ exercise }}</span>
-          </li>
-        </ul>
-        <p *ngIf="session.notes" class="mt-2 text-xs italic text-slate-500 dark:text-slate-400">
-          💡 {{ session.notes }}
-        </p>
-      </div>
-    </div>
+  
+  <!-- Goal -->
+  <div class="bg-slate-50 dark:bg-slate-700 p-4 rounded-lg mb-6">
+    <h3 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">
+      {{ 'PLAN.GOAL' | translate }}
+    </h3>
+    <p class="text-slate-700 dark:text-slate-200">{{ trainingPlan.goal }}</p>
   </div>
 
   <!-- Equipment & Tips -->
