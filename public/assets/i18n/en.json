@@ -162,7 +162,8 @@
     "KINESTHETIC": "Kinesthetic",
     "READING": "Reading",
     
-    "SUBMIT_BUTTON": "Get my recommendation",
+    "SUBMIT_BUTTON": "Get Recommendation",
+    "SUBMIT": "Submit",
     "SUBMITTING": "Analysis in progress...",
     "REQUIRED_FIELDS": "* Required fields"
   },

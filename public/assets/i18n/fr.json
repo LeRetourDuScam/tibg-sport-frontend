@@ -162,7 +162,8 @@
     "KINESTHETIC": "Kinesthésique",
     "READING": "Lecture",
     
-    "SUBMIT_BUTTON": "Obtenir ma recommandation",
+    "SUBMIT_BUTTON": "Obtenir recommandation",
+    "SUBMIT": "Envoyer",
     "SUBMITTING": "Analyse en cours...",
     "REQUIRED_FIELDS": "* Champs obligatoires"
   },

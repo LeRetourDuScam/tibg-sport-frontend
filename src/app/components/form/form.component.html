@@ -548,13 +548,14 @@
           </section>
         </div>
 
-        <div class="flex justify-between items-center pt-6">
+        <div class="flex justify-between items-center pt-6 gap-2">
           <button
             *ngIf="currentStep > 0"
             type="button"
             (click)="previousStep()"
-            class="bg-slate-300 hover:bg-slate-400 text-slate-800 px-8 py-3 rounded-lg text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300">
-            ← {{ 'FORM.PREVIOUS' | translate }}
+            class="bg-slate-300 hover:bg-slate-400 text-slate-800 px-4 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300">
+            <span class="hidden sm:inline">← {{ 'FORM.PREVIOUS' | translate }}</span>
+            <span class="sm:hidden">←</span>
           </button>
           <div *ngIf="currentStep === 0" class="w-1"></div>
           
@@ -562,8 +563,9 @@
             *ngIf="currentStep < totalSteps - 1"
             type="button"
             (click)="nextStep()"
-            class="bg-slate-700 hover:bg-slate-800 text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ml-auto">
-            {{ 'FORM.NEXT' | translate }} →
+            class="bg-slate-700 hover:bg-slate-800 text-white px-4 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ml-auto">
+            <span class="hidden sm:inline">{{ 'FORM.NEXT' | translate }} →</span>
+            <span class="sm:hidden">→</span>
           </button>
           
           <button
@@ -571,9 +573,17 @@
             type="button"
             (click)="onSubmit()"
             [disabled]="isSubmitting"
-            class="bg-slate-700 hover:bg-slate-800 text-white px-12 py-4 rounded-lg text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ml-auto">
-            <span *ngIf="!isSubmitting">🚀 {{ 'FORM.SUBMIT_BUTTON' | translate }}</span>
-            <span *ngIf="isSubmitting">⏳ {{ 'FORM.SUBMITTING' | translate }}</span>
+            class="bg-slate-700 hover:bg-slate-800 text-white px-4 py-2 md:px-12 md:py-4 rounded-lg text-sm md:text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ml-auto">
+            <span *ngIf="!isSubmitting" class="flex items-center gap-1">
+              <span>🚀</span>
+              <span class="hidden sm:inline">{{ 'FORM.SUBMIT_BUTTON' | translate }}</span>
+              <span class="sm:hidden text-xs">{{ 'FORM.SUBMIT' | translate }}</span>
+            </span>
+            <span *ngIf="isSubmitting" class="flex items-center gap-1">
+              <span>⏳</span>
+              <span class="hidden sm:inline">{{ 'FORM.SUBMITTING' | translate }}</span>
+              <span class="sm:hidden text-xs">...</span>
+            </span>
           </button>
         </div>
         
