@@ -5,3 +5,99 @@ input:focus, select:focus, textarea:focus {
 input[type="checkbox"]:checked {
   accent-color: #475569;
 }
+
+/* Stepper Styles */
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #e2e8f0;
+}
+
+.step-circle.active {
+  background-color: #475569;
+  color: white;
+  border-color: #475569;
+  transform: scale(1.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.step-circle.completed {
+  background-color: #10b981;
+  color: white;
+  border-color: #10b981;
+  cursor: pointer;
+}
+
+.step-circle.completed:hover {
+  background-color: #059669;
+  border-color: #059669;
+  transform: scale(1.05);
+}
+
+.step-line {
+  height: 2px;
+  background-color: #e2e8f0;
+  flex-grow: 1;
+  margin: 0 8px;
+  transition: all 0.3s ease;
+}
+
+.step-line.completed {
+  background-color: #10b981;
+}
+
+/* Mobile Stepper */
+.step-circle-mobile {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border: 2px solid #e2e8f0;
+}
+
+.step-circle-mobile.active {
+  background-color: #475569;
+  color: white;
+  border-color: #475569;
+  transform: scale(1.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.step-circle-mobile.completed {
+  background-color: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+/* Snackbar Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}

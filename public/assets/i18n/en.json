@@ -18,6 +18,18 @@
     "SUBTITLE": "Fill out this form to get your personalized recommendation",
     "SELECT": "Select...",
     
+    "REQUIRED_FIELD": "This field is required",
+
+    "STEP": "Step",
+    "STEP_PERSONAL": "Personal & Health",
+    "STEP_GOALS": "Goals",
+    "STEP_LIFESTYLE": "Lifestyle",
+    "STEP_PREFERENCES": "Preferences",
+    "STEP_COMMUNICATION": "Communication",
+    
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    
     "PERSONAL_INFO": "Personal Information",
     "AGE": "Age",
     "GENDER": "Gender",

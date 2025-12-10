@@ -10,7 +10,7 @@ export interface UserProfile {
   fitnessLevel: string; 
   activityLevel: string; 
   exerciseFrequency: string; 
-  healthConditions: string[]; 
+  healthConditions: string; 
   jointProblems: boolean;
   kneeProblems: boolean; 
   backProblems: boolean; 
@@ -20,9 +20,9 @@ export interface UserProfile {
   allergies: string; 
   
   mainGoal: string; 
-  specificGoals: string[]; 
-  motivations: string[]; 
-  fears: string[]; 
+  specificGoals: string; 
+  motivations: string; 
+  fears: string; 
   
   availableTime: string; 
   preferredTime: string; 
@@ -31,20 +31,20 @@ export interface UserProfile {
   sleepQuality: string; 
   stressLevel: string; 
   
-  exercisePreferences: string[]; 
-  exerciseAversions: string[]; 
+  exercisePreferences: string; 
+  exerciseAversions: string; 
   locationPreference: string; 
-  equipmentAvailable: string[]; 
+  equipmentAvailable: string; 
   musicPreference: string; 
   socialPreference: string; 
   teamPreference: string; 
   
-  practisedSports: string[]; 
+  practisedSports: string; 
   favoriteActivity: string; 
   pastExperienceWithFitness: string; 
-  successFactors: string[]; 
+  successFactors: string; 
   
-  primaryChallenges: string[]; 
+  primaryChallenges: string; 
   lifestyle: string; 
   supportSystem: string;
   

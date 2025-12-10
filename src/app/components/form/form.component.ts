@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -31,11 +31,19 @@ import {
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent {
-  userForm: FormGroup;
+export class FormComponent implements OnInit {
+  userForm!: FormGroup;
+  userAndHealthForm!: FormGroup;
+  goalAndMotivationForm!: FormGroup;
+  lifestyleAvailabilityForm!: FormGroup;
+  trainingPreferencesForm!: FormGroup;
+  communicationPreferencesForm!: FormGroup;
   isSubmitting = false;
+  currentStep = 0;
+  totalSteps = 5;
+  snackbarVisible = false;
+  snackbarMessage = '';
 
-  // Expose enums to template
   Gender = Gender;
   FitnessLevel = FitnessLevel;
   ActivityLevel = ActivityLevel;
@@ -58,90 +66,153 @@ export class FormComponent {
     private aiService: AiService,
     private router: Router,
     private languageService: LanguageService
-  ) {
-    this.userForm = this.fb.group({
-      // Basic data
+  ) { }
+
+  ngOnInit() {
+    this.initForms();
+  }
+
+  initForms() {
+  this.userAndHealthForm = this.fb.group({
       age: ['', [Validators.required, Validators.min(1), Validators.max(120)]],
       gender: ['', Validators.required],
       height: ['', [Validators.required, Validators.min(50), Validators.max(250)]],
       weight: ['', [Validators.required, Validators.min(20), Validators.max(300)]],
-      legLength: ['', Validators.required],
-      armLength: ['', Validators.required],
-      waistSize: ['', Validators.required],
-
-      // Health and fitness
+      legLength: ['', [Validators.required]],
+      armLength: ['', [Validators.required]],
+      waistSize: ['', [Validators.required]],
       fitnessLevel: ['', Validators.required],
-      activityLevel: [''],
       exerciseFrequency: ['', Validators.required],
-      healthConditions: [[]],
       jointProblems: [false],
       kneeProblems: [false],
       backProblems: [false],
       heartProblems: [false],
       otherHealthIssues: [''],
       injuries: [''],
-      allergies: [''],
+      allergies: ['']
+    });
 
-      // Goals and motivations
+    this.goalAndMotivationForm = this.fb.group({
       mainGoal: ['', Validators.required],
-      specificGoals: [[]],
-      motivations: [[]],
-      fears: [[]],
+      specificGoals: [''],
+      motivations: [''],
+      fears: ['']
+    });
 
-      // Lifestyle and availability
+    this.lifestyleAvailabilityForm = this.fb.group({
       availableTime: ['', Validators.required],
-      preferredTime: [''],
-      availableDays: [''],
-      workType: [''],
-      sleepQuality: [''],
-      stressLevel: [''],
+      preferredTime: ['', Validators.required],
+      availableDays: [0],
+      workType: ['', Validators.required],
+      sleepQuality: ['', Validators.required],
+      stressLevel: ['', Validators.required],
+      lifestyle: ['']
+    });
 
-      // Training preferences
-      exercisePreferences: [[]],
-      exerciseAversions: [[]],
+    this.trainingPreferencesForm = this.fb.group({
       locationPreference: ['', Validators.required],
-      equipmentAvailable: [[]],
-      musicPreference: [''],
-      socialPreference: [''],
-      teamPreference: [''],
-
-      // History and experience
-      practisedSports: [[]],
+      musicPreference: ['', Validators.required],
+      socialPreference: ['', Validators.required],
+      exercisePreferences: [''],
+      exerciseAversions: [''],
+      equipmentAvailable: [''],
+      pastExperienceWithFitness: ['', Validators.required],
+      practisedSports: [''],
       favoriteActivity: [''],
-      pastExperienceWithFitness: [''],
-      successFactors: [[]],
+      successFactors: [''],
+      primaryChallenges: [''],
+      supportSystem: ['']
+    });
 
-      // Personal context
-      primaryChallenges: [[]],
-      lifestyle: [''],
-      supportSystem: [''],
+    this.communicationPreferencesForm = this.fb.group({
+      preferredTone: ['', Validators.required],
+      learningStyle: ['', Validators.required]
+    });
 
-      // Communication preferences
-      preferredTone: [''],
-      learningStyle: ['']
-    }); 
+    this.userForm = this.fb.group({
+      step1: this.userAndHealthForm,
+      step2: this.goalAndMotivationForm,
+      step3: this.lifestyleAvailabilityForm,
+      step4: this.trainingPreferencesForm,
+      step5: this.communicationPreferencesForm
+    });
+  }
+  nextStep() {
+    const currentForm = this.getCurrentStepForm();
+    
+    if (currentForm && currentForm.valid) {
+      this.currentStep++;
+    } else {
+      if (currentForm) {
+        currentForm.markAllAsTouched();
+      }
+    }
+  }
+
+  previousStep() {
+    if (this.currentStep > 0) {
+      this.currentStep--;
+    }
+  }
+
+  goToStep(step: number) {
+    if (step < this.currentStep) {
+      this.currentStep = step;
+    }
+  }
+
+  getCurrentStepForm(): FormGroup | null {
+    switch (this.currentStep) {
+      case 0:
+        return this.userAndHealthForm;
+      case 1:
+        return this.goalAndMotivationForm;
+      case 2:
+        return this.lifestyleAvailabilityForm;
+      case 3:
+        return this.trainingPreferencesForm;
+      case 4:
+        return this.communicationPreferencesForm;
+      default:
+        return null;
+    }
+  }
+
+  isStepValid(): boolean {
+    const currentForm = this.getCurrentStepForm();
+    return currentForm ? currentForm.valid : false;
+  }
+
+  showSnackbar(message: string) {
+    this.snackbarMessage = message;
+    this.snackbarVisible = true;
+    setTimeout(() => {
+      this.snackbarVisible = false;
+    }, 2000);
   }
 
   onSubmit() {
-    if (this.userForm.valid) {
-      this.isSubmitting = true;
-      const formData = {
-        ...this.userForm.value,
-        language: this.languageService.getCurrentLanguage()
-      };
+    this.isSubmitting = true;
+    
+    const formData = {
+      ...this.userAndHealthForm.value,
+      ...this.goalAndMotivationForm.value,
+      ...this.lifestyleAvailabilityForm.value,
+      ...this.trainingPreferencesForm.value,
+      ...this.communicationPreferencesForm.value,
+      language: this.languageService.getCurrentLanguage()
+    };
 
-      this.aiService.analyzeProfile(formData).subscribe({
-        next: (result) => {
-          this.router.navigate(['/resultats'], { state: { data: result } });
-        },
-        error: (error) => {
-          console.error('Error during analysis:', error);
-          alert('An error occurred. Please try again.');
-          this.isSubmitting = false;
-        }
-      });
-    } else {
-      alert('Please fill in all required fields.');
-    }
+
+    this.aiService.analyzeProfile(formData).subscribe({
+      next: (result) => {
+        this.isSubmitting = false;
+        this.router.navigate(['/resultats'], { state: { data: result } });
+      },
+      error: (error) => {
+        this.showSnackbar('An error occurred. Please try again.');
+        this.isSubmitting = false;
+      }
+    });
   }
 }

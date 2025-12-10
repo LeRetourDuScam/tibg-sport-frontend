@@ -16,7 +16,19 @@
   "FORM": {
     "TITLE": "Votre Profil Sportif",
     "SUBTITLE": "Remplissez ce formulaire pour obtenir votre recommandation personnalisée",
-    "SELECT": "Sélectionnez...",
+    "SELECT": "Sélectionner...",
+    
+    "REQUIRED_FIELD": "Ce champ est requis",
+
+    "STEP": "Étape",
+    "STEP_PERSONAL": "Personnel et Santé",
+    "STEP_GOALS": "Objectifs",
+    "STEP_LIFESTYLE": "Style de vie",
+    "STEP_PREFERENCES": "Préférences",
+    "STEP_COMMUNICATION": "Communication",
+    
+    "PREVIOUS": "Précédent",
+    "NEXT": "Suivant",
     
     "PERSONAL_INFO": "Informations Personnelles",
     "AGE": "Âge",
