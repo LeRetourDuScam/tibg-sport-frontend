@@ -1,108 +1,115 @@
-<div class="min-h-screen bg-linear-to-br from-slate-600 via-slate-500 to-slate-400 py-8 px-4">
-  <div class="max-w-4xl mx-auto">
-    <div class="bg-white rounded-xl shadow-xl p-8">
-      <h1 class="text-4xl font-bold text-slate-800 mb-2 text-center">
-        📋 {{ 'FORM.TITLE' | translate }}
+<div class="min-h-screen bg-[#fafafa]">
+  <header class="bg-white border-b border-neutral-200 sticky top-0 z-40">
+    <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a routerLink="/" class="text-base font-semibold text-neutral-800 hover:text-neutral-600">FytAI</a>
+      <div class="flex items-center gap-4 text-sm text-neutral-500">
+        <span>{{ completionPercentage }}%</span>
+        <span class="text-neutral-300">•</span>
+        <span>~{{ remainingTime }} min</span>
+      </div>
+    </div>
+    <div class="h-1 bg-neutral-100">
+      <div class="h-1 bg-blue-600 transition-all duration-300" [style.width.%]="completionPercentage"></div>
+    </div>
+  </header>
+
+  <div class="max-w-2xl mx-auto px-4 py-6">
+    <div class="mb-6">
+      <h1 class="text-xl font-semibold text-neutral-900 mb-1">
+        {{ 'FORM.TITLE' | translate }}
       </h1>
-      <p class="text-slate-600 text-center mb-4">
+      <p class="text-sm text-neutral-500">
         {{ 'FORM.SUBTITLE' | translate }}
       </p>
-
-
-      <div class="bg-slate-100 rounded-lg p-4 mb-6">
-        <div class="flex justify-between items-center mb-2">
-          <span class="text-sm font-medium text-slate-600">
-            {{ 'FORM.PROGRESS' | translate }}: {{ completionPercentage }}%
-          </span>
-          <span class="text-sm text-slate-500">
-            ⏱️ {{ 'FORM.TIME_REMAINING' | translate }}: ~{{ remainingTime }} min
-          </span>
-        </div>
-        <div class="w-full bg-slate-300 rounded-full h-2">
-          <div class="bg-slate-700 h-2 rounded-full transition-all duration-300" 
-               [style.width.%]="completionPercentage"></div>
-        </div>
-        <div *ngIf="lastSaved" class="text-xs text-slate-400 mt-2 text-right">
-          💾 {{ 'FORM.AUTO_SAVED' | translate }}
-        </div>
+      <div *ngIf="lastSaved" class="text-xs text-neutral-400 mt-2">
+        {{ 'FORM.AUTO_SAVED' | translate }}
       </div>
+    </div>
 
-      <div class="mb-8 hidden md:block">
-        <div class="flex items-center justify-between">
-          <div *ngFor="let step of [0, 1, 2, 3, 4]; let i = index" class="flex-1 flex items-center" [class.last:flex-grow-0]="i === 4">
-            <div class="flex flex-col items-center shrink-0">
-              <div 
-                class="step-circle"
-                [class.active]="currentStep === i"
-                [class.completed]="currentStep > i"
-                (click)="goToStep(i)">
-                <span *ngIf="currentStep <= i">{{ i + 1 }}</span>
-                <span *ngIf="currentStep > i">✓</span>
-              </div>
-              <span class="mt-2 text-xs text-slate-600 font-medium text-center">
-                <ng-container [ngSwitch]="i">
-                  <ng-container *ngSwitchCase="0">{{ 'FORM.STEP_PERSONAL' | translate }}</ng-container>
-                  <ng-container *ngSwitchCase="1">{{ 'FORM.STEP_GOALS' | translate }}</ng-container>
-                  <ng-container *ngSwitchCase="2">{{ 'FORM.STEP_LIFESTYLE' | translate }}</ng-container>
-                  <ng-container *ngSwitchCase="3">{{ 'FORM.STEP_PREFERENCES' | translate }}</ng-container>
-                  <ng-container *ngSwitchCase="4">{{ 'FORM.STEP_COMMUNICATION' | translate }}</ng-container>
-                </ng-container>
-              </span>
+    <div class="mb-6 hidden md:block">
+      <div class="flex items-center">
+        <div *ngFor="let step of [0, 1, 2, 3, 4]; let i = index" class="flex-1 flex items-center" [class.last:flex-grow-0]="i === 4">
+          <button
+            type="button"
+            class="flex flex-col items-center shrink-0 cursor-pointer group"
+            (click)="goToStep(i)"
+            [disabled]="currentStep < i">
+            <div
+              class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors"
+              [class.bg-blue-600]="currentStep === i"
+              [class.text-white]="currentStep === i"
+              [class.bg-green-600]="currentStep > i"
+              [class.text-white]="currentStep > i"
+              [class.bg-neutral-200]="currentStep < i"
+              [class.text-neutral-500]="currentStep < i">
+              <span *ngIf="currentStep <= i">{{ i + 1 }}</span>
+              <svg *ngIf="currentStep > i" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
             </div>
-            <div *ngIf="i < 4" class="step-line" [class.completed]="currentStep > i"></div>
-          </div>
+            <span class="mt-1.5 text-xs text-neutral-600 text-center" [class.font-medium]="currentStep === i">
+              <ng-container [ngSwitch]="i">
+                <ng-container *ngSwitchCase="0">{{ 'FORM.STEP_PERSONAL' | translate }}</ng-container>
+                <ng-container *ngSwitchCase="1">{{ 'FORM.STEP_GOALS' | translate }}</ng-container>
+                <ng-container *ngSwitchCase="2">{{ 'FORM.STEP_LIFESTYLE' | translate }}</ng-container>
+                <ng-container *ngSwitchCase="3">{{ 'FORM.STEP_PREFERENCES' | translate }}</ng-container>
+                <ng-container *ngSwitchCase="4">{{ 'FORM.STEP_COMMUNICATION' | translate }}</ng-container>
+              </ng-container>
+            </span>
+          </button>
+          <div *ngIf="i < 4" class="flex-1 h-px mx-2" [class.bg-green-600]="currentStep > i" [class.bg-neutral-200]="currentStep <= i"></div>
         </div>
       </div>
+    </div>
 
-      <div class="mb-6 md:hidden">
-        <div class="flex items-center justify-center space-x-2 mb-3">
-          <div *ngFor="let step of [0, 1, 2, 3, 4]; let i = index" 
-               class="step-circle-mobile"
-               [class.active]="currentStep === i"
-               [class.completed]="currentStep > i">
-            <span *ngIf="currentStep <= i">{{ i + 1 }}</span>
-            <span *ngIf="currentStep > i">✓</span>
-          </div>
-        </div>
-        <div class="text-center">
-          <p class="text-sm font-semibold text-slate-700">
-            {{ 'FORM.STEP' | translate }} {{ currentStep + 1 }} / {{ totalSteps }}
-          </p>
-          <p class="text-xs text-slate-600 mt-1">
-            <ng-container [ngSwitch]="currentStep">
-              <ng-container *ngSwitchCase="0">{{ 'FORM.STEP_PERSONAL' | translate }}</ng-container>
-              <ng-container *ngSwitchCase="1">{{ 'FORM.STEP_GOALS' | translate }}</ng-container>
-              <ng-container *ngSwitchCase="2">{{ 'FORM.STEP_LIFESTYLE' | translate }}</ng-container>
-              <ng-container *ngSwitchCase="3">{{ 'FORM.STEP_PREFERENCES' | translate }}</ng-container>
-              <ng-container *ngSwitchCase="4">{{ 'FORM.STEP_COMMUNICATION' | translate }}</ng-container>
-            </ng-container>
-          </p>
+    <div class="mb-6 md:hidden">
+      <div class="flex items-center justify-center gap-1.5 mb-2">
+        <div *ngFor="let step of [0, 1, 2, 3, 4]; let i = index"
+             class="w-2 h-2 rounded-full transition-colors"
+             [class.bg-blue-600]="currentStep === i"
+             [class.bg-green-600]="currentStep > i"
+             [class.bg-neutral-300]="currentStep < i">
         </div>
       </div>
+      <div class="text-center">
+        <p class="text-sm font-medium text-neutral-700">
+          {{ 'FORM.STEP' | translate }} {{ currentStep + 1 }} / {{ totalSteps }}
+        </p>
+        <p class="text-xs text-neutral-500 mt-0.5">
+          <ng-container [ngSwitch]="currentStep">
+            <ng-container *ngSwitchCase="0">{{ 'FORM.STEP_PERSONAL' | translate }}</ng-container>
+            <ng-container *ngSwitchCase="1">{{ 'FORM.STEP_GOALS' | translate }}</ng-container>
+            <ng-container *ngSwitchCase="2">{{ 'FORM.STEP_LIFESTYLE' | translate }}</ng-container>
+            <ng-container *ngSwitchCase="3">{{ 'FORM.STEP_PREFERENCES' | translate }}</ng-container>
+            <ng-container *ngSwitchCase="4">{{ 'FORM.STEP_COMMUNICATION' | translate }}</ng-container>
+          </ng-container>
+        </p>
+      </div>
+    </div>
 
-      <form class="space-y-8">
-        
+      <form class="space-y-6">
+
         <div *ngIf="currentStep === 0" [formGroup]="userAndHealthForm">
-          <section class="bg-slate-50 p-6 rounded-lg border border-slate-200 mb-6">
-            <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-              <span class="mr-2">👤</span> {{ 'FORM.PERSONAL_INFO' | translate }}
+          <section class="bg-white border border-neutral-200 rounded-lg p-5 mb-5">
+            <h2 class="text-base font-medium text-neutral-900 mb-4">
+              {{ 'FORM.PERSONAL_INFO' | translate }}
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.AGE' | translate }} *</label>
+                <label class="block text-sm text-neutral-700 mb-1.5">{{ 'FORM.AGE' | translate }} *</label>
                 <input
                   type="number"
                   formControlName="age"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  [class.border-red-500]="userAndHealthForm.get('age')?.invalid && userAndHealthForm.get('age')?.touched"
+                  class="w-full px-3 py-2 text-sm border border-neutral-300 rounded-md bg-white"
+                  [class.border-red-400]="userAndHealthForm.get('age')?.invalid && userAndHealthForm.get('age')?.touched"
                   placeholder="Ex: 25">
-                <span *ngIf="userAndHealthForm.get('age')?.invalid && userAndHealthForm.get('age')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
+                <span *ngIf="userAndHealthForm.get('age')?.invalid && userAndHealthForm.get('age')?.touched" class="text-red-500 text-xs mt-1 block">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
               </div>
               <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.GENDER' | translate }} *</label>
+                <label class="block text-sm text-neutral-700 mb-1.5">{{ 'FORM.GENDER' | translate }} *</label>
                 <select
                   formControlName="gender"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                  class="w-full px-3 py-2 text-sm border border-neutral-300 rounded-md bg-white">
                   <option value="" disabled selected>{{ 'FORM.SELECT' | translate }}</option>
                   <option [value]="Gender.MALE">{{ 'FORM.MALE' | translate }}</option>
                   <option [value]="Gender.FEMALE">{{ 'FORM.FEMALE' | translate }}</option>
@@ -198,7 +205,7 @@
                 <span *ngIf="userAndHealthForm.get('exerciseFrequency')?.invalid && userAndHealthForm.get('exerciseFrequency')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
               </div>
             </div>
-            
+
             <div class="mt-4">
               <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.INJURIES' | translate }}</label>
               <textarea
@@ -207,7 +214,7 @@
                 class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
                 [placeholder]="'FORM.INJURIES_PLACEHOLDER' | translate"></textarea>
             </div>
-            
+
             <div class="mt-4">
               <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.ALLERGIES' | translate }}</label>
               <textarea
@@ -567,57 +574,51 @@
           </section>
         </div>
 
-        <div class="flex justify-between items-center pt-6 gap-2">
+        <div class="flex justify-between items-center pt-4 border-t border-neutral-200 mt-6">
           <button
             *ngIf="currentStep > 0"
             type="button"
             (click)="previousStep()"
-            class="bg-slate-300 hover:bg-slate-400 hover:cursor-pointer text-slate-800 px-4 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300">
-            <span class="hidden sm:inline">← {{ 'FORM.PREVIOUS' | translate }}</span>
-            <span class="sm:hidden">←</span>
+            class="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-md hover:bg-neutral-50 transition-colors cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            <span class="hidden sm:inline">{{ 'FORM.PREVIOUS' | translate }}</span>
           </button>
-          <div *ngIf="currentStep === 0" class="w-1"></div>
-          
+          <div *ngIf="currentStep === 0"></div>
+
           <button
             *ngIf="currentStep < totalSteps - 1"
             type="button"
             (click)="nextStep()"
-            class="bg-slate-700 hover:bg-slate-800 hover:cursor-pointer text-white px-4 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ml-auto">
-            <span class="hidden sm:inline">{{ 'FORM.NEXT' | translate }} →</span>
-            <span class="sm:hidden">→</span>
+            class="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors cursor-pointer ml-auto">
+            <span class="hidden sm:inline">{{ 'FORM.NEXT' | translate }}</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </button>
-          
+
           <button
             *ngIf="currentStep === totalSteps - 1"
             type="button"
             (click)="onSubmit()"
             [disabled]="isSubmitting"
-            class="bg-slate-700 hover:bg-slate-800 hover:cursor-pointer text-white px-4 py-2 md:px-12 md:py-4 rounded-lg text-sm md:text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ml-auto">
-            <span *ngIf="!isSubmitting" class="flex items-center gap-1">
-              <span>🚀</span>
-              <span class="hidden sm:inline">{{ 'FORM.SUBMIT_BUTTON' | translate }}</span>
-              <span class="sm:hidden text-xs">{{ 'FORM.SUBMIT' | translate }}</span>
-            </span>
-            <span *ngIf="isSubmitting" class="flex items-center gap-1">
-              <span>⏳</span>
-              <span class="hidden sm:inline">{{ 'FORM.SUBMITTING' | translate }}</span>
-              <span class="sm:hidden text-xs">...</span>
+            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ml-auto">
+            <span *ngIf="!isSubmitting">{{ 'FORM.SUBMIT_BUTTON' | translate }}</span>
+            <span *ngIf="isSubmitting" class="flex items-center gap-2">
+              <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+              {{ 'FORM.SUBMITTING' | translate }}
             </span>
           </button>
         </div>
-        
-        <p class="text-center mt-4 text-slate-500 text-sm">
+
+        <p class="text-center mt-3 text-neutral-400 text-xs">
           {{ 'FORM.REQUIRED_FIELDS' | translate }}
         </p>
       </form>
     </div>
-  </div>
 
-  <div *ngIf="snackbarVisible" 
-       class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-6 py-4 rounded-lg shadow-2xl z-50 animate-fade-in">
-    <div class="flex items-center space-x-2">
-      <span class="text-xl">⚠️</span>
-      <span class="font-medium">{{ snackbarMessage }}</span>
+  <div *ngIf="snackbarVisible"
+       class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-4 py-3 rounded-md shadow-lg z-50 animate-fade-in text-sm">
+    <div class="flex items-center gap-2">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+      <span>{{ snackbarMessage }}</span>
     </div>
   </div>
 </div>

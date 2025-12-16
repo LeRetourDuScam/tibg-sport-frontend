@@ -1,98 +1,80 @@
-<div class="min-h-screen bg-linear-to-br from-slate-600 via-slate-500 to-slate-400 py-8 px-4">
-  <div class="max-w-4xl mx-auto">
-    
+<div class="min-h-screen bg-[#fafafa]">
+  <header class="bg-white border-b border-neutral-200">
+    <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a routerLink="/" class="text-base font-semibold text-neutral-800 hover:text-neutral-600">FytAI</a>
+    </div>
+  </header>
 
-    <div class="bg-white rounded-xl shadow-xl p-8 mb-6 text-center">
-      <h1 class="text-4xl font-bold text-slate-800 mb-4">
-        ❓ {{ 'FAQ.TITLE' | translate }}
-      </h1>
-      <p class="text-xl text-slate-600">
-        {{ 'FAQ.SUBTITLE' | translate }}
-      </p>
+  <main class="max-w-2xl mx-auto px-4 py-6">
+    <div class="mb-6">
+      <h1 class="text-xl font-semibold text-neutral-900 mb-1">{{ 'FAQ.TITLE' | translate }}</h1>
+      <p class="text-sm text-neutral-500">{{ 'FAQ.SUBTITLE' | translate }}</p>
     </div>
 
-  
-    <div class="bg-white rounded-xl shadow-xl p-4 mb-6">
-      <div class="flex flex-wrap gap-2 justify-center">
-        <button *ngFor="let cat of categories"
-                (click)="selectCategory(cat.id)"
-                class="px-4 py-2 rounded-full transition-all font-medium"
-                [class.bg-slate-700]="selectedCategory === cat.id"
-                [class.text-white]="selectedCategory === cat.id"
-                [class.bg-slate-100]="selectedCategory !== cat.id"
-                [class.text-slate-700]="selectedCategory !== cat.id"
-                [class.hover:bg-slate-200]="selectedCategory !== cat.id">
-          <span class="mr-1">{{ cat.icon }}</span>
-          {{ cat.labelKey | translate }}
-        </button>
-      </div>
+    <div class="flex flex-wrap gap-2 mb-6">
+      <button *ngFor="let cat of categories"
+              (click)="selectCategory(cat.id)"
+              class="px-3 py-1.5 text-sm rounded-md transition-colors cursor-pointer"
+              [class.bg-neutral-900]="selectedCategory === cat.id"
+              [class.text-white]="selectedCategory === cat.id"
+              [class.bg-neutral-100]="selectedCategory !== cat.id"
+              [class.text-neutral-600]="selectedCategory !== cat.id"
+              [class.hover:bg-neutral-200]="selectedCategory !== cat.id">
+        {{ cat.labelKey | translate }}
+      </button>
     </div>
 
-
-    <div class="space-y-4 mb-6">
+    <div class="space-y-3 mb-6">
       <div *ngFor="let item of filteredFaqItems"
-           class="bg-white rounded-xl shadow-lg overflow-hidden transition-all"
-           [class.ring-2]="item.isOpen"
-           [class.ring-slate-500]="item.isOpen">
-        
-  
+           class="bg-white border border-neutral-200 rounded-lg overflow-hidden"
+           [class.border-neutral-400]="item.isOpen">
+
         <button (click)="toggleItem(item)"
-                class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors">
-          <span class="text-lg font-semibold text-slate-800 pr-4">
+                class="w-full p-4 text-left flex items-start justify-between hover:bg-neutral-50 transition-colors cursor-pointer">
+          <span class="text-sm font-medium text-neutral-800 pr-4">
             {{ item.questionKey | translate }}
           </span>
-          <span class="text-2xl text-slate-400 transition-transform shrink-0"
-                [class.rotate-180]="item.isOpen">
-            ▼
-          </span>
+          <svg class="w-4 h-4 text-neutral-400 flex-shrink-0 mt-0.5 transition-transform"
+               [class.rotate-180]="item.isOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
         </button>
-        
 
-        <div *ngIf="item.isOpen" 
-             class="px-6 pb-6 border-t border-slate-100 animate-slideDown">
-          <p class="text-slate-600 pt-4 leading-relaxed whitespace-pre-line">
+        <div *ngIf="item.isOpen" class="px-4 pb-4 border-t border-neutral-100">
+          <p class="text-sm text-neutral-600 pt-3 leading-relaxed">
             {{ item.answerKey | translate }}
           </p>
         </div>
       </div>
     </div>
 
-
-    <div class="bg-amber-50 border-2 border-amber-300 rounded-xl p-6 mb-6">
-      <h2 class="text-2xl font-bold text-amber-800 mb-4 flex items-center">
-        <span class="mr-2">🤝</span> {{ 'FAQ.HONESTY_TITLE' | translate }}
-      </h2>
-      <div class="space-y-4 text-amber-700">
+    <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
+      <h2 class="text-sm font-medium text-amber-800 mb-3">{{ 'FAQ.HONESTY_TITLE' | translate }}</h2>
+      <div class="space-y-2 text-sm text-amber-700">
         <p>{{ 'FAQ.HONESTY_1' | translate }}</p>
         <p>{{ 'FAQ.HONESTY_2' | translate }}</p>
         <p>{{ 'FAQ.HONESTY_3' | translate }}</p>
       </div>
     </div>
 
+    <div class="bg-white border border-neutral-200 rounded-lg p-5 text-center">
+      <p class="text-sm font-medium text-neutral-800 mb-1">{{ 'FAQ.STILL_QUESTIONS' | translate }}</p>
+      <p class="text-sm text-neutral-500 mb-4">{{ 'FAQ.CONTACT_US' | translate }}</p>
 
-    <div class="bg-white rounded-xl shadow-xl p-8 text-center">
-      <h2 class="text-2xl font-bold text-slate-800 mb-4">
-        {{ 'FAQ.STILL_QUESTIONS' | translate }}
-      </h2>
-      <p class="text-slate-600 mb-6">
-        {{ 'FAQ.CONTACT_US' | translate }}
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a [routerLink]="['/comment-ca-marche']"
-           class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold transition-all">
-          🔬 {{ 'FAQ.SEE_HOW_IT_WORKS' | translate }}
+           class="px-4 py-2 text-sm font-medium text-neutral-700 bg-neutral-100 rounded-md hover:bg-neutral-200 transition-colors">
+          {{ 'FAQ.SEE_HOW_IT_WORKS' | translate }}
         </a>
         <a [routerLink]="['/a-propos']"
-           class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold transition-all">
-          👥 {{ 'FAQ.ABOUT_US' | translate }}
+           class="px-4 py-2 text-sm font-medium text-neutral-700 bg-neutral-100 rounded-md hover:bg-neutral-200 transition-colors">
+          {{ 'FAQ.ABOUT_US' | translate }}
         </a>
         <a [routerLink]="['/formulaire']"
-           class="bg-slate-700 hover:bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all">
-          🚀 {{ 'FAQ.START_ANALYSIS' | translate }}
+           class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors">
+          {{ 'FAQ.START_ANALYSIS' | translate }}
         </a>
       </div>
     </div>
-
-  </div>
+  </main>
 </div>

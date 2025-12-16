@@ -1,250 +1,195 @@
-<div class="min-h-screen bg-linear-to-br from-slate-600 via-slate-500 to-slate-400 py-8 px-4" *ngIf="recommendation">
-  <div class="max-w-6xl mx-auto"> 
-    <div class="bg-white rounded-xl shadow-2xl p-8 mb-6 text-center">
-      <h1 class="text-5xl font-bold text-slate-800 mb-4">
+<div class="min-h-screen bg-[#fafafa]" *ngIf="recommendation">
+
+  <header class="bg-white border-b border-neutral-200">
+    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a routerLink="/" class="text-base font-semibold text-neutral-800 hover:text-neutral-600">FytAI</a>
+      <span class="text-sm text-neutral-500">{{ 'RESULTS.COMPATIBILITY_SCORE' | translate }}: {{ recommendation.score }}%</span>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-6">
+
+    <div class="bg-white border border-neutral-200 rounded-lg p-6 mb-5 text-center">
+      <h1 class="text-xl font-semibold text-neutral-900 mb-2">
         {{ recommendation.sport }}
       </h1>
-
-      <div class="flex items-center justify-center mb-4">
-        <div class="bg-slate-700 text-white px-6 py-3 rounded-lg text-xl font-semibold">
-          {{ 'RESULTS.COMPATIBILITY_SCORE' | translate }}: {{ recommendation.score }}%
-        </div>
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-3">
+        {{ recommendation.score }}% {{ 'RESULTS.COMPATIBILITY_SCORE' | translate | lowercase }}
       </div>
-      <p class="text-xl text-slate-600 italic">
+      <p class="text-neutral-600 text-sm">
         {{ recommendation.reason }}
       </p>
     </div>
 
-    <div *ngIf="recommendation.alternatives && recommendation.alternatives.length > 0" class="mb-6 text-center">
+
+    <div *ngIf="recommendation.alternatives && recommendation.alternatives.length > 0" class="mb-5">
       <button
         (click)="toggleComparison()"
-        class="bg-slate-700 hover:bg-slate-800 hover:cursor-pointer text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
-        {{ showComparison ? ('COMPARISON.HIDE' | translate) : ('COMPARISON.SHOW' | translate) }}
+        class="w-full text-sm text-blue-600 hover:text-blue-700 hover:underline cursor-pointer">
+        {{ showComparison ? ('COMPARISON.HIDE' | translate) : ('COMPARISON.SHOW' | translate) }} →
       </button>
     </div>
 
-    <div *ngIf="showComparison && recommendation.alternatives && recommendation.alternatives.length > 0" class="mb-6">
-      <app-sport-comparison 
-        [mainSport]="recommendation" 
+    <div *ngIf="showComparison && recommendation.alternatives && recommendation.alternatives.length > 0" class="mb-5">
+      <app-sport-comparison
+        [mainSport]="recommendation"
         [alternatives]="recommendation.alternatives">
       </app-sport-comparison>
     </div>
 
-    <div class="bg-white rounded-xl shadow-xl p-8 mb-6">
-      <h2 class="text-3xl font-bold text-slate-800 mb-4 flex items-center">
-        <span class="mr-3">💡</span> {{ 'RESULTS.WHY_TITLE' | translate }}
-      </h2>
-      <p class="text-lg text-slate-700 leading-relaxed">
+    <div class="bg-white border border-neutral-200 rounded-lg p-5 mb-5">
+      <h2 class="text-base font-medium text-neutral-900 mb-3">{{ 'RESULTS.WHY_TITLE' | translate }}</h2>
+      <p class="text-sm text-neutral-600 leading-relaxed">
         {{ recommendation.explanation }}
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-6 mb-6">
-      <div class="bg-white rounded-xl shadow-xl p-6 border-l-4 border-emerald-600">
-        <h3 class="text-2xl font-bold text-emerald-700 mb-4 flex items-center">
-          <span class="mr-2">✅</span> {{ 'RESULTS.BENEFITS_TITLE' | translate }}
+
+    <div class="grid md:grid-cols-2 gap-4 mb-5">
+      <div class="bg-white border border-neutral-200 rounded-lg p-5">
+        <h3 class="text-sm font-medium text-green-700 mb-3 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          {{ 'RESULTS.BENEFITS_TITLE' | translate }}
         </h3>
-        <ul class="space-y-3">
-          <li *ngFor="let benefit of recommendation.benefits" class="flex items-start">
-            <span class="text-emerald-600 mr-3 text-xl">•</span>
-            <span class="text-slate-700">{{ benefit }}</span>
+        <ul class="space-y-2">
+          <li *ngFor="let benefit of recommendation.benefits" class="text-sm text-neutral-600 flex items-start gap-2">
+            <span class="text-neutral-400 mt-1">•</span>
+            <span>{{ benefit }}</span>
           </li>
         </ul>
       </div>
 
-      <div class="bg-white rounded-xl shadow-xl p-6 border-l-4 border-amber-500">
-        <h3 class="text-2xl font-bold text-amber-700 mb-4 flex items-center">
-          <span class="mr-2">⚠️</span> {{ 'RESULTS.PRECAUTIONS_TITLE' | translate }}
+      <div class="bg-white border border-neutral-200 rounded-lg p-5">
+        <h3 class="text-sm font-medium text-amber-700 mb-3 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          {{ 'RESULTS.PRECAUTIONS_TITLE' | translate }}
         </h3>
-        <ul class="space-y-3">
-          <li *ngFor="let precaution of recommendation.precautions" class="flex items-start">
-            <span class="text-amber-600 mr-3 text-xl">•</span>
-            <span class="text-slate-700">{{ precaution }}</span>
+        <ul class="space-y-2">
+          <li *ngFor="let precaution of recommendation.precautions" class="text-sm text-neutral-600 flex items-start gap-2">
+            <span class="text-neutral-400 mt-1">•</span>
+            <span>{{ precaution }}</span>
           </li>
         </ul>
       </div>
     </div>
 
-    <div class="bg-white rounded-xl shadow-xl p-8 mb-6">
-      <h2 class="text-3xl font-bold text-slate-800 mb-6 flex items-center">
-        <span class="mr-3">🏋️</span> {{ 'RESULTS.EXERCISES_TITLE' | translate }}
-      </h2>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div *ngFor="let exercise of recommendation.exercises" 
-             class="bg-slate-50 rounded-xl p-6 border-2 border-slate-200 hover:shadow-lg hover:border-slate-400 transition-all">
-          
-          <h4 class="text-xl font-bold text-slate-800 mb-3">
-            {{ exercise.name }}
-          </h4>
-          
-          <p class="text-slate-600 mb-4">
-            {{ exercise.description }}
-          </p>
-          
-          <div class="space-y-2 text-sm">
-            <p *ngIf="exercise.duration" class="text-slate-700">
-              <span class="font-semibold">⏱️ {{ 'RESULTS.DURATION' | translate }}:</span> {{ exercise.duration }}
-            </p>
-            <p *ngIf="exercise.repetitions" class="text-slate-700">
-              <span class="font-semibold">🔄 {{ 'RESULTS.REPETITIONS' | translate }}:</span> {{ exercise.repetitions }}
-            </p>
+
+    <div class="bg-white border border-neutral-200 rounded-lg p-5 mb-5">
+      <h2 class="text-base font-medium text-neutral-900 mb-4">{{ 'RESULTS.EXERCISES_TITLE' | translate }}</h2>
+
+      <div class="grid gap-4">
+        <div *ngFor="let exercise of recommendation.exercises"
+             class="p-4 bg-neutral-50 rounded-md border border-neutral-100">
+          <h4 class="text-sm font-medium text-neutral-800 mb-2">{{ exercise.name }}</h4>
+          <p class="text-sm text-neutral-600 mb-3">{{ exercise.description }}</p>
+
+          <div class="flex flex-wrap gap-4 text-xs text-neutral-500">
+            <span *ngIf="exercise.duration">{{ 'RESULTS.DURATION' | translate }}: {{ exercise.duration }}</span>
+            <span *ngIf="exercise.repetitions">{{ 'RESULTS.REPETITIONS' | translate }}: {{ exercise.repetitions }}</span>
           </div>
 
-          <div *ngIf="exercise.videoUrl" class="mt-4">
-            <a [href]="exercise.videoUrl" 
-               target="_blank"
-               class="inline-flex items-center bg-slate-700 hover:bg-slate-800 text-white px-4 py-2 rounded-lg transition-colors">
-              <span class="mr-2">▶️</span> {{ 'RESULTS.WATCH_VIDEO' | translate }}
-            </a>
-          </div>
+          <a *ngIf="exercise.videoUrl"
+             [href]="exercise.videoUrl"
+             target="_blank"
+             class="inline-flex items-center gap-1 mt-3 text-sm text-blue-600 hover:text-blue-700 hover:underline">
+            {{ 'RESULTS.WATCH_VIDEO' | translate }} →
+          </a>
         </div>
       </div>
     </div>
 
-    <div *ngIf="recommendation.trainingPlan" class="mb-6">
+
+    <div *ngIf="recommendation.trainingPlan" class="mb-5">
       <app-training-plan [trainingPlan]="recommendation.trainingPlan"></app-training-plan>
     </div>
 
-    <div class="bg-white rounded-xl shadow-xl p-8 mb-6">
-      <div class="flex items-center justify-between mb-6">
-        <h2 class="text-3xl font-bold text-slate-800 flex items-center">
-          <span class="mr-3">🎯</span> {{ 'RESULTS.WHAT_NOW_TITLE' | translate }}
-        </h2>
-        <button (click)="toggleNextSteps()" 
-                class="text-slate-500 hover:text-slate-700">
-          {{ showNextSteps ? '▲' : '▼' }}
-        </button>
-      </div>
-      
-      <div *ngIf="showNextSteps" class="space-y-6">
-        <div class="bg-emerald-50 rounded-xl p-6 border-l-4 border-emerald-500">
-          <h3 class="text-xl font-bold text-emerald-800 mb-3">
-            📅 {{ 'RESULTS.WEEK1_TITLE' | translate }}
-          </h3>
-          <ul class="space-y-2 text-emerald-700">
-            <li class="flex items-start">
-              <span class="mr-2">✓</span>
-              {{ 'RESULTS.WEEK1_STEP1' | translate }}
-            </li>
-            <li class="flex items-start">
-              <span class="mr-2">✓</span>
-              {{ 'RESULTS.WEEK1_STEP2' | translate }}
-            </li>
-            <li class="flex items-start">
-              <span class="mr-2">✓</span>
-              {{ 'RESULTS.WEEK1_STEP3' | translate }}
-            </li>
+
+    <div class="bg-white border border-neutral-200 rounded-lg p-5 mb-5">
+      <button (click)="toggleNextSteps()"
+              class="w-full flex items-center justify-between cursor-pointer">
+        <h2 class="text-base font-medium text-neutral-900">{{ 'RESULTS.WHAT_NOW_TITLE' | translate }}</h2>
+        <svg class="w-5 h-5 text-neutral-400 transition-transform" [class.rotate-180]="showNextSteps" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+
+      <div *ngIf="showNextSteps" class="mt-4 space-y-4">
+        <div class="p-4 bg-green-50 border border-green-100 rounded-md">
+          <h3 class="text-sm font-medium text-green-800 mb-2">{{ 'RESULTS.WEEK1_TITLE' | translate }}</h3>
+          <ul class="space-y-1 text-sm text-green-700">
+            <li>• {{ 'RESULTS.WEEK1_STEP1' | translate }}</li>
+            <li>• {{ 'RESULTS.WEEK1_STEP2' | translate }}</li>
+            <li>• {{ 'RESULTS.WEEK1_STEP3' | translate }}</li>
           </ul>
         </div>
 
-        <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-500">
-          <h3 class="text-xl font-bold text-blue-800 mb-3">
-            🏃 {{ 'RESULTS.WEEK2_TITLE' | translate }}
-          </h3>
-          <ul class="space-y-2 text-blue-700">
-            <li class="flex items-start">
-              <span class="mr-2">✓</span>
-              {{ 'RESULTS.WEEK2_STEP1' | translate }}
-            </li>
-            <li class="flex items-start">
-              <span class="mr-2">✓</span>
-              {{ 'RESULTS.WEEK2_STEP2' | translate }}
-            </li>
-            <li class="flex items-start">
-              <span class="mr-2">✓</span>
-              {{ 'RESULTS.WEEK2_STEP3' | translate }}
-            </li>
+        <div class="p-4 bg-blue-50 border border-blue-100 rounded-md">
+          <h3 class="text-sm font-medium text-blue-800 mb-2">{{ 'RESULTS.WEEK2_TITLE' | translate }}</h3>
+          <ul class="space-y-1 text-sm text-blue-700">
+            <li>• {{ 'RESULTS.WEEK2_STEP1' | translate }}</li>
+            <li>• {{ 'RESULTS.WEEK2_STEP2' | translate }}</li>
+            <li>• {{ 'RESULTS.WEEK2_STEP3' | translate }}</li>
           </ul>
         </div>
 
-        <div class="bg-purple-50 rounded-xl p-6 border-l-4 border-purple-500">
-          <h3 class="text-xl font-bold text-purple-800 mb-3">
-            📈 {{ 'RESULTS.WEEK3_TITLE' | translate }}
-          </h3>
-          <ul class="space-y-2 text-purple-700">
-            <li class="flex items-start">
-              <span class="mr-2">✓</span>
-              {{ 'RESULTS.WEEK3_STEP1' | translate }}
-            </li>
-            <li class="flex items-start">
-              <span class="mr-2">✓</span>
-              {{ 'RESULTS.WEEK3_STEP2' | translate }}
-            </li>
-            <li class="flex items-start">
-              <span class="mr-2">✓</span>
-              {{ 'RESULTS.WEEK3_STEP3' | translate }}
-            </li>
+        <div class="p-4 bg-neutral-50 border border-neutral-200 rounded-md">
+          <h3 class="text-sm font-medium text-neutral-800 mb-2">{{ 'RESULTS.WEEK3_TITLE' | translate }}</h3>
+          <ul class="space-y-1 text-sm text-neutral-600">
+            <li>• {{ 'RESULTS.WEEK3_STEP1' | translate }}</li>
+            <li>• {{ 'RESULTS.WEEK3_STEP2' | translate }}</li>
+            <li>• {{ 'RESULTS.WEEK3_STEP3' | translate }}</li>
           </ul>
-        </div>
-
-        <div class="bg-slate-100 rounded-xl p-6">
-          <h3 class="text-lg font-bold text-slate-700 mb-4">
-            🔗 {{ 'RESULTS.USEFUL_LINKS' | translate }}
-          </h3>
-          <div class="grid md:grid-cols-2 gap-4">
-            <a href="https://www.decathlon.fr/" target="_blank" 
-               class="bg-white rounded-lg p-4 hover:shadow-md transition-all flex items-center">
-              <span class="text-2xl mr-3">🛒</span>
-              <div>
-                <p class="font-medium text-slate-700">Decathlon</p>
-                <p class="text-sm text-slate-500">{{ 'RESULTS.LINK_EQUIPMENT' | translate }}</p>
-              </div>
-            </a>
-            <a href="https://www.youtube.com/results?search_query=débutant+sport" target="_blank" 
-               class="bg-white rounded-lg p-4 hover:shadow-md transition-all flex items-center">
-              <span class="text-2xl mr-3">📺</span>
-              <div>
-                <p class="font-medium text-slate-700">YouTube</p>
-                <p class="text-sm text-slate-500">{{ 'RESULTS.LINK_TUTORIALS' | translate }}</p>
-              </div>
-            </a>
-          </div>
         </div>
       </div>
     </div>
 
-    <div class="bg-amber-50 border-2 border-amber-300 rounded-xl p-6 mb-6">
-      <div class="flex items-start">
-        <span class="text-2xl mr-3">⚠️</span>
+
+    <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-5">
+      <div class="flex gap-3">
+        <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
         <div>
-          <h3 class="font-bold text-amber-800 mb-1">{{ 'RESULTS.DISCLAIMER_TITLE' | translate }}</h3>
-          <p class="text-amber-700 text-sm">{{ 'RESULTS.DISCLAIMER_TEXT' | translate }}</p>
+          <p class="text-sm font-medium text-amber-800 mb-0.5">{{ 'RESULTS.DISCLAIMER_TITLE' | translate }}</p>
+          <p class="text-sm text-amber-700">{{ 'RESULTS.DISCLAIMER_TEXT' | translate }}</p>
         </div>
       </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+
+    <div class="flex flex-col sm:flex-row gap-3 mb-6">
       <button
         (click)="printResults()"
-        class="bg-white text-slate-700 px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl hover:bg-slate-50 transition-all hover:cursor-pointer flex items-center justify-center gap-2">
-        🖨️ {{ 'RESULTS.PRINT' | translate }}
+        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-md hover:bg-neutral-50 transition-colors cursor-pointer">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+        {{ 'RESULTS.PRINT' | translate }}
       </button>
       <button
         (click)="shareResults()"
-        class="bg-white text-slate-700 px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl hover:bg-slate-50 transition-all hover:cursor-pointer flex items-center justify-center gap-2">
-        📤 {{ 'RESULTS.SHARE' | translate }}
+        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-md hover:bg-neutral-50 transition-colors cursor-pointer">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+        {{ 'RESULTS.SHARE' | translate }}
       </button>
     </div>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <div class="flex flex-col sm:flex-row gap-3">
       <button
         (click)="backToForm()"
-        class="bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl hover:bg-slate-50 transition-all hover:cursor-pointer duration-300">
-        🔄 {{ 'RESULTS.RETRY_TEST' | translate }}
+        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-md hover:bg-neutral-50 transition-colors cursor-pointer">
+        {{ 'RESULTS.RETRY_TEST' | translate }}
       </button>
       <button
         (click)="backToHome()"
-        class="bg-slate-700 hover:bg-slate-800 text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all hover:cursor-pointer duration-300">
-        🏠 {{ 'RESULTS.BACK_HOME' | translate }}
+        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors cursor-pointer">
+        {{ 'RESULTS.BACK_HOME' | translate }}
       </button>
     </div>
-
-  </div>
+  </main>
 </div>
 
-<div *ngIf="!recommendation" class="min-h-screen bg-slate-100 flex items-center justify-center">
-  <div class="bg-white rounded-xl shadow-xl p-8 text-center">
-    <p class="text-xl text-slate-700 mb-4">{{ 'RESULTS.REDIRECTING' | translate }}</p>
+<div *ngIf="!recommendation" class="min-h-screen bg-[#fafafa] flex items-center justify-center">
+  <div class="text-center">
+    <div class="animate-spin w-8 h-8 border-2 border-neutral-300 border-t-blue-600 rounded-full mx-auto mb-4"></div>
+    <p class="text-sm text-neutral-600">{{ 'RESULTS.REDIRECTING' | translate }}</p>
   </div>
 </div>
