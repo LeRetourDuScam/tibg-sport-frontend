@@ -18,7 +18,7 @@
     <div *ngIf="recommendation.alternatives && recommendation.alternatives.length > 0" class="mb-6 text-center">
       <button
         (click)="toggleComparison()"
-        class="bg-slate-700 hover:bg-slate-800 text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
+        class="bg-slate-700 hover:bg-slate-800 hover:cursor-pointer text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all">
         {{ showComparison ? ('COMPARISON.HIDE' | translate) : ('COMPARISON.SHOW' | translate) }}
       </button>
     </div>

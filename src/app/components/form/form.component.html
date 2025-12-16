@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-gradient-to-br from-slate-600 via-slate-500 to-slate-400 py-8 px-4">
+<div class="min-h-screen bg-linear-to-br from-slate-600 via-slate-500 to-slate-400 py-8 px-4">
   <div class="max-w-4xl mx-auto">
     <div class="bg-white rounded-xl shadow-xl p-8">
       <h1 class="text-4xl font-bold text-slate-800 mb-2 text-center">
@@ -553,7 +553,7 @@
             *ngIf="currentStep > 0"
             type="button"
             (click)="previousStep()"
-            class="bg-slate-300 hover:bg-slate-400 text-slate-800 px-4 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300">
+            class="bg-slate-300 hover:bg-slate-400 hover:cursor-pointer text-slate-800 px-4 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300">
             <span class="hidden sm:inline">← {{ 'FORM.PREVIOUS' | translate }}</span>
             <span class="sm:hidden">←</span>
           </button>
@@ -563,7 +563,7 @@
             *ngIf="currentStep < totalSteps - 1"
             type="button"
             (click)="nextStep()"
-            class="bg-slate-700 hover:bg-slate-800 text-white px-4 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ml-auto">
+            class="bg-slate-700 hover:bg-slate-800 hover:cursor-pointer text-white px-4 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ml-auto">
             <span class="hidden sm:inline">{{ 'FORM.NEXT' | translate }} →</span>
             <span class="sm:hidden">→</span>
           </button>
@@ -573,7 +573,7 @@
             type="button"
             (click)="onSubmit()"
             [disabled]="isSubmitting"
-            class="bg-slate-700 hover:bg-slate-800 text-white px-4 py-2 md:px-12 md:py-4 rounded-lg text-sm md:text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ml-auto">
+            class="bg-slate-700 hover:bg-slate-800 hover:cursor-pointer text-white px-4 py-2 md:px-12 md:py-4 rounded-lg text-sm md:text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ml-auto">
             <span *ngIf="!isSubmitting" class="flex items-center gap-1">
               <span>🚀</span>
               <span class="hidden sm:inline">{{ 'FORM.SUBMIT_BUTTON' | translate }}</span>
