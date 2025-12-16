@@ -4,9 +4,28 @@
       <h1 class="text-4xl font-bold text-slate-800 mb-2 text-center">
         📋 {{ 'FORM.TITLE' | translate }}
       </h1>
-      <p class="text-slate-600 text-center mb-8">
+      <p class="text-slate-600 text-center mb-4">
         {{ 'FORM.SUBTITLE' | translate }}
       </p>
+
+
+      <div class="bg-slate-100 rounded-lg p-4 mb-6">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm font-medium text-slate-600">
+            {{ 'FORM.PROGRESS' | translate }}: {{ completionPercentage }}%
+          </span>
+          <span class="text-sm text-slate-500">
+            ⏱️ {{ 'FORM.TIME_REMAINING' | translate }}: ~{{ remainingTime }} min
+          </span>
+        </div>
+        <div class="w-full bg-slate-300 rounded-full h-2">
+          <div class="bg-slate-700 h-2 rounded-full transition-all duration-300" 
+               [style.width.%]="completionPercentage"></div>
+        </div>
+        <div *ngIf="lastSaved" class="text-xs text-slate-400 mt-2 text-right">
+          💾 {{ 'FORM.AUTO_SAVED' | translate }}
+        </div>
+      </div>
 
       <div class="mb-8 hidden md:block">
         <div class="flex items-center justify-between">

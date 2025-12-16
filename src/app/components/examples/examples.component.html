@@ -1,0 +1,159 @@
+<div class="min-h-screen bg-linear-to-br from-slate-600 via-slate-500 to-slate-400 py-8 px-4">
+  <div class="max-w-5xl mx-auto">
+    
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-6 text-center">
+      <h1 class="text-4xl font-bold text-slate-800 mb-4">
+        👀 {{ 'EXAMPLES.TITLE' | translate }}
+      </h1>
+      <p class="text-xl text-slate-600 mb-4">
+        {{ 'EXAMPLES.SUBTITLE' | translate }}
+      </p>
+      <p class="text-slate-500">
+        {{ 'EXAMPLES.DESCRIPTION' | translate }}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+      <div *ngFor="let profile of profiles"
+           (click)="selectProfile(profile)"
+           class="bg-white rounded-xl shadow-xl p-6 cursor-pointer transition-all hover:shadow-2xl hover:scale-105"
+           [class.ring-4]="selectedProfile?.id === profile.id"
+           [class.ring-slate-500]="selectedProfile?.id === profile.id">
+        
+        <div class="flex items-center mb-4">
+          <div class="bg-slate-100 w-16 h-16 rounded-full flex items-center justify-center text-3xl mr-4">
+            {{ profile.name.charAt(0) }}
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-slate-800">{{ profile.name }}</h3>
+            <p class="text-slate-500">{{ profile.age }} {{ 'EXAMPLES.YEARS' | translate }}</p>
+          </div>
+        </div>
+
+        <p class="text-slate-600 mb-4 text-sm">
+          {{ 'EXAMPLES.' + profile.situation | translate }}
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span *ngFor="let challenge of profile.challenges"
+                class="bg-amber-100 text-amber-800 px-2 py-1 rounded-full text-xs">
+            {{ 'EXAMPLES.' + challenge | translate }}
+          </span>
+        </div>
+
+        <div class="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <span class="text-3xl mr-2">{{ profile.sportIcon }}</span>
+              <span class="font-bold text-emerald-800">{{ profile.recommendedSport }}</span>
+            </div>
+            <div class="bg-emerald-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+              {{ profile.score }}%
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-slate-400 text-sm mt-4">
+          {{ 'EXAMPLES.CLICK_DETAILS' | translate }}
+        </p>
+      </div>
+    </div>
+
+    <div *ngIf="selectedProfile" 
+         class="bg-white rounded-xl shadow-xl p-8 mb-6 animate-fadeIn">
+      
+      <h2 class="text-3xl font-bold text-slate-800 mb-6 flex items-center">
+        <span class="text-4xl mr-3">{{ selectedProfile.sportIcon }}</span>
+        {{ 'EXAMPLES.DETAILED_ANALYSIS' | translate }} : {{ selectedProfile.name }}
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl font-bold text-slate-700 mb-4">📋 {{ 'EXAMPLES.PROFILE_SUMMARY' | translate }}</h3>
+          
+          <div class="bg-slate-50 rounded-lg p-4 mb-4">
+            <p class="text-slate-600">
+              {{ 'EXAMPLES.' + selectedProfile.situation | translate }}
+            </p>
+          </div>
+
+          <h4 class="font-bold text-slate-700 mb-2">{{ 'EXAMPLES.MAIN_CHALLENGES' | translate }}</h4>
+          <ul class="space-y-2 mb-4">
+            <li *ngFor="let challenge of selectedProfile.challenges" class="flex items-center">
+              <span class="text-amber-500 mr-2">⚠️</span>
+              <span class="text-slate-600">{{ 'EXAMPLES.' + challenge | translate }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-slate-700 mb-4">🎯 {{ 'EXAMPLES.RECOMMENDATION' | translate }}</h3>
+          
+          <div class="bg-emerald-50 rounded-lg p-6 border-2 border-emerald-300 mb-4">
+            <div class="text-center mb-4">
+              <span class="text-6xl">{{ selectedProfile.sportIcon }}</span>
+              <h4 class="text-2xl font-bold text-emerald-800 mt-2">{{ selectedProfile.recommendedSport }}</h4>
+              <div class="bg-emerald-600 text-white inline-block px-4 py-2 rounded-full mt-2">
+                {{ 'EXAMPLES.COMPATIBILITY' | translate }}: {{ selectedProfile.score }}%
+              </div>
+            </div>
+          </div>
+
+          <h4 class="font-bold text-slate-700 mb-2">{{ 'EXAMPLES.WHY_THIS_SPORT' | translate }}</h4>
+          <p class="text-slate-600 mb-4 bg-slate-50 p-4 rounded-lg">
+            {{ 'EXAMPLES.' + selectedProfile.whyThisSport | translate }}
+          </p>
+
+          <h4 class="font-bold text-emerald-700 mb-2">✅ {{ 'EXAMPLES.KEY_BENEFITS' | translate }}</h4>
+          <ul class="space-y-2">
+            <li *ngFor="let benefit of selectedProfile.keyBenefits" class="flex items-center">
+              <span class="text-emerald-500 mr-2">✓</span>
+              <span class="text-slate-600">{{ 'EXAMPLES.' + benefit | translate }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-6 bg-slate-100 rounded-lg p-6 border-2 border-dashed border-slate-300">
+        <h4 class="text-lg font-bold text-slate-700 mb-4 text-center">
+          📊 {{ 'EXAMPLES.WHAT_YOU_GET' | translate }}
+        </h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div class="bg-white rounded-lg p-3">
+            <span class="text-2xl">🏆</span>
+            <p class="text-sm text-slate-600">{{ 'EXAMPLES.OUTPUT_SPORT' | translate }}</p>
+          </div>
+          <div class="bg-white rounded-lg p-3">
+            <span class="text-2xl">📝</span>
+            <p class="text-sm text-slate-600">{{ 'EXAMPLES.OUTPUT_EXERCISES' | translate }}</p>
+          </div>
+          <div class="bg-white rounded-lg p-3">
+            <span class="text-2xl">📅</span>
+            <p class="text-sm text-slate-600">{{ 'EXAMPLES.OUTPUT_PLAN' | translate }}</p>
+          </div>
+          <div class="bg-white rounded-lg p-3">
+            <span class="text-2xl">🔄</span>
+            <p class="text-sm text-slate-600">{{ 'EXAMPLES.OUTPUT_ALTERNATIVES' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-xl p-8 text-center">
+      <h2 class="text-2xl font-bold text-slate-800 mb-4">
+        {{ 'EXAMPLES.CTA_TITLE' | translate }}
+      </h2>
+      <p class="text-slate-600 mb-6">{{ 'EXAMPLES.CTA_DESC' | translate }}</p>
+      
+      <a [routerLink]="['/formulaire']"
+         class="inline-block bg-slate-700 hover:bg-slate-800 text-white px-12 py-4 rounded-lg text-xl font-semibold shadow-lg hover:shadow-xl transition-all">
+        🚀 {{ 'EXAMPLES.START_MY_ANALYSIS' | translate }}
+      </a>
+
+      <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm text-slate-500">
+        <span>✨ {{ 'HOME.FOOTER' | translate }}</span>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="min-h-screen bg-linear-to-br from-slate-600 via-slate-500 to-slate-400 py-8 px-4">
+  <div class="max-w-5xl mx-auto">
+    
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-6 text-center">
+      <h1 class="text-4xl font-bold text-slate-800 mb-4">
+        👥 {{ 'ABOUT.TITLE' | translate }}
+      </h1>
+      <p class="text-xl text-slate-600">
+        {{ 'ABOUT.SUBTITLE' | translate }}
+      </p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-6">
+      <h2 class="text-3xl font-bold text-slate-800 mb-6 flex items-center">
+        <span class="mr-3">📖</span> {{ 'ABOUT.STORY_TITLE' | translate }}
+      </h2>
+      <div class="prose max-w-none text-slate-600 space-y-4">
+        <p>{{ 'ABOUT.STORY_P1' | translate }}</p>
+        <p>{{ 'ABOUT.STORY_P2' | translate }}</p>
+        <p>{{ 'ABOUT.STORY_P3' | translate }}</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-xl p-8 mb-6">
+      <h2 class="text-3xl font-bold text-slate-800 mb-6 flex items-center">
+        <span class="mr-3">💎</span> {{ 'ABOUT.VALUES_TITLE' | translate }}
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div *ngFor="let value of values" 
+             class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+          <div class="text-4xl mb-3">{{ value.icon }}</div>
+          <h3 class="text-xl font-bold text-slate-800 mb-2">{{ value.titleKey | translate }}</h3>
+          <p class="text-slate-600">{{ value.descKey | translate }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-slate-800 rounded-xl shadow-xl p-8 mb-6 text-white">
+      <h2 class="text-3xl font-bold mb-6 flex items-center">
+        <span class="mr-3">⚙️</span> {{ 'ABOUT.TECH_TITLE' | translate }}
+      </h2>
+      <p class="text-slate-300 mb-6">{{ 'ABOUT.TECH_INTRO' | translate }}</p>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div *ngFor="let tech of techStack" 
+             class="bg-slate-700 rounded-xl p-6">
+          <div class="flex items-center mb-3">
+            <span class="text-3xl mr-3">{{ tech.icon }}</span>
+            <h3 class="text-xl font-bold">{{ tech.name }}</h3>
+          </div>
+          <p class="text-slate-300">{{ tech.description | translate }}</p>
+        </div>
+      </div>
+
+      <div class="mt-6 bg-slate-900 rounded-xl p-6">
+        <h3 class="text-xl font-bold mb-4">🤖 {{ 'ABOUT.AI_MODEL_TITLE' | translate }}</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <p class="text-slate-400">{{ 'ABOUT.AI_MODEL_NAME' | translate }}</p>
+            <p class="font-mono text-emerald-400">Groq/llama-3.3-70b-versatile</p>
+          </div>
+          <div>
+            <p class="text-slate-400">{{ 'ABOUT.AI_PROVIDER' | translate }}</p>
+            <p class="font-mono text-emerald-400">Groq API</p>
+          </div>
+        </div>
+        <div class="mt-4 text-slate-400 text-sm">
+          <p>{{ 'ABOUT.AI_DISCLAIMER' | translate }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-amber-50 border-2 border-amber-300 rounded-xl p-8 mb-6">
+      <h2 class="text-2xl font-bold text-amber-800 mb-4 flex items-center">
+        <span class="mr-2">⚠️</span> {{ 'ABOUT.LIMITATIONS_TITLE' | translate }}
+      </h2>
+      <div class="space-y-3 text-amber-700">
+        <p>✗ {{ 'ABOUT.LIMITATION_1' | translate }}</p>
+        <p>✗ {{ 'ABOUT.LIMITATION_2' | translate }}</p>
+        <p>✗ {{ 'ABOUT.LIMITATION_3' | translate }}</p>
+        <p>✗ {{ 'ABOUT.LIMITATION_4' | translate }}</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-xl p-8 text-center">
+      <h2 class="text-2xl font-bold text-slate-800 mb-4">
+        {{ 'ABOUT.CONTACT_TITLE' | translate }}
+      </h2>
+      <p class="text-slate-600 mb-6">{{ 'ABOUT.CONTACT_DESC' | translate }}</p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a [routerLink]="['/faq']"
+           class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold transition-all">
+          ❓ {{ 'ABOUT.SEE_FAQ' | translate }}
+        </a>
+        <a [routerLink]="['/formulaire']"
+           class="bg-slate-700 hover:bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all">
+          🚀 {{ 'ABOUT.TRY_FYTAI' | translate }}
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

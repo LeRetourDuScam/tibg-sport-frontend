@@ -31,8 +31,7 @@ export class LanguageService {
   getAvailableLanguages() {
     return [
       { code: 'fr', name: 'Français', flag: '🇫🇷' },
-      { code: 'en', name: 'English', flag: '🇬🇧' },
-      { code: 'pt', name: 'Português', flag: '🇵🇹' }
+      { code: 'en', name: 'English', flag: '🇬🇧' }
     ];
   }
 }

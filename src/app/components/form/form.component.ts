@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -31,7 +31,7 @@ import {
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnDestroy {
   userForm!: FormGroup;
   userAndHealthForm!: FormGroup;
   goalAndMotivationForm!: FormGroup;
@@ -43,6 +43,12 @@ export class FormComponent implements OnInit {
   totalSteps = 5;
   snackbarVisible = false;
   snackbarMessage = '';
+  
+  // New properties for UX improvements
+  autoSaveInterval: any;
+  lastSaved: Date | null = null;
+  showTooltip: string | null = null;
+  estimatedTimePerStep = [4, 2, 3, 3, 1]; // minutes per step
 
   Gender = Gender;
   FitnessLevel = FitnessLevel;
@@ -70,6 +76,73 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     this.initForms();
+    this.loadSavedProgress();
+    this.startAutoSave();
+  }
+
+  ngOnDestroy() {
+    if (this.autoSaveInterval) {
+      clearInterval(this.autoSaveInterval);
+    }
+  }
+
+  // Auto-save functionality
+  startAutoSave() {
+    this.autoSaveInterval = setInterval(() => {
+      this.saveProgress();
+    }, 30000); // Save every 30 seconds
+  }
+
+  saveProgress() {
+    const formData = {
+      step: this.currentStep,
+      userAndHealth: this.userAndHealthForm.value,
+      goalAndMotivation: this.goalAndMotivationForm.value,
+      lifestyleAvailability: this.lifestyleAvailabilityForm.value,
+      trainingPreferences: this.trainingPreferencesForm.value,
+      communicationPreferences: this.communicationPreferencesForm.value
+    };
+    localStorage.setItem('fytai_form_progress', JSON.stringify(formData));
+    this.lastSaved = new Date();
+  }
+
+  loadSavedProgress() {
+    const saved = localStorage.getItem('fytai_form_progress');
+    if (saved) {
+      try {
+        const data = JSON.parse(saved);
+        this.currentStep = data.step || 0;
+        if (data.userAndHealth) this.userAndHealthForm.patchValue(data.userAndHealth);
+        if (data.goalAndMotivation) this.goalAndMotivationForm.patchValue(data.goalAndMotivation);
+        if (data.lifestyleAvailability) this.lifestyleAvailabilityForm.patchValue(data.lifestyleAvailability);
+        if (data.trainingPreferences) this.trainingPreferencesForm.patchValue(data.trainingPreferences);
+        if (data.communicationPreferences) this.communicationPreferencesForm.patchValue(data.communicationPreferences);
+      } catch (e) {
+        console.error('Error loading saved progress', e);
+      }
+    }
+  }
+
+  clearSavedProgress() {
+    localStorage.removeItem('fytai_form_progress');
+  }
+
+  // Tooltip functionality
+  toggleTooltip(field: string) {
+    this.showTooltip = this.showTooltip === field ? null : field;
+  }
+
+  // Time estimation
+  get remainingTime(): number {
+    let time = 0;
+    for (let i = this.currentStep; i < this.totalSteps; i++) {
+      time += this.estimatedTimePerStep[i];
+    }
+    return time;
+  }
+
+  get completionPercentage(): number {
+    return Math.round((this.currentStep / this.totalSteps) * 100);
   }
 
   initForms() {
@@ -207,6 +280,7 @@ export class FormComponent implements OnInit {
     this.aiService.analyzeProfile(formData).subscribe({
       next: (result) => {
         this.isSubmitting = false;
+        this.clearSavedProgress(); // Clear saved progress on successful submission
         this.router.navigate(['/resultats'], { state: { data: result } });
       },
       error: (error) => {
