@@ -1,7 +1,7 @@
 <div class="min-h-screen bg-[#fafafa]">
   <header class="bg-white border-b border-neutral-200 sticky top-0 z-40">
     <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a routerLink="/" class="text-base font-semibold text-neutral-800 hover:text-neutral-600">FytAI</a>
+      <a [routerLink]="['/']" class="text-base font-semibold text-neutral-800 hover:text-neutral-600 cursor-pointer">FytAI</a>
       <div class="flex items-center gap-4 text-sm text-neutral-500">
         <span>{{ completionPercentage }}%</span>
         <span class="text-neutral-300">•</span>

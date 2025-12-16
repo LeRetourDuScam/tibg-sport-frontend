@@ -10,8 +10,8 @@ import { TrainingPlanComponent } from '../training-plan/training-plan.component'
   selector: 'app-results',
   standalone: true,
   imports: [
-    CommonModule, 
-    TranslateModule, 
+    CommonModule,
+    TranslateModule,
     SportComparisonComponent,
     TrainingPlanComponent
   ],
@@ -35,12 +35,12 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit() {
     if (!this.recommendation) {
-      this.router.navigate(['/formulaire']);
+      this.router.navigate(['/form']);
     }
   }
 
   backToForm() {
-    this.router.navigate(['/formulaire']);
+    this.router.navigate(['/form']);
   }
 
   backToHome() {

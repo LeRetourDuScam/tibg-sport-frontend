@@ -9,11 +9,11 @@ import { AboutComponent } from './components/about/about.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'formulaire', component: FormComponent },
-  { path: 'resultats', component: ResultsComponent },
-  { path: 'comment-ca-marche', component: HowItWorksComponent },
-  { path: 'exemples', component: ExamplesComponent },
+  { path: 'form', component: FormComponent },
+  { path: 'results', component: ResultsComponent },
+  { path: 'how-it-works', component: HowItWorksComponent },
+  { path: 'examples', component: ExamplesComponent },
   { path: 'faq', component: FaqComponent },
-  { path: 'a-propos', component: AboutComponent },
+  { path: 'about', component: AboutComponent },
   { path: '**', redirectTo: '' }
 ];

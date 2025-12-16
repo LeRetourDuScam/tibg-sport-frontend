@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { AiService } from '../../services/ai.service';
 import { LanguageService } from '../../services/language.service';
@@ -27,7 +27,7 @@ import {
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule, RouterLink],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
@@ -43,7 +43,7 @@ export class FormComponent implements OnInit, OnDestroy {
   totalSteps = 5;
   snackbarVisible = false;
   snackbarMessage = '';
-  
+
   // New properties for UX improvements
   autoSaveInterval: any;
   lastSaved: Date | null = null;
@@ -212,7 +212,7 @@ export class FormComponent implements OnInit, OnDestroy {
   }
   nextStep() {
     const currentForm = this.getCurrentStepForm();
-    
+
     if (currentForm && currentForm.valid) {
       this.currentStep++;
     } else {
@@ -266,7 +266,7 @@ export class FormComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     this.isSubmitting = true;
-    
+
     const formData = {
       ...this.userAndHealthForm.value,
       ...this.goalAndMotivationForm.value,
@@ -280,8 +280,8 @@ export class FormComponent implements OnInit, OnDestroy {
     this.aiService.analyzeProfile(formData).subscribe({
       next: (result) => {
         this.isSubmitting = false;
-        this.clearSavedProgress(); // Clear saved progress on successful submission
-        this.router.navigate(['/resultats'], { state: { data: result } });
+        this.clearSavedProgress();
+        this.router.navigate(['/results'], { state: { data: result } });
       },
       error: (error) => {
         this.showSnackbar('An error occurred. Please try again.');
