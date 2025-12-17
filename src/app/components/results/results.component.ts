@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SportRecommendation } from '../../models/SportRecommendation.model';
 import { SportComparisonComponent } from '../sport-comparison/sport-comparison.component';
@@ -13,8 +13,9 @@ import { TrainingPlanComponent } from '../training-plan/training-plan.component'
     CommonModule,
     TranslateModule,
     SportComparisonComponent,
-    TrainingPlanComponent
-  ],
+    TrainingPlanComponent,
+    RouterLink
+],
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
@@ -36,6 +37,7 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
     if (!this.recommendation) {
       this.router.navigate(['/form']);
+      return;
     }
   }
 

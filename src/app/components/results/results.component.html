@@ -2,7 +2,7 @@
 
   <header class="bg-white border-b border-neutral-200">
     <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a routerLink="/" class="text-base font-semibold text-neutral-800 hover:text-neutral-600">FytAI</a>
+      <a [routerLink]="['/']" class="text-base font-semibold text-neutral-800 hover:text-neutral-600">FytAI</a>
       <span class="text-sm text-neutral-500">{{ 'RESULTS.COMPATIBILITY_SCORE' | translate }}: {{ recommendation.score }}%</span>
     </div>
   </header>

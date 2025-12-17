@@ -38,8 +38,11 @@
     "TITLE": "Your Sports Profile",
     "SUBTITLE": "Fill out this form to get your personalized recommendation",
     "SELECT": "Select...",
-    
+
     "REQUIRED_FIELD": "This field is required",
+    "UNREALISTIC_AGE": "Expected age between 18 and 100 years.",
+    "INVALID_BMI": "Incoherent BMI, please check weight/height.",
+    "INCONSISTENT_LEG_LENGTH": "Leg length inconsistent with height.",
 
     "STEP": "Step",
     "STEP_PERSONAL": "Personal & Health",
@@ -47,24 +50,24 @@
     "STEP_LIFESTYLE": "Lifestyle",
     "STEP_PREFERENCES": "Preferences",
     "STEP_COMMUNICATION": "Communication",
-    
+
     "PREVIOUS": "Previous",
     "NEXT": "Next",
-    
+
     "PERSONAL_INFO": "Personal Information",
     "AGE": "Age",
     "GENDER": "Gender",
     "MALE": "Male",
     "FEMALE": "Female",
     "OTHER": "Other",
-    
+
     "PHYSICAL_MEASUREMENTS": "Physical Measurements",
     "HEIGHT": "Height (cm)",
     "WEIGHT": "Weight (kg)",
     "LEG_LENGTH": "Leg length (cm)",
     "ARM_LENGTH": "Arm length (cm)",
     "WAIST_SIZE": "Waist size (cm)",
-    
+
     "HEALTH_AND_FITNESS": "Health and Fitness",
     "FITNESS_LEVEL": "Fitness level",
     "FITNESS_SEDENTARY": "Sedentary",
@@ -80,7 +83,7 @@
     "INJURIES_PLACEHOLDER": "Describe any current injuries...",
     "ALLERGIES": "Relevant allergies",
     "ALLERGIES_PLACEHOLDER": "Ex: Pollen, dust, etc.",
-    
+
     "HEALTH_CONDITIONS": "Health Conditions",
     "JOINT_PROBLEMS": "Joint problems",
     "KNEE_PROBLEMS": "Knee problems",
@@ -88,7 +91,7 @@
     "HEART_PROBLEMS": "Heart problems",
     "OTHER_HEALTH_ISSUES": "Other health issues",
     "OTHER_HEALTH_PLACEHOLDER": "Describe any other relevant health issues...",
-    
+
     "GOALS_AND_MOTIVATIONS": "Goals and Motivations",
     "MAIN_GOAL": "Main goal",
     "LOSE_WEIGHT": "Lose weight",
@@ -104,7 +107,7 @@
     "MOTIVATIONS_PLACEHOLDER": "Ex: Health, confidence, appearance, energy, social...",
     "FEARS": "What are your fears?",
     "FEARS_PLACEHOLDER": "Ex: Being judged at the gym, getting injured, intense effort...",
-    
+
     "LIFESTYLE_AND_AVAILABILITY": "Lifestyle and Availability",
     "AVAILABLE_TIME": "Available time per session",
     "FIFTEEN_MIN": "15 minutes",
@@ -132,7 +135,7 @@
     "HIGH": "High",
     "LIFESTYLE": "Lifestyle",
     "LIFESTYLE_PLACEHOLDER": "Ex: Parent, student, freelancer, busy executive...",
-    
+
     "TRAINING_PREFERENCES": "Training Preferences",
     "LOCATION_PREFERENCE": "Location preference",
     "HOME": "Home",
@@ -152,7 +155,7 @@
     "EXERCISE_AVERSIONS_PLACEHOLDER": "Ex: Crowded gym, very intense efforts, monotonous repetitions...",
     "EQUIPMENT_AVAILABLE": "Available equipment",
     "EQUIPMENT_AVAILABLE_PLACEHOLDER": "Ex: Dumbbells, mat, nothing...",
-    
+
     "HISTORY_AND_EXPERIENCE": "History and Experience",
     "PRACTISED_SPORTS": "Sports already practiced",
     "PRACTISED_SPORTS_PLACEHOLDER": "Ex: Football, swimming, yoga...",
@@ -164,13 +167,13 @@
     "ADVANCED": "Advanced",
     "SUCCESS_FACTORS": "Success factors",
     "SUCCESS_FACTORS_PLACEHOLDER": "Ex: Motivating coach, stable routine, friends, visible results...",
-    
+
     "PERSONAL_CONTEXT": "Personal Context",
     "PRIMARY_CHALLENGES": "Primary challenges",
     "PRIMARY_CHALLENGES_PLACEHOLDER": "Ex: Lack of time, demotivation, pain, tired after work...",
     "SUPPORT_SYSTEM": "Support system",
     "SUPPORT_SYSTEM_PLACEHOLDER": "Ex: Encouraging family, no support, sporty friends...",
-    
+
     "COMMUNICATION_PREFERENCES": "Communication Preferences",
     "PREFERRED_TONE": "Preferred tone",
     "MOTIVATING": "Motivating",
@@ -182,7 +185,10 @@
     "AUDITORY": "Auditory",
     "KINESTHETIC": "Kinesthetic",
     "READING": "Reading",
-    
+
+    "PROFILE_SUMMARY": "Profile Summary",
+    "EDIT_INFORMATION": "Edit this information",
+
     "SUBMIT_BUTTON": "Get Recommendation",
     "SUBMIT": "Submit",
     "SUBMITTING": "Analysis in progress...",

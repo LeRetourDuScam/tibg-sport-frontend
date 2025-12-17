@@ -5,6 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { AiService } from '../../services/ai.service';
 import { LanguageService } from '../../services/language.service';
+import { ProfileValidators } from '../../validators/profile.validators';
 import {
   Gender,
   FitnessLevel,
@@ -146,12 +147,12 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   initForms() {
-  this.userAndHealthForm = this.fb.group({
-      age: ['', [Validators.required, Validators.min(1), Validators.max(120)]],
+    this.userAndHealthForm = this.fb.group({
+      age: ['', [Validators.required, ProfileValidators.realisticAge()]],
       gender: ['', Validators.required],
-      height: ['', [Validators.required, Validators.min(50), Validators.max(250)]],
-      weight: ['', [Validators.required, Validators.min(20), Validators.max(300)]],
-      legLength: ['', [Validators.required]],
+      height: ['', [Validators.required, Validators.min(100), Validators.max(250)]],
+      weight: ['', [Validators.required, Validators.min(30), Validators.max(300), ProfileValidators.validBMI()]],
+      legLength: ['', [Validators.required, ProfileValidators.consistentMeasurements()]],
       armLength: ['', [Validators.required]],
       waistSize: ['', [Validators.required]],
       fitnessLevel: ['', Validators.required],
