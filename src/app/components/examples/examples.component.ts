@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { LucideAngularModule } from 'lucide-angular';
 
 interface ExampleProfile {
   id: number;
@@ -19,7 +20,7 @@ interface ExampleProfile {
 @Component({
   selector: 'app-examples',
   standalone: true,
-  imports: [CommonModule, RouterLink, TranslateModule],
+  imports: [CommonModule, RouterLink, TranslateModule, LucideAngularModule],
   templateUrl: './examples.component.html',
   styleUrls: ['./examples.component.css']
 })
@@ -34,7 +35,7 @@ export class ExamplesComponent {
       situation: 'MARIE_SITUATION',
       challenges: ['MARIE_CHALLENGE_1', 'MARIE_CHALLENGE_2', 'MARIE_CHALLENGE_3'],
       recommendedSport: 'Natation',
-      sportIcon: '🏊',
+      sportIcon: 'waves',
       score: 92,
       keyBenefits: ['MARIE_BENEFIT_1', 'MARIE_BENEFIT_2', 'MARIE_BENEFIT_3'],
       whyThisSport: 'MARIE_WHY'
@@ -46,7 +47,7 @@ export class ExamplesComponent {
       situation: 'THOMAS_SITUATION',
       challenges: ['THOMAS_CHALLENGE_1', 'THOMAS_CHALLENGE_2', 'THOMAS_CHALLENGE_3'],
       recommendedSport: 'HIIT',
-      sportIcon: '⚡',
+      sportIcon: 'zap',
       score: 88,
       keyBenefits: ['THOMAS_BENEFIT_1', 'THOMAS_BENEFIT_2', 'THOMAS_BENEFIT_3'],
       whyThisSport: 'THOMAS_WHY'
@@ -58,7 +59,7 @@ export class ExamplesComponent {
       situation: 'SOPHIE_SITUATION',
       challenges: ['SOPHIE_CHALLENGE_1', 'SOPHIE_CHALLENGE_2', 'SOPHIE_CHALLENGE_3'],
       recommendedSport: 'Vélo elliptique',
-      sportIcon: '🚴',
+      sportIcon: 'bike',
       score: 85,
       keyBenefits: ['SOPHIE_BENEFIT_1', 'SOPHIE_BENEFIT_2', 'SOPHIE_BENEFIT_3'],
       whyThisSport: 'SOPHIE_WHY'
@@ -70,7 +71,7 @@ export class ExamplesComponent {
       situation: 'LUCAS_SITUATION',
       challenges: ['LUCAS_CHALLENGE_1', 'LUCAS_CHALLENGE_2', 'LUCAS_CHALLENGE_3'],
       recommendedSport: 'Yoga',
-      sportIcon: '🧘',
+      sportIcon: 'leaf',
       score: 90,
       keyBenefits: ['LUCAS_BENEFIT_1', 'LUCAS_BENEFIT_2', 'LUCAS_BENEFIT_3'],
       whyThisSport: 'LUCAS_WHY'
@@ -82,7 +83,7 @@ export class ExamplesComponent {
       situation: 'EMILIE_SITUATION',
       challenges: ['EMILIE_CHALLENGE_1', 'EMILIE_CHALLENGE_2', 'EMILIE_CHALLENGE_3'],
       recommendedSport: 'Danse fitness',
-      sportIcon: '💃',
+      sportIcon: 'music',
       score: 94,
       keyBenefits: ['EMILIE_BENEFIT_1', 'EMILIE_BENEFIT_2', 'EMILIE_BENEFIT_3'],
       whyThisSport: 'EMILIE_WHY'

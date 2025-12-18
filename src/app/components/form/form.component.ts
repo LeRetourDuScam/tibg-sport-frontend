@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AiService } from '../../services/ai.service';
 import { LanguageService } from '../../services/language.service';
 import { ProfileValidators } from '../../validators/profile.validators';
+import { LucideAngularModule } from 'lucide-angular';
 import {
   Gender,
   FitnessLevel,
@@ -28,7 +29,7 @@ import {
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TranslateModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule, RouterLink, LucideAngularModule],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })

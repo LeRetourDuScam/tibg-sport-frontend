@@ -6,10 +6,10 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class LanguageService {
   private currentLanguage = 'fr';
-  
+
   constructor(private translate: TranslateService) {
     this.translate.setDefaultLang('fr');
-    
+
     const savedLang = localStorage.getItem('language');
     if (savedLang && ['fr', 'en', 'pt'].includes(savedLang)) {
       this.setLanguage(savedLang);
@@ -30,8 +30,8 @@ export class LanguageService {
 
   getAvailableLanguages() {
     return [
-      { code: 'fr', name: 'Français', flag: '🇫🇷' },
-      { code: 'en', name: 'English', flag: '🇬🇧' }
+      { code: 'fr', name: 'Français' },
+      { code: 'en', name: 'English' }
     ];
   }
 }

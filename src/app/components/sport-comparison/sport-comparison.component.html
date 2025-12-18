@@ -29,7 +29,7 @@
           <td *ngFor="let sport of allSports" class="p-3 align-top">
             <ul class="space-y-1.5">
               <li *ngFor="let benefit of sport.benefits.slice(0, 3)" class="flex items-start gap-2 text-sm text-neutral-600">
-                <span class="text-green-500 mt-0.5">✓</span>
+                <lucide-icon name="check" class="w-4 h-4 text-green-500 mt-0.5"></lucide-icon>
                 <span>{{ benefit }}</span>
               </li>
             </ul>
@@ -74,7 +74,7 @@
           <h4 class="text-sm font-medium text-neutral-700 mb-2">{{ 'COMPARISON.BENEFITS' | translate }}</h4>
           <ul class="space-y-1.5">
             <li *ngFor="let benefit of sport.benefits.slice(0, 3)" class="flex items-start gap-2 text-sm text-neutral-600">
-              <span class="text-green-500 mt-0.5">✓</span>
+              <lucide-icon name="check" class="w-4 h-4 text-green-500 mt-0.5"></lucide-icon>
               <span>{{ benefit }}</span>
             </li>
           </ul>

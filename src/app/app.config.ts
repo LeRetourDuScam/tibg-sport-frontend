@@ -1,8 +1,49 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
 import { provideRouter, withHashLocation } from '@angular/router';
 import { provideHttpClient, HttpClient } from '@angular/common/http';
 import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
 import { CustomTranslateLoader } from './services/custom-translate-loader';
+import {
+  LucideAngularModule,
+  Laptop,
+  Code2,
+  CircleDot,
+  Bot,
+  Sparkles,
+  Shield,
+  Target,
+  MessageSquare,
+  Gift,
+  Check,
+  X,
+  Lightbulb,
+  Microscope,
+  UserRound,
+  HeartPulse,
+  Clock,
+  Settings,
+  Brain,
+  Waves,
+  Activity,
+  Bike,
+  Leaf,
+  Zap,
+  Dumbbell,
+  Trophy,
+  Music,
+  Mountain,
+  Flag,
+  Ruler,
+  Hospital,
+  BookOpen,
+  LayoutGrid,
+  BarChart3,
+  Database,
+  Languages,
+  CircleHelp,
+  Info,
+  User
+} from 'lucide-angular';
 
 import { routes } from './app.routes';
 
@@ -18,6 +59,48 @@ export const appConfig: ApplicationConfig = {
         useFactory: (http: HttpClient) => new CustomTranslateLoader(http),
         deps: [HttpClient],
       },
-    })
+    }),
+    importProvidersFrom(
+      LucideAngularModule.pick({
+        Laptop,
+        Code2,
+        CircleDot,
+        Bot,
+        Sparkles,
+        Shield,
+        Target,
+        MessageSquare,
+        Gift,
+        Check,
+        X,
+        Lightbulb,
+        Microscope,
+        UserRound,
+        HeartPulse,
+        Clock,
+        Settings,
+        Brain,
+        Waves,
+        Activity,
+        Bike,
+        Leaf,
+        Zap,
+        Dumbbell,
+        Trophy,
+        Music,
+        Mountain,
+        Flag,
+        Ruler,
+        Hospital,
+        BookOpen,
+        LayoutGrid,
+        BarChart3,
+        Database,
+        Languages,
+        CircleHelp,
+        Info,
+        User
+      })
+    )
   ]
 };

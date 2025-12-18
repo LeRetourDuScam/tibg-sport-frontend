@@ -21,7 +21,7 @@
       <h4 class="text-sm font-medium text-neutral-800 mb-3">{{ 'PLAN.PROGRESSION_TIPS' | translate }}</h4>
       <ul class="space-y-2">
         <li *ngFor="let tip of trainingPlan.progressionTips" class="flex items-start gap-2 text-sm text-neutral-600">
-          <span class="text-green-500 mt-0.5">✓</span>
+          <lucide-icon name="check" class="w-4 h-4 text-green-500 mt-0.5"></lucide-icon>
           <span>{{ tip }}</span>
         </li>
       </ul>

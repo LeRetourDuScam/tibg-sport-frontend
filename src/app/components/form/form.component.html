@@ -91,8 +91,8 @@
 
         <div *ngIf="currentStep === 0" [formGroup]="userAndHealthForm">
           <section class="bg-white border border-neutral-200 rounded-lg p-5 mb-5">
-            <h2 class="text-base font-medium text-neutral-900 mb-4">
-              {{ 'FORM.PERSONAL_INFO' | translate }}
+            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+              <lucide-icon name="user" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.PERSONAL_INFO' | translate }}
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -121,9 +121,9 @@
             </div>
           </section>
 
-          <section class="bg-slate-50 p-6 rounded-lg border border-slate-200 mb-6">
-            <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-              <span class="mr-2">📏</span> {{ 'FORM.PHYSICAL_MEASUREMENTS' | translate }}
+          <section class="bg-white border border-neutral-200 rounded-lg p-5 mb-6">
+            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+              <lucide-icon name="ruler" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.PHYSICAL_MEASUREMENTS' | translate }}
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -176,9 +176,9 @@
             </div>
           </section>
 
-          <section class="bg-slate-50 p-6 rounded-lg border border-slate-200 mb-6">
-            <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-              <span class="mr-2">💪</span> {{ 'FORM.HEALTH_AND_FITNESS' | translate }}
+          <section class="bg-white border border-neutral-200 rounded-lg p-5 mb-6">
+            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+              <lucide-icon name="dumbbell" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.HEALTH_AND_FITNESS' | translate }}
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -228,9 +228,9 @@
             </div>
           </section>
 
-          <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-            <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-              <span class="mr-2">🏥</span> {{ 'FORM.HEALTH_CONDITIONS' | translate }}
+          <section class="bg-white border border-neutral-200 rounded-lg p-5">
+            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+              <lucide-icon name="hospital" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.HEALTH_CONDITIONS' | translate }}
             </h2>
             <div class="space-y-3">
               <label class="flex items-center space-x-3 cursor-pointer">
@@ -262,9 +262,9 @@
         </div>
 
         <div *ngIf="currentStep === 1" [formGroup]="goalAndMotivationForm">
-          <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-            <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-              <span class="mr-2">🎯</span> {{ 'FORM.GOALS_AND_MOTIVATIONS' | translate }}
+          <section class="bg-white border border-neutral-200 rounded-lg p-5">
+            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+              <lucide-icon name="target" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.GOALS_AND_MOTIVATIONS' | translate }}
             </h2>
             <div class="space-y-4">
               <div>
@@ -312,9 +312,9 @@
         </div>
 
         <div *ngIf="currentStep === 2" [formGroup]="lifestyleAvailabilityForm">
-          <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-            <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-              <span class="mr-2">⏰</span> {{ 'FORM.LIFESTYLE_AND_AVAILABILITY' | translate }}
+          <section class="bg-white border border-neutral-200 rounded-lg p-5">
+            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+              <lucide-icon name="clock" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.LIFESTYLE_AND_AVAILABILITY' | translate }}
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -403,9 +403,9 @@
         </div>
 
         <div *ngIf="currentStep === 3" [formGroup]="trainingPreferencesForm">
-          <section class="bg-slate-50 p-6 rounded-lg border border-slate-200 mb-6">
-            <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-              <span class="mr-2">⚙️</span> {{ 'FORM.TRAINING_PREFERENCES' | translate }}
+          <section class="bg-white border border-neutral-200 rounded-lg p-5 mb-6">
+            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+              <lucide-icon name="settings" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.TRAINING_PREFERENCES' | translate }}
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -472,9 +472,9 @@
             </div>
           </section>
 
-          <section class="bg-slate-50 p-6 rounded-lg border border-slate-200 mb-6">
-            <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-              <span class="mr-2">📚</span> {{ 'FORM.HISTORY_AND_EXPERIENCE' | translate }}
+          <section class="bg-white border border-neutral-200 rounded-lg p-5 mb-6">
+            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+              <lucide-icon name="book-open" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.HISTORY_AND_EXPERIENCE' | translate }}
             </h2>
             <div class="space-y-4">
               <div>
@@ -516,9 +516,9 @@
             </div>
           </section>
 
-          <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-            <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-              <span class="mr-2">🧠</span> {{ 'FORM.PERSONAL_CONTEXT' | translate }}
+          <section class="bg-white border border-neutral-200 rounded-lg p-5">
+            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+              <lucide-icon name="brain" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.PERSONAL_CONTEXT' | translate }}
             </h2>
             <div class="space-y-4">
               <div>
@@ -542,9 +542,9 @@
         </div>
 
         <div *ngIf="currentStep === 4" [formGroup]="communicationPreferencesForm">
-          <section class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-            <h2 class="text-2xl font-semibold text-slate-800 mb-4 flex items-center">
-              <span class="mr-2">💬</span> {{ 'FORM.COMMUNICATION_PREFERENCES' | translate }}
+          <section class="bg-white border border-neutral-200 rounded-lg p-5">
+            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
+              <lucide-icon name="message-square" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.COMMUNICATION_PREFERENCES' | translate }}
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>

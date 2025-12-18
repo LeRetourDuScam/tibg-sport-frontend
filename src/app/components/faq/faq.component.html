@@ -20,6 +20,7 @@
               [class.bg-neutral-100]="selectedCategory !== cat.id"
               [class.text-neutral-600]="selectedCategory !== cat.id"
               [class.hover:bg-neutral-200]="selectedCategory !== cat.id">
+        <lucide-icon [name]="cat.iconName" class="w-4 h-4 mr-1 align-middle"></lucide-icon>
         {{ cat.labelKey | translate }}
       </button>
     </div>
@@ -51,9 +52,18 @@
     <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
       <h2 class="text-sm font-medium text-amber-800 mb-3">{{ 'FAQ.HONESTY_TITLE' | translate }}</h2>
       <div class="space-y-2 text-sm text-amber-700">
-        <p>{{ 'FAQ.HONESTY_1' | translate }}</p>
-        <p>{{ 'FAQ.HONESTY_2' | translate }}</p>
-        <p>{{ 'FAQ.HONESTY_3' | translate }}</p>
+        <p class="flex items-start gap-2">
+          <lucide-icon name="microscope" class="w-4 h-4 mt-0.5 text-amber-700"></lucide-icon>
+          <span>{{ 'FAQ.HONESTY_1' | translate }}</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <lucide-icon name="lightbulb" class="w-4 h-4 mt-0.5 text-amber-700"></lucide-icon>
+          <span>{{ 'FAQ.HONESTY_2' | translate }}</span>
+        </p>
+        <p class="flex items-start gap-2">
+          <lucide-icon name="target" class="w-4 h-4 mt-0.5 text-amber-700"></lucide-icon>
+          <span>{{ 'FAQ.HONESTY_3' | translate }}</span>
+        </p>
       </div>
     </div>
 

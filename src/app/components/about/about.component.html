@@ -24,7 +24,9 @@
       <h2 class="text-base font-medium text-neutral-900 mb-4">{{ 'ABOUT.VALUES_TITLE' | translate }}</h2>
       <div class="grid sm:grid-cols-2 gap-4">
         <div *ngFor="let value of values" class="p-3 bg-neutral-50 rounded-md">
-          <div class="text-lg mb-1">{{ value.icon }}</div>
+          <div class="text-lg mb-1">
+            <lucide-icon [name]="value.iconName" class="w-5 h-5 text-neutral-700"></lucide-icon>
+          </div>
           <h3 class="text-sm font-medium text-neutral-800 mb-1">{{ value.titleKey | translate }}</h3>
           <p class="text-xs text-neutral-600">{{ value.descKey | translate }}</p>
         </div>
@@ -38,7 +40,7 @@
       <div class="grid sm:grid-cols-2 gap-3">
         <div *ngFor="let tech of techStack" class="p-3 bg-neutral-800 rounded-md">
           <div class="flex items-center gap-2 mb-1">
-            <span class="text-base">{{ tech.icon }}</span>
+            <lucide-icon [name]="tech.iconName" class="w-4 h-4 text-neutral-100"></lucide-icon>
             <span class="text-sm font-medium">{{ tech.name }}</span>
           </div>
           <p class="text-xs text-neutral-400">{{ tech.description | translate }}</p>
@@ -65,19 +67,19 @@
       <h2 class="text-sm font-medium text-amber-800 mb-3">{{ 'ABOUT.LIMITATIONS_TITLE' | translate }}</h2>
       <ul class="space-y-2 text-sm text-amber-700">
         <li class="flex items-start gap-2">
-          <span class="text-amber-500">✗</span>
+          <lucide-icon name="x" class="w-4 h-4 text-amber-500"></lucide-icon>
           {{ 'ABOUT.LIMITATION_1' | translate }}
         </li>
         <li class="flex items-start gap-2">
-          <span class="text-amber-500">✗</span>
+          <lucide-icon name="x" class="w-4 h-4 text-amber-500"></lucide-icon>
           {{ 'ABOUT.LIMITATION_2' | translate }}
         </li>
         <li class="flex items-start gap-2">
-          <span class="text-amber-500">✗</span>
+          <lucide-icon name="x" class="w-4 h-4 text-amber-500"></lucide-icon>
           {{ 'ABOUT.LIMITATION_3' | translate }}
         </li>
         <li class="flex items-start gap-2">
-          <span class="text-amber-500">✗</span>
+          <lucide-icon name="x" class="w-4 h-4 text-amber-500"></lucide-icon>
           {{ 'ABOUT.LIMITATION_4' | translate }}
         </li>
       </ul>
