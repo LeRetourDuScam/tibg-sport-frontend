@@ -129,12 +129,10 @@ export class FormComponent implements OnInit, OnDestroy {
     localStorage.removeItem('fytai_form_progress');
   }
 
-  // Tooltip functionality
   toggleTooltip(field: string) {
     this.showTooltip = this.showTooltip === field ? null : field;
   }
 
-  // Time estimation
   get remainingTime(): number {
     let time = 0;
     for (let i = this.currentStep; i < this.totalSteps; i++) {
@@ -283,7 +281,12 @@ export class FormComponent implements OnInit, OnDestroy {
       next: (result) => {
         this.isSubmitting = false;
         this.clearSavedProgress();
-        this.router.navigate(['/results'], { state: { data: result } });
+        this.router.navigate(['/results'], {
+          state: {
+            data: result,
+            userProfile: formData
+          }
+        });
       },
       error: (error) => {
         this.showSnackbar('An error occurred. Please try again.');

@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SportRecommendation } from '../../models/SportRecommendation.model';
+import { UserProfile } from '../../models/UserProfile.model';
 import { SportComparisonComponent } from '../sport-comparison/sport-comparison.component';
 import { TrainingPlanComponent } from '../training-plan/training-plan.component';
+import { ChatbotComponent } from '../chatbot/chatbot.component';
 
 @Component({
   selector: 'app-results',
@@ -14,6 +16,7 @@ import { TrainingPlanComponent } from '../training-plan/training-plan.component'
     TranslateModule,
     SportComparisonComponent,
     TrainingPlanComponent,
+    ChatbotComponent,
     RouterLink
 ],
   templateUrl: './results.component.html',
@@ -21,6 +24,7 @@ import { TrainingPlanComponent } from '../training-plan/training-plan.component'
 })
 export class ResultsComponent implements OnInit {
   recommendation: SportRecommendation | null = null;
+  userProfile: UserProfile | null = null;
   showComparison = false;
   showNextSteps = true;
 
@@ -31,6 +35,7 @@ export class ResultsComponent implements OnInit {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.recommendation = navigation.extras.state['data'];
+      this.userProfile = navigation.extras.state['userProfile'];
     }
   }
 
@@ -57,19 +62,17 @@ export class ResultsComponent implements OnInit {
     this.showNextSteps = !this.showNextSteps;
   }
 
-  // Generate PDF-like printable version
   printResults() {
     window.print();
   }
 
-  // Share results
-  shareResults() {
-    if (navigator.share && this.recommendation) {
-      navigator.share({
-        title: 'FytAI - Mon sport recommandé',
-        text: `FytAI m'a recommandé ${this.recommendation.sport} avec un score de ${this.recommendation.score}%!`,
-        url: window.location.origin
-      });
-    }
+  shareOnTwitter() {
+    if (!this.recommendation) return;
+
+    const text = `Je viens de découvrir mon sport idéal avec FytAI !\n\nSport recommandé : ${this.recommendation.sport}\nScore de compatibilité : ${this.recommendation.score}%\n\nEssayez gratuitement`;
+    const url = window.location.origin;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+
+    window.open(twitterUrl, '_blank', 'width=550,height=420');
   }
 }

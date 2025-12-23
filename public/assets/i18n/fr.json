@@ -213,7 +213,8 @@
     "DISCLAIMER_TITLE": "Rappel important",
     "DISCLAIMER_TEXT": "Ces recommandations sont générées par une IA et ne remplacent pas un avis médical. Consultez un professionnel de santé avant de commencer tout nouveau programme sportif.",
     "PRINT": "Imprimer mes résultats",
-    "SHARE": "Partager"
+    "SHARE": "Partager",
+    "SHARE_TWITTER": "Partager sur Twitter"
   },
   "COMPARISON": {
     "TITLE": "Comparer les Sports",
@@ -444,5 +445,24 @@
     "TRY_FYTAI": "Essayer FytAI",
     "ROLE_DEVELOPERS": "Développeurs",
     "TEAM_DESC": "Une équipe passionnée de sport et de technologie"
+  },
+  "chatbot": {
+    "buttonText": "Questions ?",
+    "openChat": "Ouvrir le chatbot",
+    "closeChat": "Fermer le chatbot",
+    "title": "Assistant FytAI",
+    "subtitle": "Posez vos questions",
+    "welcomeMessage": "👋 Bonjour ! Je suis votre assistant personnel FytAI. Posez-moi vos questions sur votre recommandation sportive, je suis là pour vous aider !",
+    "suggestedQuestionsTitle": "Questions fréquentes :",
+    "suggestedQuestions": {
+      "beginner": "Comment démarrer si je suis complètement débutant ?",
+      "healthIssues": "Puis-je pratiquer ce sport avec mes problèmes de santé ?",
+      "frequency": "Combien de fois par semaine devrais-je m'entraîner ?",
+      "equipment": "Quel est l'équipement minimal nécessaire pour commencer ?"
+    },
+    "inputPlaceholder": "Posez votre question...",
+    "sendMessage": "Envoyer le message",
+    "hint": "Appuyez sur Entrée pour envoyer, Maj+Entrée pour un retour à la ligne",
+    "error": "Désolé, une erreur s'est produite. Veuillez réessayer."
   }
 }
