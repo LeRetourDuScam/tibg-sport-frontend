@@ -11,14 +11,6 @@ export enum FitnessLevel {
   INTENSE = 'intense'
 }
 
-export enum ActivityLevel {
-  SEDENTARY = 'sedentary',
-  LIGHTLY_ACTIVE = 'lightly_active',
-  MODERATELY_ACTIVE = 'moderately_active',
-  VERY_ACTIVE = 'very_active',
-  EXTREMELY_ACTIVE = 'extremely_active'
-}
-
 export enum ExerciseFrequency {
   NEVER = 'never',
   ONE_TO_TWO = '1-2_per_week',

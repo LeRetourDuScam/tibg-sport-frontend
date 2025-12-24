@@ -1,8 +1,14 @@
 <div class="min-h-screen bg-[#fafafa]">
   <header class="bg-white border-b border-neutral-200">
     <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-4">
         <span class="text-lg font-semibold text-neutral-800">FytAI</span>
+        <a [routerLink]="['/feedbacks']" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
+          {{ 'HOME.VIEW_FEEDBACKS' | translate }}
+        </a>
+        <a [routerLink]="['/saved-results']" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
+          {{ 'HOME.SAVED_RESULTS' | translate }}
+        </a>
       </div>
 
       <div class="relative">

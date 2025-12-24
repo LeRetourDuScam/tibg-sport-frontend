@@ -10,7 +10,6 @@ import { LucideAngularModule } from 'lucide-angular';
 import {
   Gender,
   FitnessLevel,
-  ActivityLevel,
   ExerciseFrequency,
   MainGoal,
   LocationPreference,
@@ -54,7 +53,6 @@ export class FormComponent implements OnInit, OnDestroy {
 
   Gender = Gender;
   FitnessLevel = FitnessLevel;
-  ActivityLevel = ActivityLevel;
   ExerciseFrequency = ExerciseFrequency;
   MainGoal = MainGoal;
   LocationPreference = LocationPreference;

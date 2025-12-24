@@ -7,7 +7,7 @@
     </div>
   </header>
 
-  <main class="max-w-3xl mx-auto px-4 py-6">
+  <main class="max-w-3xl mx-auto px-4 py-6" id="results-container">
 
     <div class="bg-white border border-neutral-200 rounded-lg p-6 mb-5 text-center">
       <h1 class="text-xl font-semibold text-neutral-900 mb-2">
@@ -159,10 +159,19 @@
 
     <div class="flex flex-col sm:flex-row gap-3 mb-6">
       <button
-        (click)="printResults()"
-        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-neutral-700 bg-white border border-neutral-300 rounded-md hover:bg-neutral-50 transition-colors cursor-pointer">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-        {{ 'RESULTS.PRINT' | translate }}
+        (click)="saveResults()"
+        [disabled]="isSaved"
+        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-green-600 border border-green-600 rounded-md hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-300 disabled:cursor-not-allowed">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/></svg>
+        {{ isSaved ? ('RESULTS.SAVED' | translate) : ('RESULTS.SAVE' | translate) }}
+      </button>
+      <button
+        (click)="exportToPDF()"
+        [disabled]="isExportingPdf"
+        class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-red-600 border border-red-600 rounded-md hover:bg-red-700 transition-colors cursor-pointer disabled:bg-red-300 disabled:cursor-not-allowed">
+        <svg *ngIf="!isExportingPdf" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+        <svg *ngIf="isExportingPdf" class="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        {{ isExportingPdf ? ('RESULTS.EXPORTING' | translate) : ('RESULTS.EXPORT_PDF' | translate) }}
       </button>
       <button
         (click)="shareOnTwitter()"
@@ -170,6 +179,11 @@
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         {{ 'RESULTS.SHARE_TWITTER' | translate }}
       </button>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="mb-6">
+      <app-feedback [recommendation]="recommendation"></app-feedback>
     </div>
 
     <div class="flex flex-col sm:flex-row gap-3">

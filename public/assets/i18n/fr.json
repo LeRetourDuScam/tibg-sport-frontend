@@ -1,6 +1,8 @@
 {
   "HOME": {
     "TITLE": "Trouvez Votre Sport Idéal",
+    "VIEW_FEEDBACKS": "Voir les avis des utilisateurs",
+    "SAVED_RESULTS": "Résultats sauvegardés",
     "SUBTITLE": "Découvrez le sport parfait pour vous grâce à l'intelligence artificielle",
     "DESCRIPTION": "Notre système d'analyse avancé prend en compte votre profil physique, vos objectifs et vos préférences pour vous recommander les sports les plus adaptés à votre situation.",
     "START_BUTTON": "Commencer l'analyse",
@@ -464,5 +466,80 @@
     "sendMessage": "Envoyer le message",
     "hint": "Appuyez sur Entrée pour envoyer, Maj+Entrée pour un retour à la ligne",
     "error": "Désolé, une erreur s'est produite. Veuillez réessayer."
+  },
+  "SNACKBAR": {
+    "SAVE_SUCCESS": "Résultats sauvegardés avec succès",
+    "SAVE_ERROR": "Erreur lors de la sauvegarde des résultats",
+    "PDF_SUCCESS": "PDF exporté avec succès",
+    "PDF_ERROR": "Erreur lors de la génération du PDF",
+    "FEEDBACK_ERROR": "Erreur lors de l'envoi du feedback"
+  },
+  "PDF": {
+    "SUBTITLE": "Votre Recommandation Sportive Personnalisée",
+    "CONFIDENTIAL": "Document Confidentiel",
+    "GENERATED_ON": "Généré le",
+    "VERSION": "Version",
+    "PROFILE": "Profil",
+    "YEARS": "ans",
+    "COMPATIBILITY": "de compatibilité",
+    "YOUR_PROFILE": "Votre Profil",
+    "AGE": "Âge",
+    "GENDER": "Genre",
+    "HEIGHT": "Taille",
+    "WEIGHT": "Poids",
+    "FITNESS_LEVEL": "Niveau de forme",
+    "EXERCISE_FREQ": "Fréquence d'exercice",
+    "BENEFITS": "Bénéfices",
+    "PRECAUTIONS": "Précautions",
+    "EXERCISES": "Exercices Recommandés",
+    "TRAINING_PLAN": "Plan d'Entraînement",
+    "GOAL": "Objectif",
+    "EQUIPMENT": "Équipement",
+    "PROGRESSION": "Conseils de progression",
+    "ALTERNATIVES": "Sports Alternatifs",
+    "TAGLINE": "L'IA au Service de Votre Santé",
+    "PAGE": "Page"
+  },
+  "FEEDBACK": {
+    "TITLE": "Cette recommandation vous convient-elle ?",
+    "PERFECT": "Parfait pour moi",
+    "GOOD": "Plutôt bien",
+    "MEH": "Pas convaincu",
+    "BAD": "Pas du tout",
+    "COMMENT_PLACEHOLDER": "Facultatif : Partagez votre avis pour nous aider à améliorer...",
+    "SUBMIT": "Envoyer mon avis",
+    "SUBMITTING": "Envoi en cours...",
+    "THANK_YOU": "Merci pour votre retour.",
+    "ERROR": "Erreur lors de l'envoi. Veuillez réessayer."
+  },
+  "FEEDBACKS": {
+    "TITLE": "Avis utilisateurs",
+    "SUBTITLE": "Tous les retours utilisateurs sur les recommandations sportives",
+    "TOTAL": "Total",
+    "SATISFACTION": "Satisfaction",
+    "POSITIVE": "Positifs",
+    "NEGATIVE": "Négatifs",
+    "NO_DATA": "Aucun avis pour le moment",
+    "NO_DATA_DESC": "Les retours des utilisateurs apparaîtront ici"
+  },
+  "SAVED_RESULTS": {
+    "TITLE": "Mes résultats sauvegardés",
+    "SUBTITLE": "Retrouvez vos {{count}} dernière(s) recommandation(s)",
+    "CLEAR_ALL": "Tout supprimer",
+    "NO_DATA": "Aucun résultat sauvegardé",
+    "NO_DATA_DESC": "Commencez par faire le test pour obtenir votre première recommandation",
+    "START_TEST": "Faire le test",
+    "COMPATIBLE": "compatible",
+    "EXPORT_PDF": "Exporter en PDF",
+    "DELETE": "Supprimer",
+    "AGE": "Âge",
+    "YEARS": "ans",
+    "GOAL": "Objectif",
+    "LEVEL": "Niveau",
+    "FREQUENCY": "Fréquence",
+    "VIEW_DETAILS": "Voir les détails"
+  },
+  "COMMON": {
+    "BACK_HOME": "Retour à l'accueil"
   }
 }

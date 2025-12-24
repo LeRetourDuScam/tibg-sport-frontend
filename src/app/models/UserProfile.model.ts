@@ -6,49 +6,48 @@ export interface UserProfile {
   legLength: number;
   armLength: number;
   waistSize: number;
-  
-  fitnessLevel: string; 
-  activityLevel: string; 
-  exerciseFrequency: string; 
-  healthConditions: string; 
+
+  fitnessLevel: string;
+  exerciseFrequency: string;
+  healthConditions: string;
   jointProblems: boolean;
-  kneeProblems: boolean; 
-  backProblems: boolean; 
-  heartProblems: boolean; 
-  otherHealthIssues: string; 
-  injuries: string; 
-  allergies: string; 
-  
-  mainGoal: string; 
-  specificGoals: string; 
-  motivations: string; 
-  fears: string; 
-  
-  availableTime: string; 
-  preferredTime: string; 
+  kneeProblems: boolean;
+  backProblems: boolean;
+  heartProblems: boolean;
+  otherHealthIssues: string;
+  injuries: string;
+  allergies: string;
+
+  mainGoal: string;
+  specificGoals: string;
+  motivations: string;
+  fears: string;
+
+  availableTime: string;
+  preferredTime: string;
   availableDays: number;
-  workType: string; 
-  sleepQuality: string; 
-  stressLevel: string; 
-  
-  exercisePreferences: string; 
-  exerciseAversions: string; 
-  locationPreference: string; 
-  equipmentAvailable: string; 
-  musicPreference: string; 
-  socialPreference: string; 
-  teamPreference: string; 
-  
-  practisedSports: string; 
-  favoriteActivity: string; 
-  pastExperienceWithFitness: string; 
-  successFactors: string; 
-  
-  primaryChallenges: string; 
-  lifestyle: string; 
+  workType: string;
+  sleepQuality: string;
+  stressLevel: string;
+
+  exercisePreferences: string;
+  exerciseAversions: string;
+  locationPreference: string;
+  equipmentAvailable: string;
+  musicPreference: string;
+  socialPreference: string;
+  teamPreference: string;
+
+  practisedSports: string;
+  favoriteActivity: string;
+  pastExperienceWithFitness: string;
+  successFactors: string;
+
+  primaryChallenges: string;
+  lifestyle: string;
   supportSystem: string;
-  
+
   language: string;
   preferredTone: string;
-  learningStyle: string; 
+  learningStyle: string;
 }
