@@ -216,7 +216,8 @@
     "DISCLAIMER_TEXT": "Ces recommandations sont générées par une IA et ne remplacent pas un avis médical. Consultez un professionnel de santé avant de commencer tout nouveau programme sportif.",
     "PRINT": "Imprimer mes résultats",
     "SHARE": "Partager",
-    "SHARE_TWITTER": "Partager sur Twitter"
+    "SHARE_TWITTER": "Partager sur Twitter",
+    "SHARE_TEXT": "Je viens de découvrir mon sport idéal avec FytAI !\n\nSport recommandé : {{sport}}\nScore de compatibilité : {{score}}%\n\nEssayez gratuitement"
   },
   "COMPARISON": {
     "TITLE": "Comparer les Sports",
@@ -468,10 +469,12 @@
     "error": "Désolé, une erreur s'est produite. Veuillez réessayer."
   },
   "SNACKBAR": {
-    "SAVE_SUCCESS": "Résultats sauvegardés avec succès",
-    "SAVE_ERROR": "Erreur lors de la sauvegarde des résultats",
-    "PDF_SUCCESS": "PDF exporté avec succès",
-    "PDF_ERROR": "Erreur lors de la génération du PDF",
+    "SAVE_SUCCESS": "Résultats sauvegardés avec succès !",
+    "SAVE_ERROR": "Erreur lors de la sauvegarde",
+    "PDF_SUCCESS": "PDF exporté avec succès !",
+    "PDF_ERROR": "Erreur lors de l'export PDF",
+    "LINK_COPIED": "Lien copié dans le presse-papiers !",
+    "COPY_ERROR": "Erreur lors de la copie",
     "FEEDBACK_ERROR": "Erreur lors de l'envoi du feedback"
   },
   "PDF": {

@@ -232,6 +232,7 @@
     "PRINT": "Print my results",
     "SHARE": "Share",
     "SHARE_TWITTER": "Share on Twitter",
+    "SHARE_TEXT": "I just discovered my ideal sport with FytAI!\n\nRecommended sport: {{sport}}\nCompatibility score: {{score}}%\n\nTry it for free",
     "SAVE": "Save my results",
     "SAVED": "Results saved successfully",
     "EXPORT_PDF": "Export as PDF"
@@ -486,10 +487,12 @@
     "error": "Sorry, an error occurred. Please try again."
   },
   "SNACKBAR": {
-    "SAVE_SUCCESS": "Results saved successfully",
+    "SAVE_SUCCESS": "Results saved successfully!",
     "SAVE_ERROR": "Error saving results",
-    "PDF_SUCCESS": "PDF exported successfully",
-    "PDF_ERROR": "Error generating PDF",
+    "PDF_SUCCESS": "PDF exported successfully!",
+    "PDF_ERROR": "Error exporting PDF",
+    "LINK_COPIED": "Link copied to clipboard!",
+    "COPY_ERROR": "Error copying to clipboard",
     "FEEDBACK_ERROR": "Error submitting feedback"
   },
   "PDF": {

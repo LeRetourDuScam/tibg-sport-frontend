@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { debounceTime, Subject, takeUntil } from 'rxjs';
 import { AiService } from '../../services/ai.service';
 import { LanguageService } from '../../services/language.service';
+import { StateService } from '../../services/state.service';
 import { ProfileValidators } from '../../validators/profile.validators';
 import { LucideAngularModule } from 'lucide-angular';
 import {
@@ -45,8 +47,10 @@ export class FormComponent implements OnInit, OnDestroy {
   snackbarVisible = false;
   snackbarMessage = '';
 
+  // Destroy subject for cleanup
+  private destroy$ = new Subject<void>();
+
   // New properties for UX improvements
-  autoSaveInterval: any;
   lastSaved: Date | null = null;
   showTooltip: string | null = null;
   estimatedTimePerStep = [4, 2, 3, 3, 1]; // minutes per step
@@ -71,26 +75,32 @@ export class FormComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private aiService: AiService,
     private router: Router,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private stateService: StateService
   ) { }
 
   ngOnInit() {
     this.initForms();
     this.loadSavedProgress();
-    this.startAutoSave();
+    this.setupAutoSave();
   }
 
   ngOnDestroy() {
-    if (this.autoSaveInterval) {
-      clearInterval(this.autoSaveInterval);
-    }
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
-  // Auto-save functionality
-  startAutoSave() {
-    this.autoSaveInterval = setInterval(() => {
-      this.saveProgress();
-    }, 30000); // Save every 30 seconds
+  // Auto-save functionality with debounce
+  setupAutoSave() {
+    // Watch all form changes and auto-save with debounce
+    this.userForm.valueChanges
+      .pipe(
+        debounceTime(2000), // Wait 2 seconds after user stops typing
+        takeUntil(this.destroy$)
+      )
+      .subscribe(() => {
+        this.saveProgress();
+      });
   }
 
   saveProgress() {
@@ -102,21 +112,20 @@ export class FormComponent implements OnInit, OnDestroy {
       trainingPreferences: this.trainingPreferencesForm.value,
       communicationPreferences: this.communicationPreferencesForm.value
     };
-    localStorage.setItem('fytai_form_progress', JSON.stringify(formData));
+    this.stateService.setFormProgress(formData);
     this.lastSaved = new Date();
   }
 
   loadSavedProgress() {
-    const saved = localStorage.getItem('fytai_form_progress');
+    const saved = this.stateService.getFormProgress();
     if (saved) {
       try {
-        const data = JSON.parse(saved);
-        this.currentStep = data.step || 0;
-        if (data.userAndHealth) this.userAndHealthForm.patchValue(data.userAndHealth);
-        if (data.goalAndMotivation) this.goalAndMotivationForm.patchValue(data.goalAndMotivation);
-        if (data.lifestyleAvailability) this.lifestyleAvailabilityForm.patchValue(data.lifestyleAvailability);
-        if (data.trainingPreferences) this.trainingPreferencesForm.patchValue(data.trainingPreferences);
-        if (data.communicationPreferences) this.communicationPreferencesForm.patchValue(data.communicationPreferences);
+        this.currentStep = saved.step || 0;
+        if (saved.userAndHealth) this.userAndHealthForm.patchValue(saved.userAndHealth);
+        if (saved.goalAndMotivation) this.goalAndMotivationForm.patchValue(saved.goalAndMotivation);
+        if (saved.lifestyleAvailability) this.lifestyleAvailabilityForm.patchValue(saved.lifestyleAvailability);
+        if (saved.trainingPreferences) this.trainingPreferencesForm.patchValue(saved.trainingPreferences);
+        if (saved.communicationPreferences) this.communicationPreferencesForm.patchValue(saved.communicationPreferences);
       } catch (e) {
         console.error('Error loading saved progress', e);
       }
@@ -124,7 +133,7 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   clearSavedProgress() {
-    localStorage.removeItem('fytai_form_progress');
+    this.stateService.clearFormProgress();
   }
 
   toggleTooltip(field: string) {
@@ -149,11 +158,11 @@ export class FormComponent implements OnInit, OnDestroy {
       gender: ['', Validators.required],
       height: ['', [Validators.required, Validators.min(100), Validators.max(250)]],
       weight: ['', [Validators.required, Validators.min(30), Validators.max(300), ProfileValidators.validBMI()]],
-      legLength: ['', [Validators.required, ProfileValidators.consistentMeasurements()]],
-      armLength: ['', [Validators.required]],
-      waistSize: ['', [Validators.required]],
+      legLength: [''], // Optional
+      armLength: [''], // Optional
+      waistSize: [''], // Optional
       fitnessLevel: ['', Validators.required],
-      exerciseFrequency: ['', Validators.required],
+      exerciseFrequency: [''], // Optional
       jointProblems: [false],
       kneeProblems: [false],
       backProblems: [false],
@@ -172,22 +181,22 @@ export class FormComponent implements OnInit, OnDestroy {
 
     this.lifestyleAvailabilityForm = this.fb.group({
       availableTime: ['', Validators.required],
-      preferredTime: ['', Validators.required],
+      preferredTime: [''], // Optional
       availableDays: [0],
-      workType: ['', Validators.required],
-      sleepQuality: ['', Validators.required],
-      stressLevel: ['', Validators.required],
+      workType: [''], // Optional
+      sleepQuality: [''], // Optional
+      stressLevel: [''], // Optional
       lifestyle: ['']
     });
 
     this.trainingPreferencesForm = this.fb.group({
       locationPreference: ['', Validators.required],
-      musicPreference: ['', Validators.required],
-      socialPreference: ['', Validators.required],
+      musicPreference: [''], // Optional
+      socialPreference: [''], // Optional
       exercisePreferences: [''],
       exerciseAversions: [''],
       equipmentAvailable: [''],
-      pastExperienceWithFitness: ['', Validators.required],
+      pastExperienceWithFitness: [''], // Optional
       practisedSports: [''],
       favoriteActivity: [''],
       successFactors: [''],
@@ -196,8 +205,8 @@ export class FormComponent implements OnInit, OnDestroy {
     });
 
     this.communicationPreferencesForm = this.fb.group({
-      preferredTone: ['', Validators.required],
-      learningStyle: ['', Validators.required]
+      preferredTone: [''], // Optional
+      learningStyle: [''] // Optional
     });
 
     this.userForm = this.fb.group({
@@ -279,12 +288,11 @@ export class FormComponent implements OnInit, OnDestroy {
       next: (result) => {
         this.isSubmitting = false;
         this.clearSavedProgress();
-        this.router.navigate(['/results'], {
-          state: {
-            data: result,
-            userProfile: formData
-          }
-        });
+
+        // Save to state service
+        this.stateService.setRecommendation(result, formData);
+
+        this.router.navigate(['/results']);
       },
       error: (error) => {
         this.showSnackbar('An error occurred. Please try again.');

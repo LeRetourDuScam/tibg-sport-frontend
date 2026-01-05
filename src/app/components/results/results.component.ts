@@ -11,6 +11,7 @@ import { FeedbackComponent } from '../feedback/feedback.component';
 import { ResultsStorageService } from '../../services/results-storage.service';
 import { PdfExportService } from '../../services/pdf-export-enhanced.service';
 import { SnackbarService } from '../../services/snackbar.service';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'app-results',
@@ -42,12 +43,23 @@ export class ResultsComponent implements OnInit {
     private translate: TranslateService,
     private resultsStorageService: ResultsStorageService,
     private pdfExportService: PdfExportService,
-    private snackbar: SnackbarService
+    private snackbar: SnackbarService,
+    private stateService: StateService
   ) {
+    // Try to get from navigation state first
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.recommendation = navigation.extras.state['data'];
       this.userProfile = navigation.extras.state['userProfile'];
+
+      // Save to state service
+      if (this.recommendation && this.userProfile) {
+        this.stateService.setRecommendation(this.recommendation, this.userProfile);
+      }
+    } else {
+      // Fall back to state service
+      this.recommendation = this.stateService.getRecommendation();
+      this.userProfile = this.stateService.getProfile();
     }
   }
 
@@ -81,7 +93,10 @@ export class ResultsComponent implements OnInit {
   shareOnTwitter() {
     if (!this.recommendation) return;
 
-    const text = `Je viens de découvrir mon sport idéal avec FytAI !\n\nSport recommandé : ${this.recommendation.sport}\nScore de compatibilité : ${this.recommendation.score}%\n\nEssayez gratuitement`;
+    const text = this.translate.instant('RESULTS.SHARE_TEXT', {
+      sport: this.recommendation.sport,
+      score: this.recommendation.score
+    });
     const url = window.location.origin;
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
 
