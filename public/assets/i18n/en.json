@@ -122,7 +122,30 @@
     "REQUIRED_FIELDS": "* Required fields",
     "PROGRESS": "Progress",
     "TIME_REMAINING": "Time remaining",
-    "AUTO_SAVED": "Auto-saved"
+    "AUTO_SAVED": "Auto-saved",
+    "SAVED_JUST_NOW": "just now",
+    "SAVED_SECONDS_AGO": "{{seconds}}s ago",
+    "SAVED_MINUTES_AGO": "{{minutes}}min ago",
+    "SAVED_HOURS_AGO": "{{hours}}h ago",
+    "SAVING_NOTIFICATION": "Saved {{time}}"
+  },
+  "ERRORS": {
+    "GENERAL": "An error occurred. Please try again.",
+    "TOO_MANY_REQUESTS": "Too many requests. Please wait 60 seconds before trying again.",
+    "SERVICE_UNAVAILABLE": "The AI service is temporarily unavailable. Please try again in a few moments.",
+    "CONNECTION_ERROR": "Connection problem. Check your internet connection.",
+    "INVALID_DATA": "Invalid data. Check your answers and try again.",
+    "SERVER_ERROR": "Server error. Our team has been notified."
+  },
+  "VALIDATION": {
+    "INVALID_BMI": "BMI of {{bmi}} seems unrealistic. Check your weight and height.",
+    "AGE_GOAL_MISMATCH_MINOR": "Minors must consult a doctor before any competitive sports.",
+    "AGE_GOAL_WARNING_SENIOR": "After 65 years, consult a doctor before aiming for competition.",
+    "UNREALISTIC_AGE": "Expected age between 18 and 100 years.",
+    "FREQUENCY_TIME_MISMATCH": "Your exercise frequency doesn't match the available days.",
+    "TIME_GOAL_MISMATCH": "Competition generally requires more than 15 minutes per session.",
+    "FITNESS_FREQUENCY_MISMATCH": "\"Sedentary\" fitness level and high frequency don't usually match.",
+    "FITNESS_FREQUENCY_IMPOSSIBLE": "Impossible to have \"Intense\" level without ever exercising."
   },
   "RESULTS": {
     "COMPATIBILITY_SCORE": "Compatibility score",
@@ -160,7 +183,17 @@
     "SHARE_TEXT": "I just discovered my ideal sport with FytAI!\n\nRecommended sport: {{sport}}\nCompatibility score: {{score}}%\n\nTry it for free",
     "SAVE": "Save my results",
     "SAVED": "Results saved successfully",
-    "EXPORT_PDF": "Export as PDF"
+    "EXPORT_PDF": "Export as PDF",
+    "QUICK_ACTIONS": "Quick Actions",
+    "FIND_CLUB": "Find a club",
+    "NEAR_ME": "Near me",
+    "VIDEO_TUTORIALS": "Video tutorials",
+    "FOR_BEGINNERS": "For beginners",
+    "EQUIPMENT": "Equipment",
+    "ESTIMATED_BUDGET": "Estimated budget",
+    "MAPS_SEARCH_QUERY": "club near me",
+    "YOUTUBE_SEARCH_QUERY": "beginner tutorial",
+    "EQUIPMENT_SEARCH_QUERY": "{{sport}} equipment beginner"
   },
   "COMPARISON": {
     "TITLE": "Compare Sports",
@@ -170,14 +203,19 @@
     "RECOMMENDED": "Top Choice",
     "BENEFITS": "Benefits",
     "PRECAUTIONS": "Precautions",
-    "NOTE": "The recommended sport has the highest compatibility with your profile."
+    "NOTE": "The recommended sport has the highest compatibility with your profile.",
+    "SPORT": "Sport",
+    "SCORE": "Score",
+    "REASON": "Reason"
   },
   "PLAN": {
     "TITLE": "Your Personalized Training Plan",
     "GOAL": "Goal",
     "DURATION": "Duration",
     "WEEK": "Week",
+    "WEEKS": "weeks",
     "FOCUS": "Focus",
+    "WEEKLY_FOCUS": "Weekly Focus",
     "MILESTONE": "Milestone",
     "MONDAY": "Monday",
     "TUESDAY": "Tuesday",
@@ -187,7 +225,8 @@
     "SATURDAY": "Saturday",
     "SUNDAY": "Sunday",
     "EQUIPMENT": "Required Equipment",
-    "PROGRESSION_TIPS": "Progression Tips"
+    "PROGRESSION_TIPS": "Progression Tips",
+    "REST": "Rest"
   },
   "SHARE": {
     "TITLE": "Share your results:"
@@ -441,7 +480,9 @@
     "PROGRESSION": "Progression Tips",
     "ALTERNATIVES": "Alternative Sports",
     "TAGLINE": "AI for Your Health",
-    "PAGE": "Page"
+    "PAGE": "Page",
+    "AVAILABLE_DAYS": "Availability",
+    "MAIN_GOAL": "Main goal"
   },
   "FEEDBACK": {
     "TITLE": "Does this recommendation suit you?",

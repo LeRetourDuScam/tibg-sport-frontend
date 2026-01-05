@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LucideAngularModule, MapPin, Youtube, ShoppingBag, Check, TriangleAlert, Target, ChevronDown, Download, FileText, RefreshCw, Twitter } from 'lucide-angular';
 import { SportRecommendation } from '../../models/SportRecommendation.model';
 import { UserProfile } from '../../models/UserProfile.model';
 import { SportComparisonComponent } from '../sport-comparison/sport-comparison.component';
@@ -23,9 +24,9 @@ import { StateService } from '../../services/state.service';
     TrainingPlanComponent,
     ChatbotComponent,
     FeedbackComponent,
-    ChatbotComponent,
-    RouterLink
-],
+    RouterLink,
+    LucideAngularModule,
+  ],
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
@@ -37,6 +38,18 @@ export class ResultsComponent implements OnInit {
   isSaved = false;
   savedResultId: string | null = null;
   isExportingPdf = false;
+
+  readonly MapPin = MapPin;
+  readonly Youtube = Youtube;
+  readonly ShoppingBag = ShoppingBag;
+  readonly Check = Check;
+  readonly warning = TriangleAlert;
+  readonly Target = Target;
+  readonly ChevronDown = ChevronDown;
+  readonly Download = Download;
+  readonly FileText = FileText;
+  readonly RefreshCw = RefreshCw;
+  readonly Twitter = Twitter;
 
   constructor(
     private router: Router,
@@ -134,6 +147,26 @@ export class ResultsComponent implements OnInit {
     } finally {
       this.isExportingPdf = false;
     }
+  }
+
+  getGoogleMapsSearch(): string {
+    if (!this.recommendation) return '';
+    const searchQuery = this.translate.instant('RESULTS.MAPS_SEARCH_QUERY');
+    const query = `${this.recommendation.sport} ${searchQuery}`;
+    return `https://www.google.com/maps/search/${encodeURIComponent(query)}`;
+  }
+
+  getYouTubeSearch(): string {
+    if (!this.recommendation) return '';
+    const searchQuery = this.translate.instant('RESULTS.YOUTUBE_SEARCH_QUERY');
+    const query = `${this.recommendation.sport} ${searchQuery}`;
+    return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+  }
+
+  getEquipmentSearch(): string {
+    if (!this.recommendation) return '';
+    const query = this.translate.instant('RESULTS.EQUIPMENT_SEARCH_QUERY', { sport: this.recommendation.sport });
+    return `https://www.amazon.fr/s?k=${encodeURIComponent(query)}`;
   }
 
 }

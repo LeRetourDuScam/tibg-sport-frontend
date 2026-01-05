@@ -21,6 +21,48 @@
       </p>
     </div>
 
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-5 mb-5">
+      <h3 class="text-base font-medium text-blue-900 mb-3 flex items-center gap-2">
+        <lucide-icon [img]="Target" class="w-5 h-5"></lucide-icon>
+        {{ 'RESULTS.QUICK_ACTIONS' | translate }}
+      </h3>
+      <div class="flex items-center gap-2 mb-3">
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <a [href]="getGoogleMapsSearch()"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="flex items-center gap-3 p-3 bg-white rounded-md hover:shadow-md transition-shadow cursor-pointer">
+          <lucide-icon [img]="MapPin" class="w-5 h-5 text-blue-600 shrink-0"></lucide-icon>
+          <div>
+            <p class="text-sm font-medium text-gray-900">{{ 'RESULTS.FIND_CLUB' | translate }}</p>
+            <p class="text-xs text-gray-500">{{ 'RESULTS.NEAR_ME' | translate }}</p>
+          </div>
+        </a>
+
+        <a [href]="getYouTubeSearch()"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="flex items-center gap-3 p-3 bg-white rounded-md hover:shadow-md transition-shadow cursor-pointer">
+          <lucide-icon [img]="Youtube" class="w-5 h-5 text-red-600 shrink-0"></lucide-icon>
+          <div>
+            <p class="text-sm font-medium text-gray-900">{{ 'RESULTS.VIDEO_TUTORIALS' | translate }}</p>
+            <p class="text-xs text-gray-500">{{ 'RESULTS.FOR_BEGINNERS' | translate }}</p>
+          </div>
+        </a>
+
+        <a [href]="getEquipmentSearch()"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="flex items-center gap-3 p-3 bg-white rounded-md hover:shadow-md transition-shadow cursor-pointer">
+          <lucide-icon [img]="ShoppingBag" class="w-5 h-5 text-green-600 shrink-0"></lucide-icon>
+          <div>
+            <p class="text-sm font-medium text-gray-900">{{ 'RESULTS.EQUIPMENT' | translate }}</p>
+            <p class="text-xs text-gray-500">{{ 'RESULTS.ESTIMATED_BUDGET' | translate }}</p>
+          </div>
+        </a>
+      </div>
+    </div>
 
     <div *ngIf="recommendation.alternatives && recommendation.alternatives.length > 0" class="mb-5">
       <button
@@ -32,85 +74,20 @@
 
     <div *ngIf="showComparison && recommendation.alternatives && recommendation.alternatives.length > 0" class="mb-5">
       <app-sport-comparison
-        [mainSport]="recommendation"
         [alternatives]="recommendation.alternatives">
       </app-sport-comparison>
     </div>
 
-    <div class="bg-white border border-neutral-200 rounded-lg p-5 mb-5">
-      <h2 class="text-base font-medium text-neutral-900 mb-3">{{ 'RESULTS.WHY_TITLE' | translate }}</h2>
-      <p class="text-sm text-neutral-600 leading-relaxed">
-        {{ recommendation.explanation }}
-      </p>
-    </div>
-
-
-    <div class="grid md:grid-cols-2 gap-4 mb-5">
-      <div class="bg-white border border-neutral-200 rounded-lg p-5">
-        <h3 class="text-sm font-medium text-green-700 mb-3 flex items-center gap-2">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-          {{ 'RESULTS.BENEFITS_TITLE' | translate }}
-        </h3>
-        <ul class="space-y-2">
-          <li *ngFor="let benefit of recommendation.benefits" class="text-sm text-neutral-600 flex items-start gap-2">
-            <span class="text-neutral-400 mt-1">•</span>
-            <span>{{ benefit }}</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="bg-white border border-neutral-200 rounded-lg p-5">
-        <h3 class="text-sm font-medium text-amber-700 mb-3 flex items-center gap-2">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-          {{ 'RESULTS.PRECAUTIONS_TITLE' | translate }}
-        </h3>
-        <ul class="space-y-2">
-          <li *ngFor="let precaution of recommendation.precautions" class="text-sm text-neutral-600 flex items-start gap-2">
-            <span class="text-neutral-400 mt-1">•</span>
-            <span>{{ precaution }}</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-
-    <div class="bg-white border border-neutral-200 rounded-lg p-5 mb-5">
-      <h2 class="text-base font-medium text-neutral-900 mb-4">{{ 'RESULTS.EXERCISES_TITLE' | translate }}</h2>
-
-      <div class="grid gap-4">
-        <div *ngFor="let exercise of recommendation.exercises"
-             class="p-4 bg-neutral-50 rounded-md border border-neutral-100">
-          <h4 class="text-sm font-medium text-neutral-800 mb-2">{{ exercise.name }}</h4>
-          <p class="text-sm text-neutral-600 mb-3">{{ exercise.description }}</p>
-
-          <div class="flex flex-wrap gap-4 text-xs text-neutral-500">
-            <span *ngIf="exercise.duration">{{ 'RESULTS.DURATION' | translate }}: {{ exercise.duration }}</span>
-            <span *ngIf="exercise.repetitions">{{ 'RESULTS.REPETITIONS' | translate }}: {{ exercise.repetitions }}</span>
-          </div>
-
-          <a *ngIf="exercise.videoUrl"
-             [href]="exercise.videoUrl"
-             target="_blank"
-             class="inline-flex items-center gap-1 mt-3 text-sm text-blue-600 hover:text-blue-700 hover:underline">
-            {{ 'RESULTS.WATCH_VIDEO' | translate }} →
-          </a>
-        </div>
-      </div>
-    </div>
-
-
-    <div *ngIf="recommendation.trainingPlan" class="mb-5">
+    <!-- <div *ngIf="recommendation.trainingPlan" class="mb-5">
       <app-training-plan [trainingPlan]="recommendation.trainingPlan"></app-training-plan>
-    </div>
+    </div> -->
 
 
     <div class="bg-white border border-neutral-200 rounded-lg p-5 mb-5">
       <button (click)="toggleNextSteps()"
               class="w-full flex items-center justify-between cursor-pointer">
         <h2 class="text-base font-medium text-neutral-900">{{ 'RESULTS.WHAT_NOW_TITLE' | translate }}</h2>
-        <svg class="w-5 h-5 text-neutral-400 transition-transform" [class.rotate-180]="showNextSteps" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-        </svg>
+        <lucide-icon [img]="ChevronDown" class="w-5 h-5 text-neutral-400 transition-transform" [class.rotate-180]="showNextSteps"></lucide-icon>
       </button>
 
       <div *ngIf="showNextSteps" class="mt-4 space-y-4">
@@ -146,9 +123,7 @@
 
     <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-5">
       <div class="flex gap-3">
-        <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-        </svg>
+        <lucide-icon [img]="warning" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></lucide-icon>
         <div>
           <p class="text-sm font-medium text-amber-800 mb-0.5">{{ 'RESULTS.DISCLAIMER_TITLE' | translate }}</p>
           <p class="text-sm text-amber-700">{{ 'RESULTS.DISCLAIMER_TEXT' | translate }}</p>
@@ -162,21 +137,21 @@
         (click)="saveResults()"
         [disabled]="isSaved"
         class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-green-600 border border-green-600 rounded-md hover:bg-green-700 transition-colors cursor-pointer disabled:bg-green-300 disabled:cursor-not-allowed">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/></svg>
+        <lucide-icon [img]="Download" class="w-4 h-4"></lucide-icon>
         {{ isSaved ? ('RESULTS.SAVED' | translate) : ('RESULTS.SAVE' | translate) }}
       </button>
       <button
         (click)="exportToPDF()"
         [disabled]="isExportingPdf"
         class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-red-600 border border-red-600 rounded-md hover:bg-red-700 transition-colors cursor-pointer disabled:bg-red-300 disabled:cursor-not-allowed">
-        <svg *ngIf="!isExportingPdf" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-        <svg *ngIf="isExportingPdf" class="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        <lucide-icon *ngIf="!isExportingPdf" [img]="FileText" class="w-4 h-4"></lucide-icon>
+        <lucide-icon *ngIf="isExportingPdf" [img]="RefreshCw" class="w-4 h-4 animate-spin"></lucide-icon>
         {{ isExportingPdf ? ('RESULTS.EXPORTING' | translate) : ('RESULTS.EXPORT_PDF' | translate) }}
       </button>
       <button
         (click)="shareOnTwitter()"
         class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-[#1DA1F2] border border-[#1DA1F2] rounded-md hover:bg-[#1a8cd8] transition-colors cursor-pointer">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <lucide-icon [img]="Twitter" class="w-4 h-4"></lucide-icon>
         {{ 'RESULTS.SHARE_TWITTER' | translate }}
       </button>
     </div>

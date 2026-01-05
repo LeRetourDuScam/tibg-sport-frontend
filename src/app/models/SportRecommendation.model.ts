@@ -5,10 +5,6 @@ export interface SportRecommendation {
   sport: string;
   score: number;
   reason: string;
-  explanation: string;
-  benefits: string[];
-  precautions: string[];
-  exercises: Exercise[];
   alternatives?: SportAlternative[];
-  trainingPlan?: TrainingPlan;
+  // trainingPlan?: TrainingPlan;
 }

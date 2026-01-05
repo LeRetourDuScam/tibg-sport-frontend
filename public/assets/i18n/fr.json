@@ -111,7 +111,30 @@
     "REQUIRED_FIELDS": "* Champs obligatoires",
     "PROGRESS": "Progression",
     "TIME_REMAINING": "Temps restant",
-    "AUTO_SAVED": "Sauvegardé automatiquement"
+    "AUTO_SAVED": "Sauvegardé automatiquement",
+    "SAVED_JUST_NOW": "à l'instant",
+    "SAVED_SECONDS_AGO": "il y a {{seconds}}s",
+    "SAVED_MINUTES_AGO": "il y a {{minutes}}min",
+    "SAVED_HOURS_AGO": "il y a {{hours}}h",
+    "SAVING_NOTIFICATION": "Sauvegardé {{time}}"
+  },
+  "ERRORS": {
+    "GENERAL": "Une erreur est survenue. Veuillez réessayer.",
+    "TOO_MANY_REQUESTS": "Trop de requêtes. Veuillez patienter 60 secondes avant de réessayer.",
+    "SERVICE_UNAVAILABLE": "Le service d'IA est temporairement indisponible. Réessayez dans quelques instants.",
+    "CONNECTION_ERROR": "Problème de connexion. Vérifiez votre connexion internet.",
+    "INVALID_DATA": "Données invalides. Vérifiez vos réponses et réessayez.",
+    "SERVER_ERROR": "Erreur serveur. Notre équipe a été notifiée."
+  },
+  "VALIDATION": {
+    "INVALID_BMI": "BMI de {{bmi}} semble irréaliste. Vérifiez votre poids et taille.",
+    "AGE_GOAL_MISMATCH_MINOR": "Les mineurs doivent consulter un médecin avant toute compétition sportive.",
+    "AGE_GOAL_WARNING_SENIOR": "Après 65 ans, consultez un médecin avant de viser la compétition.",
+    "UNREALISTIC_AGE": "Âge attendu entre 18 et 100 ans.",
+    "FREQUENCY_TIME_MISMATCH": "Votre fréquence d'exercice ne correspond pas aux jours disponibles.",
+    "TIME_GOAL_MISMATCH": "La compétition nécessite généralement plus de 15 minutes par session.",
+    "FITNESS_FREQUENCY_MISMATCH": "Niveau de forme \"Sédentaire\" et haute fréquence ne correspondent généralement pas.",
+    "FITNESS_FREQUENCY_IMPOSSIBLE": "Impossible d'avoir un niveau \"Intense\" sans jamais faire d'exercice."
   },
   "RESULTS": {
     "COMPATIBILITY_SCORE": "Score de compatibilité",
@@ -149,7 +172,17 @@
     "SAVED": "Résultats enregistrés !",
     "EXPORT_PDF": "Exporter en PDF",
     "SHARE_TWITTER": "Partager sur Twitter",
-    "SHARE_TEXT": "Je viens de découvrir mon sport idéal avec FytAI !\n\nSport recommandé : {{sport}}\nScore de compatibilité : {{score}}%\n\nEssayez gratuitement"
+    "SHARE_TEXT": "Je viens de découvrir mon sport idéal avec FytAI !\n\nSport recommandé : {{sport}}\nScore de compatibilité : {{score}}%\n\nEssayez gratuitement",
+    "QUICK_ACTIONS": "Actions Rapides",
+    "FIND_CLUB": "Trouver un club",
+    "NEAR_ME": "À proximité",
+    "VIDEO_TUTORIALS": "Tutoriels vidéo",
+    "FOR_BEGINNERS": "Pour débuter",
+    "EQUIPMENT": "Équipement",
+    "ESTIMATED_BUDGET": "Budget estimé",
+    "MAPS_SEARCH_QUERY": "club près de moi",
+    "YOUTUBE_SEARCH_QUERY": "tutoriel débutant",
+    "EQUIPMENT_SEARCH_QUERY": "équipement {{sport}} débutant"
   },
   "COMPARISON": {
     "TITLE": "Comparer les Sports",
@@ -159,14 +192,19 @@
     "RECOMMENDED": "Recommandé",
     "BENEFITS": "Bénéfices",
     "PRECAUTIONS": "Précautions",
-    "NOTE": "Le sport recommandé a la meilleure compatibilité avec votre profil."
+    "NOTE": "Le sport recommandé a la meilleure compatibilité avec votre profil.",
+    "SPORT": "Sport",
+    "SCORE": "Score",
+    "REASON": "Raison"
   },
   "PLAN": {
     "TITLE": "Votre Plan d'Entraînement Personnalisé",
     "GOAL": "Objectif",
     "DURATION": "Durée",
     "WEEK": "Semaine",
+    "WEEKS": "semaines",
     "FOCUS": "Focus",
+    "WEEKLY_FOCUS": "Focus Hebdomadaire",
     "MILESTONE": "Jalon",
     "MONDAY": "Lundi",
     "TUESDAY": "Mardi",
@@ -176,7 +214,8 @@
     "SATURDAY": "Samedi",
     "SUNDAY": "Dimanche",
     "EQUIPMENT": "Équipement Requis",
-    "PROGRESSION_TIPS": "Conseils de Progression"
+    "PROGRESSION_TIPS": "Conseils de Progression",
+    "REST": "Repos"
   },
   "SHARE": {
     "TITLE": "Partagez vos résultats :"
@@ -430,7 +469,9 @@
     "PROGRESSION": "Conseils de progression",
     "ALTERNATIVES": "Sports Alternatifs",
     "TAGLINE": "L'IA au Service de Votre Santé",
-    "PAGE": "Page"
+    "PAGE": "Page",
+    "AVAILABLE_DAYS": "Disponibilité",
+    "MAIN_GOAL": "Objectif principal"
   },
   "FEEDBACK": {
     "TITLE": "Cette recommandation vous convient-elle ?",

@@ -45,22 +45,9 @@ export class PdfExportService {
         yPos = 20;
       }
 
-      yPos = this.addBenefitsAndPrecautions(pdf, margin, contentWidth, yPos, recommendation);
-
       if (yPos > 220) {
         pdf.addPage();
         yPos = 20;
-      }
-
-      yPos = this.addExercises(pdf, margin, contentWidth, yPos, recommendation);
-
-      if (recommendation.trainingPlan && yPos > 200) {
-        pdf.addPage();
-        yPos = 20;
-      }
-
-      if (recommendation.trainingPlan) {
-        yPos = this.addTrainingPlan(pdf, margin, contentWidth, yPos, recommendation);
       }
 
       if (recommendation.alternatives && recommendation.alternatives.length > 0 && yPos > 200) {
@@ -191,128 +178,6 @@ export class PdfExportService {
     return yPos;
   }
 
-  private addBenefitsAndPrecautions(
-    pdf: jsPDF,
-    margin: number,
-    contentWidth: number,
-    yPos: number,
-    recommendation: SportRecommendation
-  ): number {
-    const colWidth = (contentWidth - 5) / 2;
-
-    this.addSectionTitle(pdf, margin, yPos, this.translate.instant('PDF.BENEFITS'));
-    let benefitsY = yPos + 8;
-
-    pdf.setFontSize(9);
-    pdf.setTextColor(34, 139, 34);
-    pdf.setFont('helvetica', 'normal');
-
-    recommendation.benefits.forEach(benefit => {
-      const lines = pdf.splitTextToSize(`• ${benefit}`, colWidth - 5);
-      pdf.text(lines, margin + 2, benefitsY);
-      benefitsY += lines.length * 5;
-    });
-
-    this.addSectionTitle(pdf, margin + colWidth + 5, yPos, this.translate.instant('PDF.PRECAUTIONS'));
-    let precautionsY = yPos + 8;
-
-    pdf.setTextColor(180, 83, 9);
-    recommendation.precautions.forEach(precaution => {
-      const lines = pdf.splitTextToSize(`• ${precaution}`, colWidth - 5);
-      pdf.text(lines, margin + colWidth + 7, precautionsY);
-      precautionsY += lines.length * 5;
-    });
-
-    yPos = Math.max(benefitsY, precautionsY) + 8;
-    return yPos;
-  }
-
-  private addExercises(
-    pdf: jsPDF,
-    margin: number,
-    contentWidth: number,
-    yPos: number,
-    recommendation: SportRecommendation
-  ): number {
-    this.addSectionTitle(pdf, margin, yPos, this.translate.instant('PDF.EXERCISES'));
-    yPos += 8;
-
-    pdf.setFontSize(9);
-    pdf.setTextColor(0, 0, 0);
-
-    recommendation.exercises.forEach((exercise, index) => {
-      if (yPos > 270) {
-        pdf.addPage();
-        yPos = 20;
-      }
-
-      pdf.setFont('helvetica', 'bold');
-      pdf.text(`${index + 1}. ${exercise.name}`, margin, yPos);
-      yPos += 5;
-
-      pdf.setFont('helvetica', 'normal');
-      pdf.setTextColor(80, 80, 80);
-      const descLines = pdf.splitTextToSize(exercise.description, contentWidth - 10);
-      pdf.text(descLines, margin + 3, yPos);
-      yPos += descLines.length * 5;
-
-      if (exercise.duration || exercise.repetitions) {
-        pdf.setTextColor(100, 100, 100);
-        pdf.setFontSize(8);
-        let details = [];
-        if (exercise.duration) details.push(`${this.translate.instant('PDF.DURATION')}: ${exercise.duration}`);
-        if (exercise.repetitions) details.push(`${this.translate.instant('PDF.REPS')}: ${exercise.repetitions}`);
-        pdf.text(details.join(' | '), margin + 3, yPos);
-        yPos += 5;
-        pdf.setFontSize(9);
-      }
-
-      pdf.setTextColor(0, 0, 0);
-      yPos += 3;
-    });
-
-    yPos += 5;
-    return yPos;
-  }
-
-  private addTrainingPlan(
-    pdf: jsPDF,
-    margin: number,
-    contentWidth: number,
-    yPos: number,
-    recommendation: SportRecommendation
-  ): number {
-    if (!recommendation.trainingPlan) return yPos;
-
-    this.addSectionTitle(pdf, margin, yPos, this.translate.instant('PDF.TRAINING_PLAN'));
-    yPos += 8;
-
-    pdf.setFontSize(9);
-    pdf.setTextColor(0, 0, 0);
-
-    const plan = recommendation.trainingPlan;
-
-    if (plan.progressionTips && plan.progressionTips.length > 0) {
-      plan.progressionTips.forEach((tip: string, index: number) => {
-        if (yPos > 270) {
-          pdf.addPage();
-          yPos = 20;
-        }
-
-        pdf.setFont('helvetica', 'normal');
-        pdf.setTextColor(60, 60, 60);
-        const tipLines = pdf.splitTextToSize(`\u2022 ${tip}`, contentWidth);
-        pdf.text(tipLines, margin, yPos);
-        yPos += tipLines.length * 5 + 2;
-
-        pdf.setTextColor(0, 0, 0);
-        yPos += 3;
-      });
-    }
-
-    yPos += 5;
-    return yPos;
-  }
 
   private addAlternatives(
     pdf: jsPDF,

@@ -1,98 +1,38 @@
 <div class="bg-white border border-neutral-200 rounded-lg p-5 mb-5">
   <h2 class="text-base font-medium text-neutral-900 mb-5">{{ 'COMPARISON.TITLE' | translate }}</h2>
 
-  <div class="hidden md:block overflow-x-auto">
+  <div class="overflow-x-auto">
     <table class="w-full border-collapse">
       <thead>
         <tr class="bg-neutral-50">
-          <th class="p-3 text-left text-sm font-medium text-neutral-700 border-b border-neutral-200">
-            {{ 'COMPARISON.CRITERIA' | translate }}
+          <th class="p-3 text-left text-sm font-medium text-neutral-700 border border-neutral-200">
+            {{ 'COMPARISON.SPORT' | translate }}
           </th>
-          <th *ngFor="let sport of allSports"
-              class="p-3 text-center text-sm font-medium text-neutral-700 border-b border-neutral-200"
-              [class.bg-green-50]="sport === mainSport">
-            <div class="flex flex-col items-center gap-1">
-              <span class="text-sm font-medium">{{ sport.sport }}</span>
-              <span class="text-xs font-medium text-green-600">{{ sport.score }}%</span>
-              <span *ngIf="sport === mainSport" class="text-xs bg-green-600 text-white px-2 py-0.5 rounded-full">
-                {{ 'COMPARISON.RECOMMENDED' | translate }}
-              </span>
-            </div>
+          <th class="p-3 text-center text-sm font-medium text-neutral-700 border border-neutral-200">
+            {{ 'COMPARISON.SCORE' | translate }}
+          </th>
+          <th class="p-3 text-left text-sm font-medium text-neutral-700 border border-neutral-200">
+            {{ 'COMPARISON.REASON' | translate }}
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr class="border-b border-neutral-100">
-          <td class="p-3 text-sm font-medium text-neutral-700 align-top">
-            {{ 'COMPARISON.BENEFITS' | translate }}
+        <tr *ngFor="let sport of alternatives; let i = index"
+            [class.bg-blue-50]="i % 2 === 0"
+            [class.bg-white]="i % 2 !== 0">
+          <td class="p-3 text-sm font-medium text-neutral-800 border border-neutral-200">
+            {{ sport.sport }}
           </td>
-          <td *ngFor="let sport of allSports" class="p-3 align-top">
-            <ul class="space-y-1.5">
-              <li *ngFor="let benefit of sport.benefits.slice(0, 3)" class="flex items-start gap-2 text-sm text-neutral-600">
-                <lucide-icon name="check" class="w-4 h-4 text-green-500 mt-0.5"></lucide-icon>
-                <span>{{ benefit }}</span>
-              </li>
-            </ul>
+          <td class="p-3 text-center text-sm font-semibold text-green-600 border border-neutral-200">
+            {{ sport.score }}%
           </td>
-        </tr>
-
-        <tr class="border-b border-neutral-100">
-          <td class="p-3 text-sm font-medium text-neutral-700 align-top">
-            {{ 'COMPARISON.PRECAUTIONS' | translate }}
-          </td>
-          <td *ngFor="let sport of allSports" class="p-3 align-top">
-            <ul class="space-y-1.5">
-              <li *ngFor="let precaution of sport.precautions.slice(0, 2)" class="flex items-start gap-2 text-sm text-amber-700">
-                <span class="mt-0.5">•</span>
-                <span>{{ precaution }}</span>
-              </li>
-            </ul>
+          <td class="p-3 text-sm text-neutral-600 border border-neutral-200">
+            {{ sport.reason }}
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="md:hidden space-y-4">
-    <div *ngFor="let sport of allSports"
-         class="bg-white border rounded-md p-4"
-         [class.border-green-500]="sport === mainSport"
-         [class.border-neutral-200]="sport !== mainSport">
-
-      <div class="flex justify-between items-start mb-4 pb-3 border-b border-neutral-100">
-        <div>
-          <h3 class="text-sm font-medium text-neutral-800">{{ sport.sport }}</h3>
-          <span *ngIf="sport === mainSport" class="inline-block mt-1 text-xs bg-green-600 text-white px-2 py-0.5 rounded-full">
-            {{ 'COMPARISON.RECOMMENDED' | translate }}
-          </span>
-        </div>
-        <span class="text-sm font-medium text-green-600">{{ sport.score }}%</span>
-      </div>
-
-      <div class="space-y-4">
-        <div>
-          <h4 class="text-sm font-medium text-neutral-700 mb-2">{{ 'COMPARISON.BENEFITS' | translate }}</h4>
-          <ul class="space-y-1.5">
-            <li *ngFor="let benefit of sport.benefits.slice(0, 3)" class="flex items-start gap-2 text-sm text-neutral-600">
-              <lucide-icon name="check" class="w-4 h-4 text-green-500 mt-0.5"></lucide-icon>
-              <span>{{ benefit }}</span>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-sm font-medium text-neutral-700 mb-2">{{ 'COMPARISON.PRECAUTIONS' | translate }}</h4>
-          <ul class="space-y-1.5">
-            <li *ngFor="let precaution of sport.precautions.slice(0, 2)" class="flex items-start gap-2 text-sm text-amber-700">
-              <span class="mt-0.5">•</span>
-              <span>{{ precaution }}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Note -->
   <p class="mt-4 text-xs text-neutral-500 italic">{{ 'COMPARISON.NOTE' | translate }}</p>
 </div>

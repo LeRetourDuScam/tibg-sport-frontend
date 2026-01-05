@@ -12,10 +12,9 @@ import { SportAlternative } from '../../models/TrainingPlan.model';
   styleUrls: ['./sport-comparison.component.css']
 })
 export class SportComparisonComponent {
-  @Input() mainSport!: { sport: string; score: number; benefits: string[]; precautions: string[] };
   @Input() alternatives: SportAlternative[] = [];
 
   get allSports() {
-    return [this.mainSport, ...this.alternatives];
+    return this.alternatives;
   }
 }

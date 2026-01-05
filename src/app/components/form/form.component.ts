@@ -2,12 +2,13 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { debounceTime, Subject, takeUntil } from 'rxjs';
 import { AiService } from '../../services/ai.service';
 import { LanguageService } from '../../services/language.service';
 import { StateService } from '../../services/state.service';
 import { ProfileValidators } from '../../validators/profile.validators';
+import { SmartValidators } from '../../validators/smart-validators';
 import { LucideAngularModule } from 'lucide-angular';
 import {
   Gender,
@@ -51,6 +52,7 @@ export class FormComponent implements OnInit, OnDestroy {
   lastSaved: Date | null = null;
   showTooltip: string | null = null;
   estimatedTimePerStep!: number[];
+  showAutoSaveNotification = false;
 
   Gender = Gender;
   FitnessLevel = FitnessLevel;
@@ -73,7 +75,8 @@ export class FormComponent implements OnInit, OnDestroy {
     private aiService: AiService,
     private router: Router,
     private languageService: LanguageService,
-    private stateService: StateService
+    private stateService: StateService,
+    private translate: TranslateService
   ) { }
 
   ngOnInit() {
@@ -107,6 +110,28 @@ export class FormComponent implements OnInit, OnDestroy {
     };
     this.stateService.setFormProgress(formData);
     this.lastSaved = new Date();
+
+    // Show auto-save notification
+    this.showAutoSaveNotification = true;
+    setTimeout(() => {
+      this.showAutoSaveNotification = false;
+    }, 3000);
+  }
+
+  getTimeSince(date: Date): string {
+    const seconds = Math.floor((new Date().getTime() - date.getTime()) / 1000);
+
+    if (seconds < 10) {
+      return this.translate.instant('FORM.SAVED_JUST_NOW');
+    } else if (seconds < 60) {
+      return this.translate.instant('FORM.SAVED_SECONDS_AGO', { seconds });
+    } else if (seconds < 3600) {
+      const minutes = Math.floor(seconds / 60);
+      return this.translate.instant('FORM.SAVED_MINUTES_AGO', { minutes });
+    } else {
+      const hours = Math.floor(seconds / 3600);
+      return this.translate.instant('FORM.SAVED_HOURS_AGO', { hours });
+    }
   }
 
   loadSavedProgress() {
@@ -145,19 +170,19 @@ export class FormComponent implements OnInit, OnDestroy {
 
   initForms() {
     this.userAndHealthForm = this.fb.group({
-      age: ['', [Validators.required, Validators.min(18), Validators.max(120)]],
+      age: ['', [Validators.required, Validators.min(18), Validators.max(120), SmartValidators.realisticAge]],
       gender: ['', Validators.required],
       height: ['', [Validators.required, Validators.min(100), Validators.max(250)]],
       weight: ['', [Validators.required, Validators.min(30), Validators.max(300)]],
-      fitnessLevel: ['', Validators.required],
-      exerciseFrequency: ['', Validators.required],
+      fitnessLevel: ['', [Validators.required, SmartValidators.fitnessConsistentWithFrequency]],
+      exerciseFrequency: ['', [Validators.required, SmartValidators.frequencyConsistentWithTime]],
       healthConditions: [''],
       injuries: ['']
-    });
+    }, { validators: SmartValidators.validateBMI() });
 
     this.goalAndMotivationForm = this.fb.group({
-      mainGoal: ['', [Validators.required, Validators.maxLength(200)]],
-      availableTime: ['', Validators.required],
+      mainGoal: ['', [Validators.required, Validators.maxLength(200), SmartValidators.ageConsistentWithGoals]],
+      availableTime: ['', [Validators.required, SmartValidators.timeRealisticForGoal]],
       availableDays: ['', [Validators.required, Validators.min(1), Validators.max(7)]]
     });
 
@@ -246,9 +271,47 @@ export class FormComponent implements OnInit, OnDestroy {
         this.router.navigate(['/results']);
       },
       error: (error) => {
-        this.showSnackbar('An error occurred. Please try again.');
         this.isSubmitting = false;
+        let errorMessageKey = 'ERRORS.GENERAL';
+
+        // Provide specific error messages based on HTTP status
+        if (error.status === 429) {
+          errorMessageKey = 'ERRORS.TOO_MANY_REQUESTS';
+        } else if (error.status === 503 || error.status === 502) {
+          errorMessageKey = 'ERRORS.SERVICE_UNAVAILABLE';
+        } else if (error.status === 0) {
+          errorMessageKey = 'ERRORS.CONNECTION_ERROR';
+        } else if (error.status === 400) {
+          errorMessageKey = 'ERRORS.INVALID_DATA';
+        } else if (error.status === 500) {
+          errorMessageKey = 'ERRORS.SERVER_ERROR';
+        }
+
+        const errorMessage = this.translate.instant(errorMessageKey);
+        this.showSnackbar(errorMessage);
+        console.error('Form submission error:', error);
       }
     });
+  }
+
+  getValidationError(controlName: string, formGroup: FormGroup): string | null {
+    const control = formGroup.get(controlName);
+    if (!control || !control.errors || !control.touched) {
+      return null;
+    }
+
+    const errors = control.errors;
+    const errorKey = Object.keys(errors)[0];
+    const error = errors[errorKey];
+
+    if (error?.translationKey) {
+      return this.translate.instant(error.translationKey, error.translationParams || {});
+    }
+
+    if (errorKey === 'required') {
+      return this.translate.instant('FORM.REQUIRED_FIELD');
+    }
+
+    return null;
   }
 }
