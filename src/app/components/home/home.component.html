@@ -11,27 +11,29 @@
         </a>
       </div>
 
-      <div class="relative">
-        <button
-          (click)="toggleLanguageMenu()"
-          class="flex items-center gap-1.5 px-3 py-1.5 text-sm text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 rounded-md transition-colors cursor-pointer">
-          <lucide-icon name="languages" class="w-4 h-4"></lucide-icon>
-          <span>{{ languageService.getCurrentLanguage().toUpperCase() }}</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-
-        <div *ngIf="showLanguageMenu"
-             class="absolute right-0 mt-1 bg-white border border-neutral-200 rounded-md shadow-sm py-1 min-w-[120px] z-50">
+      <div class="flex items-center gap-3">
+        <div class="relative">
           <button
-            *ngFor="let lang of languages"
-            (click)="changeLanguage(lang.code)"
-            class="w-full px-3 py-2 text-sm text-left hover:bg-neutral-50 transition-colors cursor-pointer"
-            [class.bg-neutral-50]="languageService.getCurrentLanguage() === lang.code"
-            [class.font-medium]="languageService.getCurrentLanguage() === lang.code">
-            <lucide-icon name="languages" class="w-4 h-4 mr-2 inline-block align-middle"></lucide-icon>{{ lang.name }}
+            (click)="toggleLanguageMenu()"
+            class="flex items-center gap-1.5 px-3 py-1.5 text-sm text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 rounded-md transition-colors cursor-pointer">
+            <lucide-icon name="languages" class="w-4 h-4"></lucide-icon>
+            <span>{{ languageService.getCurrentLanguage().toUpperCase() }}</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
           </button>
+
+          <div *ngIf="showLanguageMenu"
+               class="absolute right-0 mt-1 bg-white border border-neutral-200 rounded-md shadow-sm py-1 min-w-[120px] z-50">
+            <button
+              *ngFor="let lang of languages"
+              (click)="changeLanguage(lang.code)"
+              class="w-full px-3 py-2 text-sm text-left hover:bg-neutral-50 transition-colors cursor-pointer"
+              [class.bg-neutral-50]="languageService.getCurrentLanguage() === lang.code"
+              [class.font-medium]="languageService.getCurrentLanguage() === lang.code">
+              <lucide-icon name="languages" class="w-4 h-4 mr-2 inline-block align-middle"></lucide-icon>{{ lang.name }}
+            </button>
+          </div>
         </div>
       </div>
     </div>

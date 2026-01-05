@@ -13,12 +13,9 @@ import { LucideAngularModule } from 'lucide-angular';
 })
 export class HowItWorksComponent {
   analysisParameters = [
-    { iconName: 'user-round', key: 'PHYSICAL', count: 7 },
-    { iconName: 'heart-pulse', key: 'HEALTH', count: 8 },
-    { iconName: 'target', key: 'GOALS', count: 4 },
-    { iconName: 'clock', key: 'LIFESTYLE', count: 7 },
-    { iconName: 'settings', key: 'PREFERENCES', count: 12 },
-    { iconName: 'brain', key: 'PSYCHOLOGY', count: 6 }
+    { iconName: 'user-round', key: 'PERSONAL_HEALTH', count: 8 },
+    { iconName: 'target', key: 'GOALS', count: 3 },
+    { iconName: 'settings', key: 'PREFERENCES', count: 4 }
   ];
 
   sportProfiles = [

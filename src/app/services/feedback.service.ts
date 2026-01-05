@@ -15,6 +15,16 @@ export interface Feedback {
   createdAt?: string;
 }
 
+interface FeedbackResponse {
+  data: Feedback[];
+  pagination: {
+    currentPage: number;
+    pageSize: number;
+    totalCount: number;
+    totalPages: number;
+  };
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,8 +40,9 @@ export class FeedbackService {
   }
 
   async getAllFeedbacks(): Promise<Feedback[]> {
-    return await firstValueFrom(
-      this.http.get<Feedback[]>(this.apiUrl)
+    const response = await firstValueFrom(
+      this.http.get<FeedbackResponse>(this.apiUrl)
     );
+    return response.data;
   }
 }

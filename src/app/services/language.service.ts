@@ -1,27 +1,34 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LanguageService {
   private currentLanguage = 'fr';
+  private initialized = false;
 
   constructor(private translate: TranslateService) {
     this.translate.setDefaultLang('fr');
-
-    const savedLang = localStorage.getItem('language');
-    if (savedLang && ['fr', 'en', 'pt'].includes(savedLang)) {
-      this.setLanguage(savedLang);
-    } else {
-      this.setLanguage('fr');
-    }
   }
 
-  setLanguage(lang: string) {
+  async initializeLanguage(): Promise<void> {
+    if (this.initialized) return;
+
+    const savedLang = localStorage.getItem('language');
+    const lang = savedLang && ['fr', 'en', 'pt'].includes(savedLang) ? savedLang : 'fr';
+
+    await this.setLanguage(lang);
+    this.initialized = true;
+  }
+
+  async setLanguage(lang: string): Promise<void> {
     this.currentLanguage = lang;
-    this.translate.use(lang);
     localStorage.setItem('language', lang);
+
+    // Attend que les traductions soient chargées
+    await firstValueFrom(this.translate.use(lang));
   }
 
   getCurrentLanguage(): string {

@@ -38,10 +38,12 @@ export class FeedbacksListComponent implements OnInit {
   async loadFeedbacks() {
     try {
       this.isLoading = true;
-      this.feedbacks = await this.feedbackService.getAllFeedbacks();
+      const response = await this.feedbackService.getAllFeedbacks();
+      this.feedbacks = Array.isArray(response) ? response : [];
       this.calculateStats();
     } catch (error) {
       console.error('Error loading feedbacks:', error);
+      this.feedbacks = [];
     } finally {
       this.isLoading = false;
     }

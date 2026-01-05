@@ -21,8 +21,8 @@ export class HomeComponent {
     return this.languageService.getAvailableLanguages();
   }
 
-  changeLanguage(lang: string) {
-    this.languageService.setLanguage(lang);
+  async changeLanguage(lang: string) {
+    await this.languageService.setLanguage(lang);
     this.showLanguageMenu = false;
   }
 

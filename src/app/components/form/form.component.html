@@ -28,7 +28,7 @@
 
     <div class="mb-6 hidden md:block">
       <div class="flex items-center">
-        <div *ngFor="let step of [0, 1, 2, 3, 4]; let i = index" class="flex-1 flex items-center" [class.last:flex-grow-0]="i === 4">
+        <div *ngFor="let step of [0, 1, 2]; let i = index" class="flex-1 flex items-center" [class.last:flex-grow-0]="i === 2">
           <button
             type="button"
             class="flex flex-col items-center shrink-0 cursor-pointer group"
@@ -51,20 +51,18 @@
               <ng-container [ngSwitch]="i">
                 <ng-container *ngSwitchCase="0">{{ 'FORM.STEP_PERSONAL' | translate }}</ng-container>
                 <ng-container *ngSwitchCase="1">{{ 'FORM.STEP_GOALS' | translate }}</ng-container>
-                <ng-container *ngSwitchCase="2">{{ 'FORM.STEP_LIFESTYLE' | translate }}</ng-container>
-                <ng-container *ngSwitchCase="3">{{ 'FORM.STEP_PREFERENCES' | translate }}</ng-container>
-                <ng-container *ngSwitchCase="4">{{ 'FORM.STEP_COMMUNICATION' | translate }}</ng-container>
+                <ng-container *ngSwitchCase="2">{{ 'FORM.STEP_PREFERENCES' | translate }}</ng-container>
               </ng-container>
             </span>
           </button>
-          <div *ngIf="i < 4" class="flex-1 h-px mx-2" [class.bg-green-600]="currentStep > i" [class.bg-neutral-200]="currentStep <= i"></div>
+          <div *ngIf="i < 2" class="flex-1 h-px mx-2" [class.bg-green-600]="currentStep > i" [class.bg-neutral-200]="currentStep <= i"></div>
         </div>
       </div>
     </div>
 
     <div class="mb-6 md:hidden">
       <div class="flex items-center justify-center gap-1.5 mb-2">
-        <div *ngFor="let step of [0, 1, 2, 3, 4]; let i = index"
+        <div *ngFor="let step of [0, 1, 2]; let i = index"
              class="w-2 h-2 rounded-full transition-colors"
              [class.bg-blue-600]="currentStep === i"
              [class.bg-green-600]="currentStep > i"
@@ -79,9 +77,7 @@
           <ng-container [ngSwitch]="currentStep">
             <ng-container *ngSwitchCase="0">{{ 'FORM.STEP_PERSONAL' | translate }}</ng-container>
             <ng-container *ngSwitchCase="1">{{ 'FORM.STEP_GOALS' | translate }}</ng-container>
-            <ng-container *ngSwitchCase="2">{{ 'FORM.STEP_LIFESTYLE' | translate }}</ng-container>
-            <ng-container *ngSwitchCase="3">{{ 'FORM.STEP_PREFERENCES' | translate }}</ng-container>
-            <ng-container *ngSwitchCase="4">{{ 'FORM.STEP_COMMUNICATION' | translate }}</ng-container>
+            <ng-container *ngSwitchCase="2">{{ 'FORM.STEP_PREFERENCES' | translate }}</ng-container>
           </ng-container>
         </p>
       </div>
@@ -104,7 +100,6 @@
                   [class.border-red-400]="userAndHealthForm.get('age')?.invalid && userAndHealthForm.get('age')?.touched"
                   placeholder="Ex: 25">
                 <span *ngIf="userAndHealthForm.get('age')?.errors?.['required'] && userAndHealthForm.get('age')?.touched" class="text-red-500 text-xs mt-1 block">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
-                <span *ngIf="userAndHealthForm.get('age')?.errors?.['unrealisticAge'] && userAndHealthForm.get('age')?.touched" class="text-red-500 text-xs mt-1 block">{{ 'FORM.UNREALISTIC_AGE' | translate }}</span>
               </div>
               <div>
                 <label class="block text-sm text-neutral-700 mb-1.5">{{ 'FORM.GENDER' | translate }} *</label>
@@ -118,60 +113,23 @@
                 </select>
                 <span *ngIf="userAndHealthForm.get('gender')?.invalid && userAndHealthForm.get('gender')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
               </div>
-            </div>
-          </section>
-
-          <section class="bg-white border border-neutral-200 rounded-lg p-5 mb-6">
-            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
-              <lucide-icon name="ruler" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.PHYSICAL_MEASUREMENTS' | translate }}
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.HEIGHT' | translate }} *</label>
+                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.HEIGHT' | translate }} (cm) *</label>
                 <input
                   type="number"
                   formControlName="height"
                   class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
                   placeholder="Ex: 175">
-                  <span *ngIf="userAndHealthForm.get('height')?.invalid && userAndHealthForm.get('height')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
+                <span *ngIf="userAndHealthForm.get('height')?.invalid && userAndHealthForm.get('height')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
               </div>
               <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.WEIGHT' | translate }} *</label>
+                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.WEIGHT' | translate }} (kg) *</label>
                 <input
                   type="number"
                   formControlName="weight"
                   class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
                   placeholder="Ex: 70">
-                  <span *ngIf="userAndHealthForm.get('weight')?.errors?.['required'] && userAndHealthForm.get('weight')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
-                  <span *ngIf="userAndHealthForm.get('weight')?.errors?.['invalidBMI'] && userAndHealthForm.get('weight')?.touched" class="text-red-500 text-sm">{{ 'FORM.INVALID_BMI' | translate }}</span>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.LEG_LENGTH' | translate }} *</label>
-                <input
-                  type="number"
-                  formControlName="legLength"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  placeholder="Ex: 90">
-                  <span *ngIf="userAndHealthForm.get('legLength')?.errors?.['required'] && userAndHealthForm.get('legLength')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
-                  <span *ngIf="userAndHealthForm.get('legLength')?.errors?.['inconsistentMeasurements'] && userAndHealthForm.get('legLength')?.touched" class="text-red-500 text-sm">{{ 'FORM.INCONSISTENT_LEG_LENGTH' | translate }}</span>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.ARM_LENGTH' | translate }} *</label>
-                <input
-                  type="number"
-                  formControlName="armLength"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  placeholder="Ex: 75">
-                  <span *ngIf="userAndHealthForm.get('armLength')?.invalid && userAndHealthForm.get('armLength')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.WAIST_SIZE' | translate }} *</label>
-                <input
-                  type="number"
-                  formControlName="waistSize"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  placeholder="Ex: 80">
-                  <span *ngIf="userAndHealthForm.get('waistSize')?.invalid && userAndHealthForm.get('waistSize')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
+                <span *ngIf="userAndHealthForm.get('weight')?.invalid && userAndHealthForm.get('weight')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
               </div>
             </div>
           </section>
@@ -210,53 +168,21 @@
             </div>
 
             <div class="mt-4">
-              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.INJURIES' | translate }}</label>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.HEALTH_CONDITIONS' | translate }}</label>
               <textarea
-                formControlName="injuries"
-                rows="2"
+                formControlName="healthConditions"
+                rows="3"
                 class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                [placeholder]="'FORM.INJURIES_PLACEHOLDER' | translate"></textarea>
+                [placeholder]="'FORM.HEALTH_CONDITIONS_PLACEHOLDER' | translate"></textarea>
             </div>
 
             <div class="mt-4">
-              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.ALLERGIES' | translate }}</label>
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.INJURIES' | translate }}</label>
               <textarea
-                formControlName="allergies"
-                rows="2"
+                formControlName="injuries"
+                rows="3"
                 class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                [placeholder]="'FORM.ALLERGIES_PLACEHOLDER' | translate"></textarea>
-            </div>
-          </section>
-
-          <section class="bg-white border border-neutral-200 rounded-lg p-5">
-            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
-              <lucide-icon name="hospital" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.HEALTH_CONDITIONS' | translate }}
-            </h2>
-            <div class="space-y-3">
-              <label class="flex items-center space-x-3 cursor-pointer">
-                <input type="checkbox" formControlName="jointProblems" class="w-5 h-5 text-slate-600">
-                <span class="text-slate-700">{{ 'FORM.JOINT_PROBLEMS' | translate }}</span>
-              </label>
-              <label class="flex items-center space-x-3 cursor-pointer">
-                <input type="checkbox" formControlName="kneeProblems" class="w-5 h-5 text-slate-600">
-                <span class="text-slate-700">{{ 'FORM.KNEE_PROBLEMS' | translate }}</span>
-              </label>
-              <label class="flex items-center space-x-3 cursor-pointer">
-                <input type="checkbox" formControlName="backProblems" class="w-5 h-5 text-slate-600">
-                <span class="text-slate-700">{{ 'FORM.BACK_PROBLEMS' | translate }}</span>
-              </label>
-              <label class="flex items-center space-x-3 cursor-pointer">
-                <input type="checkbox" formControlName="heartProblems" class="w-5 h-5 text-slate-600">
-                <span class="text-slate-700">{{ 'FORM.HEART_PROBLEMS' | translate }}</span>
-              </label>
-              <div class="mt-4">
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.OTHER_HEALTH_ISSUES' | translate }}</label>
-                <textarea
-                  formControlName="otherHealthIssues"
-                  rows="3"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  [placeholder]="'FORM.OTHER_HEALTH_PLACEHOLDER' | translate"></textarea>
-              </div>
+                [placeholder]="'FORM.INJURIES_PLACEHOLDER' | translate"></textarea>
             </div>
           </section>
         </div>
@@ -284,40 +210,6 @@
                 <span *ngIf="goalAndMotivationForm.get('mainGoal')?.invalid && goalAndMotivationForm.get('mainGoal')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
               </div>
               <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.SPECIFIC_GOALS' | translate }}</label>
-                <textarea
-                  formControlName="specificGoals"
-                  rows="2"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  [placeholder]="'FORM.SPECIFIC_GOALS_PLACEHOLDER' | translate"></textarea>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.MOTIVATIONS' | translate }}</label>
-                <textarea
-                  formControlName="motivations"
-                  rows="2"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  [placeholder]="'FORM.MOTIVATIONS_PLACEHOLDER' | translate"></textarea>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.FEARS' | translate }}</label>
-                <textarea
-                  formControlName="fears"
-                  rows="2"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  [placeholder]="'FORM.FEARS_PLACEHOLDER' | translate"></textarea>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <div *ngIf="currentStep === 2" [formGroup]="lifestyleAvailabilityForm">
-          <section class="bg-white border border-neutral-200 rounded-lg p-5">
-            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
-              <lucide-icon name="clock" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.LIFESTYLE_AND_AVAILABILITY' | translate }}
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
                 <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.AVAILABLE_TIME' | translate }} *</label>
                 <select
                   formControlName="availableTime"
@@ -329,83 +221,27 @@
                   <option [value]="AvailableTime.ONE_HOUR_THIRTY">{{ 'FORM.ONE_HOUR_THIRTY' | translate }}</option>
                   <option [value]="AvailableTime.TWO_HOURS_PLUS">{{ 'FORM.TWO_HOURS_PLUS' | translate }}</option>
                 </select>
-                <span *ngIf="lifestyleAvailabilityForm.get('availableTime')?.invalid && lifestyleAvailabilityForm.get('availableTime')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
+                <span *ngIf="goalAndMotivationForm.get('availableTime')?.invalid && goalAndMotivationForm.get('availableTime')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
               </div>
               <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PREFERRED_TIME' | translate }} *</label>
-                <select
-                  formControlName="preferredTime"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
-                  <option value="" disabled selected>{{ 'FORM.SELECT' | translate }}</option>
-                  <option [value]="PreferredTime.MORNING">{{ 'FORM.MORNING' | translate }}</option>
-                  <option [value]="PreferredTime.NOON">{{ 'FORM.NOON' | translate }}</option>
-                  <option [value]="PreferredTime.EVENING">{{ 'FORM.EVENING' | translate }}</option>
-                  <option [value]="PreferredTime.FLEXIBLE">{{ 'FORM.FLEXIBLE' | translate }}</option>
-                </select>
-                <span *ngIf="lifestyleAvailabilityForm.get('preferredTime')?.invalid && lifestyleAvailabilityForm.get('preferredTime')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.AVAILABLE_DAYS' | translate }}</label>
+                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.AVAILABLE_DAYS' | translate }} *</label>
                 <input
                   type="number"
                   formControlName="availableDays"
-                  min="0"
+                  min="1"
                   max="7"
                   class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
                   placeholder="Ex: 3">
+                <span *ngIf="goalAndMotivationForm.get('availableDays')?.invalid && goalAndMotivationForm.get('availableDays')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
               </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.WORK_TYPE' | translate }} *</label>
-                <select
-                  formControlName="workType"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
-                  <option value="" disabled selected>{{ 'FORM.SELECT' | translate }}</option>
-                  <option [value]="WorkType.OFFICE_SEDENTARY">{{ 'FORM.OFFICE_SEDENTARY' | translate }}</option>
-                  <option [value]="WorkType.PHYSICAL">{{ 'FORM.PHYSICAL' | translate }}</option>
-                  <option [value]="WorkType.MIXED">{{ 'FORM.MIXED' | translate }}</option>
-                </select>
-                <span *ngIf="lifestyleAvailabilityForm.get('workType')?.invalid && lifestyleAvailabilityForm.get('workType')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.SLEEP_QUALITY' | translate }} *</label>
-                <select
-                  formControlName="sleepQuality"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
-                  <option value="" disabled selected>{{ 'FORM.SELECT' | translate }}</option>
-                  <option [value]="SleepQuality.BAD">{{ 'FORM.BAD' | translate }}</option>
-                  <option [value]="SleepQuality.AVERAGE">{{ 'FORM.AVERAGE' | translate }}</option>
-                  <option [value]="SleepQuality.GOOD">{{ 'FORM.GOOD' | translate }}</option>
-                </select>
-                <span *ngIf="lifestyleAvailabilityForm.get('sleepQuality')?.invalid && lifestyleAvailabilityForm.get('sleepQuality')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.STRESS_LEVEL' | translate }} *</label>
-                <select
-                  formControlName="stressLevel"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
-                  <option value="" disabled selected>{{ 'FORM.SELECT' | translate }}</option>
-                  <option [value]="StressLevel.LOW">{{ 'FORM.LOW' | translate }}</option>
-                  <option [value]="StressLevel.MEDIUM">{{ 'FORM.MEDIUM' | translate }}</option>
-                  <option [value]="StressLevel.HIGH">{{ 'FORM.HIGH' | translate }}</option>
-                </select>
-                <span *ngIf="lifestyleAvailabilityForm.get('stressLevel')?.invalid && lifestyleAvailabilityForm.get('stressLevel')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
-              </div>
-            </div>
-            <div class="mt-4">
-              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.LIFESTYLE' | translate }}</label>
-              <input
-                type="text"
-                formControlName="lifestyle"
-                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                [placeholder]="'FORM.LIFESTYLE_PLACEHOLDER' | translate">
             </div>
           </section>
         </div>
 
-        <div *ngIf="currentStep === 3" [formGroup]="trainingPreferencesForm">
-          <section class="bg-white border border-neutral-200 rounded-lg p-5 mb-6">
+        <div *ngIf="currentStep === 2" [formGroup]="lifestyleAvailabilityForm">
+          <section class="bg-white border border-neutral-200 rounded-lg p-5">
             <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
-              <lucide-icon name="settings" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.TRAINING_PREFERENCES' | translate }}
+              <lucide-icon name="settings" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.PREFERENCES_AND_EXPERIENCE' | translate }}
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -419,160 +255,42 @@
                   <option [value]="LocationPreference.GYM">{{ 'FORM.GYM' | translate }}</option>
                   <option [value]="LocationPreference.FLEXIBLE">{{ 'FORM.FLEXIBLE' | translate }}</option>
                 </select>
-                <span *ngIf="trainingPreferencesForm.get('locationPreference')?.invalid && trainingPreferencesForm.get('locationPreference')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
+                <span *ngIf="lifestyleAvailabilityForm.get('locationPreference')?.invalid && lifestyleAvailabilityForm.get('locationPreference')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
               </div>
               <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.SOCIAL_PREFERENCE' | translate }} *</label>
+                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.TEAM_PREFERENCE' | translate }} *</label>
                 <select
-                  formControlName="socialPreference"
+                  formControlName="teamPreference"
                   class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
                   <option value="" disabled selected>{{ 'FORM.SELECT' | translate }}</option>
                   <option [value]="TeamPreference.ALONE">{{ 'FORM.ALONE' | translate }}</option>
                   <option [value]="TeamPreference.SMALL_GROUP">{{ 'FORM.SMALL_GROUP' | translate }}</option>
                   <option [value]="TeamPreference.LARGE_GROUP">{{ 'FORM.LARGE_GROUP' | translate }}</option>
                 </select>
-                <span *ngIf="trainingPreferencesForm.get('socialPreference')?.invalid && trainingPreferencesForm.get('socialPreference')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.MUSIC_PREFERENCE' | translate }} *</label>
-                <select
-                  formControlName="musicPreference"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
-                  <option value="" disabled selected>{{ 'FORM.SELECT' | translate }}</option>
-                  <option [value]="MusicPreference.YES">{{ 'FORM.YES' | translate }}</option>
-                  <option [value]="MusicPreference.NO">{{ 'FORM.NO' | translate }}</option>
-                  <option [value]="MusicPreference.DEPENDS">{{ 'FORM.DEPENDS' | translate }}</option>
-                </select>
-                <span *ngIf="trainingPreferencesForm.get('musicPreference')?.invalid && trainingPreferencesForm.get('musicPreference')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
+                <span *ngIf="lifestyleAvailabilityForm.get('teamPreference')?.invalid && lifestyleAvailabilityForm.get('teamPreference')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
               </div>
             </div>
-            <div class="mt-4">
-              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.EXERCISE_PREFERENCES' | translate }}</label>
-              <textarea
-                formControlName="exercisePreferences"
-                rows="2"
-                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                [placeholder]="'FORM.EXERCISE_PREFERENCES_PLACEHOLDER' | translate"></textarea>
-            </div>
-            <div class="mt-4">
-              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.EXERCISE_AVERSIONS' | translate }}</label>
-              <textarea
-                formControlName="exerciseAversions"
-                rows="2"
-                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                [placeholder]="'FORM.EXERCISE_AVERSIONS_PLACEHOLDER' | translate"></textarea>
-            </div>
-            <div class="mt-4">
-              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.EQUIPMENT_AVAILABLE' | translate }}</label>
-              <textarea
-                formControlName="equipmentAvailable"
-                rows="2"
-                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                [placeholder]="'FORM.EQUIPMENT_AVAILABLE_PLACEHOLDER' | translate"></textarea>
-            </div>
-          </section>
 
-          <section class="bg-white border border-neutral-200 rounded-lg p-5 mb-6">
-            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
-              <lucide-icon name="book-open" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.HISTORY_AND_EXPERIENCE' | translate }}
-            </h2>
-            <div class="space-y-4">
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PAST_EXPERIENCE' | translate }} *</label>
-                <select
-                  formControlName="pastExperienceWithFitness"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
-                  <option value="" disabled selected>{{ 'FORM.SELECT' | translate }}</option>
-                  <option [value]="ExperienceLevel.BEGINNER">{{ 'FORM.BEGINNER' | translate }}</option>
-                  <option [value]="ExperienceLevel.INTERMEDIATE">{{ 'FORM.INTERMEDIATE' | translate }}</option>
-                  <option [value]="ExperienceLevel.ADVANCED">{{ 'FORM.ADVANCED' | translate }}</option>
-                </select>
-                <span *ngIf="trainingPreferencesForm.get('pastExperienceWithFitness')?.invalid && trainingPreferencesForm.get('pastExperienceWithFitness')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PRACTISED_SPORTS' | translate }}</label>
-                <textarea
-                  formControlName="practisedSports"
-                  rows="2"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  [placeholder]="'FORM.PRACTISED_SPORTS_PLACEHOLDER' | translate"></textarea>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.FAVORITE_ACTIVITY' | translate }}</label>
-                <input
-                  type="text"
-                  formControlName="favoriteActivity"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  [placeholder]="'FORM.FAVORITE_ACTIVITY_PLACEHOLDER' | translate">
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.SUCCESS_FACTORS' | translate }}</label>
-                <textarea
-                  formControlName="successFactors"
-                  rows="2"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  [placeholder]="'FORM.SUCCESS_FACTORS_PLACEHOLDER' | translate"></textarea>
-              </div>
+            <div class="mt-4">
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PRACTISED_SPORTS' | translate }}</label>
+              <textarea
+                formControlName="practisedSports"
+                rows="3"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
+                [placeholder]="'FORM.PRACTISED_SPORTS_PLACEHOLDER' | translate"></textarea>
             </div>
-          </section>
 
-          <section class="bg-white border border-neutral-200 rounded-lg p-5">
-            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
-              <lucide-icon name="brain" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.PERSONAL_CONTEXT' | translate }}
-            </h2>
-            <div class="space-y-4">
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PRIMARY_CHALLENGES' | translate }}</label>
-                <textarea
-                  formControlName="primaryChallenges"
-                  rows="2"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  [placeholder]="'FORM.PRIMARY_CHALLENGES_PLACEHOLDER' | translate"></textarea>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.SUPPORT_SYSTEM' | translate }}</label>
-                <input
-                  type="text"
-                  formControlName="supportSystem"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent"
-                  [placeholder]="'FORM.SUPPORT_SYSTEM_PLACEHOLDER' | translate">
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <div *ngIf="currentStep === 4" [formGroup]="communicationPreferencesForm">
-          <section class="bg-white border border-neutral-200 rounded-lg p-5">
-            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center">
-              <lucide-icon name="message-square" class="w-5 h-5 mr-2"></lucide-icon> {{ 'FORM.COMMUNICATION_PREFERENCES' | translate }}
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.PREFERRED_TONE' | translate }} *</label>
-                <select
-                  formControlName="preferredTone"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
-                  <option value="" disabled selected>{{ 'FORM.SELECT' | translate }}</option>
-                  <option [value]="PreferredTone.MOTIVATING">{{ 'FORM.MOTIVATING' | translate }}</option>
-                  <option [value]="PreferredTone.FACTUAL">{{ 'FORM.FACTUAL' | translate }}</option>
-                  <option [value]="PreferredTone.PLAYFUL">{{ 'FORM.PLAYFUL' | translate }}</option>
-                  <option [value]="PreferredTone.STRICT">{{ 'FORM.STRICT' | translate }}</option>
-                </select>
-                <span *ngIf="communicationPreferencesForm.get('preferredTone')?.invalid && communicationPreferencesForm.get('preferredTone')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
-              </div>
-              <div>
-                <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.LEARNING_STYLE' | translate }} *</label>
-                <select
-                  formControlName="learningStyle"
-                  class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
-                  <option value="" disabled selected>{{ 'FORM.SELECT' | translate }}</option>
-                  <option [value]="LearningStyle.VISUAL">{{ 'FORM.VISUAL' | translate }}</option>
-                  <option [value]="LearningStyle.AUDITORY">{{ 'FORM.AUDITORY' | translate }}</option>
-                  <option [value]="LearningStyle.KINESTHETIC">{{ 'FORM.KINESTHETIC' | translate }}</option>
-                  <option [value]="LearningStyle.READING">{{ 'FORM.READING' | translate }}</option>
-                </select>
-                <span *ngIf="communicationPreferencesForm.get('learningStyle')?.invalid && communicationPreferencesForm.get('learningStyle')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
-              </div>
+            <div class="mt-4">
+              <label class="block text-slate-700 font-medium mb-2">{{ 'FORM.LANGUAGE' | translate }} *</label>
+              <select
+                formControlName="language"
+                class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 focus:border-transparent">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+              </select>
+              <span *ngIf="lifestyleAvailabilityForm.get('language')?.invalid && lifestyleAvailabilityForm.get('language')?.touched" class="text-red-500 text-sm">{{ 'FORM.REQUIRED_FIELD' | translate}}</span>
             </div>
           </section>
         </div>
@@ -591,11 +309,19 @@
             </div>
             <div>
               <p class="text-neutral-500">{{ 'FORM.AVAILABLE_TIME' | translate }}</p>
-              <p class="font-medium">{{ lifestyleAvailabilityForm.get('availableTime')?.value }}</p>
+              <p class="font-medium">{{ goalAndMotivationForm.get('availableTime')?.value }}</p>
             </div>
             <div>
               <p class="text-neutral-500">{{ 'FORM.FITNESS_LEVEL' | translate }}</p>
               <p class="font-medium">{{ userAndHealthForm.get('fitnessLevel')?.value }}</p>
+            </div>
+            <div>
+              <p class="text-neutral-500">{{ 'FORM.LOCATION_PREFERENCE' | translate }}</p>
+              <p class="font-medium">{{ lifestyleAvailabilityForm.get('locationPreference')?.value }}</p>
+            </div>
+            <div>
+              <p class="text-neutral-500">{{ 'FORM.TEAM_PREFERENCE' | translate }}</p>
+              <p class="font-medium">{{ lifestyleAvailabilityForm.get('teamPreference')?.value }}</p>
             </div>
           </div>
 

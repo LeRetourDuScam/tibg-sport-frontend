@@ -39,21 +39,18 @@ export class FormComponent implements OnInit, OnDestroy {
   userAndHealthForm!: FormGroup;
   goalAndMotivationForm!: FormGroup;
   lifestyleAvailabilityForm!: FormGroup;
-  trainingPreferencesForm!: FormGroup;
-  communicationPreferencesForm!: FormGroup;
+
   isSubmitting = false;
   currentStep = 0;
-  totalSteps = 5;
+  totalSteps!: number;
   snackbarVisible = false;
   snackbarMessage = '';
 
-  // Destroy subject for cleanup
   private destroy$ = new Subject<void>();
 
-  // New properties for UX improvements
   lastSaved: Date | null = null;
   showTooltip: string | null = null;
-  estimatedTimePerStep = [4, 2, 3, 3, 1]; // minutes per step
+  estimatedTimePerStep!: number[];
 
   Gender = Gender;
   FitnessLevel = FitnessLevel;
@@ -90,12 +87,10 @@ export class FormComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  // Auto-save functionality with debounce
   setupAutoSave() {
-    // Watch all form changes and auto-save with debounce
     this.userForm.valueChanges
       .pipe(
-        debounceTime(2000), // Wait 2 seconds after user stops typing
+        debounceTime(2000),
         takeUntil(this.destroy$)
       )
       .subscribe(() => {
@@ -108,9 +103,7 @@ export class FormComponent implements OnInit, OnDestroy {
       step: this.currentStep,
       userAndHealth: this.userAndHealthForm.value,
       goalAndMotivation: this.goalAndMotivationForm.value,
-      lifestyleAvailability: this.lifestyleAvailabilityForm.value,
-      trainingPreferences: this.trainingPreferencesForm.value,
-      communicationPreferences: this.communicationPreferencesForm.value
+      lifestyleAvailability: this.lifestyleAvailabilityForm.value
     };
     this.stateService.setFormProgress(formData);
     this.lastSaved = new Date();
@@ -124,8 +117,6 @@ export class FormComponent implements OnInit, OnDestroy {
         if (saved.userAndHealth) this.userAndHealthForm.patchValue(saved.userAndHealth);
         if (saved.goalAndMotivation) this.goalAndMotivationForm.patchValue(saved.goalAndMotivation);
         if (saved.lifestyleAvailability) this.lifestyleAvailabilityForm.patchValue(saved.lifestyleAvailability);
-        if (saved.trainingPreferences) this.trainingPreferencesForm.patchValue(saved.trainingPreferences);
-        if (saved.communicationPreferences) this.communicationPreferencesForm.patchValue(saved.communicationPreferences);
       } catch (e) {
         console.error('Error loading saved progress', e);
       }
@@ -154,68 +145,37 @@ export class FormComponent implements OnInit, OnDestroy {
 
   initForms() {
     this.userAndHealthForm = this.fb.group({
-      age: ['', [Validators.required, ProfileValidators.realisticAge()]],
+      age: ['', [Validators.required, Validators.min(18), Validators.max(120)]],
       gender: ['', Validators.required],
       height: ['', [Validators.required, Validators.min(100), Validators.max(250)]],
-      weight: ['', [Validators.required, Validators.min(30), Validators.max(300), ProfileValidators.validBMI()]],
-      legLength: [''], // Optional
-      armLength: [''], // Optional
-      waistSize: [''], // Optional
+      weight: ['', [Validators.required, Validators.min(30), Validators.max(300)]],
       fitnessLevel: ['', Validators.required],
-      exerciseFrequency: [''], // Optional
-      jointProblems: [false],
-      kneeProblems: [false],
-      backProblems: [false],
-      heartProblems: [false],
-      otherHealthIssues: [''],
-      injuries: [''],
-      allergies: ['']
+      exerciseFrequency: ['', Validators.required],
+      healthConditions: [''],
+      injuries: ['']
     });
 
     this.goalAndMotivationForm = this.fb.group({
-      mainGoal: ['', Validators.required],
-      specificGoals: [''],
-      motivations: [''],
-      fears: ['']
+      mainGoal: ['', [Validators.required, Validators.maxLength(200)]],
+      availableTime: ['', Validators.required],
+      availableDays: ['', [Validators.required, Validators.min(1), Validators.max(7)]]
     });
 
     this.lifestyleAvailabilityForm = this.fb.group({
-      availableTime: ['', Validators.required],
-      preferredTime: [''], // Optional
-      availableDays: [0],
-      workType: [''], // Optional
-      sleepQuality: [''], // Optional
-      stressLevel: [''], // Optional
-      lifestyle: ['']
-    });
-
-    this.trainingPreferencesForm = this.fb.group({
       locationPreference: ['', Validators.required],
-      musicPreference: [''], // Optional
-      socialPreference: [''], // Optional
-      exercisePreferences: [''],
-      exerciseAversions: [''],
-      equipmentAvailable: [''],
-      pastExperienceWithFitness: [''], // Optional
+      teamPreference: ['', Validators.required],
       practisedSports: [''],
-      favoriteActivity: [''],
-      successFactors: [''],
-      primaryChallenges: [''],
-      supportSystem: ['']
-    });
-
-    this.communicationPreferencesForm = this.fb.group({
-      preferredTone: [''], // Optional
-      learningStyle: [''] // Optional
+      language: [this.languageService.getCurrentLanguage(), Validators.required]
     });
 
     this.userForm = this.fb.group({
       step1: this.userAndHealthForm,
       step2: this.goalAndMotivationForm,
-      step3: this.lifestyleAvailabilityForm,
-      step4: this.trainingPreferencesForm,
-      step5: this.communicationPreferencesForm
+      step3: this.lifestyleAvailabilityForm
     });
+
+    this.totalSteps = 3;
+    this.estimatedTimePerStep = [3, 2, 2];
   }
   nextStep() {
     const currentForm = this.getCurrentStepForm();
@@ -249,10 +209,6 @@ export class FormComponent implements OnInit, OnDestroy {
         return this.goalAndMotivationForm;
       case 2:
         return this.lifestyleAvailabilityForm;
-      case 3:
-        return this.trainingPreferencesForm;
-      case 4:
-        return this.communicationPreferencesForm;
       default:
         return null;
     }
@@ -277,19 +233,14 @@ export class FormComponent implements OnInit, OnDestroy {
     const formData = {
       ...this.userAndHealthForm.value,
       ...this.goalAndMotivationForm.value,
-      ...this.lifestyleAvailabilityForm.value,
-      ...this.trainingPreferencesForm.value,
-      ...this.communicationPreferencesForm.value,
-      language: this.languageService.getCurrentLanguage()
+      ...this.lifestyleAvailabilityForm.value
     };
-
 
     this.aiService.analyzeProfile(formData).subscribe({
       next: (result) => {
         this.isSubmitting = false;
         this.clearSavedProgress();
 
-        // Save to state service
         this.stateService.setRecommendation(result, formData);
 
         this.router.navigate(['/results']);
