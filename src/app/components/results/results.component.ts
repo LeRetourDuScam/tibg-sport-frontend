@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { LucideAngularModule, MapPin, Youtube, ShoppingBag, Check, TriangleAlert, Target, ChevronDown, Download, FileText, RefreshCw, Twitter } from 'lucide-angular';
+import { LucideAngularModule, MapPin, Youtube, ShoppingBag, Check, TriangleAlert, Target, ChevronDown, Download, FileText, RefreshCw, Twitter, FilePlus } from 'lucide-angular';
 import { SportRecommendation } from '../../models/SportRecommendation.model';
 import { UserProfile } from '../../models/UserProfile.model';
 import { SportComparisonComponent } from '../sport-comparison/sport-comparison.component';
-import { TrainingPlanComponent } from '../training-plan/training-plan.component';
 import { ChatbotComponent } from '../chatbot/chatbot.component';
 import { FeedbackComponent } from '../feedback/feedback.component';
 import { ResultsStorageService } from '../../services/results-storage.service';
 import { PdfExportService } from '../../services/pdf-export-enhanced.service';
 import { SnackbarService } from '../../services/snackbar.service';
 import { StateService } from '../../services/state.service';
+import { AiService } from '../../services/ai.service';
 
 @Component({
   selector: 'app-results',
@@ -21,7 +21,6 @@ import { StateService } from '../../services/state.service';
     CommonModule,
     TranslateModule,
     SportComparisonComponent,
-    TrainingPlanComponent,
     ChatbotComponent,
     FeedbackComponent,
     RouterLink,
@@ -38,6 +37,7 @@ export class ResultsComponent implements OnInit {
   isSaved = false;
   savedResultId: string | null = null;
   isExportingPdf = false;
+  isGeneratingTrainingPlan = false;
 
   readonly MapPin = MapPin;
   readonly Youtube = Youtube;
@@ -50,6 +50,7 @@ export class ResultsComponent implements OnInit {
   readonly FileText = FileText;
   readonly RefreshCw = RefreshCw;
   readonly Twitter = Twitter;
+  readonly FilePlus = FilePlus;
 
   constructor(
     private router: Router,
@@ -57,20 +58,18 @@ export class ResultsComponent implements OnInit {
     private resultsStorageService: ResultsStorageService,
     private pdfExportService: PdfExportService,
     private snackbar: SnackbarService,
-    private stateService: StateService
+    private stateService: StateService,
+    private aiService: AiService
   ) {
-    // Try to get from navigation state first
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.recommendation = navigation.extras.state['data'];
       this.userProfile = navigation.extras.state['userProfile'];
 
-      // Save to state service
       if (this.recommendation && this.userProfile) {
         this.stateService.setRecommendation(this.recommendation, this.userProfile);
       }
     } else {
-      // Fall back to state service
       this.recommendation = this.stateService.getRecommendation();
       this.userProfile = this.stateService.getProfile();
     }
@@ -167,6 +166,38 @@ export class ResultsComponent implements OnInit {
     if (!this.recommendation) return '';
     const query = this.translate.instant('RESULTS.EQUIPMENT_SEARCH_QUERY', { sport: this.recommendation.sport });
     return `https://www.amazon.fr/s?k=${encodeURIComponent(query)}`;
+  }
+
+  generateTrainingPlanPDF() {
+    if (!this.recommendation || !this.userProfile) return;
+
+    this.isGeneratingTrainingPlan = true;
+
+    this.aiService.getTrainingPlan(
+      this.userProfile,
+      this.recommendation.sport
+    ).subscribe({
+      next: async (trainingPlan) => {
+        try {
+          if (trainingPlan && this.recommendation && this.userProfile) {
+            await this.pdfExportService.exportTrainingPlanPDF(trainingPlan, this.recommendation.sport, this.userProfile);
+            this.snackbar.success(this.translate.instant('SNACKBAR.TRAINING_PLAN_SUCCESS'));
+          } else {
+            throw new Error('Failed to generate training plan');
+          }
+        } catch (error) {
+          console.error('Training plan generation error:', error);
+          this.snackbar.error(this.translate.instant('SNACKBAR.TRAINING_PLAN_ERROR'));
+        } finally {
+          this.isGeneratingTrainingPlan = false;
+        }
+      },
+      error: (error) => {
+        console.error('Training plan generation error:', error);
+        this.snackbar.error(this.translate.instant('SNACKBAR.TRAINING_PLAN_ERROR'));
+        this.isGeneratingTrainingPlan = false;
+      }
+    });
   }
 
 }

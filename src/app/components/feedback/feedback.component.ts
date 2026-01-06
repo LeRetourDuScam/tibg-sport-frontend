@@ -40,7 +40,7 @@ export class FeedbackComponent implements OnInit {
   }
 
   async submitFeedback() {
-    if (!this.selectedRating || this.isSubmitting) return;
+    if (!this.selectedRating || this.isSubmitting || this.isCommentTooLong()) return;
 
     this.isSubmitting = true;
 
@@ -60,6 +60,14 @@ export class FeedbackComponent implements OnInit {
     } finally {
       this.isSubmitting = false;
     }
+  }
+
+  isCommentTooLong(): boolean {
+    return this.feedbackComment.length > 300;
+  }
+
+  get remainingCharacters(): number {
+    return 300 - this.feedbackComment.length;
   }
 
   getRatingLabel(rating: FeedbackRating): string {

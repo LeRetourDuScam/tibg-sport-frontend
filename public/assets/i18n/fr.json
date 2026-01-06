@@ -182,7 +182,12 @@
     "ESTIMATED_BUDGET": "Budget estimé",
     "MAPS_SEARCH_QUERY": "club près de moi",
     "YOUTUBE_SEARCH_QUERY": "tutoriel débutant",
-    "EQUIPMENT_SEARCH_QUERY": "équipement {{sport}} débutant"
+    "EQUIPMENT_SEARCH_QUERY": "équipement {{sport}} débutant",
+    "GET_TRAINING_PLAN": "Obtenez Votre Plan d'Entraînement Personnalisé",
+    "TRAINING_PLAN_DESCRIPTION": "Générez un plan d'entraînement détaillé adapté à votre profil et recommandation sportive",
+    "CREATE_PDF": "Créer PDF du Plan",
+    "GENERATING": "Génération...",
+    "EXPORTING": "Exportation..."
   },
   "COMPARISON": {
     "TITLE": "Comparer les Sports",
@@ -443,7 +448,9 @@
     "PDF_ERROR": "Erreur lors de l'export PDF",
     "LINK_COPIED": "Lien copié dans le presse-papiers !",
     "COPY_ERROR": "Erreur lors de la copie",
-    "FEEDBACK_ERROR": "Erreur lors de l'envoi du feedback"
+    "FEEDBACK_ERROR": "Erreur lors de l'envoi du feedback",
+    "TRAINING_PLAN_SUCCESS": "Plan d'entraînement PDF généré avec succès !",
+    "TRAINING_PLAN_ERROR": "Erreur lors de la génération du plan"
   },
   "PDF": {
     "SUBTITLE": "Votre Recommandation Sportive Personnalisée",
@@ -471,7 +478,15 @@
     "TAGLINE": "L'IA au Service de Votre Santé",
     "PAGE": "Page",
     "AVAILABLE_DAYS": "Disponibilité",
-    "MAIN_GOAL": "Objectif principal"
+    "MAIN_GOAL": "Objectif principal",
+    "ERROR_GENERATE": "Erreur lors de la génération du PDF",
+    "DURATION": "Durée",
+    "WEEKS": "semaines",
+    "PERSONALIZED_PLAN": "Votre Plan d'Entraînement Personnalisé",
+    "YOUR_GOAL": "Votre Objectif",
+    "REQUIRED_EQUIPMENT": "Équipement Requis",
+    "WEEK": "Semaine",
+    "PROGRESSION_TIPS": "Conseils de Progression"
   },
   "FEEDBACK": {
     "TITLE": "Cette recommandation vous convient-elle ?",
@@ -483,7 +498,8 @@
     "SUBMIT": "Envoyer mon avis",
     "SUBMITTING": "Envoi en cours...",
     "THANK_YOU": "Merci pour votre retour.",
-    "ERROR": "Erreur lors de l'envoi. Veuillez réessayer."
+    "ERROR": "Erreur lors de l'envoi. Veuillez réessayer.",
+    "TOO_LONG": "Le commentaire dépasse 300 caractères"
   },
   "FEEDBACKS": {
     "TITLE": "Avis utilisateurs",
@@ -493,7 +509,9 @@
     "POSITIVE": "Positifs",
     "NEGATIVE": "Négatifs",
     "NO_DATA": "Aucun avis pour le moment",
-    "NO_DATA_DESC": "Les retours des utilisateurs apparaîtront ici"
+    "NO_DATA_DESC": "Les avis des utilisateurs apparaîtront ici",
+    "READ_MORE": "Lire plus",
+    "READ_LESS": "Lire moins"
   },
   "SAVED_RESULTS": {
     "TITLE": "Mes résultats sauvegardés",

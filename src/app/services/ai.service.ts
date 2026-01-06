@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environment/environment';
 import { SportRecommendation } from '../models/SportRecommendation.model';
 import { UserProfile } from '../models/UserProfile.model';
+import { TrainingPlan } from '../models/TrainingPlan.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +14,16 @@ export class AiService {
 
   constructor(private http: HttpClient) {}
 
-  /**
-   * Sends the user profile to the local AI model for analysis
-   * @param profile The user profile to analyze
-   * @returns Observable containing the sport recommendation
-   */
   analyzeProfile(profile: UserProfile): Observable<SportRecommendation> {
     return this.http.post<SportRecommendation>(`${this.apiUrl}/analyze`, profile);
   }
 
+  getTrainingPlan(profile: UserProfile, sport: string): Observable<TrainingPlan> {
+    return this.http.post<TrainingPlan>(`${this.apiUrl}/training-plan`, { profile, sport });
+  }
+
   getCorrespondingImage(sport: string): Observable<string> {
     return this.http.get<string>(`${this.apiUrl}/sport-image/${encodeURIComponent(sport)}`);
-  
+
   }
 }

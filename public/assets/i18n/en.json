@@ -193,7 +193,12 @@
     "ESTIMATED_BUDGET": "Estimated budget",
     "MAPS_SEARCH_QUERY": "club near me",
     "YOUTUBE_SEARCH_QUERY": "beginner tutorial",
-    "EQUIPMENT_SEARCH_QUERY": "{{sport}} equipment beginner"
+    "EQUIPMENT_SEARCH_QUERY": "{{sport}} equipment beginner",
+    "GET_TRAINING_PLAN": "Get Your Personalized Training Plan",
+    "TRAINING_PLAN_DESCRIPTION": "Generate a detailed training plan tailored to your profile and sport recommendation",
+    "CREATE_PDF": "Create Training Plan PDF",
+    "GENERATING": "Generating...",
+    "EXPORTING": "Exporting..."
   },
   "COMPARISON": {
     "TITLE": "Compare Sports",
@@ -454,7 +459,9 @@
     "PDF_ERROR": "Error exporting PDF",
     "LINK_COPIED": "Link copied to clipboard!",
     "COPY_ERROR": "Error copying to clipboard",
-    "FEEDBACK_ERROR": "Error submitting feedback"
+    "FEEDBACK_ERROR": "Error submitting feedback",
+    "TRAINING_PLAN_SUCCESS": "Training plan PDF generated successfully!",
+    "TRAINING_PLAN_ERROR": "Error generating training plan"
   },
   "PDF": {
     "SUBTITLE": "Your Personalized Sport Recommendation",
@@ -482,7 +489,15 @@
     "TAGLINE": "AI for Your Health",
     "PAGE": "Page",
     "AVAILABLE_DAYS": "Availability",
-    "MAIN_GOAL": "Main goal"
+    "MAIN_GOAL": "Main goal",
+    "ERROR_GENERATE": "Error generating PDF",
+    "DURATION": "Duration",
+    "WEEKS": "weeks",
+    "PERSONALIZED_PLAN": "Your Personalized Training Plan",
+    "YOUR_GOAL": "Your Goal",
+    "REQUIRED_EQUIPMENT": "Required Equipment",
+    "WEEK": "Week",
+    "PROGRESSION_TIPS": "Progression Tips"
   },
   "FEEDBACK": {
     "TITLE": "Does this recommendation suit you?",
@@ -494,7 +509,8 @@
     "SUBMIT": "Submit feedback",
     "SUBMITTING": "Submitting...",
     "THANK_YOU": "Thank you for your feedback.",
-    "ERROR": "Error submitting feedback. Please try again."
+    "ERROR": "Error submitting feedback. Please try again.",
+    "TOO_LONG": "Comment exceeds 300 characters"
   },
   "FEEDBACKS": {
     "TITLE": "User Feedbacks",
@@ -504,7 +520,9 @@
     "POSITIVE": "Positive",
     "NEGATIVE": "Negative",
     "NO_DATA": "No feedback yet",
-    "NO_DATA_DESC": "Feedbacks from users will appear here"
+    "NO_DATA_DESC": "Feedbacks from users will appear here",
+    "READ_MORE": "Read more",
+    "READ_LESS": "Read less"
   },
   "SAVED_RESULTS": {
     "TITLE": "My Saved Results",

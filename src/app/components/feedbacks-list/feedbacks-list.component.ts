@@ -15,6 +15,7 @@ import { FeedbackService, Feedback } from '../../services/feedback.service';
 export class FeedbacksListComponent implements OnInit {
   feedbacks: Feedback[] = [];
   isLoading = true;
+  expandedComments: Set<number> = new Set();
   stats = {
     total: 0,
     perfect: 0,
@@ -93,4 +94,21 @@ export class FeedbacksListComponent implements OnInit {
       minute: '2-digit'
     });
   }
+
+  isLongComment(comment: string): boolean {
+    return comment ? comment.length > 150 : false;
+  }
+
+  isExpanded(index: number): boolean {
+    return this.expandedComments.has(index);
+  }
+
+  toggleExpand(index: number): void {
+    if (this.expandedComments.has(index)) {
+      this.expandedComments.delete(index);
+    } else {
+      this.expandedComments.add(index);
+    }
+  }
 }
+
