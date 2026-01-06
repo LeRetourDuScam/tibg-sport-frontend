@@ -4,6 +4,8 @@ import { provideHttpClient, HttpClient, withInterceptors } from '@angular/common
 import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
 import { CustomTranslateLoader } from './services/custom-translate-loader';
 import { errorInterceptor } from './interceptors/error.interceptor';
+import { httpErrorInterceptor } from './interceptors/http-error.interceptor';
+import { authInterceptor } from './interceptors/auth.interceptor';
 import {
   LucideAngularModule,
   Laptop,
@@ -52,7 +54,9 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes, withHashLocation()),
-    provideHttpClient(withInterceptors([errorInterceptor])),
+    provideHttpClient(
+      withInterceptors([authInterceptor, httpErrorInterceptor, errorInterceptor])
+    ),
     provideTranslateService({
       defaultLanguage: 'fr',
       loader: {
