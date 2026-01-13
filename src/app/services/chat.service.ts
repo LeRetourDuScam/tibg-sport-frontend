@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, map } from 'rxjs/operators';
 import { environment } from '../../environment/environment';
-import { ChatRequest, ChatResponse, ChatMessage } from '../models/ChatMessage.model';
-import { UserProfile } from '../models/UserProfile.model';
-import { SportRecommendation } from '../models/SportRecommendation.model';
+import { ChatResponse, HealthChatRequest } from '../models/ChatMessage.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,21 +13,11 @@ export class ChatService {
 
   constructor(private http: HttpClient) {}
 
-  sendMessage(
-    userProfile: UserProfile,
-    recommendation: SportRecommendation,
-    conversationHistory: ChatMessage[],
-    userMessage: string
-  ): Observable<ChatResponse> {
-    const request: ChatRequest = {
-      userProfile,
-      recommendation,
-      conversationHistory,
-      userMessage
-    };
 
-    return this.http.post<ChatResponse>(this.apiUrl, request).pipe(
-      retry(2),
+  sendHealthMessage(request: HealthChatRequest): Observable<string> {
+    return this.http.post<ChatResponse>(`${this.apiUrl}/health`, request).pipe(
+      retry(1),
+      map(res => res.message),
       catchError(this.handleError)
     );
   }

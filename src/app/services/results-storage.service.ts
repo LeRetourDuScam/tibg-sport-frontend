@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
-import { SportRecommendation } from '../models/SportRecommendation.model';
-import { UserProfile } from '../models/UserProfile.model';
+import { HealthQuestionnaireResult } from '../models/HealthQuestionnaire.model';
+import { Exercise } from '../models/Exercice.model';
 
 export interface SavedResult {
   id: string;
-  recommendation: SportRecommendation;
-  userProfile: UserProfile;
   timestamp: string;
+}
+
+export interface SavedHealthResult {
+  id: string;
+  type: 'health';
+  healthResult: HealthQuestionnaireResult;
+  exercises: Exercise[];
+  savedAt: Date;
 }
 
 @Injectable({
@@ -14,37 +20,10 @@ export interface SavedResult {
 })
 export class ResultsStorageService {
   private readonly STORAGE_KEY = 'fytai_saved_results';
+  private readonly HEALTH_STORAGE_KEY = 'fytai_saved_health_results';
   private readonly MAX_SAVED_RESULTS = 5;
 
   constructor() { }
-
-  /**
-   * Sauvegarde un résultat dans le localStorage
-   */
-  saveResults(recommendation: SportRecommendation, userProfile: UserProfile): string {
-    const resultsData: SavedResult = {
-      recommendation,
-      userProfile,
-      timestamp: new Date().toISOString(),
-      id: this.generateId()
-    };
-
-    const savedResults = this.getSavedResults();
-    savedResults.unshift(resultsData); // Ajouter au début
-
-    // Garder seulement les MAX_SAVED_RESULTS derniers résultats
-    if (savedResults.length > this.MAX_SAVED_RESULTS) {
-      savedResults.splice(this.MAX_SAVED_RESULTS);
-    }
-
-    try {
-      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(savedResults));
-      return resultsData.id;
-    } catch (error) {
-      console.error('Erreur lors de la sauvegarde des résultats:', error);
-      throw new Error('Impossible de sauvegarder les résultats. Votre navigateur a peut-être désactivé le stockage local.');
-    }
-  }
 
   /**
    * Récupère tous les résultats sauvegardés
@@ -141,6 +120,85 @@ export class ResultsStorageService {
       return true;
     } catch (error) {
       return false;
+    }
+  }
+
+  // =====================
+  // Health Results Methods
+  // =====================
+
+  /**
+   * Sauvegarde un résultat de santé dans le localStorage
+   */
+  saveHealthResult(healthResult: SavedHealthResult): string {
+    const savedResults = this.getSavedHealthResults();
+    savedResults.unshift(healthResult);
+
+    if (savedResults.length > this.MAX_SAVED_RESULTS) {
+      savedResults.splice(this.MAX_SAVED_RESULTS);
+    }
+
+    try {
+      localStorage.setItem(this.HEALTH_STORAGE_KEY, JSON.stringify(savedResults));
+      return healthResult.id;
+    } catch (error) {
+      console.error('Erreur lors de la sauvegarde des résultats santé:', error);
+      throw new Error('Impossible de sauvegarder les résultats santé.');
+    }
+  }
+
+  /**
+   * Récupère tous les résultats de santé sauvegardés
+   */
+  getSavedHealthResults(): SavedHealthResult[] {
+    try {
+      const data = localStorage.getItem(this.HEALTH_STORAGE_KEY);
+      if (!data) {
+        return [];
+      }
+      return JSON.parse(data);
+    } catch (error) {
+      console.error('Erreur lors de la récupération des résultats santé:', error);
+      return [];
+    }
+  }
+
+  /**
+   * Récupère un résultat santé spécifique par ID
+   */
+  getHealthResultById(id: string): SavedHealthResult | null {
+    const results = this.getSavedHealthResults();
+    return results.find(result => result.id === id) || null;
+  }
+
+  /**
+   * Supprime un résultat santé spécifique
+   */
+  deleteHealthResult(id: string): boolean {
+    try {
+      const results = this.getSavedHealthResults();
+      const filteredResults = results.filter(result => result.id !== id);
+
+      if (filteredResults.length === results.length) {
+        return false;
+      }
+
+      localStorage.setItem(this.HEALTH_STORAGE_KEY, JSON.stringify(filteredResults));
+      return true;
+    } catch (error) {
+      console.error('Erreur lors de la suppression du résultat santé:', error);
+      return false;
+    }
+  }
+
+  /**
+   * Supprime tous les résultats santé sauvegardés
+   */
+  clearAllHealthResults(): void {
+    try {
+      localStorage.removeItem(this.HEALTH_STORAGE_KEY);
+    } catch (error) {
+      console.error('Erreur lors de la suppression de tous les résultats santé:', error);
     }
   }
 }

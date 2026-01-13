@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { LucideAngularModule, ThumbsUp, ThumbsDown, Meh, Frown } from 'lucide-angular';
 import { FeedbackService, FeedbackRating } from '../../services/feedback.service';
-import { SportRecommendation } from '../../models/SportRecommendation.model';
+import { FeedbackTarget } from '../../models/FeedbackTarget.model';
 import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
@@ -15,7 +15,7 @@ import { SnackbarService } from '../../services/snackbar.service';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent implements OnInit {
-  @Input() recommendation!: SportRecommendation;
+  @Input() target!: FeedbackTarget;
 
   selectedRating: FeedbackRating | null = null;
   feedbackComment = '';
@@ -48,9 +48,9 @@ export class FeedbackComponent implements OnInit {
       await this.feedbackService.submitFeedback({
         rating: this.selectedRating,
         comment: this.feedbackComment,
-        sport: this.recommendation.sport,
-        score: this.recommendation.score,
-        context: 'recommendation-result'
+        sport: this.target.sport,
+        score: this.target.score,
+        context: this.target.context || 'health-questionnaire-result'
       });
 
       this.isSubmitted = true;

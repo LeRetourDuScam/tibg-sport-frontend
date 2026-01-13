@@ -8,16 +8,16 @@ export const routes: Routes = [
     title: 'FytAI - Home'
   },
   {
-    path: 'form',
-    loadComponent: () => import('./components/form/form.component')
-      .then(m => m.FormComponent),
-    title: 'FytAI - Quiz'
+    path: 'questionnaire-sante',
+    loadComponent: () => import('./components/health-questionnaire/health-questionnaire.component')
+      .then(m => m.HealthQuestionnaireComponent),
+    title: 'FytAI - Questionnaire Santé'
   },
   {
-    path: 'results',
-    loadComponent: () => import('./components/results/results.component')
-      .then(m => m.ResultsComponent),
-    title: 'FytAI - Results'
+    path: 'resultats-sante',
+    loadComponent: () => import('./components/health-results/health-results.component')
+      .then(m => m.HealthResultsComponent),
+    title: 'FytAI - Résultats Santé'
   },
   {
     path: 'saved-results',
@@ -36,12 +36,6 @@ export const routes: Routes = [
     loadComponent: () => import('./components/about/about.component')
       .then(m => m.AboutComponent),
     title: 'FytAI - About'
-  },
-   {
-    path: 'examples',
-    loadComponent: () => import('./components/examples/examples.component')
-      .then(m => m.ExamplesComponent),
-    title: 'FytAI - Examples'
   },
   {
     path: 'faq',

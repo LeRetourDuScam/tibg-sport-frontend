@@ -1,0 +1,138 @@
+/* Animation for score bar */
+.animate-score-bar {
+  animation: growWidth 1s ease-out forwards;
+}
+
+@keyframes growWidth {
+  from {
+    width: 0;
+  }
+}
+
+/* Exercise card hover effect */
+.exercise-card {
+  transition: all 0.2s ease;
+}
+
+.exercise-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Tab transitions */
+.tab-content {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Expandable exercise animation */
+.exercise-details {
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+/* Score circle pulse */
+.score-circle {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+}
+
+/* Risk factor badge */
+.risk-badge {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  75% {
+    transform: translateX(3px);
+  }
+}
+
+/* Category card enter animation */
+.category-card {
+  animation: scaleIn 0.4s ease backwards;
+}
+
+.category-card:nth-child(1) { animation-delay: 0.1s; }
+.category-card:nth-child(2) { animation-delay: 0.15s; }
+.category-card:nth-child(3) { animation-delay: 0.2s; }
+.category-card:nth-child(4) { animation-delay: 0.25s; }
+.category-card:nth-child(5) { animation-delay: 0.3s; }
+.category-card:nth-child(6) { animation-delay: 0.35s; }
+.category-card:nth-child(7) { animation-delay: 0.4s; }
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Program day card hover */
+.day-card {
+  transition: all 0.2s ease;
+}
+
+.day-card:hover {
+  border-color: var(--color-blue-400);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .score-circle {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .score-circle span {
+    font-size: 2.5rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+}

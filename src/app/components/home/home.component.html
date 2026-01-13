@@ -52,11 +52,11 @@
     <div class="bg-white border border-neutral-200 rounded-lg p-6 mb-6">
       <div class="flex flex-col sm:flex-row gap-4 items-center justify-between">
         <div>
-          <p class="text-sm text-neutral-500 mb-1">{{ 'HOME.TIME_ESTIMATE' | translate }}</p>
+          <p class="text-sm text-neutral-500">{{ 'HOME.CARD_DESCRIPTION' | translate }}</p>
         </div>
         <button
-          [routerLink]="['/form']"
-          class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-md text-sm font-medium transition-colors cursor-pointer">
+          [routerLink]="['/questionnaire-sante']"
+          class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-md text-sm font-medium transition-colors cursor-pointer whitespace-nowrap">
           {{ 'HOME.START_BUTTON' | translate }}
         </button>
       </div>
@@ -98,14 +98,6 @@
           {{ 'HOME.LEARN_MORE_METHODOLOGY' | translate }} →
         </a>
       </div>
-    </div>
-
-    <div class="bg-white border border-neutral-200 rounded-lg p-6 mb-6">
-      <p class="text-sm text-neutral-600 mb-3">{{ 'HOME.QUICK_DEMO_TITLE' | translate }}</p>
-      <a [routerLink]="['/examples']"
-         class="inline-flex items-center text-sm text-blue-600 hover:text-blue-700 hover:underline">
-        {{ 'HOME.SEE_EXAMPLES' | translate }} →
-      </a>
     </div>
 
     <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">

@@ -1,29 +1,30 @@
 {
   "HOME": {
-    "TITLE": "Trouvez Votre Sport Idéal",
-    "VIEW_FEEDBACKS": "Voir les avis des utilisateurs",
+    "TITLE": "Évaluez Votre Profil de Santé",
+    "VIEW_FEEDBACKS": "Voir les retours des utilisateurs",
     "SAVED_RESULTS": "Résultats sauvegardés",
-    "SUBTITLE": "Découvrez le sport parfait pour vous grâce à l'intelligence artificielle",
-    "DESCRIPTION": "Notre système d'analyse avancé prend en compte votre profil physique, vos objectifs et vos préférences pour vous recommander les sports les plus adaptés à votre situation.",
-    "START_BUTTON": "Commencer l'analyse",
+    "SUBTITLE": "Découvrez votre état de santé avec notre questionnaire complet",
+    "CARD_DESCRIPTION": "Évaluez votre condition physique et recevez des exercices personnalisés basés sur votre score santé.",
+    "DESCRIPTION": "Notre système d'analyse évalue votre condition physique, vos habitudes de vie et vos facteurs de risque afin de vous proposer des recommandations personnalisées.",
+    "START_BUTTON": "Démarrer l'évaluation",
     "HOW_IT_WORKS": "Comment ça marche ?",
-    "STEP1_TITLE": "Remplissez le formulaire",
-    "STEP1_DESC": "Partagez vos informations physiques et vos objectifs",
-    "STEP2_TITLE": "Analyse IA",
-    "STEP2_DESC": "Notre IA analyse votre profil en profondeur",
+    "STEP1_TITLE": "Répondez au questionnaire",
+    "STEP1_DESC": "Répondez à des questions sur votre santé et votre mode de vie",
+    "STEP2_TITLE": "Analyse",
+    "STEP2_DESC": "Nous analysons votre profil de façon globale",
     "STEP3_TITLE": "Recommandations",
-    "STEP3_DESC": "Recevez des suggestions personnalisées avec un plan d'action",
+    "STEP3_DESC": "Recevez des exercices et conseils personnalisés",
     "FOOTER": "100% gratuit • Données traitées localement • Résultats instantanés",
     "SOCIAL_PROOF_USERS": "Utilisé par 1000+ personnes",
-    "SOCIAL_PROOF_RATING": "4.7/5 satisfaction moyenne",
-    "SOCIAL_PROOF_SPORTS": "50+ sports analysés",
+    "SOCIAL_PROOF_RATING": "4,7/5 satisfaction moyenne",
+    "SOCIAL_PROOF_CATEGORIES": "7 catégories de santé analysées",
     "QUICK_DEMO_TITLE": "Vous voulez voir un exemple avant de commencer ?",
-    "QUICK_DEMO_DESC": "Découvrez 5 profils types et leurs recommandations personnalisées",
+    "QUICK_DEMO_DESC": "Découvrez des profils types et leurs recommandations personnalisées",
     "SEE_EXAMPLES": "Voir des exemples de résultats",
     "LEARN_MORE_METHODOLOGY": "En savoir plus sur notre méthodologie",
-    "TIME_ESTIMATE": "Durée estimée : 7-10 minutes. Vos réponses sont sauvegardées automatiquement.",
+    "TIME_ESTIMATE": "Durée estimée : 5–7 minutes. Vos réponses sont sauvegardées automatiquement.",
     "DISCLAIMER_TITLE": "Avertissement médical important",
-    "DISCLAIMER_TEXT": "FytAI ne remplace pas un avis médical professionnel. Consultez toujours un médecin ou un professionnel de santé avant de commencer un nouveau programme sportif, particulièrement si vous avez des conditions médicales préexistantes.",
+    "DISCLAIMER_TEXT": "FytAI ne remplace pas un avis médical professionnel. Consultez toujours un médecin ou un professionnel de santé avant de commencer un nouveau programme d'exercices, surtout si vous avez des antécédents médicaux.",
     "NAV_HOW": "Comment ça marche",
     "NAV_HOW_DESC": "Comprendre notre méthodologie",
     "NAV_FAQ": "Questions fréquentes",
@@ -31,506 +32,871 @@
     "NAV_ABOUT": "À propos de FytAI",
     "NAV_ABOUT_DESC": "Notre équipe et nos valeurs",
     "TRUST_TITLE": "Pourquoi nous faire confiance ?",
-    "TRUST_PRIVACY": "Données non vendues",
+    "TRUST_PRIVACY": "Données jamais vendues",
     "TRUST_FREE": "100% gratuit",
     "TRUST_INSTANT": "Résultats instantanés",
     "TRUST_PERSONALIZED": "Vraiment personnalisé"
   },
-  "FORM": {
-    "TITLE": "Votre Profil Sportif",
-    "SUBTITLE": "Remplissez ce formulaire pour obtenir votre recommandation personnalisée",
-    "SELECT": "Sélectionner...",
-    "REQUIRED_FIELD": "Ce champ est requis",
-    "UNREALISTIC_AGE": "Âge attendu entre 13 et 100 ans.",
-    "INVALID_BMI": "IMC incohérent, vérifiez poids/taille.",
-    "INCONSISTENT_LEG_LENGTH": "Longueur de jambe incohérente avec la taille.",
-    "STEP": "Étape",
-    "STEP_PERSONAL": "Personnel et Santé",
-    "STEP_GOALS": "Objectifs",
-    "STEP_PREFERENCES": "Préférences",
-    "PREVIOUS": "Précédent",
-    "NEXT": "Suivant",
-    "PERSONAL_INFO": "Informations Personnelles",
-    "AGE": "Âge",
-    "GENDER": "Sexe",
-    "MALE": "Homme",
-    "FEMALE": "Femme",
-    "OTHER": "Autre",
-    "PHYSICAL_MEASUREMENTS": "Mesures Physiques",
-    "HEIGHT": "Taille (cm)",
-    "WEIGHT": "Poids (kg)",
-    "HEALTH_AND_FITNESS": "Santé et Condition Physique",
-    "FITNESS_LEVEL": "Niveau de forme physique",
-    "FITNESS_SEDENTARY": "Sédentaire",
-    "FITNESS_LIGHT": "Léger",
-    "FITNESS_MODERATE": "Modéré",
-    "FITNESS_INTENSE": "Intense",
-    "EXERCISE_FREQUENCY": "Fréquence d'exercice",
-    "NEVER": "Jamais",
-    "ONE_TO_TWO": "1-2 fois par semaine",
-    "THREE_TO_FOUR": "3-4 fois par semaine",
-    "FIVE_PLUS": "5+ fois par semaine",
-    "HEALTH_CONDITIONS": "Problèmes de Santé",
-    "HEALTH_CONDITIONS_PLACEHOLDER": "Décrivez vos problèmes de santé (diabète, hypertension, etc.)",
-    "INJURIES": "Blessures actuelles",
-    "INJURIES_PLACEHOLDER": "Décrivez vos blessures actuelles...",
-    "GOALS_AND_MOTIVATIONS": "Objectifs et Motivations",
-    "MAIN_GOAL": "Objectif principal",
-    "LOSE_WEIGHT": "Perdre du poids",
-    "GAIN_MUSCLE": "Gagner du muscle",
-    "ENDURANCE": "Améliorer l'endurance",
-    "FLEXIBILITY": "Améliorer la flexibilité",
-    "GENERAL_HEALTH": "Améliorer la santé générale",
-    "COMPETITION": "Compétition",
-    "LEISURE": "Loisir / plaisir",
-    "AVAILABLE_TIME": "Temps disponible par séance",
-    "FIFTEEN_MIN": "15 minutes",
-    "THIRTY_MIN": "30 minutes",
-    "ONE_HOUR": "1 heure",
-    "ONE_HOUR_THIRTY": "1h30",
-    "TWO_HOURS_PLUS": "2h+",
-    "AVAILABLE_DAYS": "Jours disponibles par semaine",
-    "PREFERENCES_AND_EXPERIENCE": "Préférences et Expérience",
-    "LOCATION_PREFERENCE": "Préférence de lieu",
-    "HOME": "Maison",
-    "PARK": "Parc",
-    "GYM": "Gym",
-    "FLEXIBLE": "Flexible",
-    "TEAM_PREFERENCE": "Préférence d'équipe",
-    "ALONE": "Seul",
-    "SMALL_GROUP": "Petit groupe",
-    "LARGE_GROUP": "Grand groupe",
-    "PRACTISED_SPORTS": "Sports déjà pratiqués",
-    "PRACTISED_SPORTS_PLACEHOLDER": "Ex: Football, natation, yoga...",
-    "LANGUAGE": "Langue",
-    "PROFILE_SUMMARY": "Résumé de votre profil",
-    "EDIT_INFORMATION": "Modifier ces informations",
-    "SUBMIT_BUTTON": "Obtenir recommandation",
-    "SUBMIT": "Envoyer",
-    "SUBMITTING": "Analyse en cours...",
-    "REQUIRED_FIELDS": "* Champs obligatoires",
+  "HEALTH": {
+    "QUESTIONNAIRE_TITLE": "Questionnaire Santé",
+    "QUESTIONNAIRE_SUBTITLE": "Répondez à ces questions pour évaluer votre profil santé",
     "PROGRESS": "Progression",
-    "TIME_REMAINING": "Temps restant",
-    "AUTO_SAVED": "Sauvegardé automatiquement",
-    "SAVED_JUST_NOW": "à l'instant",
-    "SAVED_SECONDS_AGO": "il y a {{seconds}}s",
-    "SAVED_MINUTES_AGO": "il y a {{minutes}}min",
-    "SAVED_HOURS_AGO": "il y a {{hours}}h",
-    "SAVING_NOTIFICATION": "Sauvegardé {{time}}"
+    "CATEGORY_CARDIOVASCULAR": "Santé cardiovasculaire",
+    "CATEGORY_MUSCULOSKELETAL": "Système musculo-squelettique",
+    "CATEGORY_RESPIRATORY": "Système respiratoire",
+    "CATEGORY_METABOLIC": "Métabolisme",
+    "CATEGORY_LIFESTYLE": "Mode de vie",
+    "CATEGORY_PHYSICAL_ACTIVITY": "Activité physique",
+    "CATEGORY_MENTAL_HEALTH": "Santé mentale",
+    "NEXT": "Suivant",
+    "PREVIOUS": "Précédent",
+    "SUBMIT": "Voir mes résultats",
+    "REQUIRED_QUESTION": "Cette question est obligatoire",
+    "SCORE_EXCELLENT": "Excellent",
+    "SCORE_GOOD": "Bon",
+    "SCORE_MODERATE": "Moyen",
+    "SCORE_NEEDS_IMPROVEMENT": "À améliorer",
+    "SCORE_AT_RISK": "À risque",
+    "RESULTS_TITLE": "Votre Score Santé",
+    "RESULTS_SUBTITLE": "Basé sur vos réponses au questionnaire",
+    "LEVEL": "Niveau",
+    "POINTS": "points",
+    "TO_IMPROVE": "À améliorer",
+    "RISK_FACTORS": "Facteurs de risque identifiés",
+    "RECOMMENDATIONS_TITLE": "Recommandations personnalisées",
+    "EXERCISES_TAB": "Exercices",
+    "OVERVIEW_TAB": "Vue d'ensemble",
+    "DIFFICULTY_BEGINNER": "Débutant",
+    "DIFFICULTY_INTERMEDIATE": "Intermédiaire",
+    "DIFFICULTY_ADVANCED": "Avancé",
+    "EXERCISE_BENEFITS": "Bienfaits",
+    "EXERCISE_INSTRUCTIONS": "Instructions",
+    "EXERCISE_CONTRAINDICATIONS": "Contre-indications",
+    "EXERCISE_EQUIPMENT": "Équipement",
+    "SHOW_ALL_EXERCISES": "Tout afficher",
+    "SHOW_LESS": "Afficher moins",
+    "RETAKE": "Refaire le questionnaire",
+    "SAVE": "Sauvegarder",
+    "SAVED": "Sauvegardé",
+    "SHARE": "Partager",
+    "LOADING": "Chargement des résultats...",
+    "COMPLETED": "complété",
+    "RISK_HIGH": "Attention",
+    "VALIDATION_ERROR": "Veuillez sélectionner une réponse pour continuer",
+    "RESET": "Recommencer",
+    "SUBMITTING": "Calcul en cours...",
+    "FOOTER_DISCLAIMER": "Vos réponses sont enregistrées automatiquement et restent confidentielles. Ce questionnaire ne remplace pas un avis médical.",
+    "ALERT_UNANSWERED_REQUIRED": "Veuillez répondre à toutes les questions obligatoires ({{count}} restantes).",
+    "SUBMIT_ERROR": "Une erreur est survenue. Veuillez réessayer.",
+    "CONFIRM_RESET": "Voulez-vous vraiment recommencer le questionnaire ? Toutes vos réponses seront perdues.",
+    "RESET_TITLE": "Recommencer le questionnaire",
+    "RESET_SUCCESS": "Le questionnaire a été réinitialisé.",
+    "SHOW_ALL_EXERCISES_WITH_COUNT": "Tout afficher ({{count}})",
+    "RETAKE_IN_30_DAYS": "Refaites le questionnaire dans 30 jours pour suivre vos progrès",
+    "REPS": "répétitions",
+    "SETS": "séries",
+    "SHARE_TWEET_TEXT": "🩺 J'ai obtenu {{score}}% sur FytAI ! Mon niveau : {{level}}. Et vous ? #FytAI #Santé",
+    "EXERCISE_CATEGORY": {
+      "cardio": "Cardio",
+      "strength": "Renforcement",
+      "flexibility": "Souplesse",
+      "balance": "Équilibre",
+      "breathing": "Respiration",
+      "relaxation": "Relaxation",
+      "core": "Gainage",
+      "mobility": "Mobilité"
+    },
+    "DAYS": {
+      "monday": "Lundi",
+      "tuesday": "Mardi",
+      "wednesday": "Mercredi",
+      "thursday": "Jeudi",
+      "friday": "Vendredi",
+      "saturday": "Samedi",
+      "sunday": "Dimanche"
+    },
+    "DAY_FALLBACK": "Jour {{day}}",
+    "QUESTIONS": {
+      "cardio-1": {
+        "TEXT": "Avez-vous déjà été diagnostiqué(e) avec une maladie cardiaque ?",
+        "OPTIONS": { "no": "Non", "yes": "Oui" }
+      },
+      "cardio-2": {
+        "TEXT": "Ressentez-vous des douleurs thoraciques au repos ou à l'effort ?",
+        "OPTIONS": { "no": "Non", "yes": "Oui" }
+      },
+      "cardio-3": {
+        "TEXT": "Avez-vous de l'hypertension artérielle ?",
+        "OPTIONS": {
+          "no": "Non",
+          "controlled": "Oui, mais contrôlée par médicament",
+          "uncontrolled": "Oui, non contrôlée",
+          "unknown": "Je ne sais pas"
+        }
+      },
+      "cardio-4": {
+        "TEXT": "Perdez-vous parfois l'équilibre à cause d'étourdissements ?",
+        "OPTIONS": {
+          "never": "Jamais",
+          "rarely": "Rarement",
+          "sometimes": "Parfois",
+          "often": "Souvent"
+        }
+      },
+      "cardio-5": {
+        "TEXT": "Êtes-vous rapidement essoufflé(e) lors d'un effort léger (monter des escaliers) ?",
+        "OPTIONS": {
+          "never": "Jamais",
+          "rarely": "Rarement",
+          "sometimes": "Parfois",
+          "often": "Souvent"
+        }
+      },
+      "musculo-1": {
+        "TEXT": "Avez-vous des problèmes osseux ou articulaires qui pourraient être aggravés par l'exercice ?",
+        "OPTIONS": { "no": "Non", "yes": "Oui" }
+      },
+      "musculo-2": {
+        "TEXT": "Avez-vous des douleurs au dos ?",
+        "OPTIONS": {
+          "never": "Jamais",
+          "rarely": "Rarement (quelques fois par an)",
+          "sometimes": "Parfois (quelques fois par mois)",
+          "often": "Souvent (plusieurs fois par semaine)",
+          "chronic": "Douleur chronique constante"
+        }
+      },
+      "musculo-3": {
+        "TEXT": "Avez-vous des douleurs aux genoux ?",
+        "OPTIONS": {
+          "never": "Jamais",
+          "rarely": "Rarement",
+          "sometimes": "Parfois",
+          "often": "Souvent",
+          "chronic": "Douleur chronique"
+        }
+      },
+      "musculo-4": {
+        "TEXT": "Pouvez-vous tenir en équilibre sur une jambe pendant 30 secondes ?",
+        "OPTIONS": {
+          "easily": "Oui, facilement des deux côtés",
+          "difficulty": "Oui, mais avec difficulté",
+          "no": "Non",
+          "not-tried": "Je n'ai pas essayé"
+        }
+      },
+      "metabolic-1": {
+        "TEXT": "Avez-vous du diabète ?",
+        "OPTIONS": {
+          "no": "Non",
+          "prediabetes": "Prédiabète / à risque",
+          "type2-controlled": "Type 2 (contrôlé)",
+          "type2-uncontrolled": "Type 2 (non contrôlé)",
+          "type1": "Type 1"
+        }
+      },
+      "metabolic-2": {
+        "TEXT": "Quel est votre Indice de Masse Corporelle (IMC) approximatif ?",
+        "OPTIONS": {
+          "underweight": "Moins de 18,5 (insuffisance pondérale)",
+          "normal": "18,5 - 24,9 (normal)",
+          "overweight": "25 - 29,9 (surpoids)",
+          "obese1": "30 - 34,9 (obésité classe 1)",
+          "obese2": "35 et plus (obésité classe 2+)",
+          "unknown": "Je ne connais pas mon IMC"
+        }
+      },
+      "lifestyle-1": {
+        "TEXT": "Fumez-vous ?",
+        "OPTIONS": {
+          "never": "Je n'ai jamais fumé",
+          "former": "Ancien fumeur (arrêt depuis plus d'un an)",
+          "recent-quit": "Arrêt récent (moins d'un an)",
+          "occasional": "Fumeur occasionnel",
+          "regular": "Fumeur régulier"
+        }
+      },
+      "lifestyle-2": {
+        "TEXT": "Combien d'heures dormez-vous en moyenne par nuit ?",
+        "OPTIONS": {
+          "less-5": "Moins de 5 heures",
+          "5-6": "5 à 6 heures",
+          "7-8": "7 à 8 heures",
+          "9-plus": "9 heures ou plus"
+        }
+      },
+      "lifestyle-3": {
+        "TEXT": "Quelle est votre consommation d'alcool ?",
+        "OPTIONS": {
+          "never": "Je ne consomme pas d'alcool",
+          "occasional": "Occasionnelle (1-2 fois/mois)",
+          "moderate": "Modérée (1-2 verres/semaine)",
+          "regular": "Régulière (presque tous les jours)",
+          "heavy": "Importante (plusieurs verres/jour)"
+        }
+      },
+      "lifestyle-4": {
+        "TEXT": "Comment évaluez-vous votre alimentation ?",
+        "OPTIONS": {
+          "excellent": "Excellente (équilibrée, riche en fruits et légumes)",
+          "good": "Bonne (généralement saine)",
+          "average": "Moyenne (pourrait être améliorée)",
+          "poor": "Mauvaise (beaucoup de fast-food, peu de légumes)"
+        }
+      },
+      "activity-1": {
+        "TEXT": "Combien de jours par semaine pratiquez-vous au moins 30 minutes d'activité physique modérée ?",
+        "OPTIONS": {
+          "0": "0 jour",
+          "1-2": "1 à 2 jours",
+          "3-4": "3 à 4 jours",
+          "5-plus": "5 jours ou plus"
+        }
+      },
+      "activity-2": {
+        "TEXT": "Pouvez-vous marcher 2 km sans vous arrêter ?",
+        "OPTIONS": {
+          "easily": "Oui, facilement",
+          "moderate": "Oui, mais avec effort modéré",
+          "difficulty": "Oui, mais c'est difficile",
+          "no": "Non"
+        }
+      },
+      "activity-3": {
+        "TEXT": "Depuis combien de temps n'avez-vous pas fait d'exercice régulièrement ?",
+        "OPTIONS": {
+          "current": "Je fais actuellement de l'exercice régulièrement",
+          "less-month": "Moins d'un mois",
+          "1-6-months": "1 à 6 mois",
+          "6-12-months": "6 mois à 1 an",
+          "more-year": "Plus d'un an"
+        }
+      },
+      "activity-4": {
+        "TEXT": "En moyenne, combien de temps passez-vous assis par jour ?",
+        "OPTIONS": {
+          "less-4": "Moins de 4 heures",
+          "4-6": "4 à 6 heures",
+          "6-8": "6 à 8 heures",
+          "more-8": "Plus de 8 heures"
+        }
+      },
+      "mental-1": {
+        "TEXT": "Comment évalueriez-vous votre niveau de stress global ?",
+        "OPTIONS": {
+          "low": "Faible",
+          "moderate": "Modéré",
+          "high": "Élevé",
+          "very-high": "Très élevé"
+        }
+      },
+      "mental-2": {
+        "TEXT": "Au cours des 2 dernières semaines, vous êtes-vous senti(e) déprimé(e) ou sans espoir ?",
+        "OPTIONS": {
+          "never": "Jamais",
+          "few-days": "Quelques jours",
+          "more-half": "Plus de la moitié des jours",
+          "nearly-every": "Presque tous les jours"
+        }
+      },
+      "mental-3": {
+        "TEXT": "Avez-vous généralement suffisamment d'énergie pour vos activités quotidiennes ?",
+        "OPTIONS": {
+          "always": "Oui, toujours",
+          "usually": "Souvent",
+          "sometimes": "Parfois",
+          "rarely": "Rarement"
+        }
+      },
+      "info-age": {
+        "TEXT": "Quel est votre âge ?",
+        "OPTIONS": {
+          "18-29": "18-29 ans",
+          "30-39": "30-39 ans",
+          "40-49": "40-49 ans",
+          "50-59": "50-59 ans",
+          "60-69": "60-69 ans",
+          "70-plus": "70 ans et plus"
+        }
+      },
+      "info-medications": {
+        "TEXT": "Prenez-vous actuellement des médicaments prescrits par un médecin ?",
+        "OPTIONS": {
+          "none": "Non, aucun",
+          "vitamins": "Vitamines/suppléments uniquement",
+          "one": "Oui, un médicament",
+          "multiple": "Oui, plusieurs médicaments"
+        }
+      }
+    },
+    "RISK_DESCRIPTIONS": {
+      "cardio-1": "Antécédents de maladie cardiaque identifiés",
+      "cardio-2": "Douleur thoracique signalée",
+      "cardio-3": "Hypertension non contrôlée",
+      "cardio-4": "Étourdissements fréquents",
+      "cardio-5": "Essoufflement lors d'efforts légers",
+      "musculo-1": "Problèmes osseux/articulaires",
+      "musculo-2": "Douleurs chroniques au dos",
+      "musculo-3": "Douleurs aux genoux",
+      "metabolic-1": "Diabète non contrôlé",
+      "metabolic-2": "Surpoids ou obésité",
+      "lifestyle-1": "Tabagisme actif",
+      "lifestyle-2": "Manque de sommeil",
+      "lifestyle-3": "Consommation d'alcool excessive",
+      "activity-1": "Mode de vie sédentaire",
+      "activity-2": "Faible capacité de marche",
+      "activity-3": "Période d'inactivité prolongée",
+      "activity-4": "Station assise prolongée",
+      "mental-1": "Niveau de stress élevé",
+      "mental-2": "Signes de dépression",
+      "mental-3": "Fatigue chronique",
+      "default": "Facteur de risque identifié"
+    },
+    "RECOMMENDATIONS": {
+      "LEVEL": {
+        "at-risk": {
+          "1": "Consultez un médecin avant de commencer tout programme d'exercice",
+          "2": "Commencez très progressivement avec des exercices doux"
+        },
+        "needs-improvement": {
+          "1": "Commencez avec des exercices légers et augmentez progressivement",
+          "2": "Consultez un professionnel de santé pour des conseils personnalisés"
+        },
+        "moderate": {
+          "1": "Vous pouvez pratiquer une activité physique modérée",
+          "2": "Soyez attentif(ve) aux signaux de votre corps"
+        },
+        "good": {
+          "1": "Continuez votre mode de vie actif",
+          "2": "Vous pouvez progresser vers des exercices plus intenses"
+        },
+        "excellent": {
+          "1": "Félicitations ! Maintenez vos bonnes habitudes",
+          "2": "Fixez-vous des objectifs plus ambitieux"
+        }
+      },
+      "CATEGORY": {
+        "cardiovascular": "Améliorez votre santé cardiovasculaire avec des activités d'endurance douces (marche, vélo)",
+        "musculoskeletal": "Renforcez muscles et articulations avec des exercices adaptés de mobilité et de renforcement",
+        "respiratory": "Pratiquez des exercices respiratoires pour améliorer votre capacité pulmonaire",
+        "metabolic": "Combinez activité physique et alimentation équilibrée pour améliorer votre métabolisme",
+        "lifestyle": "Adoptez des habitudes plus saines : sommeil, nutrition, gestion du stress",
+        "physical-activity": "Augmentez progressivement votre activité physique quotidienne",
+        "mental-health": "Ajoutez des exercices de relaxation et de respiration pour votre bien-être mental"
+      },
+      "HIGH_RISK_WARNING": "Attention : des facteurs de risque importants ont été identifiés. Une consultation médicale est recommandée."
+    },
+    "EXERCISES": {
+      "walking": {
+        "NAME": "Marche active",
+        "DESCRIPTION": "Marche à rythme soutenu pour améliorer l'endurance cardiovasculaire",
+        "BENEFITS": {
+          "0": "Améliore la santé cardiaque",
+          "1": "Brûle des calories",
+          "2": "Réduit le stress",
+          "3": "Accessible à tous"
+        },
+        "CONTRAINDICATIONS": { "0": "Douleurs articulaires sévères" },
+        "INSTRUCTIONS": {
+          "0": "Commencez par un échauffement de 5 minutes à rythme lent",
+          "1": "Augmentez progressivement la vitesse jusqu'à être légèrement essoufflé(e)",
+          "2": "Gardez une posture droite et regardez devant vous",
+          "3": "Balancez les bras naturellement",
+          "4": "Terminez par 5 minutes de marche lente pour récupérer"
+        }
+      },
+      "light-cycling": {
+        "NAME": "Vélo léger",
+        "DESCRIPTION": "Cyclisme à intensité modérée, idéal pour les articulations",
+        "BENEFITS": {
+          "0": "Faible impact sur les articulations",
+          "1": "Renforce les jambes",
+          "2": "Améliore l'endurance"
+        },
+        "EQUIPMENT": { "0": "Vélo ou vélo d'appartement" },
+        "CONTRAINDICATIONS": { "0": "Troubles de l'équilibre sévères" },
+        "INSTRUCTIONS": {
+          "0": "Réglez la selle à la bonne hauteur (genou légèrement fléchi en bas)",
+          "1": "Commencez avec une faible résistance",
+          "2": "Gardez une cadence confortable (60-80 tr/min)",
+          "3": "Gardez le dos droit",
+          "4": "Augmentez progressivement la durée"
+        }
+      },
+      "swimming": {
+        "NAME": "Natation",
+        "DESCRIPTION": "Exercice complet sans impact, excellent pour tout le corps",
+        "BENEFITS": {
+          "0": "Sans impact",
+          "1": "Sollicite tout le corps",
+          "2": "Améliore la respiration",
+          "3": "Idéal pour le dos"
+        },
+        "EQUIPMENT": { "0": "Accès à une piscine" },
+        "INSTRUCTIONS": {
+          "0": "Échauffez-vous avec quelques longueurs en brasse",
+          "1": "Alternez les styles de nage",
+          "2": "Concentrez-vous sur la respiration",
+          "3": "Faites des pauses si nécessaire"
+        }
+      },
+      "wall-pushup": {
+        "NAME": "Pompes au mur",
+        "DESCRIPTION": "Variante accessible des pompes pour débutants ou mobilité réduite",
+        "BENEFITS": {
+          "0": "Renforce les bras et la poitrine",
+          "1": "Facile à adapter",
+          "2": "Aucun équipement nécessaire"
+        },
+        "INSTRUCTIONS": {
+          "0": "Tenez-vous face à un mur, bras tendus, mains à hauteur des épaules",
+          "1": "Gardez le corps aligné des talons à la tête",
+          "2": "Pliez les coudes pour rapprocher la poitrine du mur",
+          "3": "Repoussez pour revenir à la position de départ",
+          "4": "Expirez en poussant, inspirez en descendant"
+        }
+      },
+      "chair-squat": {
+        "NAME": "Squat sur chaise",
+        "DESCRIPTION": "Squat assisté pour renforcer les jambes en toute sécurité",
+        "BENEFITS": {
+          "0": "Renforce les quadriceps",
+          "1": "Améliore l'équilibre",
+          "2": "Mouvement fonctionnel du quotidien"
+        },
+        "EQUIPMENT": { "0": "Chaise stable" },
+        "CONTRAINDICATIONS": { "0": "Douleurs au genou sévères" },
+        "INSTRUCTIONS": {
+          "0": "Placez-vous devant une chaise",
+          "1": "Pieds écartés largeur des hanches",
+          "2": "Descendez lentement comme pour vous asseoir",
+          "3": "Touchez la chaise sans vous asseoir complètement",
+          "4": "Remontez en poussant dans les talons"
+        }
+      },
+      "plank-modified": {
+        "NAME": "Planche sur genoux",
+        "DESCRIPTION": "Gainage adapté pour débutants",
+        "BENEFITS": {
+          "0": "Renforce la sangle abdominale",
+          "1": "Améliore la posture",
+          "2": "Protège le dos"
+        },
+        "CONTRAINDICATIONS": { "0": "Douleur lombaire aiguë" },
+        "INSTRUCTIONS": {
+          "0": "Mettez-vous à quatre pattes",
+          "1": "Descendez sur les avant-bras",
+          "2": "Gardez les genoux au sol",
+          "3": "Alignez tête, épaules et hanches",
+          "4": "Contractez les abdos et respirez normalement",
+          "5": "Tenez la position"
+        }
+      },
+      "bodyweight-squat": {
+        "NAME": "Squat au poids du corps",
+        "DESCRIPTION": "Exercice fondamental pour les jambes et les fessiers",
+        "BENEFITS": {
+          "0": "Renforce le bas du corps",
+          "1": "Améliore la mobilité",
+          "2": "Brûle des calories"
+        },
+        "CONTRAINDICATIONS": {
+          "0": "Problèmes de genoux sévères",
+          "1": "Douleurs aux hanches"
+        },
+        "INSTRUCTIONS": {
+          "0": "Pieds légèrement plus écartés que les épaules",
+          "1": "Descendez en envoyant les hanches vers l'arrière",
+          "2": "Gardez les genoux alignés avec les orteils",
+          "3": "Descendez jusqu'à avoir les cuisses parallèles au sol",
+          "4": "Remontez en poussant dans les talons"
+        }
+      },
+      "neck-stretch": {
+        "NAME": "Étirements du cou",
+        "DESCRIPTION": "Étirements doux pour soulager les tensions cervicales",
+        "BENEFITS": {
+          "0": "Soulage les tensions",
+          "1": "Améliore la mobilité du cou",
+          "2": "Réduit les maux de tête"
+        },
+        "INSTRUCTIONS": {
+          "0": "Asseyez-vous ou tenez-vous debout avec une bonne posture",
+          "1": "Inclinez lentement la tête vers l'épaule droite",
+          "2": "Utilisez la main droite pour exercer une légère pression",
+          "3": "Tenez 30 secondes en respirant profondément",
+          "4": "Répétez de l'autre côté"
+        }
+      },
+      "hip-flexor-stretch": {
+        "NAME": "Étirement des fléchisseurs de hanche",
+        "DESCRIPTION": "Étirement essentiel pour compenser la position assise",
+        "BENEFITS": {
+          "0": "Améliore la posture",
+          "1": "Soulage le bas du dos",
+          "2": "Augmente la mobilité des hanches"
+        },
+        "CONTRAINDICATIONS": { "0": "Douleur aiguë à la hanche" },
+        "INSTRUCTIONS": {
+          "0": "Mettez-vous en fente, genou arrière au sol",
+          "1": "Gardez le buste droit",
+          "2": "Poussez doucement les hanches vers l'avant",
+          "3": "Vous devez sentir l'étirement à l'avant de la hanche arrière",
+          "4": "Tenez et respirez profondément"
+        }
+      },
+      "hamstring-stretch": {
+        "NAME": "Étirement des ischio-jambiers",
+        "DESCRIPTION": "Étirement de l'arrière des cuisses",
+        "BENEFITS": {
+          "0": "Améliore la souplesse",
+          "1": "Soulage le bas du dos",
+          "2": "Prévient les blessures"
+        },
+        "INSTRUCTIONS": {
+          "0": "Asseyez-vous au sol avec une jambe tendue devant",
+          "1": "Pliez l'autre jambe, pied contre l'intérieur de la cuisse",
+          "2": "Penchez-vous vers l'avant depuis les hanches",
+          "3": "Gardez le dos droit",
+          "4": "Attrapez le pied ou la cheville"
+        }
+      },
+      "single-leg-stand": {
+        "NAME": "Équilibre sur une jambe",
+        "DESCRIPTION": "Exercice simple pour améliorer l'équilibre et la proprioception",
+        "BENEFITS": {
+          "0": "Améliore l'équilibre",
+          "1": "Renforce les chevilles",
+          "2": "Prévient les chutes"
+        },
+        "CONTRAINDICATIONS": { "0": "Vertiges fréquents" },
+        "INSTRUCTIONS": {
+          "0": "Tenez-vous près d'un mur ou d'une chaise pour vous aider si besoin",
+          "1": "Levez un pied du sol",
+          "2": "Fixez votre regard sur un point devant vous",
+          "3": "Tenez 30 secondes",
+          "4": "Changez de jambe"
+        }
+      },
+      "heel-toe-walk": {
+        "NAME": "Marche talon-pointe",
+        "DESCRIPTION": "Marche en ligne pour améliorer l'équilibre dynamique",
+        "BENEFITS": {
+          "0": "Améliore la coordination",
+          "1": "Renforce les muscles stabilisateurs",
+          "2": "Améliore la marche"
+        },
+        "INSTRUCTIONS": {
+          "0": "Marchez en ligne droite",
+          "1": "Placez le talon d'un pied juste devant les orteils de l'autre",
+          "2": "Écartez les bras pour l'équilibre si nécessaire",
+          "3": "Avancez lentement et de façon contrôlée",
+          "4": "Faites 10 à 15 pas puis revenez"
+        }
+      },
+      "deep-breathing": {
+        "NAME": "Respiration profonde",
+        "DESCRIPTION": "Technique de respiration pour réduire le stress et améliorer l'oxygénation",
+        "BENEFITS": {
+          "0": "Réduit le stress",
+          "1": "Améliore la capacité pulmonaire",
+          "2": "Diminue la pression artérielle",
+          "3": "Améliore la concentration"
+        },
+        "INSTRUCTIONS": {
+          "0": "Asseyez-vous confortablement ou allongez-vous",
+          "1": "Placez une main sur la poitrine et l'autre sur le ventre",
+          "2": "Inspirez lentement par le nez pendant 4 secondes",
+          "3": "Le ventre doit se soulever, la poitrine bouger peu",
+          "4": "Retenez 2 secondes",
+          "5": "Expirez lentement par la bouche pendant 6 secondes",
+          "6": "Répétez 10 fois"
+        }
+      },
+      "body-scan": {
+        "NAME": "Scan corporel (relaxation)",
+        "DESCRIPTION": "Technique de relaxation progressive pour relâcher les tensions",
+        "BENEFITS": {
+          "0": "Réduit l'anxiété",
+          "1": "Améliore le sommeil",
+          "2": "Relâche les tensions musculaires"
+        },
+        "INSTRUCTIONS": {
+          "0": "Allongez-vous confortablement",
+          "1": "Fermez les yeux et respirez calmement",
+          "2": "Concentrez-vous sur vos pieds et détendez-les",
+          "3": "Remontez progressivement : mollets, cuisses, hanches...",
+          "4": "Continuez jusqu'au sommet du crâne",
+          "5": "Repérez les tensions et relâchez-les"
+        }
+      },
+      "diaphragmatic-breathing": {
+        "NAME": "Respiration diaphragmatique",
+        "DESCRIPTION": "Respiration abdominale profonde pour améliorer la fonction respiratoire",
+        "BENEFITS": {
+          "0": "Améliore l'efficacité respiratoire",
+          "1": "Réduit l'essoufflement",
+          "2": "Apaise le système nerveux"
+        },
+        "INSTRUCTIONS": {
+          "0": "Allongez-vous sur le dos, genoux fléchis",
+          "1": "Placez une main sur la poitrine et l'autre sur le ventre",
+          "2": "Inspirez par le nez : seul le ventre doit se soulever",
+          "3": "Expirez lentement par les lèvres pincées",
+          "4": "La main sur la poitrine doit rester immobile",
+          "5": "Pratiquez 5 à 10 minutes par jour"
+        }
+      },
+      "shoulder-circles": {
+        "NAME": "Cercles d'épaules",
+        "DESCRIPTION": "Mobilisation douce des épaules",
+        "BENEFITS": {
+          "0": "Améliore la mobilité des épaules",
+          "1": "Soulage les tensions",
+          "2": "Idéal en échauffement"
+        },
+        "INSTRUCTIONS": {
+          "0": "Tenez-vous debout, bras le long du corps",
+          "1": "Montez les épaules vers les oreilles",
+          "2": "Faites-les rouler vers l'arrière puis vers le bas",
+          "3": "Réalisez des cercles lents et contrôlés",
+          "4": "Changez de sens après 10 répétitions"
+        }
+      },
+      "ankle-circles": {
+        "NAME": "Cercles de cheville",
+        "DESCRIPTION": "Mobilisation des articulations de la cheville",
+        "BENEFITS": {
+          "0": "Améliore la mobilité des chevilles",
+          "1": "Prévient les entorses",
+          "2": "Améliore l'équilibre"
+        },
+        "INSTRUCTIONS": {
+          "0": "Asseyez-vous ou tenez-vous sur une jambe",
+          "1": "Levez un pied du sol",
+          "2": "Faites des cercles avec le pied",
+          "3": "10 cercles dans un sens, puis dans l'autre",
+          "4": "Changez de pied"
+        }
+      },
+      "cat-cow": {
+        "NAME": "Chat-vache",
+        "DESCRIPTION": "Exercice de mobilité de la colonne inspiré du yoga",
+        "BENEFITS": {
+          "0": "Assouplit la colonne",
+          "1": "Soulage le dos",
+          "2": "Améliore la posture"
+        },
+        "CONTRAINDICATIONS": { "0": "Hernie discale aiguë" },
+        "INSTRUCTIONS": {
+          "0": "Mettez-vous à quatre pattes, mains sous les épaules",
+          "1": "Vache : creusez le dos et levez la tête",
+          "2": "Inspirez dans cette position",
+          "3": "Chat : arrondissez le dos et rentrez le menton",
+          "4": "Expirez dans cette position",
+          "5": "Enchaînez doucement les deux positions"
+        }
+      }
+    }
   },
   "ERRORS": {
     "GENERAL": "Une erreur est survenue. Veuillez réessayer.",
     "TOO_MANY_REQUESTS": "Trop de requêtes. Veuillez patienter 60 secondes avant de réessayer.",
-    "SERVICE_UNAVAILABLE": "Le service d'IA est temporairement indisponible. Réessayez dans quelques instants.",
+    "SERVICE_UNAVAILABLE": "Le service est temporairement indisponible. Réessayez dans quelques instants.",
     "CONNECTION_ERROR": "Problème de connexion. Vérifiez votre connexion internet.",
     "INVALID_DATA": "Données invalides. Vérifiez vos réponses et réessayez.",
     "SERVER_ERROR": "Erreur serveur. Notre équipe a été notifiée."
   },
-  "VALIDATION": {
-    "INVALID_BMI": "BMI de {{bmi}} semble irréaliste. Vérifiez votre poids et taille.",
-    "AGE_GOAL_MISMATCH_MINOR": "Les mineurs doivent consulter un médecin avant toute compétition sportive.",
-    "AGE_GOAL_WARNING_SENIOR": "Après 65 ans, consultez un médecin avant de viser la compétition.",
-    "UNREALISTIC_AGE": "Âge attendu entre 18 et 100 ans.",
-    "FREQUENCY_TIME_MISMATCH": "Votre fréquence d'exercice ne correspond pas aux jours disponibles.",
-    "TIME_GOAL_MISMATCH": "La compétition nécessite généralement plus de 15 minutes par session.",
-    "FITNESS_FREQUENCY_MISMATCH": "Niveau de forme \"Sédentaire\" et haute fréquence ne correspondent généralement pas.",
-    "FITNESS_FREQUENCY_IMPOSSIBLE": "Impossible d'avoir un niveau \"Intense\" sans jamais faire d'exercice."
-  },
-  "RESULTS": {
-    "COMPATIBILITY_SCORE": "Score de compatibilité",
-    "WHY_TITLE": "Pourquoi ce sport est fait pour vous ?",
-    "BENEFITS_TITLE": "Les Bénéfices",
-    "PRECAUTIONS_TITLE": "Précautions",
-    "EXERCISES_TITLE": "Exercices pour débuter",
-    "DURATION": "Durée",
-    "REPETITIONS": "Répétitions",
-    "WATCH_VIDEO": "Voir la vidéo",
-    "RETRY_TEST": "Refaire le test",
-    "BACK_HOME": "Retour à l'accueil",
-    "REDIRECTING": "Redirection en cours...",
-    "WHAT_NOW_TITLE": "Que faire maintenant ?",
-    "WEEK1_TITLE": "Semaine 1 : Préparation",
-    "WEEK1_STEP1": "Recherchez un club, une salle ou un espace adapté près de chez vous",
-    "WEEK1_STEP2": "Procurez-vous l'équipement de base nécessaire",
-    "WEEK1_STEP3": "Planifiez vos 2-3 premières séances dans votre agenda",
-    "WEEK2_TITLE": "Semaine 2 : Premier contact",
-    "WEEK2_STEP1": "Faites votre première séance (sans pression de performance)",
-    "WEEK2_STEP2": "Notez vos sensations : ce qui vous a plu, ce qui était difficile",
-    "WEEK2_STEP3": "Ajustez si besoin : horaires, intensité, équipement",
-    "WEEK3_TITLE": "Semaine 3 : Évaluation",
-    "WEEK3_STEP1": "Faites le point : vous sentez-vous bien avec cette activité ?",
-    "WEEK3_STEP2": "Fixez-vous un premier mini-objectif atteignable",
-    "WEEK3_STEP3": "Considérez de rejoindre un groupe ou trouver un partenaire",
-    "USEFUL_LINKS": "Liens utiles pour démarrer",
-    "LINK_EQUIPMENT": "Équipement sportif",
-    "LINK_TUTORIALS": "Tutoriels pour débutants",
-    "DISCLAIMER_TITLE": "Rappel important",
-    "DISCLAIMER_TEXT": "Ces recommandations sont générées par une IA et ne remplacent pas un avis médical. Consultez un professionnel de santé avant de commencer tout nouveau programme sportif.",
-    "PRINT": "Imprimer mes résultats",
-    "SHARE": "Partager",
-    "SAVE": "Enregistrer mes résultats",
-    "SAVED": "Résultats enregistrés !",
-    "EXPORT_PDF": "Exporter en PDF",
-    "SHARE_TWITTER": "Partager sur Twitter",
-    "SHARE_TEXT": "Je viens de découvrir mon sport idéal avec FytAI !\n\nSport recommandé : {{sport}}\nScore de compatibilité : {{score}}%\n\nEssayez gratuitement",
-    "QUICK_ACTIONS": "Actions Rapides",
-    "FIND_CLUB": "Trouver un club",
-    "NEAR_ME": "À proximité",
-    "VIDEO_TUTORIALS": "Tutoriels vidéo",
-    "FOR_BEGINNERS": "Pour débuter",
-    "EQUIPMENT": "Équipement",
-    "ESTIMATED_BUDGET": "Budget estimé",
-    "MAPS_SEARCH_QUERY": "club près de moi",
-    "YOUTUBE_SEARCH_QUERY": "tutoriel débutant",
-    "EQUIPMENT_SEARCH_QUERY": "équipement {{sport}} débutant",
-    "GET_TRAINING_PLAN": "Obtenez Votre Plan d'Entraînement Personnalisé",
-    "TRAINING_PLAN_DESCRIPTION": "Générez un plan d'entraînement détaillé adapté à votre profil et recommandation sportive",
-    "CREATE_PDF": "Créer PDF du Plan",
-    "GENERATING": "Génération...",
-    "EXPORTING": "Exportation..."
-  },
-  "COMPARISON": {
-    "TITLE": "Comparer les Sports",
-    "SHOW": "Comparer les Alternatives",
-    "HIDE": "Masquer la Comparaison",
-    "CRITERIA": "Critères",
-    "RECOMMENDED": "Recommandé",
-    "BENEFITS": "Bénéfices",
-    "PRECAUTIONS": "Précautions",
-    "NOTE": "Le sport recommandé a la meilleure compatibilité avec votre profil.",
-    "SPORT": "Sport",
-    "SCORE": "Score",
-    "REASON": "Raison"
-  },
-  "PLAN": {
-    "TITLE": "Votre Plan d'Entraînement Personnalisé",
-    "GOAL": "Objectif",
-    "DURATION": "Durée",
-    "WEEK": "Semaine",
-    "WEEKS": "semaines",
-    "FOCUS": "Focus",
-    "WEEKLY_FOCUS": "Focus Hebdomadaire",
-    "MILESTONE": "Jalon",
-    "MONDAY": "Lundi",
-    "TUESDAY": "Mardi",
-    "WEDNESDAY": "Mercredi",
-    "THURSDAY": "Jeudi",
-    "FRIDAY": "Vendredi",
-    "SATURDAY": "Samedi",
-    "SUNDAY": "Dimanche",
-    "EQUIPMENT": "Équipement Requis",
-    "PROGRESSION_TIPS": "Conseils de Progression",
-    "REST": "Repos"
-  },
-  "SHARE": {
-    "TITLE": "Partagez vos résultats :"
+  "SAVED_RESULTS": {
+    "TITLE": "Mes Résultats Sauvegardés",
+    "SUBTITLE": "Retrouvez vos {{count}} dernière(s) évaluation(s)",
+    "CLEAR_ALL": "Tout supprimer",
+    "NO_DATA": "Aucun résultat sauvegardé",
+    "NO_DATA_DESC": "Complétez le questionnaire santé pour obtenir votre première évaluation",
+    "START_TEST": "Démarrer l'évaluation",
+    "DELETE": "Supprimer",
+    "DELETE_SUCCESS": "Résultat supprimé",
+    "CLEAR_SUCCESS": "Tous les résultats ont été supprimés",
+    "VIEW_DETAILS": "Voir le détail",
+    "EXERCISES": "exercices",
+    "TO_IMPROVE": "à améliorer"
   },
   "LANGUAGE": {
     "SELECT": "Langue"
   },
   "HOW_IT_WORKS": {
     "TITLE": "Comment FytAI fonctionne",
-    "SUBTITLE": "Découvrez notre méthodologie transparente et notre processus d'analyse",
+    "SUBTITLE": "Découvrez notre méthodologie et notre processus d'analyse",
     "DISCLAIMER_TITLE": "Avertissement médical important",
-    "DISCLAIMER_TEXT": "FytAI est un outil d'aide à la décision et ne remplace en aucun cas l'avis d'un médecin, kinésithérapeute ou autre professionnel de santé. Consultez toujours un professionnel avant de commencer un nouveau programme sportif.",
+    "DISCLAIMER_TEXT": "FytAI est un outil d'aide à la décision et ne remplace pas l'avis d'un médecin, kinésithérapeute ou autre professionnel de santé. Consultez toujours un professionnel avant de commencer un nouveau programme d'exercices.",
     "PROCESS_TITLE": "Notre processus d'analyse",
     "STEP1_TITLE": "Collecte de vos données",
-    "STEP1_DESC": "Nous analysons 15 paramètres essentiels de votre profil, regroupés en 3 catégories :",
-    "PARAM_PERSONAL_HEALTH": "Personnel & Santé",
-    "PARAM_GOALS": "Objectifs",
-    "PARAM_PREFERENCES": "Préférences",
+    "STEP1_DESC": "Nous analysons des paramètres essentiels de votre profil santé, regroupés en 7 catégories :",
+    "PARAM_CARDIOVASCULAR": "Cardiovasculaire",
+    "PARAM_MUSCULOSKELETAL": "Musculo-squelettique",
+    "PARAM_LIFESTYLE": "Mode de vie",
     "CRITERIA": "critères",
-    "STEP2_TITLE": "Analyse par Intelligence Artificielle",
-    "STEP2_DESC": "Vos données sont analysées par un modèle d'IA spécialisé qui génère une recommandation personnalisée.",
-    "AI_MODEL": "Modèle utilisé",
-    "AI_EXPLANATION": "Modèle de langage open-source entraîné pour comprendre le contexte et générer des recommandations cohérentes. Hébergé sur Groq.",
-    "STEP3_TITLE": "Correspondance avec notre base de sports",
-    "STEP3_DESC": "L'IA compare votre profil à notre base de données de sports et activités :",
-    "MORE_SPORTS": "30+ autres sports",
+    "STEP2_TITLE": "Calcul du Score Santé",
+    "STEP2_DESC": "Vos réponses sont analysées pour calculer un score santé global.",
+    "STEP3_TITLE": "Sélection d'exercices",
+    "STEP3_DESC": "En fonction de votre profil, nous recommandons des exercices adaptés :",
+    "MORE_EXERCISES": "30+ exercices disponibles",
     "STEP4_TITLE": "Résultats personnalisés",
-    "STEP4_DESC": "Vous recevez une recommandation complète avec un plan d'action concret.",
-    "OUTPUT_SPORT": "Sport recommandé",
-    "OUTPUT_SCORE": "Score de compatibilité",
-    "OUTPUT_PLAN": "Plan d'entraînement",
-    "OUTPUT_ALTERNATIVES": "Alternatives",
-    "CAN_DO_TITLE": "Ce que notre IA peut faire",
-    "CANNOT_DO_TITLE": "Ce que notre IA ne peut PAS faire",
-    "CAPABILITY_1": "Analyser votre profil de manière personnalisée",
-    "CAPABILITY_2": "Suggérer des sports adaptés à vos contraintes",
-    "CAPABILITY_3": "Proposer un plan de démarrage progressif",
-    "CAPABILITY_4": "Identifier les précautions à prendre",
+    "STEP4_DESC": "Vous recevez une évaluation complète avec des recommandations personnalisées.",
+    "OUTPUT_SCORE": "Score santé",
+    "OUTPUT_LEVEL": "Niveau de santé",
+    "OUTPUT_EXERCISES": "Exercices recommandés",
+    "OUTPUT_TIPS": "Conseils d'amélioration",
+    "CAN_DO_TITLE": "Ce que notre système peut faire",
+    "CANNOT_DO_TITLE": "Ce que notre système NE peut PAS faire",
+    "CAPABILITY_1": "Analyser votre profil santé de manière globale",
+    "CAPABILITY_2": "Suggérer des exercices adaptés à votre niveau",
+    "CAPABILITY_3": "Identifier des axes d'amélioration",
+    "CAPABILITY_4": "Proposer des recommandations bien-être générales",
     "LIMITATION_1": "Remplacer un avis médical professionnel",
-    "LIMITATION_2": "Diagnostiquer ou traiter des conditions médicales",
+    "LIMITATION_2": "Diagnostiquer ou traiter des pathologies",
     "LIMITATION_3": "Garantir des résultats spécifiques",
     "LIMITATION_4": "Prendre en compte toutes les situations particulières",
     "METHODOLOGY_TITLE": "Notre méthodologie",
-    "METHOD_1_TITLE": "Approche basée sur les données",
-    "METHOD_1_DESC": "Nous utilisons des corrélations connues entre caractéristiques physiques, préférences personnelles et sports adaptés, combinées avec les capacités de raisonnement de l'IA.",
+    "METHOD_1_TITLE": "Approche basée sur des indicateurs reconnus",
+    "METHOD_1_DESC": "Nous utilisons des indicateurs de santé connus et des recommandations standard d'activité physique.",
     "METHOD_2_TITLE": "Personnalisation réelle",
-    "METHOD_2_DESC": "Chaque recommandation est générée individuellement pour votre profil. Ce n'est pas un simple questionnaire à choix multiples avec des réponses pré-définies.",
-    "METHOD_3_TITLE": "Limitations assumées",
-    "METHOD_3_DESC": "Nous sommes transparents : notre système n'a pas été validé par des études cliniques. C'est un outil d'aide à la réflexion, pas un diagnostic médical.",
-    "CTA_TITLE": "Prêt à découvrir votre sport idéal ?",
+    "METHOD_2_DESC": "Chaque recommandation est calculée à partir de vos réponses et de votre profil.",
+    "METHOD_3_TITLE": "Limites assumées",
+    "METHOD_3_DESC": "Nous sommes transparents : notre système est un outil bien-être, pas un dispositif médical.",
+    "CTA_TITLE": "Prêt à évaluer votre profil de santé ?",
     "CTA_DESC": "Maintenant que vous comprenez notre approche, lancez-vous !",
     "SEE_EXAMPLES": "Voir des exemples",
-    "START_ANALYSIS": "Commencer mon analyse"
-  },
-  "EXAMPLES": {
-    "TITLE": "Exemples de résultats",
-    "SUBTITLE": "Découvrez ce que FytAI peut recommander",
-    "DESCRIPTION": "Voici 5 profils types et leurs recommandations personnalisées. Cliquez sur un profil pour voir les détails.",
-    "YEARS": "ans",
-    "CLICK_DETAILS": "Cliquez pour voir les détails →",
-    "DETAILED_ANALYSIS": "Analyse détaillée",
-    "PROFILE_SUMMARY": "Résumé du profil",
-    "MAIN_CHALLENGES": "Défis principaux",
-    "RECOMMENDATION": "Recommandation FytAI",
-    "COMPATIBILITY": "Compatibilité",
-    "WHY_THIS_SPORT": "Pourquoi ce sport ?",
-    "KEY_BENEFITS": "Bénéfices clés",
-    "WHAT_YOU_GET": "Ce que vous obtiendrez avec votre analyse",
-    "OUTPUT_SPORT": "Sport personnalisé",
-    "OUTPUT_EXERCISES": "Exercices adaptés",
-    "OUTPUT_PLAN": "Plan hebdomadaire",
-    "OUTPUT_ALTERNATIVES": "3 alternatives",
-    "CTA_TITLE": "À votre tour !",
-    "CTA_DESC": "Ces exemples vous ont convaincu ? Obtenez votre propre analyse personnalisée.",
-    "START_MY_ANALYSIS": "Obtenir ma recommandation",
-    "MARIE_SITUATION": "Employée de bureau, sédentaire depuis 5 ans. Souffre de douleurs lombaires chroniques liées à sa posture.",
-    "MARIE_CHALLENGE_1": "Mal de dos",
-    "MARIE_CHALLENGE_2": "Sédentaire",
-    "MARIE_CHALLENGE_3": "Peu de temps",
-    "MARIE_BENEFIT_1": "Renforcement du dos sans impact",
-    "MARIE_BENEFIT_2": "Amélioration de la posture",
-    "MARIE_BENEFIT_3": "Détente et réduction du stress",
-    "MARIE_WHY": "La natation est idéale car elle sollicite tous les muscles du dos sans impact sur les articulations. L'eau supporte le poids du corps, permettant un travail musculaire efficace sans douleur.",
-    "THOMAS_SITUATION": "Jeune cadre stressé avec des journées de 10h+. Souhaite se défouler mais n'a que 30 minutes par jour maximum.",
-    "THOMAS_CHALLENGE_1": "Manque de temps",
-    "THOMAS_CHALLENGE_2": "Stress élevé",
-    "THOMAS_CHALLENGE_3": "Besoin de résultats rapides",
-    "THOMAS_BENEFIT_1": "Séances de 15-30 minutes efficaces",
-    "THOMAS_BENEFIT_2": "Excellente évacuation du stress",
-    "THOMAS_BENEFIT_3": "Résultats visibles rapidement",
-    "THOMAS_WHY": "Le HIIT permet d'obtenir des résultats significatifs en très peu de temps. L'intensité des séances aide à évacuer le stress accumulé tout en améliorant la condition physique.",
-    "SOPHIE_SITUATION": "Quinquagénaire active souffrant d'arthrose aux genoux. Souhaite maintenir une activité physique régulière sans aggraver sa condition.",
-    "SOPHIE_CHALLENGE_1": "Problèmes de genoux",
-    "SOPHIE_CHALLENGE_2": "Arthrose",
-    "SOPHIE_CHALLENGE_3": "Besoin de douceur",
-    "SOPHIE_BENEFIT_1": "Zéro impact sur les articulations",
-    "SOPHIE_BENEFIT_2": "Renforcement musculaire doux",
-    "SOPHIE_BENEFIT_3": "Excellent pour le cardio",
-    "SOPHIE_WHY": "Le vélo elliptique reproduit le mouvement naturel de la marche sans aucun choc. Il permet de travailler le cardio et les muscles tout en préservant les genoux.",
-    "LUCAS_SITUATION": "Manager stressé, insomniaque, avec une tension artérielle légèrement élevée. Cherche une activité apaisante.",
-    "LUCAS_CHALLENGE_1": "Stress chronique",
-    "LUCAS_CHALLENGE_2": "Troubles du sommeil",
-    "LUCAS_CHALLENGE_3": "Hypertension légère",
-    "LUCAS_BENEFIT_1": "Réduction prouvée du stress",
-    "LUCAS_BENEFIT_2": "Amélioration du sommeil",
-    "LUCAS_BENEFIT_3": "Régulation de la tension",
-    "LUCAS_WHY": "Le yoga combine exercice physique doux, techniques de respiration et méditation. Cette approche globale aide à réguler le système nerveux et améliorer la qualité du sommeil.",
-    "EMILIE_SITUATION": "Étudiante dynamique qui trouve le sport classique ennuyeux. Aime la musique et veut se faire des amis.",
-    "EMILIE_CHALLENGE_1": "Motivation fluctuante",
-    "EMILIE_CHALLENGE_2": "S'ennuie vite",
-    "EMILIE_CHALLENGE_3": "Besoin de social",
-    "EMILIE_BENEFIT_1": "Fun et jamais monotone",
-    "EMILIE_BENEFIT_2": "Aspect social fort",
-    "EMILIE_BENEFIT_3": "Excellent cardio déguisé",
-    "EMILIE_WHY": "La danse fitness combine le plaisir de la musique avec l'exercice physique. L'ambiance de groupe et la variété des chorégraphies maintiennent la motivation élevée."
+    "START_ANALYSIS": "Démarrer mon évaluation"
   },
   "FAQ": {
     "TITLE": "Questions Fréquentes",
     "SUBTITLE": "Toutes les réponses à vos questions sur FytAI",
     "CAT_ALL": "Toutes",
     "CAT_TRUST": "Confiance",
-    "CAT_AI": "Intelligence Artificielle",
+    "CAT_HEALTH": "Santé",
     "CAT_RESULTS": "Résultats",
     "CAT_DATA": "Données",
-    "CAT_HEALTH": "Santé",
-    "Q1_QUESTION": "Est-ce que l'analyse est vraiment gratuite ? Allez-vous me spammer ?",
-    "Q1_ANSWER": "Oui, FytAI est 100% gratuit. Nous ne demandons pas votre email et ne vous spammerons jamais. Aucune inscription n'est requise pour utiliser le service.",
-    "Q2_QUESTION": "Pourquoi devrais-je faire confiance à FytAI plutôt qu'à un simple quiz ?",
-    "Q2_ANSWER": "Contrairement aux quiz classiques avec des réponses pré-définies, FytAI utilise une vraie IA qui analyse l'ensemble de votre profil de manière approfondie pour générer une recommandation unique. Chaque résultat est créé spécifiquement pour vous, en tenant compte de vos caractéristiques physiques, vos objectifs et vos préférences.",
+    "Q1_QUESTION": "L'évaluation est-elle vraiment gratuite ? Allez-vous me spammer ?",
+    "Q1_ANSWER": "Oui, FytAI est 100% gratuit. Nous ne demandons pas votre email et ne vous spammerons jamais. Aucune inscription n'est requise.",
+    "Q2_QUESTION": "Comment le score santé est-il calculé ?",
+    "Q2_ANSWER": "Le score santé est calculé à partir de vos réponses à des questions réparties en 7 catégories : cardiovasculaire, musculo-squelettique, respiratoire, métabolique, mode de vie, activité physique et santé mentale.",
     "Q3_QUESTION": "Qui a créé FytAI ? Y a-t-il des médecins impliqués ?",
-    "Q3_ANSWER": "FytAI a été créé par une équipe de développeurs passionnés de sport et de technologie. Nous n'avons pas de médecins dans l'équipe, c'est pourquoi nous insistons sur le fait que nos recommandations ne remplacent pas un avis médical professionnel.",
-    "Q4_QUESTION": "Quel modèle d'IA utilisez-vous exactement ?",
-    "Q4_ANSWER": "Nous utilisons llama-3.3-70b-versatile, un modèle de langage open-source hébergé sur Groq. C'est un modèle capable de comprendre le contexte et de générer des recommandations cohérentes basées sur votre profil.",
-    "Q5_QUESTION": "L'IA va-t-elle me recommander seulement natation et cyclisme ?",
-    "Q5_ANSWER": "Non ! Notre système peut recommander plus de 50 sports différents : des sports classiques (natation, course, vélo) aux activités plus originales (escalade, danse, arts martiaux, sports collectifs, etc.). La recommandation dépend vraiment de votre profil.",
-    "Q6_QUESTION": "L'IA a-t-elle été entraînée sur des données médicales ?",
-    "Q6_ANSWER": "Non, le modèle n'a pas été entraîné spécifiquement sur des données médicales. Il utilise ses connaissances générales combinées aux informations que vous fournissez. C'est pourquoi nous recommandons toujours de consulter un professionnel de santé.",
-    "Q7_QUESTION": "Les recommandations sont-elles vraiment personnalisées ou génériques ?",
-    "Q7_ANSWER": "Vraiment personnalisées ! L'IA génère chaque recommandation individuellement en fonction de vos réponses spécifiques. Deux personnes avec des profils différents recevront des recommandations différentes.",
-    "Q8_QUESTION": "Combien de sports différents pouvez-vous recommander ?",
-    "Q8_ANSWER": "Notre base couvre plus de 50 sports et activités physiques : sports individuels, collectifs, aquatiques, de combat, de plein air, en salle, doux ou intenses. L'IA choisit celui qui correspond le mieux à votre profil.",
-    "Q9_QUESTION": "Pourquoi le formulaire demande autant d'informations ?",
-    "Q9_ANSWER": "Plus nous avons d'informations, plus la recommandation est précise. Chaque question permet d'affiner l'analyse : votre morphologie, vos contraintes de temps, vos préférences sociales, vos peurs... Tout compte pour trouver le sport idéal.",
-    "Q10_QUESTION": "Mes données sont-elles vendues à des tiers ?",
-    "Q10_ANSWER": "Non, jamais. Vos données sont traitées uniquement pour générer votre recommandation et ne sont pas stockées sur nos serveurs après l'analyse. Nous ne vendons aucune donnée.",
-    "Q11_QUESTION": "Combien de temps mes données sont-elles conservées ?",
-    "Q11_ANSWER": "Vos réponses au formulaire sont sauvegardées localement dans votre navigateur pour vous permettre de reprendre plus tard. Elles sont supprimées dès que vous obtenez votre résultat. Nous ne conservons aucune donnée sur nos serveurs.",
-    "Q12_QUESTION": "Puis-je faire confiance à ces recommandations si j'ai des pathologies graves ?",
-    "Q12_ANSWER": "Non, si vous avez des pathologies graves, vous devez absolument consulter un médecin avant de commencer toute activité sportive. FytAI est un outil d'aide à la réflexion, pas un diagnostic médical.",
-    "Q13_QUESTION": "Que se passe-t-il si le sport recommandé ne me convient pas ?",
-    "Q13_ANSWER": "Nous fournissons toujours des alternatives ! Si le sport principal ne vous convient pas, explorez les 3 autres suggestions. Vous pouvez aussi refaire le test en ajustant vos réponses.",
-    "Q14_QUESTION": "L'IA prend-elle en compte mes blessures ?",
-    "Q14_ANSWER": "Oui, les blessures et problèmes de santé que vous indiquez sont pris en compte. Cependant, pour des conditions médicales sérieuses, consultez toujours un professionnel de santé avant de suivre nos recommandations.",
+    "Q3_ANSWER": "FytAI a été créé par une équipe de développeurs passionnés de santé et de technologie. Nous n'avons pas de médecins dans l'équipe, c'est pourquoi nous rappelons que nos recommandations ne remplacent pas un avis médical.",
+    "Q4_QUESTION": "Que deviennent mes données ?",
+    "Q4_ANSWER": "Vos données sont traitées pour générer votre évaluation et sont sauvegardées localement dans votre navigateur. Elles ne sont pas vendues ni partagées.",
+    "Q5_QUESTION": "Puis-je faire confiance aux recommandations si j'ai une condition médicale grave ?",
+    "Q5_ANSWER": "Non. En cas de condition médicale sérieuse (maladie cardiaque, chirurgie récente, etc.), vous DEVEZ consulter un médecin avant toute activité physique. FytAI peut donner des idées, mais un professionnel doit valider leur sécurité.",
+    "Q6_QUESTION": "Puis-je refaire le questionnaire ?",
+    "Q6_ANSWER": "Bien sûr ! Vous pouvez le refaire autant de fois que vous le souhaitez. Votre situation peut évoluer et vous pouvez obtenir des recommandations différentes.",
+    "Q7_QUESTION": "Mes données sont-elles vendues à des tiers ?",
+    "Q7_ANSWER": "Non, jamais. Nous ne vendons aucune donnée.",
+    "Q8_QUESTION": "Combien de temps mes données sont-elles conservées ?",
+    "Q8_ANSWER": "Vos réponses et résultats sont sauvegardés localement dans votre navigateur. Vous pouvez effacer vos résultats enregistrés à tout moment.",
     "HONESTY_TITLE": "Notre engagement d'honnêteté",
-    "HONESTY_1": "Nous ne prétendons pas avoir de validation scientifique ou médicale. FytAI est un outil technologique, pas un dispositif médical.",
-    "HONESTY_2": "Nos recommandations sont générées par IA et peuvent contenir des erreurs. Utilisez votre jugement et consultez des professionnels si nécessaire.",
-    "HONESTY_3": "Notre objectif est de vous aider à réfléchir et explorer des options sportives, pas de vous donner des prescriptions définitives.",
+    "HONESTY_1": "Nous ne prétendons pas disposer d'une validation scientifique ou médicale. FytAI est un outil technologique, pas un dispositif médical.",
+    "HONESTY_2": "Nos recommandations sont basées sur des guides généraux et peuvent ne pas convenir à tout le monde.",
+    "HONESTY_3": "Notre objectif est de vous aider à réfléchir à votre santé et à explorer des pistes, pas de vous donner des prescriptions.",
     "STILL_QUESTIONS": "Vous avez encore des questions ?",
-    "CONTACT_US": "N'hésitez pas à explorer nos autres pages ou à commencer votre analyse.",
+    "CONTACT_US": "N'hésitez pas à explorer nos pages ou à commencer votre évaluation.",
     "SEE_HOW_IT_WORKS": "Comment ça marche",
-    "ABOUT_US": "À propos de nous",
-    "START_ANALYSIS": "Commencer l'analyse"
+    "ABOUT_US": "À propos",
+    "START_ANALYSIS": "Démarrer l'évaluation"
   },
   "ABOUT": {
     "TITLE": "À propos de FytAI",
     "SUBTITLE": "Découvrez qui nous sommes et pourquoi nous avons créé FytAI",
     "STORY_TITLE": "Notre histoire",
-    "STORY_P1": "FytAI est né d'une frustration simple : trouver le bon sport pour soi est souvent un parcours du combattant. Entre les conseils contradictoires, les modes qui passent, et le manque de personnalisation, beaucoup abandonnent avant même de commencer.",
-    "STORY_P2": "Nous avons voulu créer un outil qui prend vraiment en compte qui vous êtes : votre corps, votre emploi du temps, vos peurs, vos envies. Pas un quiz générique, mais une vraie analyse personnalisée.",
-    "STORY_P3": "FytAI n'est pas parfait et nous le savons. C'est un projet en constante amélioration, guidé par les retours de nos utilisateurs et notre passion pour rendre le sport accessible à tous.",
+    "STORY_P1": "FytAI est né d'une envie simple : aider chacun à mieux comprendre son profil de santé et à faire les premiers pas vers de meilleures habitudes.",
+    "STORY_P2": "Nous voulions créer un outil qui prenne en compte votre situation réelle : votre état de santé, vos habitudes, vos contraintes. Pas un quiz générique, mais une évaluation personnalisée.",
+    "STORY_P3": "FytAI n'est pas parfait et nous le savons. C'est un projet qui évolue en continu, guidé par les retours utilisateurs et notre volonté de rendre la prévention accessible.",
     "VALUES_TITLE": "Nos valeurs",
     "VALUE_PRIVACY_TITLE": "Respect de la vie privée",
-    "VALUE_PRIVACY_DESC": "Vos données ne sont jamais vendues. Elles sont traitées localement et supprimées après analyse.",
+    "VALUE_PRIVACY_DESC": "Vos données ne sont jamais vendues. Elles sont traitées localement et ne sont pas stockées après analyse.",
     "VALUE_ACCURACY_TITLE": "Honnêteté sur nos limites",
-    "VALUE_ACCURACY_DESC": "Nous ne prétendons pas remplacer un médecin. Nos recommandations sont des suggestions, pas des prescriptions.",
+    "VALUE_ACCURACY_DESC": "Nous ne prétendons pas remplacer un médecin. Nos recommandations sont des suggestions.",
     "VALUE_TRANSPARENCY_TITLE": "Transparence totale",
-    "VALUE_TRANSPARENCY_DESC": "Nous vous disons exactement quelle IA nous utilisons et comment fonctionne notre système.",
-    "VALUE_FREE_TITLE": "Gratuité sans contrepartie",
-    "VALUE_FREE_DESC": "FytAI est gratuit, sans publicité, sans spam, sans inscription obligatoire.",
+    "VALUE_TRANSPARENCY_DESC": "Nous expliquons comment fonctionne le système et ce qu'il peut (ou non) faire.",
+    "VALUE_FREE_TITLE": "Gratuit sans contrepartie",
+    "VALUE_FREE_DESC": "FytAI est gratuit, sans publicité, sans spam et sans inscription obligatoire.",
     "TECH_TITLE": "Transparence technique",
-    "TECH_INTRO": "Nous croyons que vous avez le droit de savoir exactement comment fonctionne notre système.",
-    "TECH_ANGULAR": "Framework frontend moderne pour une expérience utilisateur fluide",
-    "TECH_DOTNET": "Backend robuste et sécurisé pour le traitement des données",
-    "TECH_AI": "Modèle de langage open-source pour les recommandations personnalisées",
-    "TECH_GROQ": "Plateforme d'hébergement de modèles IA de confiance",
-    "AI_MODEL_TITLE": "Détails du modèle IA",
-    "AI_MODEL_NAME": "Nom du modèle",
-    "AI_PROVIDER": "Fournisseur",
-    "AI_DISCLAIMER": "Ce modèle génère des recommandations basées sur vos réponses. Il n'a pas été entraîné spécifiquement pour le conseil sportif médical.",
+    "TECH_INTRO": "Nous pensons que vous avez le droit de comprendre comment fonctionne l'outil.",
+    "TECH_ANGULAR": "Framework frontend moderne pour une expérience fluide",
+    "TECH_DOTNET": "Backend robuste et sécurisé pour le traitement",
     "LIMITATIONS_TITLE": "Ce que nous ne sommes PAS",
     "LIMITATION_1": "Nous ne sommes pas un service médical et ne pouvons pas diagnostiquer ou traiter des conditions de santé",
-    "LIMITATION_2": "Nous n'avons pas de médecins ou kinésithérapeutes dans notre équipe de développement",
+    "LIMITATION_2": "Nous n'avons pas de médecins ou kinésithérapeutes dans l'équipe de développement",
     "LIMITATION_3": "Notre système n'a pas été validé par des études cliniques",
-    "LIMITATION_4": "Nous ne pouvons pas garantir que nos recommandations vous conviendront à 100%",
+    "LIMITATION_4": "Nous ne pouvons pas garantir que nos recommandations conviendront à 100%",
     "CONTACT_TITLE": "Une question ?",
-    "CONTACT_DESC": "Consultez notre FAQ ou essayez FytAI par vous-même !",
+    "CONTACT_DESC": "Consultez notre FAQ ou essayez FytAI !",
     "SEE_FAQ": "Voir la FAQ",
     "TRY_FYTAI": "Essayer FytAI",
     "ROLE_DEVELOPERS": "Développeurs",
-    "TEAM_DESC": "Une équipe passionnée de sport et de technologie"
+    "TEAM_DESC": "Une équipe passionnée de santé et de technologie"
   },
   "chatbot": {
     "buttonText": "Questions ?",
     "openChat": "Ouvrir le chatbot",
     "closeChat": "Fermer le chatbot",
-    "title": "Assistant FytAI",
+    "fullscreen": "Plein écran",
+    "exitFullscreen": "Quitter le plein écran",
+    "title": "Assistant Santé FytAI",
     "subtitle": "Posez vos questions",
-    "welcomeMessage": "👋 Bonjour ! Je suis votre assistant personnel FytAI. Posez-moi vos questions sur votre recommandation sportive, je suis là pour vous aider !",
+    "welcomeMessage": "👋 Bonjour ! Je suis votre assistant santé FytAI. Posez-moi vos questions sur vos résultats, je suis là pour vous aider !",
     "suggestedQuestionsTitle": "Questions fréquentes :",
     "suggestedQuestions": {
-      "beginner": "Comment démarrer si je suis complètement débutant ?",
-      "healthIssues": "Puis-je pratiquer ce sport avec mes problèmes de santé ?",
-      "frequency": "Combien de fois par semaine devrais-je m'entraîner ?",
-      "equipment": "Quel est l'équipement minimal nécessaire pour commencer ?"
+      "improve": "Comment améliorer mon score de santé ?",
+      "exercises": "Quels exercices sont adaptés à mon niveau ?",
+      "start": "Comment commencer les exercices recommandés ?",
+      "tips": "Des conseils pour mes catégories faibles ?"
     },
     "inputPlaceholder": "Posez votre question...",
-    "sendMessage": "Envoyer le message",
-    "hint": "Appuyez sur Entrée pour envoyer, Maj+Entrée pour un retour à la ligne",
-    "error": "Désolé, une erreur s'est produite. Veuillez réessayer."
+    "sendMessage": "Envoyer",
+    "hint": "Entrée pour envoyer, Maj+Entrée pour une nouvelle ligne",
+    "error": "Désolé, une erreur s'est produite. Veuillez réessayer.",
+    "thinking": "Réflexion...",
+    "clearHistory": "Effacer la conversation"
   },
   "SNACKBAR": {
     "SAVE_SUCCESS": "Résultats sauvegardés avec succès !",
     "SAVE_ERROR": "Erreur lors de la sauvegarde",
-    "PDF_SUCCESS": "PDF exporté avec succès !",
-    "PDF_ERROR": "Erreur lors de l'export PDF",
     "LINK_COPIED": "Lien copié dans le presse-papiers !",
     "COPY_ERROR": "Erreur lors de la copie",
-    "FEEDBACK_ERROR": "Erreur lors de l'envoi du feedback",
-    "TRAINING_PLAN_SUCCESS": "Plan d'entraînement PDF généré avec succès !",
-    "TRAINING_PLAN_ERROR": "Erreur lors de la génération du plan"
-  },
-  "PDF": {
-    "SUBTITLE": "Votre Recommandation Sportive Personnalisée",
-    "CONFIDENTIAL": "Document Confidentiel",
-    "GENERATED_ON": "Généré le",
-    "VERSION": "Version",
-    "PROFILE": "Profil",
-    "YEARS": "ans",
-    "COMPATIBILITY": "de compatibilité",
-    "YOUR_PROFILE": "Votre Profil",
-    "AGE": "Âge",
-    "GENDER": "Genre",
-    "HEIGHT": "Taille",
-    "WEIGHT": "Poids",
-    "FITNESS_LEVEL": "Niveau de forme",
-    "EXERCISE_FREQ": "Fréquence d'exercice",
-    "BENEFITS": "Bénéfices",
-    "PRECAUTIONS": "Précautions",
-    "EXERCISES": "Exercices Recommandés",
-    "TRAINING_PLAN": "Plan d'Entraînement",
-    "GOAL": "Objectif",
-    "EQUIPMENT": "Équipement",
-    "PROGRESSION": "Conseils de progression",
-    "ALTERNATIVES": "Sports Alternatifs",
-    "TAGLINE": "L'IA au Service de Votre Santé",
-    "PAGE": "Page",
-    "AVAILABLE_DAYS": "Disponibilité",
-    "MAIN_GOAL": "Objectif principal",
-    "ERROR_GENERATE": "Erreur lors de la génération du PDF",
-    "DURATION": "Durée",
-    "WEEKS": "semaines",
-    "PERSONALIZED_PLAN": "Votre Plan d'Entraînement Personnalisé",
-    "YOUR_GOAL": "Votre Objectif",
-    "REQUIRED_EQUIPMENT": "Équipement Requis",
-    "WEEK": "Semaine",
-    "PROGRESSION_TIPS": "Conseils de Progression"
+    "FEEDBACK_ERROR": "Erreur lors de l'envoi du feedback"
   },
   "FEEDBACK": {
-    "TITLE": "Cette recommandation vous convient-elle ?",
-    "PERFECT": "Parfait pour moi",
-    "GOOD": "Plutôt bien",
-    "MEH": "Pas convaincu",
-    "BAD": "Pas du tout",
-    "COMMENT_PLACEHOLDER": "Facultatif : Partagez votre avis pour nous aider à améliorer...",
-    "SUBMIT": "Envoyer mon avis",
-    "SUBMITTING": "Envoi en cours...",
+    "TITLE": "Dans quelle mesure cette évaluation vous a-t-elle aidé ?",
+    "PERFECT": "Très utile",
+    "GOOD": "Utile",
+    "MEH": "Moyennement utile",
+    "BAD": "Pas utile",
+    "COMMENT_PLACEHOLDER": "Facultatif : partagez votre avis pour nous aider à améliorer...",
+    "SUBMIT": "Envoyer",
+    "SUBMITTING": "Envoi...",
     "THANK_YOU": "Merci pour votre retour.",
     "ERROR": "Erreur lors de l'envoi. Veuillez réessayer.",
     "TOO_LONG": "Le commentaire dépasse 300 caractères"
   },
   "FEEDBACKS": {
-    "TITLE": "Avis utilisateurs",
-    "SUBTITLE": "Tous les retours utilisateurs sur les recommandations sportives",
+    "TITLE": "Retours utilisateurs",
+    "SUBTITLE": "Tous les retours sur les évaluations santé",
     "TOTAL": "Total",
     "SATISFACTION": "Satisfaction",
     "POSITIVE": "Positifs",
     "NEGATIVE": "Négatifs",
-    "NO_DATA": "Aucun avis pour le moment",
-    "NO_DATA_DESC": "Les avis des utilisateurs apparaîtront ici",
+    "NO_DATA": "Aucun retour pour le moment",
+    "NO_DATA_DESC": "Les retours des utilisateurs apparaîtront ici",
     "READ_MORE": "Lire plus",
-    "READ_LESS": "Lire moins"
-  },
-  "SAVED_RESULTS": {
-    "TITLE": "Mes résultats sauvegardés",
-    "SUBTITLE": "Retrouvez vos {{count}} dernière(s) recommandation(s)",
-    "CLEAR_ALL": "Tout supprimer",
-    "NO_DATA": "Aucun résultat sauvegardé",
-    "NO_DATA_DESC": "Commencez par faire le test pour obtenir votre première recommandation",
-    "START_TEST": "Faire le test",
-    "COMPATIBLE": "compatible",
-    "EXPORT_PDF": "Exporter en PDF",
-    "DELETE": "Supprimer",
-    "AGE": "Âge",
-    "YEARS": "ans",
-    "GOAL": "Objectif",
-    "LEVEL": "Niveau",
-    "FREQUENCY": "Fréquence",
-    "VIEW_DETAILS": "Voir les détails"
+    "READ_LESS": "Lire moins",
+    "COMPATIBILITY_WITH_SCORE": "{{score}}% compatibilité",
+    "TARGET": {
+      "health-questionnaire": "Questionnaire santé"
+    }
   },
   "COMMON": {
-    "BACK_HOME": "Retour à l'accueil"
+    "BACK_HOME": "Retour à l'accueil",
+    "CONFIRM": "Confirmer",
+    "CANCEL": "Annuler"
   }
 }

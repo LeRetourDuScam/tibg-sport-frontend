@@ -1,29 +1,30 @@
 {
   "HOME": {
-    "TITLE": "Find Your Ideal Sport",
+    "TITLE": "Check Your Health Profile",
     "VIEW_FEEDBACKS": "View User Feedbacks",
     "SAVED_RESULTS": "Saved Results",
-    "SUBTITLE": "Discover the perfect sport for you with artificial intelligence",
-    "DESCRIPTION": "Our advanced analysis system takes into account your physical profile, goals and preferences to recommend the most suitable sports for your situation.",
-    "START_BUTTON": "Start Analysis",
+    "SUBTITLE": "Discover your health status with our comprehensive questionnaire",
+    "CARD_DESCRIPTION": "Evaluate your physical condition and receive personalized exercises based on your health score.",
+    "DESCRIPTION": "Our advanced analysis system evaluates your physical condition, lifestyle habits, and risk factors to provide personalized health recommendations.",
+    "START_BUTTON": "Start Health Check",
     "HOW_IT_WORKS": "How it works?",
-    "STEP1_TITLE": "Fill out the form",
-    "STEP1_DESC": "Share your physical information and goals",
-    "STEP2_TITLE": "AI Analysis",
-    "STEP2_DESC": "Our AI analyzes your profile in depth",
+    "STEP1_TITLE": "Complete the questionnaire",
+    "STEP1_DESC": "Answer questions about your health and lifestyle",
+    "STEP2_TITLE": "Analysis",
+    "STEP2_DESC": "We analyze your profile comprehensively",
     "STEP3_TITLE": "Recommendations",
-    "STEP3_DESC": "Receive personalized suggestions with an action plan",
+    "STEP3_DESC": "Receive personalized exercises and health tips",
     "FOOTER": "100% free • Data processed locally • Instant results",
     "SOCIAL_PROOF_USERS": "Used by 1000+ people",
     "SOCIAL_PROOF_RATING": "4.7/5 average satisfaction",
-    "SOCIAL_PROOF_SPORTS": "50+ sports analyzed",
+    "SOCIAL_PROOF_CATEGORIES": "7 health categories analyzed",
     "QUICK_DEMO_TITLE": "Want to see an example before you start?",
-    "QUICK_DEMO_DESC": "Discover 5 typical profiles and their personalized recommendations",
+    "QUICK_DEMO_DESC": "Discover typical profiles and their personalized recommendations",
     "SEE_EXAMPLES": "See result examples",
     "LEARN_MORE_METHODOLOGY": "Learn more about our methodology",
-    "TIME_ESTIMATE": "Estimated time: 7-10 minutes. Your answers are saved automatically.",
+    "TIME_ESTIMATE": "Estimated time: 5-7 minutes. Your answers are saved automatically.",
     "DISCLAIMER_TITLE": "Important medical disclaimer",
-    "DISCLAIMER_TEXT": "FytAI does not replace professional medical advice. Always consult a doctor or healthcare professional before starting a new sports program, especially if you have pre-existing medical conditions.",
+    "DISCLAIMER_TEXT": "FytAI does not replace professional medical advice. Always consult a doctor or healthcare professional before starting a new exercise program, especially if you have pre-existing medical conditions.",
     "NAV_HOW": "How it works",
     "NAV_HOW_DESC": "Understand our methodology",
     "NAV_FAQ": "Frequently asked questions",
@@ -36,205 +37,689 @@
     "TRUST_INSTANT": "Instant results",
     "TRUST_PERSONALIZED": "Truly personalized"
   },
-  "FORM": {
-    "TITLE": "Your Sports Profile",
-    "SUBTITLE": "Fill out this form to get your personalized recommendation",
-    "SELECT": "Select...",
-
-    "REQUIRED_FIELD": "This field is required",
-    "UNREALISTIC_AGE": "Expected age between 18 and 100 years.",
-    "INVALID_BMI": "Incoherent BMI, please check weight/height.",
-    "INCONSISTENT_LEG_LENGTH": "Leg length inconsistent with height.",
-
-    "STEP": "Step",
-    "STEP_PERSONAL": "Personal & Health",
-    "STEP_GOALS": "Goals",
-    "STEP_PREFERENCES": "Preferences",
-
-    "PREVIOUS": "Previous",
-    "NEXT": "Next",
-
-    "PERSONAL_INFO": "Personal Information",
-    "AGE": "Age",
-    "GENDER": "Gender",
-    "MALE": "Male",
-    "FEMALE": "Female",
-    "OTHER": "Other",
-
-    "PHYSICAL_MEASUREMENTS": "Physical Measurements",
-    "HEIGHT": "Height (cm)",
-    "WEIGHT": "Weight (kg)",
-
-    "HEALTH_AND_FITNESS": "Health and Fitness",
-    "FITNESS_LEVEL": "Fitness level",
-    "FITNESS_SEDENTARY": "Sedentary",
-    "FITNESS_LIGHT": "Light",
-    "FITNESS_MODERATE": "Moderate",
-    "FITNESS_INTENSE": "Intense",
-    "EXERCISE_FREQUENCY": "Exercise frequency",
-    "NEVER": "Never",
-    "ONE_TO_TWO": "1-2 times per week",
-    "THREE_TO_FOUR": "3-4 times per week",
-    "FIVE_PLUS": "5+ times per week",
-    "HEALTH_CONDITIONS": "Health Conditions",
-    "HEALTH_CONDITIONS_PLACEHOLDER": "Describe your health conditions (diabetes, hypertension, etc.)",
-    "INJURIES": "Current injuries",
-    "INJURIES_PLACEHOLDER": "Describe any current injuries...",
-
-    "GOALS_AND_MOTIVATIONS": "Goals and Motivations",
-    "MAIN_GOAL": "Main goal",
-    "LOSE_WEIGHT": "Lose weight",
-    "GAIN_MUSCLE": "Gain muscle",
-    "ENDURANCE": "Improve endurance",
-    "FLEXIBILITY": "Improve flexibility",
-    "GENERAL_HEALTH": "Improve general health",
-    "COMPETITION": "Competition",
-    "LEISURE": "Leisure / fun",
-
-    "AVAILABLE_TIME": "Available time per session",
-    "FIFTEEN_MIN": "15 minutes",
-    "THIRTY_MIN": "30 minutes",
-    "ONE_HOUR": "1 hour",
-    "ONE_HOUR_THIRTY": "1h30",
-    "TWO_HOURS_PLUS": "2+ hours",
-    "AVAILABLE_DAYS": "Available days per week",
-
-    "PREFERENCES_AND_EXPERIENCE": "Preferences and Experience",
-    "LOCATION_PREFERENCE": "Location preference",
-    "HOME": "Home",
-    "PARK": "Park",
-    "GYM": "Gym",
-    "FLEXIBLE": "Flexible",
-    "TEAM_PREFERENCE": "Team preference",
-    "ALONE": "Alone",
-    "SMALL_GROUP": "Small group",
-    "LARGE_GROUP": "Large group",
-    "PRACTISED_SPORTS": "Sports already practiced",
-    "PRACTISED_SPORTS_PLACEHOLDER": "Ex: Football, swimming, yoga...",
-    "LANGUAGE": "Language",
-
-    "PROFILE_SUMMARY": "Profile Summary",
-    "EDIT_INFORMATION": "Edit this information",
-
-    "SUBMIT_BUTTON": "Get Recommendation",
-    "SUBMIT": "Submit",
-    "SUBMITTING": "Analysis in progress...",
-    "REQUIRED_FIELDS": "* Required fields",
+  "HEALTH": {
+    "QUESTIONNAIRE_TITLE": "Health Questionnaire",
+    "QUESTIONNAIRE_SUBTITLE": "Answer these questions to evaluate your health profile",
     "PROGRESS": "Progress",
-    "TIME_REMAINING": "Time remaining",
-    "AUTO_SAVED": "Auto-saved",
-    "SAVED_JUST_NOW": "just now",
-    "SAVED_SECONDS_AGO": "{{seconds}}s ago",
-    "SAVED_MINUTES_AGO": "{{minutes}}min ago",
-    "SAVED_HOURS_AGO": "{{hours}}h ago",
-    "SAVING_NOTIFICATION": "Saved {{time}}"
+    "CATEGORY_CARDIOVASCULAR": "Cardiovascular Health",
+    "CATEGORY_MUSCULOSKELETAL": "Musculoskeletal System",
+    "CATEGORY_RESPIRATORY": "Respiratory System",
+    "CATEGORY_METABOLIC": "Metabolism",
+    "CATEGORY_LIFESTYLE": "Lifestyle",
+    "CATEGORY_PHYSICAL_ACTIVITY": "Physical Activity",
+    "CATEGORY_MENTAL_HEALTH": "Mental Health",
+    "NEXT": "Next",
+    "PREVIOUS": "Previous",
+    "SUBMIT": "See My Results",
+    "REQUIRED_QUESTION": "This question is required",
+    "SCORE_EXCELLENT": "Excellent",
+    "SCORE_GOOD": "Good",
+    "SCORE_MODERATE": "Moderate",
+    "SCORE_NEEDS_IMPROVEMENT": "Needs Improvement",
+    "SCORE_AT_RISK": "At Risk",
+    "RESULTS_TITLE": "Your Health Score",
+    "RESULTS_SUBTITLE": "Based on your questionnaire answers",
+    "LEVEL": "Level",
+    "POINTS": "points",
+    "TO_IMPROVE": "To improve",
+    "RISK_FACTORS": "Identified Risk Factors",
+    "RECOMMENDATIONS_TITLE": "Personalized Recommendations",
+    "EXERCISES_TAB": "Exercises",
+    "OVERVIEW_TAB": "Overview",
+    "DIFFICULTY_BEGINNER": "Beginner",
+    "DIFFICULTY_INTERMEDIATE": "Intermediate",
+    "DIFFICULTY_ADVANCED": "Advanced",
+    "EXERCISE_BENEFITS": "Benefits",
+    "EXERCISE_INSTRUCTIONS": "Instructions",
+    "EXERCISE_CONTRAINDICATIONS": "Contraindications",
+    "EXERCISE_EQUIPMENT": "Equipment",
+    "SHOW_ALL_EXERCISES": "Show all",
+    "SHOW_LESS": "Show less",
+    "RETAKE": "Retake Questionnaire",
+    "SAVE": "Save",
+    "SAVED": "Saved",
+    "SHARE": "Share",
+    "LOADING": "Loading results...",
+    "COMPLETED": "completed",
+    "RISK_HIGH": "Warning",
+    "VALIDATION_ERROR": "Please select an answer to continue",
+    "RESET": "Restart",
+    "SUBMITTING": "Calculating...",
+    "FOOTER_DISCLAIMER": "Your answers are saved automatically and remain confidential. This questionnaire does not replace professional medical advice.",
+    "ALERT_UNANSWERED_REQUIRED": "Please answer all required questions ({{count}} remaining).",
+    "SUBMIT_ERROR": "An error occurred. Please try again.",
+    "CONFIRM_RESET": "Are you sure you want to restart the questionnaire? All your answers will be lost.",
+    "RESET_TITLE": "Restart questionnaire",
+    "RESET_SUCCESS": "The questionnaire has been reset.",
+    "SHOW_ALL_EXERCISES_WITH_COUNT": "Show all ({{count}})",
+    "RETAKE_IN_30_DAYS": "Redo the questionnaire in 30 days to track your progress",
+    "REPS": "reps",
+    "SETS": "sets",
+    "SHARE_TWEET_TEXT": "🩺 I scored {{score}}% on FytAI! My level: {{level}}. Check yours! #FytAI #Health",
+    "EXERCISE_CATEGORY": {
+      "cardio": "Cardio",
+      "strength": "Strength",
+      "flexibility": "Flexibility",
+      "balance": "Balance",
+      "breathing": "Breathing",
+      "relaxation": "Relaxation",
+      "core": "Core",
+      "mobility": "Mobility"
+    },
+    "DAYS": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "DAY_FALLBACK": "Day {{day}}",
+    "QUESTIONS": {
+      "cardio-1": {
+        "TEXT": "Have you ever been diagnosed with heart disease?",
+        "OPTIONS": { "no": "No", "yes": "Yes" }
+      },
+      "cardio-2": {
+        "TEXT": "Do you feel chest pain at rest or during effort?",
+        "OPTIONS": { "no": "No", "yes": "Yes" }
+      },
+      "cardio-3": {
+        "TEXT": "Do you have high blood pressure (hypertension)?",
+        "OPTIONS": {
+          "no": "No",
+          "controlled": "Yes, but controlled with medication",
+          "uncontrolled": "Yes, uncontrolled",
+          "unknown": "I don't know"
+        }
+      },
+      "cardio-4": {
+        "TEXT": "Do you sometimes lose your balance because of dizziness?",
+        "OPTIONS": {
+          "never": "Never",
+          "rarely": "Rarely",
+          "sometimes": "Sometimes",
+          "often": "Often"
+        }
+      },
+      "cardio-5": {
+        "TEXT": "Do you get short of breath quickly during light effort (climbing stairs)?",
+        "OPTIONS": {
+          "never": "Never",
+          "rarely": "Rarely",
+          "sometimes": "Sometimes",
+          "often": "Often"
+        }
+      },
+      "musculo-1": {
+        "TEXT": "Do you have bone or joint problems that could be worsened by exercise?",
+        "OPTIONS": { "no": "No", "yes": "Yes" }
+      },
+      "musculo-2": {
+        "TEXT": "Do you have back pain?",
+        "OPTIONS": {
+          "never": "Never",
+          "rarely": "Rarely (a few times per year)",
+          "sometimes": "Sometimes (a few times per month)",
+          "often": "Often (several times per week)",
+          "chronic": "Constant chronic pain"
+        }
+      },
+      "musculo-3": {
+        "TEXT": "Do you have knee pain?",
+        "OPTIONS": {
+          "never": "Never",
+          "rarely": "Rarely",
+          "sometimes": "Sometimes",
+          "often": "Often",
+          "chronic": "Chronic pain"
+        }
+      },
+      "musculo-4": {
+        "TEXT": "Can you stand on one leg for 30 seconds?",
+        "OPTIONS": {
+          "easily": "Yes, easily on both sides",
+          "difficulty": "Yes, but with difficulty",
+          "no": "No",
+          "not-tried": "I haven't tried"
+        }
+      },
+      "metabolic-1": {
+        "TEXT": "Do you have diabetes?",
+        "OPTIONS": {
+          "no": "No",
+          "prediabetes": "Prediabetes / at risk",
+          "type2-controlled": "Type 2 (controlled)",
+          "type2-uncontrolled": "Type 2 (uncontrolled)",
+          "type1": "Type 1"
+        }
+      },
+      "metabolic-2": {
+        "TEXT": "What is your approximate Body Mass Index (BMI)?",
+        "OPTIONS": {
+          "underweight": "Under 18.5 (underweight)",
+          "normal": "18.5 - 24.9 (normal)",
+          "overweight": "25 - 29.9 (overweight)",
+          "obese1": "30 - 34.9 (obesity class 1)",
+          "obese2": "35 and above (obesity class 2+)",
+          "unknown": "I don't know my BMI"
+        }
+      },
+      "lifestyle-1": {
+        "TEXT": "Do you smoke?",
+        "OPTIONS": {
+          "never": "Never smoked",
+          "former": "Former smoker (quit over 1 year ago)",
+          "recent-quit": "Recently quit (less than 1 year)",
+          "occasional": "Occasional smoker",
+          "regular": "Regular smoker"
+        }
+      },
+      "lifestyle-2": {
+        "TEXT": "How many hours do you sleep on average per night?",
+        "OPTIONS": {
+          "less-5": "Less than 5 hours",
+          "5-6": "5 to 6 hours",
+          "7-8": "7 to 8 hours",
+          "9-plus": "9 hours or more"
+        }
+      },
+      "lifestyle-3": {
+        "TEXT": "What is your alcohol consumption?",
+        "OPTIONS": {
+          "never": "I don't drink alcohol",
+          "occasional": "Occasionally (1-2 times/month)",
+          "moderate": "Moderate (1-2 drinks/week)",
+          "regular": "Regular (almost every day)",
+          "heavy": "Heavy (several drinks/day)"
+        }
+      },
+      "lifestyle-4": {
+        "TEXT": "How would you rate your diet?",
+        "OPTIONS": {
+          "excellent": "Excellent (balanced, rich in fruits and vegetables)",
+          "good": "Good (generally healthy)",
+          "average": "Average (could be improved)",
+          "poor": "Poor (lots of fast food, few vegetables)"
+        }
+      },
+      "activity-1": {
+        "TEXT": "How many days per week do you do at least 30 minutes of moderate physical activity?",
+        "OPTIONS": {
+          "0": "0 days",
+          "1-2": "1 to 2 days",
+          "3-4": "3 to 4 days",
+          "5-plus": "5 days or more"
+        }
+      },
+      "activity-2": {
+        "TEXT": "Can you walk 2 km without stopping?",
+        "OPTIONS": {
+          "easily": "Yes, easily",
+          "moderate": "Yes, but with moderate effort",
+          "difficulty": "Yes, but it's difficult",
+          "no": "No"
+        }
+      },
+      "activity-3": {
+        "TEXT": "How long has it been since you last exercised regularly?",
+        "OPTIONS": {
+          "current": "I currently exercise regularly",
+          "less-month": "Less than a month",
+          "1-6-months": "1 to 6 months",
+          "6-12-months": "6 months to 1 year",
+          "more-year": "More than a year"
+        }
+      },
+      "activity-4": {
+        "TEXT": "On average, how much time do you spend sitting per day?",
+        "OPTIONS": {
+          "less-4": "Less than 4 hours",
+          "4-6": "4 to 6 hours",
+          "6-8": "6 to 8 hours",
+          "more-8": "More than 8 hours"
+        }
+      },
+      "mental-1": {
+        "TEXT": "How would you rate your overall stress level?",
+        "OPTIONS": {
+          "low": "Low",
+          "moderate": "Moderate",
+          "high": "High",
+          "very-high": "Very high"
+        }
+      },
+      "mental-2": {
+        "TEXT": "Over the past 2 weeks, have you felt depressed or hopeless?",
+        "OPTIONS": {
+          "never": "Never",
+          "few-days": "A few days",
+          "more-half": "More than half the days",
+          "nearly-every": "Nearly every day"
+        }
+      },
+      "mental-3": {
+        "TEXT": "Do you generally have enough energy for your daily activities?",
+        "OPTIONS": {
+          "always": "Yes, always",
+          "usually": "Usually",
+          "sometimes": "Sometimes",
+          "rarely": "Rarely"
+        }
+      },
+      "info-age": {
+        "TEXT": "What is your age?",
+        "OPTIONS": {
+          "18-29": "18-29 years",
+          "30-39": "30-39 years",
+          "40-49": "40-49 years",
+          "50-59": "50-59 years",
+          "60-69": "60-69 years",
+          "70-plus": "70 years and above"
+        }
+      },
+      "info-medications": {
+        "TEXT": "Are you currently taking medications prescribed by a doctor?",
+        "OPTIONS": {
+          "none": "No, none",
+          "vitamins": "Vitamins/supplements only",
+          "one": "Yes, one medication",
+          "multiple": "Yes, multiple medications"
+        }
+      }
+    },
+    "RISK_DESCRIPTIONS": {
+      "cardio-1": "History of heart disease identified",
+      "cardio-2": "Chest pain reported",
+      "cardio-3": "Uncontrolled high blood pressure",
+      "cardio-4": "Frequent dizziness",
+      "cardio-5": "Shortness of breath during light effort",
+      "musculo-1": "Bone/joint issues",
+      "musculo-2": "Chronic back pain",
+      "musculo-3": "Knee pain",
+      "metabolic-1": "Uncontrolled diabetes",
+      "metabolic-2": "Overweight or obesity",
+      "lifestyle-1": "Active smoking",
+      "lifestyle-2": "Lack of sleep",
+      "lifestyle-3": "Excessive alcohol consumption",
+      "activity-1": "Sedentary lifestyle",
+      "activity-2": "Low walking capacity",
+      "activity-3": "Long period of inactivity",
+      "activity-4": "Prolonged sitting",
+      "mental-1": "High stress level",
+      "mental-2": "Signs of depression",
+      "mental-3": "Chronic fatigue",
+      "default": "Risk factor identified"
+    },
+    "RECOMMENDATIONS": {
+      "LEVEL": {
+        "at-risk": {
+          "1": "Consult a doctor before starting any exercise program",
+          "2": "Start very gradually with gentle exercises"
+        },
+        "needs-improvement": {
+          "1": "Start with light exercises and increase gradually",
+          "2": "Consult a healthcare professional for personalized advice"
+        },
+        "moderate": {
+          "1": "You can practice moderate physical activity",
+          "2": "Pay attention to your body's signals"
+        },
+        "good": {
+          "1": "Keep up your active lifestyle",
+          "2": "You can progress to more intense exercises"
+        },
+        "excellent": {
+          "1": "Congratulations! Maintain your good habits",
+          "2": "Challenge yourself with more ambitious goals"
+        }
+      },
+      "CATEGORY": {
+        "cardiovascular": "Improve your cardiovascular health with gentle endurance activities (walking, cycling)",
+        "musculoskeletal": "Strengthen muscles and joints with adapted mobility and strengthening exercises",
+        "respiratory": "Practice breathing exercises to improve lung capacity",
+        "metabolic": "Combine physical activity and a balanced diet to improve your metabolism",
+        "lifestyle": "Adopt healthier habits: sleep, nutrition, stress management",
+        "physical-activity": "Gradually increase your daily physical activity",
+        "mental-health": "Add relaxation and breathing exercises for your mental well-being"
+      },
+      "HIGH_RISK_WARNING": "Warning: important risk factors have been identified. Medical consultation is recommended."
+    },
+    "EXERCISES": {
+      "walking": {
+        "NAME": "Active walking",
+        "DESCRIPTION": "Brisk-paced walk to improve cardiovascular endurance",
+        "BENEFITS": {
+          "0": "Improves heart health",
+          "1": "Burns calories",
+          "2": "Reduces stress",
+          "3": "Accessible to everyone"
+        },
+        "CONTRAINDICATIONS": { "0": "Severe joint pain" },
+        "INSTRUCTIONS": {
+          "0": "Start with a 5-minute warm-up at a slow pace",
+          "1": "Gradually increase pace until you're slightly out of breath",
+          "2": "Keep an upright posture and look forward",
+          "3": "Swing your arms naturally",
+          "4": "Finish with 5 minutes of slow walking to recover"
+        }
+      },
+      "light-cycling": {
+        "NAME": "Light cycling",
+        "DESCRIPTION": "Moderate-intensity cycling, ideal for joints",
+        "BENEFITS": {
+          "0": "Low impact on joints",
+          "1": "Strengthens legs",
+          "2": "Improves endurance"
+        },
+        "EQUIPMENT": { "0": "Bicycle or stationary bike" },
+        "CONTRAINDICATIONS": { "0": "Severe balance problems" },
+        "INSTRUCTIONS": {
+          "0": "Adjust the saddle to the right height (knee slightly bent at the bottom)",
+          "1": "Start with low resistance",
+          "2": "Maintain a comfortable cadence (60-80 rpm)",
+          "3": "Keep your back straight",
+          "4": "Gradually increase duration"
+        }
+      },
+      "swimming": {
+        "NAME": "Swimming",
+        "DESCRIPTION": "Full-body, no-impact exercise, great for the whole body",
+        "BENEFITS": {
+          "0": "No impact",
+          "1": "Works the whole body",
+          "2": "Improves breathing",
+          "3": "Great for the back"
+        },
+        "EQUIPMENT": { "0": "Access to a pool" },
+        "INSTRUCTIONS": {
+          "0": "Warm up with a few lengths of breaststroke",
+          "1": "Alternate swimming styles",
+          "2": "Focus on breathing",
+          "3": "Take breaks if needed"
+        }
+      },
+      "wall-pushup": {
+        "NAME": "Wall push-ups",
+        "DESCRIPTION": "Accessible push-up variation for beginners or limited mobility",
+        "BENEFITS": {
+          "0": "Strengthens arms and chest",
+          "1": "Easy to adapt",
+          "2": "No equipment needed"
+        },
+        "INSTRUCTIONS": {
+          "0": "Stand facing a wall, arms extended, hands at shoulder height",
+          "1": "Keep your body straight from heels to head",
+          "2": "Bend elbows to bring chest closer to the wall",
+          "3": "Push back to the starting position",
+          "4": "Exhale as you push, inhale as you lower"
+        }
+      },
+      "chair-squat": {
+        "NAME": "Chair squat",
+        "DESCRIPTION": "Assisted squat to strengthen legs safely",
+        "BENEFITS": {
+          "0": "Strengthens quadriceps",
+          "1": "Improves balance",
+          "2": "Functional everyday movement"
+        },
+        "EQUIPMENT": { "0": "Sturdy chair" },
+        "CONTRAINDICATIONS": { "0": "Severe knee pain" },
+        "INSTRUCTIONS": {
+          "0": "Stand in front of a chair",
+          "1": "Feet hip-width apart",
+          "2": "Lower slowly as if sitting",
+          "3": "Tap the chair without fully sitting down",
+          "4": "Rise by pushing through your heels"
+        }
+      },
+      "plank-modified": {
+        "NAME": "Knee plank",
+        "DESCRIPTION": "Beginner-friendly core exercise",
+        "BENEFITS": {
+          "0": "Strengthens the core",
+          "1": "Improves posture",
+          "2": "Protects the back"
+        },
+        "CONTRAINDICATIONS": { "0": "Acute lower back pain" },
+        "INSTRUCTIONS": {
+          "0": "Get on all fours",
+          "1": "Lower onto your forearms",
+          "2": "Keep knees on the floor",
+          "3": "Align head, shoulders, and hips",
+          "4": "Engage your abs and breathe normally",
+          "5": "Hold the position"
+        }
+      },
+      "bodyweight-squat": {
+        "NAME": "Bodyweight squat",
+        "DESCRIPTION": "Fundamental exercise for legs and glutes",
+        "BENEFITS": {
+          "0": "Strengthens the lower body",
+          "1": "Improves mobility",
+          "2": "Burns calories"
+        },
+        "CONTRAINDICATIONS": {
+          "0": "Severe knee problems",
+          "1": "Hip pain"
+        },
+        "INSTRUCTIONS": {
+          "0": "Feet slightly wider than shoulder width",
+          "1": "Lower by pushing hips back",
+          "2": "Keep knees aligned with toes",
+          "3": "Lower until thighs are parallel to the floor",
+          "4": "Rise by pushing through your heels"
+        }
+      },
+      "neck-stretch": {
+        "NAME": "Neck stretches",
+        "DESCRIPTION": "Gentle stretches to relieve neck tension",
+        "BENEFITS": {
+          "0": "Relieves tension",
+          "1": "Improves neck mobility",
+          "2": "Reduces headaches"
+        },
+        "INSTRUCTIONS": {
+          "0": "Sit or stand with good posture",
+          "1": "Slowly tilt your head toward your right shoulder",
+          "2": "Use your right hand to apply gentle pressure",
+          "3": "Hold for 30 seconds while breathing deeply",
+          "4": "Repeat on the other side"
+        }
+      },
+      "hip-flexor-stretch": {
+        "NAME": "Hip flexor stretch",
+        "DESCRIPTION": "Essential stretch to counter the effects of sitting",
+        "BENEFITS": {
+          "0": "Improves posture",
+          "1": "Relieves lower back",
+          "2": "Increases hip mobility"
+        },
+        "CONTRAINDICATIONS": { "0": "Acute hip pain" },
+        "INSTRUCTIONS": {
+          "0": "Get into a lunge position, back knee on the floor",
+          "1": "Keep torso upright",
+          "2": "Gently push hips forward",
+          "3": "You should feel a stretch at the front of the back hip",
+          "4": "Hold and breathe deeply"
+        }
+      },
+      "hamstring-stretch": {
+        "NAME": "Hamstring stretch",
+        "DESCRIPTION": "Stretch the muscles at the back of the thighs",
+        "BENEFITS": {
+          "0": "Improves flexibility",
+          "1": "Relieves lower back",
+          "2": "Prevents injuries"
+        },
+        "INSTRUCTIONS": {
+          "0": "Sit on the floor with one leg extended in front",
+          "1": "Bend the other leg, foot against the inner thigh",
+          "2": "Lean forward slowly from the hips",
+          "3": "Keep your back straight",
+          "4": "Reach toward your foot or ankle"
+        }
+      },
+      "single-leg-stand": {
+        "NAME": "Single-leg balance",
+        "DESCRIPTION": "Simple exercise to improve balance and proprioception",
+        "BENEFITS": {
+          "0": "Improves balance",
+          "1": "Strengthens ankles",
+          "2": "Prevents falls"
+        },
+        "CONTRAINDICATIONS": { "0": "Frequent dizziness" },
+        "INSTRUCTIONS": {
+          "0": "Stand near a wall or chair for support if needed",
+          "1": "Lift one foot off the ground",
+          "2": "Fix your gaze on a point in front of you",
+          "3": "Hold for 30 seconds",
+          "4": "Switch legs"
+        }
+      },
+      "heel-toe-walk": {
+        "NAME": "Heel-to-toe walk",
+        "DESCRIPTION": "Line walk to improve dynamic balance",
+        "BENEFITS": {
+          "0": "Improves coordination",
+          "1": "Strengthens stabilizing muscles",
+          "2": "Improves gait"
+        },
+        "INSTRUCTIONS": {
+          "0": "Walk in a straight line",
+          "1": "Place the heel of one foot directly in front of the toes of the other",
+          "2": "Keep arms out for balance if needed",
+          "3": "Move slowly and in a controlled way",
+          "4": "Do 10-15 steps, then return"
+        }
+      },
+      "deep-breathing": {
+        "NAME": "Deep breathing",
+        "DESCRIPTION": "Breathing technique to reduce stress and improve oxygenation",
+        "BENEFITS": {
+          "0": "Reduces stress",
+          "1": "Improves lung capacity",
+          "2": "Lowers blood pressure",
+          "3": "Improves focus"
+        },
+        "INSTRUCTIONS": {
+          "0": "Sit comfortably or lie down",
+          "1": "Place one hand on your chest and the other on your belly",
+          "2": "Inhale slowly through your nose for 4 seconds",
+          "3": "Your belly should rise; your chest should move little",
+          "4": "Hold your breath for 2 seconds",
+          "5": "Exhale slowly through your mouth for 6 seconds",
+          "6": "Repeat 10 times"
+        }
+      },
+      "body-scan": {
+        "NAME": "Body scan (relaxation)",
+        "DESCRIPTION": "Progressive relaxation technique to release tension",
+        "BENEFITS": {
+          "0": "Reduces anxiety",
+          "1": "Improves sleep",
+          "2": "Releases muscle tension"
+        },
+        "INSTRUCTIONS": {
+          "0": "Lie down comfortably",
+          "1": "Close your eyes and breathe calmly",
+          "2": "Focus on your feet and relax them",
+          "3": "Move up gradually: calves, thighs, hips...",
+          "4": "Continue up to the top of your head",
+          "5": "Notice areas of tension and release them"
+        }
+      },
+      "diaphragmatic-breathing": {
+        "NAME": "Diaphragmatic breathing",
+        "DESCRIPTION": "Deep belly breathing to improve respiratory function",
+        "BENEFITS": {
+          "0": "Improves breathing efficiency",
+          "1": "Reduces shortness of breath",
+          "2": "Calms the nervous system"
+        },
+        "INSTRUCTIONS": {
+          "0": "Lie on your back with knees bent",
+          "1": "Place one hand on your chest and the other on your belly",
+          "2": "Inhale through your nose; only the belly should rise",
+          "3": "Exhale slowly through pursed lips",
+          "4": "The hand on your chest should stay still",
+          "5": "Practice 5-10 minutes per day"
+        }
+      },
+      "shoulder-circles": {
+        "NAME": "Shoulder circles",
+        "DESCRIPTION": "Gentle mobilization of shoulder joints",
+        "BENEFITS": {
+          "0": "Improves shoulder mobility",
+          "1": "Relieves tension",
+          "2": "Ideal warm-up"
+        },
+        "INSTRUCTIONS": {
+          "0": "Stand with arms alongside the body",
+          "1": "Lift shoulders toward ears",
+          "2": "Roll them backward, then down",
+          "3": "Make slow, controlled circles",
+          "4": "Change direction after 10 repetitions"
+        }
+      },
+      "ankle-circles": {
+        "NAME": "Ankle circles",
+        "DESCRIPTION": "Mobilization of the ankle joints",
+        "BENEFITS": {
+          "0": "Improves ankle mobility",
+          "1": "Prevents sprains",
+          "2": "Improves balance"
+        },
+        "INSTRUCTIONS": {
+          "0": "Sit down or stand on one leg",
+          "1": "Lift one foot off the ground",
+          "2": "Rotate the foot in circles",
+          "3": "10 circles one way, then the other",
+          "4": "Switch feet"
+        }
+      },
+      "cat-cow": {
+        "NAME": "Cat-Cow",
+        "DESCRIPTION": "Spinal mobility exercise inspired by yoga",
+        "BENEFITS": {
+          "0": "Loosens the spine",
+          "1": "Relieves back pain",
+          "2": "Improves posture"
+        },
+        "CONTRAINDICATIONS": { "0": "Acute disc herniation" },
+        "INSTRUCTIONS": {
+          "0": "Get on all fours, hands under shoulders",
+          "1": "Cow: Arch the back and lift the head",
+          "2": "Inhale in this position",
+          "3": "Cat: Round the back and tuck the chin",
+          "4": "Exhale in this position",
+          "5": "Flow smoothly between the two positions"
+        }
+      }
+    }
   },
   "ERRORS": {
     "GENERAL": "An error occurred. Please try again.",
     "TOO_MANY_REQUESTS": "Too many requests. Please wait 60 seconds before trying again.",
-    "SERVICE_UNAVAILABLE": "The AI service is temporarily unavailable. Please try again in a few moments.",
+    "SERVICE_UNAVAILABLE": "The service is temporarily unavailable. Please try again in a few moments.",
     "CONNECTION_ERROR": "Connection problem. Check your internet connection.",
     "INVALID_DATA": "Invalid data. Check your answers and try again.",
     "SERVER_ERROR": "Server error. Our team has been notified."
   },
-  "VALIDATION": {
-    "INVALID_BMI": "BMI of {{bmi}} seems unrealistic. Check your weight and height.",
-    "AGE_GOAL_MISMATCH_MINOR": "Minors must consult a doctor before any competitive sports.",
-    "AGE_GOAL_WARNING_SENIOR": "After 65 years, consult a doctor before aiming for competition.",
-    "UNREALISTIC_AGE": "Expected age between 18 and 100 years.",
-    "FREQUENCY_TIME_MISMATCH": "Your exercise frequency doesn't match the available days.",
-    "TIME_GOAL_MISMATCH": "Competition generally requires more than 15 minutes per session.",
-    "FITNESS_FREQUENCY_MISMATCH": "\"Sedentary\" fitness level and high frequency don't usually match.",
-    "FITNESS_FREQUENCY_IMPOSSIBLE": "Impossible to have \"Intense\" level without ever exercising."
-  },
-  "RESULTS": {
-    "COMPATIBILITY_SCORE": "Compatibility score",
-    "WHY_TITLE": "Why this sport is right for you?",
-    "BENEFITS_TITLE": "Benefits",
-    "PRECAUTIONS_TITLE": "Precautions",
-    "EXERCISES_TITLE": "Exercises to get started",
-    "DURATION": "Duration",
-    "REPETITIONS": "Repetitions",
-    "WATCH_VIDEO": "Watch video",
-    "RETRY_TEST": "Retry test",
-    "BACK_HOME": "Back to home",
-    "REDIRECTING": "Redirecting...",
-    "WHAT_NOW_TITLE": "What to do now?",
-    "WEEK1_TITLE": "Week 1: Preparation",
-    "WEEK1_STEP1": "Find a club, gym or suitable space near you",
-    "WEEK1_STEP2": "Get the necessary basic equipment",
-    "WEEK1_STEP3": "Schedule your first 2-3 sessions in your calendar",
-    "WEEK2_TITLE": "Week 2: First contact",
-    "WEEK2_STEP1": "Do your first session (no performance pressure)",
-    "WEEK2_STEP2": "Note your feelings: what you liked, what was difficult",
-    "WEEK2_STEP3": "Adjust if needed: schedule, intensity, equipment",
-    "WEEK3_TITLE": "Week 3: Evaluation",
-    "WEEK3_STEP1": "Take stock: do you feel good about this activity?",
-    "WEEK3_STEP2": "Set yourself a first achievable mini-goal",
-    "WEEK3_STEP3": "Consider joining a group or finding a partner",
-    "USEFUL_LINKS": "Useful links to get started",
-    "LINK_EQUIPMENT": "Sports equipment",
-    "LINK_TUTORIALS": "Beginner tutorials",
-    "DISCLAIMER_TITLE": "Important reminder",
-    "DISCLAIMER_TEXT": "These recommendations are generated by AI and do not replace medical advice. Always consult a healthcare professional before starting any new sports program.",
-    "PRINT": "Print my results",
-    "SHARE": "Share",
-    "SHARE_TWITTER": "Share on Twitter",
-    "SHARE_TEXT": "I just discovered my ideal sport with FytAI!\n\nRecommended sport: {{sport}}\nCompatibility score: {{score}}%\n\nTry it for free",
-    "SAVE": "Save my results",
-    "SAVED": "Results saved successfully",
-    "EXPORT_PDF": "Export as PDF",
-    "QUICK_ACTIONS": "Quick Actions",
-    "FIND_CLUB": "Find a club",
-    "NEAR_ME": "Near me",
-    "VIDEO_TUTORIALS": "Video tutorials",
-    "FOR_BEGINNERS": "For beginners",
-    "EQUIPMENT": "Equipment",
-    "ESTIMATED_BUDGET": "Estimated budget",
-    "MAPS_SEARCH_QUERY": "club near me",
-    "YOUTUBE_SEARCH_QUERY": "beginner tutorial",
-    "EQUIPMENT_SEARCH_QUERY": "{{sport}} equipment beginner",
-    "GET_TRAINING_PLAN": "Get Your Personalized Training Plan",
-    "TRAINING_PLAN_DESCRIPTION": "Generate a detailed training plan tailored to your profile and sport recommendation",
-    "CREATE_PDF": "Create Training Plan PDF",
-    "GENERATING": "Generating...",
-    "EXPORTING": "Exporting..."
-  },
-  "COMPARISON": {
-    "TITLE": "Compare Sports",
-    "SHOW": "Compare Alternatives",
-    "HIDE": "Hide Comparison",
-    "CRITERIA": "Criteria",
-    "RECOMMENDED": "Top Choice",
-    "BENEFITS": "Benefits",
-    "PRECAUTIONS": "Precautions",
-    "NOTE": "The recommended sport has the highest compatibility with your profile.",
-    "SPORT": "Sport",
-    "SCORE": "Score",
-    "REASON": "Reason"
-  },
-  "PLAN": {
-    "TITLE": "Your Personalized Training Plan",
-    "GOAL": "Goal",
-    "DURATION": "Duration",
-    "WEEK": "Week",
-    "WEEKS": "weeks",
-    "FOCUS": "Focus",
-    "WEEKLY_FOCUS": "Weekly Focus",
-    "MILESTONE": "Milestone",
-    "MONDAY": "Monday",
-    "TUESDAY": "Tuesday",
-    "WEDNESDAY": "Wednesday",
-    "THURSDAY": "Thursday",
-    "FRIDAY": "Friday",
-    "SATURDAY": "Saturday",
-    "SUNDAY": "Sunday",
-    "EQUIPMENT": "Required Equipment",
-    "PROGRESSION_TIPS": "Progression Tips",
-    "REST": "Rest"
-  },
-  "SHARE": {
-    "TITLE": "Share your results:"
+  "SAVED_RESULTS": {
+    "TITLE": "My Saved Results",
+    "SUBTITLE": "Find your last {{count}} health assessment(s)",
+    "CLEAR_ALL": "Clear all",
+    "NO_DATA": "No saved results",
+    "NO_DATA_DESC": "Complete the health questionnaire to get your first assessment",
+    "START_TEST": "Start Health Check",
+    "DELETE": "Delete",
+    "DELETE_SUCCESS": "Result deleted",
+    "CLEAR_SUCCESS": "All results cleared",
+    "VIEW_DETAILS": "View details",
+    "EXERCISES": "exercises",
+    "TO_IMPROVE": "to improve"
   },
   "LANGUAGE": {
     "SELECT": "Language"
@@ -243,184 +728,101 @@
     "TITLE": "How FytAI Works",
     "SUBTITLE": "Discover our transparent methodology and analysis process",
     "DISCLAIMER_TITLE": "Important medical disclaimer",
-    "DISCLAIMER_TEXT": "FytAI is a decision support tool and does not replace the advice of a doctor, physiotherapist or other healthcare professional. Always consult a professional before starting a new sports program.",
+    "DISCLAIMER_TEXT": "FytAI is a decision support tool and does not replace the advice of a doctor, physiotherapist or other healthcare professional. Always consult a professional before starting a new exercise program.",
     "PROCESS_TITLE": "Our analysis process",
     "STEP1_TITLE": "Collecting your data",
-    "STEP1_DESC": "We analyze 15 essential parameters of your profile, grouped into 3 categories:",
-    "PARAM_PERSONAL_HEALTH": "Personal & Health",
-    "PARAM_GOALS": "Goals",
-    "PARAM_PREFERENCES": "Preferences",
+    "STEP1_DESC": "We analyze essential parameters of your health profile, grouped into 7 categories:",
+    "PARAM_CARDIOVASCULAR": "Cardiovascular",
+    "PARAM_MUSCULOSKELETAL": "Musculoskeletal",
+    "PARAM_LIFESTYLE": "Lifestyle",
     "CRITERIA": "criteria",
-    "STEP2_TITLE": "Artificial Intelligence Analysis",
-    "STEP2_DESC": "Your data is analyzed by a specialized AI model that generates a personalized recommendation.",
-    "AI_MODEL": "Model used",
-    "AI_EXPLANATION": "Open-source language model trained to understand context and generate coherent recommendations. Hosted on HuggingFace.",
-    "STEP3_TITLE": "Matching with our sports database",
-    "STEP3_DESC": "The AI compares your profile to our database of sports and activities:",
-    "MORE_SPORTS": "30+ other sports",
+    "STEP2_TITLE": "Health Score Calculation",
+    "STEP2_DESC": "Your answers are analyzed to calculate a comprehensive health score.",
+    "STEP3_TITLE": "Exercise Matching",
+    "STEP3_DESC": "Based on your profile, we recommend adapted exercises:",
+    "MORE_EXERCISES": "30+ exercises available",
     "STEP4_TITLE": "Personalized results",
-    "STEP4_DESC": "You receive a complete recommendation with a concrete action plan.",
-    "OUTPUT_SPORT": "Recommended sport",
-    "OUTPUT_SCORE": "Compatibility score",
-    "OUTPUT_PLAN": "Training plan",
-    "OUTPUT_ALTERNATIVES": "Alternatives",
-    "CAN_DO_TITLE": "What our AI can do",
-    "CANNOT_DO_TITLE": "What our AI CANNOT do",
-    "CAPABILITY_1": "Analyze your profile in a personalized way",
-    "CAPABILITY_2": "Suggest sports adapted to your constraints",
-    "CAPABILITY_3": "Propose a progressive starting plan",
-    "CAPABILITY_4": "Identify precautions to take",
+    "STEP4_DESC": "You receive a complete assessment with personalized recommendations.",
+    "OUTPUT_SCORE": "Health score",
+    "OUTPUT_LEVEL": "Health level",
+    "OUTPUT_EXERCISES": "Recommended exercises",
+    "OUTPUT_TIPS": "Improvement tips",
+    "CAN_DO_TITLE": "What our system can do",
+    "CANNOT_DO_TITLE": "What our system CANNOT do",
+    "CAPABILITY_1": "Analyze your health profile comprehensively",
+    "CAPABILITY_2": "Suggest exercises adapted to your level",
+    "CAPABILITY_3": "Identify areas for improvement",
+    "CAPABILITY_4": "Provide general wellness recommendations",
     "LIMITATION_1": "Replace professional medical advice",
     "LIMITATION_2": "Diagnose or treat medical conditions",
-    "LIMITATION_3": "Guarantee specific results",
+    "LIMITATION_3": "Guarantee specific health outcomes",
     "LIMITATION_4": "Take into account all particular situations",
     "METHODOLOGY_TITLE": "Our methodology",
-    "METHOD_1_TITLE": "Data-based approach",
-    "METHOD_1_DESC": "We use known correlations between physical characteristics, personal preferences and suitable sports, combined with AI reasoning capabilities.",
+    "METHOD_1_TITLE": "Evidence-based approach",
+    "METHOD_1_DESC": "We use established health indicators and standard physical activity recommendations.",
     "METHOD_2_TITLE": "Real personalization",
-    "METHOD_2_DESC": "Each recommendation is generated individually for your profile. It's not just a multiple-choice questionnaire with pre-defined answers.",
+    "METHOD_2_DESC": "Each recommendation is calculated based on your specific answers and health profile.",
     "METHOD_3_TITLE": "Assumed limitations",
-    "METHOD_3_DESC": "We are transparent: our system has not been validated by clinical studies. It's a decision support tool, not a medical diagnosis.",
-    "CTA_TITLE": "Ready to discover your ideal sport?",
+    "METHOD_3_DESC": "We are transparent: our system is a wellness tool, not a medical device.",
+    "CTA_TITLE": "Ready to check your health profile?",
     "CTA_DESC": "Now that you understand our approach, get started!",
     "SEE_EXAMPLES": "See examples",
-    "START_ANALYSIS": "Start my analysis"
-  },
-  "EXAMPLES": {
-    "TITLE": "Result Examples",
-    "SUBTITLE": "Discover what FytAI can recommend",
-    "DESCRIPTION": "Here are 5 typical profiles and their personalized recommendations. Click on a profile to see details.",
-    "YEARS": "years old",
-    "CLICK_DETAILS": "Click to see details →",
-    "DETAILED_ANALYSIS": "Detailed analysis",
-    "PROFILE_SUMMARY": "Profile summary",
-    "MAIN_CHALLENGES": "Main challenges",
-    "RECOMMENDATION": "FytAI Recommendation",
-    "COMPATIBILITY": "Compatibility",
-    "WHY_THIS_SPORT": "Why this sport?",
-    "KEY_BENEFITS": "Key benefits",
-    "WHAT_YOU_GET": "What you'll get with your analysis",
-    "OUTPUT_SPORT": "Personalized sport",
-    "OUTPUT_EXERCISES": "Adapted exercises",
-    "OUTPUT_PLAN": "Weekly plan",
-    "OUTPUT_ALTERNATIVES": "3 alternatives",
-    "CTA_TITLE": "Your turn!",
-    "CTA_DESC": "Convinced by these examples? Get your own personalized analysis.",
-    "START_MY_ANALYSIS": "Get my recommendation",
-    "MARIE_SITUATION": "Office worker, sedentary for 5 years. Suffers from chronic lower back pain related to posture.",
-    "MARIE_CHALLENGE_1": "Back pain",
-    "MARIE_CHALLENGE_2": "Sedentary",
-    "MARIE_CHALLENGE_3": "Little time",
-    "MARIE_BENEFIT_1": "Back strengthening without impact",
-    "MARIE_BENEFIT_2": "Posture improvement",
-    "MARIE_BENEFIT_3": "Relaxation and stress reduction",
-    "MARIE_WHY": "Swimming is ideal because it works all back muscles without joint impact. Water supports body weight, allowing effective muscle work without pain.",
-    "THOMAS_SITUATION": "Young stressed executive with 10h+ workdays. Wants to blow off steam but only has 30 minutes per day maximum.",
-    "THOMAS_CHALLENGE_1": "Lack of time",
-    "THOMAS_CHALLENGE_2": "High stress",
-    "THOMAS_CHALLENGE_3": "Need quick results",
-    "THOMAS_BENEFIT_1": "Effective 15-30 minute sessions",
-    "THOMAS_BENEFIT_2": "Excellent stress relief",
-    "THOMAS_BENEFIT_3": "Visible results quickly",
-    "THOMAS_WHY": "HIIT allows significant results in very little time. Session intensity helps release accumulated stress while improving fitness.",
-    "SOPHIE_SITUATION": "Active fifty-something suffering from knee osteoarthritis. Wants to maintain regular physical activity without worsening condition.",
-    "SOPHIE_CHALLENGE_1": "Knee problems",
-    "SOPHIE_CHALLENGE_2": "Osteoarthritis",
-    "SOPHIE_CHALLENGE_3": "Need gentleness",
-    "SOPHIE_BENEFIT_1": "Zero joint impact",
-    "SOPHIE_BENEFIT_2": "Gentle muscle strengthening",
-    "SOPHIE_BENEFIT_3": "Excellent for cardio",
-    "SOPHIE_WHY": "Elliptical trainer reproduces natural walking movement without any shock. It allows cardio and muscle work while preserving knees.",
-    "LUCAS_SITUATION": "Stressed manager, insomniac, with slightly elevated blood pressure. Looking for calming activity.",
-    "LUCAS_CHALLENGE_1": "Chronic stress",
-    "LUCAS_CHALLENGE_2": "Sleep disorders",
-    "LUCAS_CHALLENGE_3": "Mild hypertension",
-    "LUCAS_BENEFIT_1": "Proven stress reduction",
-    "LUCAS_BENEFIT_2": "Sleep improvement",
-    "LUCAS_BENEFIT_3": "Blood pressure regulation",
-    "LUCAS_WHY": "Yoga combines gentle physical exercise, breathing techniques and meditation. This holistic approach helps regulate the nervous system and improve sleep quality.",
-    "EMILIE_SITUATION": "Dynamic student who finds classic sports boring. Loves music and wants to make friends.",
-    "EMILIE_CHALLENGE_1": "Fluctuating motivation",
-    "EMILIE_CHALLENGE_2": "Gets bored quickly",
-    "EMILIE_CHALLENGE_3": "Need social aspect",
-    "EMILIE_BENEFIT_1": "Fun and never monotonous",
-    "EMILIE_BENEFIT_2": "Strong social aspect",
-    "EMILIE_BENEFIT_3": "Excellent disguised cardio",
-    "EMILIE_WHY": "Fitness dance combines the pleasure of music with physical exercise. Group atmosphere and choreography variety keep motivation high."
+    "START_ANALYSIS": "Start my assessment"
   },
   "FAQ": {
     "TITLE": "Frequently Asked Questions",
     "SUBTITLE": "All answers to your questions about FytAI",
     "CAT_ALL": "All",
     "CAT_TRUST": "Trust",
-    "CAT_AI": "Artificial Intelligence",
+    "CAT_HEALTH": "Health",
     "CAT_RESULTS": "Results",
     "CAT_DATA": "Data",
-    "CAT_HEALTH": "Health",
-    "Q1_QUESTION": "Is the analysis really free? Will you spam me?",
+    "Q1_QUESTION": "Is the assessment really free? Will you spam me?",
     "Q1_ANSWER": "Yes, FytAI is 100% free. We don't ask for your email and will never spam you. No registration is required to use the service.",
-    "Q2_QUESTION": "Why should I trust FytAI rather than a simple quiz?",
-    "Q2_ANSWER": "Unlike classic quizzes with pre-defined answers, FytAI uses real AI that analyzes your entire profile in depth to generate a unique recommendation. Each result is created specifically for you, taking into account your physical characteristics, goals and preferences.",
+    "Q2_QUESTION": "How is the health score calculated?",
+    "Q2_ANSWER": "The health score is calculated based on your answers to questions across 7 categories: cardiovascular, musculoskeletal, respiratory, metabolic, lifestyle, physical activity, and mental health. Each answer contributes points to your total score.",
     "Q3_QUESTION": "Who created FytAI? Are there doctors involved?",
-    "Q3_ANSWER": "FytAI was created by a team of developers passionate about sports and technology. We don't have doctors on the team, which is why we emphasize that our recommendations don't replace professional medical advice.",
-    "Q4_QUESTION": "What AI model do you use exactly?",
-    "Q4_ANSWER": "We use llama-3.3-70b-versatile, a powerful language model accessed via the Groq API. It's capable of understanding context and generating coherent recommendations based on your profile.",
-    "Q5_QUESTION": "Will the AI only recommend swimming and cycling?",
-    "Q5_ANSWER": "No! Our system can recommend over 50 different sports: from classic sports (swimming, running, cycling) to more original activities (climbing, dance, martial arts, team sports, etc.). The recommendation really depends on your profile.",
-    "Q6_QUESTION": "Has the AI been trained on medical data?",
-    "Q6_ANSWER": "The AI model we use has been trained on a wide variety of texts, including health and sports content. However, it's not a specialized medical model. That's why we always recommend consulting a healthcare professional.",
-    "Q7_QUESTION": "What happens to my data?",
-    "Q7_ANSWER": "Your data is processed in real-time to generate your recommendation and is not stored permanently on our servers. We don't sell or share your personal information with third parties.",
-    "Q8_QUESTION": "Can I trust recommendations if I have a serious medical condition?",
-    "Q8_ANSWER": "No. If you have a serious medical condition (heart disease, recent surgery, severe osteoarthritis, etc.), you MUST consult a doctor before starting any physical activity. FytAI can give you ideas, but only a medical professional can validate their safety.",
-    "Q9_QUESTION": "Why do you ask so many questions?",
-    "Q9_ANSWER": "Each question helps the AI better understand your unique situation. The more information we have, the more accurate and personalized your recommendation will be. You can skip optional questions, but results will be less precise.",
-    "Q10_QUESTION": "Can I redo the test if I'm not satisfied with the recommendation?",
-    "Q10_ANSWER": "Absolutely! You can redo the analysis as many times as you want. Your answers might evolve, and you might discover different sports suited to your changing situation.",
-    "Q11_QUESTION": "Are my data sold to third parties?",
-    "Q11_ANSWER": "No, never. Your data is processed only to generate your recommendation and is not stored on our servers after analysis. We do not sell any data.",
-    "Q12_QUESTION": "How long is my data kept?",
-    "Q12_ANSWER": "Your form answers are saved locally in your browser to allow you to resume later. They are deleted as soon as you get your result. We do not keep any data on our servers.",
-    "Q13_QUESTION": "Can I trust these recommendations if I have serious pathologies?",
-    "Q13_ANSWER": "No, if you have serious pathologies, you must absolutely consult a doctor before starting any sports activity. FytAI is a decision support tool, not a medical diagnosis.",
-    "Q14_QUESTION": "What happens if the recommended sport doesn't suit me?",
-    "Q14_ANSWER": "We always provide alternatives! If the main sport doesn't suit you, explore the 3 other suggestions. You can also redo the test by adjusting your answers.",
+    "Q3_ANSWER": "FytAI was created by a team of developers passionate about health and technology. We don't have doctors on the team, which is why we emphasize that our recommendations don't replace professional medical advice.",
+    "Q4_QUESTION": "What happens to my data?",
+    "Q4_ANSWER": "Your data is processed in real-time to generate your assessment and is not stored permanently on our servers. We don't sell or share your personal information with third parties.",
+    "Q5_QUESTION": "Can I trust recommendations if I have a serious medical condition?",
+    "Q5_ANSWER": "No. If you have a serious medical condition (heart disease, recent surgery, severe conditions, etc.), you MUST consult a doctor before starting any physical activity. FytAI can give you ideas, but only a medical professional can validate their safety.",
+    "Q6_QUESTION": "Can I redo the questionnaire if I'm not satisfied?",
+    "Q6_ANSWER": "Absolutely! You can redo the questionnaire as many times as you want. Your health status might evolve, and you might get different recommendations.",
+    "Q7_QUESTION": "Are my data sold to third parties?",
+    "Q7_ANSWER": "No, never. Your data is processed only to generate your assessment and is not stored on our servers after analysis. We do not sell any data.",
+    "Q8_QUESTION": "How long is my data kept?",
+    "Q8_ANSWER": "Your questionnaire answers are saved locally in your browser. They are not sent to any external server. You can clear your saved results at any time.",
     "HONESTY_TITLE": "Our commitment to honesty",
     "HONESTY_1": "We do not claim to have scientific or medical validation. FytAI is a technological tool, not a medical device.",
-    "HONESTY_2": "Our recommendations are AI-generated and may contain errors. Use your judgment and consult professionals if necessary.",
-    "HONESTY_3": "Our goal is to help you think and explore sports options, not to give you definitive prescriptions.",
+    "HONESTY_2": "Our recommendations are calculated based on standard health guidelines and may not suit everyone.",
+    "HONESTY_3": "Our goal is to help you reflect on your health and explore wellness options, not to give you definitive prescriptions.",
     "STILL_QUESTIONS": "Still have questions?",
-    "CONTACT_US": "Feel free to explore our other pages or start your analysis.",
+    "CONTACT_US": "Feel free to explore our other pages or start your assessment.",
     "SEE_HOW_IT_WORKS": "How it works",
     "ABOUT_US": "About us",
-    "START_ANALYSIS": "Start analysis"
+    "START_ANALYSIS": "Start assessment"
   },
   "ABOUT": {
     "TITLE": "About FytAI",
     "SUBTITLE": "Discover who we are and why we created FytAI",
     "STORY_TITLE": "Our story",
-    "STORY_P1": "FytAI was born from a simple frustration: finding the right sport for yourself is often an obstacle course. Between conflicting advice, passing fads, and lack of personalization, many give up before even starting.",
-    "STORY_P2": "We wanted to create a tool that truly takes into account who you are: your body, your schedule, your fears, your desires. Not a generic quiz, but a truly personalized analysis.",
-    "STORY_P3": "FytAI is not perfect and we know it. It's a constantly improving project, guided by user feedback and our passion for making sport accessible to everyone.",
+    "STORY_P1": "FytAI was born from a simple desire: to help people understand their health profile and take the first steps towards a healthier lifestyle.",
+    "STORY_P2": "We wanted to create a tool that truly takes into account who you are: your current health status, your lifestyle, your constraints. Not a generic quiz, but a real personalized assessment.",
+    "STORY_P3": "FytAI is not perfect and we know it. It's a constantly improving project, guided by user feedback and our passion for making health awareness accessible to everyone.",
     "VALUES_TITLE": "Our values",
     "VALUE_PRIVACY_TITLE": "Privacy respect",
-    "VALUE_PRIVACY_DESC": "Your data is never sold. It is processed locally and deleted after analysis.",
+    "VALUE_PRIVACY_DESC": "Your data is never sold. It is processed locally and not stored after analysis.",
     "VALUE_ACCURACY_TITLE": "Honesty about our limits",
     "VALUE_ACCURACY_DESC": "We don't claim to replace a doctor. Our recommendations are suggestions, not prescriptions.",
     "VALUE_TRANSPARENCY_TITLE": "Total transparency",
-    "VALUE_TRANSPARENCY_DESC": "We tell you exactly which AI we use and how our system works.",
+    "VALUE_TRANSPARENCY_DESC": "We tell you exactly how our system works and what it can and cannot do.",
     "VALUE_FREE_TITLE": "Free without strings",
     "VALUE_FREE_DESC": "FytAI is free, without ads, without spam, without mandatory registration.",
     "TECH_TITLE": "Technical transparency",
     "TECH_INTRO": "We believe you have the right to know exactly how our system works.",
     "TECH_ANGULAR": "Modern frontend framework for a smooth user experience",
     "TECH_DOTNET": "Robust and secure backend for data processing",
-    "TECH_AI": "Open-source language model for personalized recommendations",
-    "TECH_GROQ": "Trusted AI model hosting platform",
-    "AI_MODEL_TITLE": "AI model details",
-    "AI_MODEL_NAME": "Model name",
-    "AI_PROVIDER": "Provider",
-    "AI_DISCLAIMER": "This model generates recommendations based on your answers. It has not been specifically trained for medical sports advice.",
     "LIMITATIONS_TITLE": "What we are NOT",
     "LIMITATION_1": "We are not a medical service and cannot diagnose or treat health conditions",
     "LIMITATION_2": "We do not have doctors or physiotherapists on our development team",
@@ -431,80 +833,44 @@
     "SEE_FAQ": "See FAQ",
     "TRY_FYTAI": "Try FytAI",
     "ROLE_DEVELOPERS": "Developers",
-    "TEAM_DESC": "A team passionate about sports and technology"
+    "TEAM_DESC": "A team passionate about health and technology"
   },
   "chatbot": {
     "buttonText": "Questions?",
     "openChat": "Open chatbot",
     "closeChat": "Close chatbot",
-    "title": "FytAI Assistant",
+    "fullscreen": "Fullscreen",
+    "exitFullscreen": "Exit fullscreen",
+    "title": "FytAI Health Assistant",
     "subtitle": "Ask your questions",
-    "welcomeMessage": "👋 Hello! I'm your personal FytAI assistant. Ask me questions about your sport recommendation, I'm here to help!",
+    "welcomeMessage": "👋 Hello! I'm your personal FytAI health assistant. Ask me questions about your health results, I'm here to help!",
     "suggestedQuestionsTitle": "Frequently asked questions:",
     "suggestedQuestions": {
-      "beginner": "How do I start if I'm a complete beginner?",
-      "healthIssues": "Can I practice this sport with my health issues?",
-      "frequency": "How many times per week should I train?",
-      "equipment": "What's the minimum equipment needed to start?"
+      "improve": "How can I improve my health score?",
+      "exercises": "Which exercises suit my level?",
+      "start": "How to start the recommended exercises?",
+      "tips": "Tips for my weak categories?"
     },
     "inputPlaceholder": "Ask your question...",
     "sendMessage": "Send message",
     "hint": "Press Enter to send, Shift+Enter for a new line",
-    "error": "Sorry, an error occurred. Please try again."
+    "error": "Sorry, an error occurred. Please try again.",
+    "thinking": "Thinking...",
+    "clearHistory": "Clear conversation"
   },
   "SNACKBAR": {
     "SAVE_SUCCESS": "Results saved successfully!",
     "SAVE_ERROR": "Error saving results",
-    "PDF_SUCCESS": "PDF exported successfully!",
-    "PDF_ERROR": "Error exporting PDF",
     "LINK_COPIED": "Link copied to clipboard!",
     "COPY_ERROR": "Error copying to clipboard",
-    "FEEDBACK_ERROR": "Error submitting feedback",
-    "TRAINING_PLAN_SUCCESS": "Training plan PDF generated successfully!",
-    "TRAINING_PLAN_ERROR": "Error generating training plan"
-  },
-  "PDF": {
-    "SUBTITLE": "Your Personalized Sport Recommendation",
-    "CONFIDENTIAL": "Confidential Document",
-    "GENERATED_ON": "Generated on",
-    "VERSION": "Version",
-    "PROFILE": "Profile",
-    "YEARS": "years",
-    "COMPATIBILITY": "compatibility",
-    "YOUR_PROFILE": "Your Profile",
-    "AGE": "Age",
-    "GENDER": "Gender",
-    "HEIGHT": "Height",
-    "WEIGHT": "Weight",
-    "FITNESS_LEVEL": "Fitness Level",
-    "EXERCISE_FREQ": "Exercise Frequency",
-    "BENEFITS": "Benefits",
-    "PRECAUTIONS": "Precautions",
-    "EXERCISES": "Recommended Exercises",
-    "TRAINING_PLAN": "Training Plan",
-    "GOAL": "Goal",
-    "EQUIPMENT": "Equipment",
-    "PROGRESSION": "Progression Tips",
-    "ALTERNATIVES": "Alternative Sports",
-    "TAGLINE": "AI for Your Health",
-    "PAGE": "Page",
-    "AVAILABLE_DAYS": "Availability",
-    "MAIN_GOAL": "Main goal",
-    "ERROR_GENERATE": "Error generating PDF",
-    "DURATION": "Duration",
-    "WEEKS": "weeks",
-    "PERSONALIZED_PLAN": "Your Personalized Training Plan",
-    "YOUR_GOAL": "Your Goal",
-    "REQUIRED_EQUIPMENT": "Required Equipment",
-    "WEEK": "Week",
-    "PROGRESSION_TIPS": "Progression Tips"
+    "FEEDBACK_ERROR": "Error submitting feedback"
   },
   "FEEDBACK": {
-    "TITLE": "Does this recommendation suit you?",
-    "PERFECT": "Perfect for me",
-    "GOOD": "Pretty good",
-    "MEH": "Not convinced",
-    "BAD": "Not at all",
+    "TITLE": "How helpful was this assessment?",
+    "PERFECT": "Very helpful",
+    "GOOD": "Helpful",
+    "MEH": "Somewhat helpful",
+    "BAD": "Not helpful",
     "COMMENT_PLACEHOLDER": "Optional: Share your thoughts to help us improve...",
     "SUBMIT": "Submit feedback",
     "SUBMITTING": "Submitting...",
@@ -514,7 +880,7 @@
   },
   "FEEDBACKS": {
     "TITLE": "User Feedbacks",
-    "SUBTITLE": "All user feedback on sport recommendations",
+    "SUBTITLE": "All user feedback on health assessments",
     "TOTAL": "Total",
     "SATISFACTION": "Satisfaction",
     "POSITIVE": "Positive",
@@ -522,26 +888,15 @@
     "NO_DATA": "No feedback yet",
     "NO_DATA_DESC": "Feedbacks from users will appear here",
     "READ_MORE": "Read more",
-    "READ_LESS": "Read less"
-  },
-  "SAVED_RESULTS": {
-    "TITLE": "My Saved Results",
-    "SUBTITLE": "Find your last {{count}} recommendation(s)",
-    "CLEAR_ALL": "Clear all",
-    "NO_DATA": "No saved results",
-    "NO_DATA_DESC": "Start the test to get your first recommendation",
-    "START_TEST": "Start the test",
-    "COMPATIBLE": "compatible",
-    "EXPORT_PDF": "Export as PDF",
-    "DELETE": "Delete",
-    "AGE": "Age",
-    "YEARS": "years",
-    "GOAL": "Goal",
-    "LEVEL": "Level",
-    "FREQUENCY": "Frequency",
-    "VIEW_DETAILS": "View details"
+    "READ_LESS": "Read less",
+    "COMPATIBILITY_WITH_SCORE": "{{score}}% compatibility",
+    "TARGET": {
+      "health-questionnaire": "Health questionnaire"
+    }
   },
   "COMMON": {
-    "BACK_HOME": "Back to home"
+    "BACK_HOME": "Back to home",
+    "CONFIRM": "Confirm",
+    "CANCEL": "Cancel"
   }
 }

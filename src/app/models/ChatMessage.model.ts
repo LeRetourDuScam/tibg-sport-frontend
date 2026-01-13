@@ -1,5 +1,3 @@
-import { UserProfile } from './UserProfile.model';
-import { SportRecommendation } from './SportRecommendation.model';
 
 export interface ChatMessage {
   role: 'user' | 'assistant';
@@ -7,11 +5,16 @@ export interface ChatMessage {
   timestamp?: Date;
 }
 
-export interface ChatRequest {
-  userProfile: UserProfile;
-  recommendation: SportRecommendation;
+export interface HealthChatRequest {
+  scorePercentage: number;
+  healthLevel: string;
+  weakCategories: string[];
+  riskFactors: string[];
+  recommendedExercises: string[];
+  recommendations: string[];
   conversationHistory: ChatMessage[];
   userMessage: string;
+  language?: string;
 }
 
 export interface ChatResponse {

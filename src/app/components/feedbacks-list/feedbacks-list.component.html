@@ -60,7 +60,7 @@
                   {{ getRatingLabel(feedback.rating) | translate }}
                 </span>
                 <span class="text-sm font-medium text-neutral-900">{{ feedback.sport }}</span>
-                <span class="text-xs text-neutral-500">{{ feedback.score }}% compatibilité</span>
+                <span class="text-xs text-neutral-500">{{ 'FEEDBACKS.COMPATIBILITY_WITH_SCORE' | translate:{ score: feedback.score } }}</span>
               </div>
               <div *ngIf="feedback.comment" class="mb-2">
                 <p class="text-sm text-neutral-700 comment-text"
