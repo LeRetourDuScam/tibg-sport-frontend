@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { LucideAngularModule } from 'lucide-angular';
+import { Activity, Brain, Dumbbell, Heart, Leaf, LucideAngularModule, Sparkles } from 'lucide-angular';
 
 @Component({
   selector: 'app-how-it-works',
@@ -12,25 +12,32 @@ import { LucideAngularModule } from 'lucide-angular';
   styleUrls: ['./how-it-works.component.css']
 })
 export class HowItWorksComponent {
+  readonly HeartIcon = Heart;
+  readonly ActivityIcon = Activity;
+  readonly BrainIcon = Brain;
+  readonly LeafIcon = Leaf;
+  readonly DumbbellIcon = Dumbbell;
+  readonly SparklesIcon = Sparkles;
+
   analysisParameters = [
-    { iconName: 'user-round', key: 'PERSONAL_HEALTH', count: 8 },
-    { iconName: 'target', key: 'GOALS', count: 3 },
-    { iconName: 'settings', key: 'PREFERENCES', count: 4 }
+    { iconName: Heart, key: 'CARDIOVASCULAR' },
+    { iconName: Dumbbell, key: 'MUSCULOSKELETAL' },
+    { iconName: Sparkles, key: 'METABOLIC' },
+    { iconName: Leaf, key: 'LIFESTYLE' },
+    { iconName: Activity, key: 'PHYSICAL_ACTIVITY' },
+    { iconName: Brain, key: 'MENTAL_HEALTH' }
   ];
 
-  sportProfiles = [
-    { name: 'Natation', iconName: 'waves' },
-    { name: 'Course à pied', iconName: 'activity' },
-    { name: 'Cyclisme', iconName: 'bike' },
-    { name: 'Yoga', iconName: 'leaf' },
-    { name: 'HIIT', iconName: 'zap' },
-    { name: 'Musculation', iconName: 'dumbbell' },
-    { name: 'Tennis', iconName: 'trophy' },
-    { name: 'Danse', iconName: 'music' },
-    { name: 'Boxe', iconName: 'shield' },
-    { name: 'Escalade', iconName: 'mountain' },
-    { name: 'Football', iconName: 'flag' },
-    { name: 'Basketball', iconName: 'circle-dot' }
+
+  exerciseProfiles = [
+    { nameKey: 'EXERCISE_WALKING', iconName: 'activity' },
+    { nameKey: 'EXERCISE_CYCLING', iconName: 'bike' },
+    { nameKey: 'EXERCISE_SWIMMING', iconName: 'waves' },
+    { nameKey: 'EXERCISE_STRETCHING', iconName: 'leaf' },
+    { nameKey: 'EXERCISE_STRENGTH', iconName: 'dumbbell' },
+    { nameKey: 'EXERCISE_BREATHING', iconName: 'zap' },
+    { nameKey: 'EXERCISE_BALANCE', iconName: 'target' },
+    { nameKey: 'EXERCISE_RELAXATION', iconName: 'brain' }
   ];
 
   limitations = [

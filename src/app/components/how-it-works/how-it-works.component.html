@@ -49,9 +49,11 @@
         </div>
         <p class="text-sm text-neutral-600 mb-3 pl-10">{{ 'HOW_IT_WORKS.STEP2_DESC' | translate }}</p>
 
-        <div class="bg-neutral-900 rounded-md p-3 ml-10 text-xs">
-          <p class="text-neutral-400 mb-1">{{ 'HOW_IT_WORKS.AI_MODEL' | translate }}</p>
-          <p class="text-green-400 font-mono">llama-3.3-70b-versatile</p>
+        <div class="bg-neutral-100 rounded-md p-3 ml-10 text-xs">
+          <div class="flex items-center gap-2">
+            <lucide-icon name="activity" class="w-4 h-4 text-neutral-600"></lucide-icon>
+            <p class="text-neutral-600">{{ 'HOW_IT_WORKS.SCORE_ALGORITHM' | translate }}</p>
+          </div>
         </div>
       </div>
 
@@ -64,11 +66,11 @@
         <p class="text-sm text-neutral-600 mb-3 pl-10">{{ 'HOW_IT_WORKS.STEP3_DESC' | translate }}</p>
 
         <div class="flex flex-wrap gap-1.5 pl-10">
-          <span *ngFor="let sport of sportProfiles" class="px-2 py-1 bg-neutral-100 rounded text-xs text-neutral-600">
-            <lucide-icon [name]="sport.iconName" class="w-4 h-4 inline-block mr-1 align-middle"></lucide-icon>
-            {{ sport.name }}
+          <span *ngFor="let exercise of exerciseProfiles" class="px-2 py-1 bg-neutral-100 rounded text-xs text-neutral-600">
+            <lucide-icon [name]="exercise.iconName" class="w-4 h-4 inline-block mr-1 align-middle"></lucide-icon>
+            {{ 'HOW_IT_WORKS.' + exercise.nameKey | translate }}
           </span>
-          <span class="px-2 py-1 bg-neutral-100 rounded text-xs text-neutral-500">+{{ 'HOW_IT_WORKS.MORE_SPORTS' | translate }}</span>
+          <span class="px-2 py-1 bg-neutral-100 rounded text-xs text-neutral-500">+{{ 'HOW_IT_WORKS.MORE_EXERCISES' | translate }}</span>
         </div>
       </div>
 
@@ -82,47 +84,20 @@
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pl-10">
           <div class="p-2 bg-green-50 rounded text-center border border-green-100">
-            <p class="text-xs text-green-700">{{ 'HOW_IT_WORKS.OUTPUT_SPORT' | translate }}</p>
-          </div>
-          <div class="p-2 bg-green-50 rounded text-center border border-green-100">
             <p class="text-xs text-green-700">{{ 'HOW_IT_WORKS.OUTPUT_SCORE' | translate }}</p>
           </div>
           <div class="p-2 bg-green-50 rounded text-center border border-green-100">
-            <p class="text-xs text-green-700">{{ 'HOW_IT_WORKS.OUTPUT_PLAN' | translate }}</p>
+            <p class="text-xs text-green-700">{{ 'HOW_IT_WORKS.OUTPUT_LEVEL' | translate }}</p>
           </div>
           <div class="p-2 bg-green-50 rounded text-center border border-green-100">
-            <p class="text-xs text-green-700">{{ 'HOW_IT_WORKS.OUTPUT_ALTERNATIVES' | translate }}</p>
+            <p class="text-xs text-green-700">{{ 'HOW_IT_WORKS.OUTPUT_EXERCISES' | translate }}</p>
+          </div>
+          <div class="p-2 bg-green-50 rounded text-center border border-green-100">
+            <p class="text-xs text-green-700">{{ 'HOW_IT_WORKS.OUTPUT_TIPS' | translate }}</p>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="grid sm:grid-cols-2 gap-4 mb-5">
-      <div class="bg-white border border-neutral-200 rounded-lg p-4">
-        <h3 class="text-sm font-medium text-green-700 mb-3 flex items-center gap-2">
-          {{ 'HOW_IT_WORKS.CAN_DO_TITLE' | translate }}
-        </h3>
-        <ul class="space-y-2">
-          <li *ngFor="let cap of capabilities" class="text-sm text-neutral-600 flex items-start gap-2">
-            <lucide-icon name="check" class="w-4 h-4 text-green-500 mt-0.5"></lucide-icon>
-            {{ 'HOW_IT_WORKS.' + cap | translate }}
-          </li>
-        </ul>
-      </div>
-
-      <div class="bg-white border border-neutral-200 rounded-lg p-4">
-        <h3 class="text-sm font-medium text-red-700 mb-3 flex items-center gap-2">
-          {{ 'HOW_IT_WORKS.CANNOT_DO_TITLE' | translate }}
-        </h3>
-        <ul class="space-y-2">
-          <li *ngFor="let lim of limitations" class="text-sm text-neutral-600 flex items-start gap-2">
-            <lucide-icon name="x" class="w-4 h-4 text-red-500 mt-0.5"></lucide-icon>
-            {{ 'HOW_IT_WORKS.' + lim | translate }}
-          </li>
-        </ul>
-      </div>
-    </div>
-
 
     <div class="bg-white border border-neutral-200 rounded-lg p-5 mb-5">
       <h2 class="text-base font-medium text-neutral-900 mb-4">{{ 'HOW_IT_WORKS.METHODOLOGY_TITLE' | translate }}</h2>
