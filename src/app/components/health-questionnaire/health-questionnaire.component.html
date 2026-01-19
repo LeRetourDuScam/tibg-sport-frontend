@@ -1,9 +1,12 @@
-<div class="min-h-screen bg-[#fafafa]">
-  <header class="bg-white border-b border-neutral-200">
+<div class="min-h-screen bg-white">
+  <header class="bg-white/80 backdrop-blur-sm border-b border-neutral-200 sticky top-0 z-50">
     <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <a routerLink="/" class="text-lg font-semibold text-neutral-800 hover:text-blue-600 transition-colors">FytAI</a>
-      </div>
+      <a routerLink="/" class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-emerald-500 rounded-lg flex items-center justify-center">
+          <lucide-angular [img]="HeartIcon" class="w-5 h-5 text-white"></lucide-angular>
+        </div>
+        <span class="text-lg font-bold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">FytAI</span>
+      </a>
     </div>
   </header>
 

@@ -14,6 +14,7 @@ import {
   Bot,
   Sparkles,
   Shield,
+  ShieldCheck,
   Target,
   MessageSquare,
   Gift,
@@ -23,6 +24,7 @@ import {
   Microscope,
   UserRound,
   HeartPulse,
+  Heart,
   Clock,
   Settings,
   Brain,
@@ -45,7 +47,17 @@ import {
   Languages,
   CircleHelp,
   Info,
-  User
+  User,
+  Globe,
+  AlertTriangle,
+  ArrowRight,
+  Wind,
+  Flame,
+  ClipboardList,
+  FolderOpen,
+  Lock,
+  Gauge,
+  ExternalLink
 } from 'lucide-angular';
 
 import { routes } from './app.routes';
@@ -73,6 +85,7 @@ export const appConfig: ApplicationConfig = {
         Bot,
         Sparkles,
         Shield,
+        ShieldCheck,
         Target,
         MessageSquare,
         Gift,
@@ -82,6 +95,7 @@ export const appConfig: ApplicationConfig = {
         Microscope,
         UserRound,
         HeartPulse,
+        Heart,
         Clock,
         Settings,
         Brain,
@@ -104,7 +118,17 @@ export const appConfig: ApplicationConfig = {
         Languages,
         CircleHelp,
         Info,
-        User
+        User,
+        Globe,
+        AlertTriangle,
+        ArrowRight,
+        Wind,
+        Flame,
+        ClipboardList,
+        FolderOpen,
+        Lock,
+        Gauge,
+        ExternalLink
       })
     )
   ]

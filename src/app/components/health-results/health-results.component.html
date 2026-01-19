@@ -1,43 +1,20 @@
 @if (result) {
-<div class="min-h-screen bg-[#fafafa]">
-  <header class="bg-white border-b border-neutral-200">
+<div class="min-h-screen bg-white">
+  <header class="bg-white/80 backdrop-blur-sm border-b border-neutral-200 sticky top-0 z-50">
     <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-4">
-        <a routerLink="/" class="text-lg font-semibold text-neutral-800 hover:text-blue-600 transition-colors">FytAI</a>
-        <a routerLink="/feedbacks" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
+        <a routerLink="/" class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-emerald-500 rounded-lg flex items-center justify-center">
+            <lucide-angular [img]="HeartIcon" class="w-5 h-5 text-white"></lucide-angular>
+          </div>
+          <span class="text-lg font-bold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">FytAI</span>
+        </a>
+        <a routerLink="/feedbacks" class="hidden sm:block text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
           {{ 'HOME.VIEW_FEEDBACKS' | translate }}
         </a>
-        <a routerLink="/saved-results" class="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
+        <a routerLink="/saved-results" class="hidden sm:block text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
           {{ 'HOME.SAVED_RESULTS' | translate }}
         </a>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <div class="relative">
-          <button
-            (click)="toggleLanguageMenu()"
-            class="flex items-center gap-1.5 px-3 py-1.5 text-sm text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 rounded-md transition-colors cursor-pointer">
-            <lucide-angular [img]="SparklesIcon" class="w-4 h-4"></lucide-angular>
-            <span>{{ languageService.getCurrentLanguage().toUpperCase() }}</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-
-          @if (showLanguageMenu) {
-            <div class="absolute right-0 mt-1 bg-white border border-neutral-200 rounded-md shadow-sm py-1 min-w-[120px] z-50">
-              @for (lang of languages; track lang.code) {
-                <button
-                  (click)="changeLanguage(lang.code)"
-                  class="w-full px-3 py-2 text-sm text-left hover:bg-neutral-50 transition-colors cursor-pointer"
-                  [class.bg-neutral-50]="languageService.getCurrentLanguage() === lang.code"
-                  [class.font-medium]="languageService.getCurrentLanguage() === lang.code">
-                  {{ lang.name }}
-                </button>
-              }
-            </div>
-          }
-        </div>
       </div>
     </div>
   </header>
@@ -129,54 +106,35 @@
     </div>
 
     @if (activeTab === 'overview') {
-      <div class="grid sm:grid-cols-2 gap-4 mb-6">
-        @for (categoryScore of result.categoryScores; track categoryScore.category) {
-          <div class="bg-white border border-neutral-200 rounded-lg p-4">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
-                <lucide-angular [img]="getCategoryIcon(categoryScore.category)" class="w-4 h-4 text-blue-600"></lucide-angular>
-              </div>
-              <div>
-                <h3 class="text-sm font-medium text-neutral-800">
-                  {{ getCategoryLabel(categoryScore.category) | translate }}
-                </h3>
-                <p class="text-xs text-neutral-500">
-                  {{ categoryScore.score }}/{{ categoryScore.maxScore }} {{ 'HEALTH.POINTS' | translate }}
-                </p>
-              </div>
-            </div>
 
-            <div class="h-2 bg-neutral-200 rounded-full overflow-hidden">
-              <div
-                class="h-full rounded-full transition-all duration-1000 {{ getScoreBgColor(categoryScore.percentage) }}"
-                [style.width.%]="categoryScore.percentage">
-              </div>
-            </div>
+      <!-- Actions prioritaires (max 3) -->
+      @if (result.recommendations && result.recommendations.length > 0) {
+        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mb-6">
+          <h3 class="flex items-center gap-2 text-sm font-semibold text-emerald-800 mb-3">
+            <lucide-angular [img]="TargetIcon" class="w-4 h-4"></lucide-angular>
+            {{ 'HEALTH.PRIORITY_ACTIONS' | translate }}
+          </h3>
+          <ul class="space-y-2">
+            @for (recommendation of getPriorityRecommendations(); track recommendation) {
+              <li class="flex items-start gap-2 p-2 bg-white rounded-md border border-emerald-100">
+                <lucide-angular [img]="CheckCircleIcon" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></lucide-angular>
+                <span class="text-sm text-neutral-700">{{ recommendation | translate }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
 
-            <div class="flex justify-between mt-2">
-              <span class="text-lg font-bold {{ getScoreColor(categoryScore.percentage) }}">
-                {{ categoryScore.percentage }}%
-              </span>
-              @if (categoryScore.percentage < 60) {
-                <span class="text-xs text-amber-600 flex items-center gap-1">
-                  <lucide-angular [img]="AlertTriangleIcon" class="w-3 h-3"></lucide-angular>
-                  {{ 'HEALTH.TO_IMPROVE' | translate }}
-                </span>
-              }
-            </div>
-          </div>
-        }
-      </div>
-
+      <!-- Facteurs de risque en alerte -->
       @if (result.riskFactors.length > 0) {
-        <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
-          <h3 class="flex items-center gap-2 text-sm font-semibold text-red-700 mb-3">
+        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
+          <h3 class="flex items-center gap-2 text-sm font-semibold text-amber-700 mb-3">
             <lucide-angular [img]="AlertTriangleIcon" class="w-4 h-4"></lucide-angular>
             {{ 'HEALTH.RISK_FACTORS' | translate }}
           </h3>
           <ul class="space-y-2">
             @for (risk of result.riskFactors; track risk.id) {
-              <li class="flex items-center gap-2 text-sm text-red-600">
+              <li class="flex items-center gap-2 text-sm text-amber-700">
                 <span class="w-1.5 h-1.5 rounded-full {{ risk.severity === 'high' ? 'bg-red-500' : 'bg-amber-500' }}"></span>
                 {{ risk.description | translate }}
               </li>
@@ -185,20 +143,87 @@
         </div>
       }
 
-      <div class="bg-white border border-neutral-200 rounded-lg p-4 mb-6">
-        <h3 class="flex items-center gap-2 text-sm font-semibold text-neutral-800 mb-3">
-          <lucide-angular [img]="TargetIcon" class="w-4 h-4 text-blue-500"></lucide-angular>
-          {{ 'HEALTH.RECOMMENDATIONS_TITLE' | translate }}
-        </h3>
-        <ul class="space-y-2">
-          @for (recommendation of result.recommendations; track recommendation) {
-            <li class="flex items-start gap-2 p-2 bg-neutral-50 rounded-md">
-              <lucide-angular [img]="CheckCircleIcon" class="w-4 h-4 text-green-500 shrink-0 mt-0.5"></lucide-angular>
-              <span class="text-sm text-neutral-700">{{ recommendation | translate }}</span>
-            </li>
-          }
-        </ul>
+      <!-- Détail des catégories en accordéon -->
+      <div class="bg-white border border-neutral-200 rounded-lg overflow-hidden mb-6">
+        <button
+          (click)="toggleCategoriesAccordion()"
+          class="w-full p-4 flex items-center justify-between cursor-pointer hover:bg-neutral-50 transition-colors">
+          <div class="flex items-center gap-2">
+            <lucide-angular [img]="BarChart3Icon" class="w-5 h-5 text-blue-500"></lucide-angular>
+            <span class="text-sm font-medium text-neutral-800">{{ 'HEALTH.CATEGORY_DETAILS' | translate }}</span>
+          </div>
+          <lucide-angular
+            [img]="showCategoriesAccordion ? ChevronUpIcon : ChevronDownIcon"
+            class="w-5 h-5 text-neutral-400">
+          </lucide-angular>
+        </button>
+
+        @if (showCategoriesAccordion) {
+          <div class="border-t border-neutral-100 p-4">
+            <div class="grid sm:grid-cols-2 gap-4">
+              @for (categoryScore of result.categoryScores; track categoryScore.category) {
+                <div class="p-3 bg-neutral-50 rounded-lg">
+                  <div class="flex items-center gap-2 mb-2">
+                    <div class="w-6 h-6 rounded bg-blue-100 flex items-center justify-center">
+                      <lucide-angular [img]="getCategoryIcon(categoryScore.category)" class="w-3 h-3 text-blue-600"></lucide-angular>
+                    </div>
+                    <span class="text-sm font-medium text-neutral-800">
+                      {{ getCategoryLabel(categoryScore.category) | translate }}
+                    </span>
+                  </div>
+
+                  <div class="h-2 bg-neutral-200 rounded-full overflow-hidden mb-1">
+                    <div
+                      class="h-full rounded-full transition-all duration-1000 {{ getScoreBgColor(categoryScore.percentage) }}"
+                      [style.width.%]="categoryScore.percentage">
+                    </div>
+                  </div>
+
+                  <div class="flex justify-between text-xs">
+                    <span class="font-medium {{ getScoreColor(categoryScore.percentage) }}">
+                      {{ categoryScore.percentage }}%
+                    </span>
+                    <span class="text-neutral-500">
+                      {{ categoryScore.score }}/{{ categoryScore.maxScore }}
+                    </span>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        }
       </div>
+
+      <!-- Toutes les recommandations en accordéon -->
+      @if (result.recommendations && result.recommendations.length > 3) {
+        <div class="bg-white border border-neutral-200 rounded-lg overflow-hidden mb-6">
+          <button
+            (click)="toggleAllRecommendations()"
+            class="w-full p-4 flex items-center justify-between cursor-pointer hover:bg-neutral-50 transition-colors">
+            <div class="flex items-center gap-2">
+              <lucide-angular [img]="TargetIcon" class="w-5 h-5 text-green-500"></lucide-angular>
+              <span class="text-sm font-medium text-neutral-800">{{ 'HEALTH.ALL_RECOMMENDATIONS' | translate }} ({{ result.recommendations.length }})</span>
+            </div>
+            <lucide-angular
+              [img]="showAllRecommendations ? ChevronUpIcon : ChevronDownIcon"
+              class="w-5 h-5 text-neutral-400">
+            </lucide-angular>
+          </button>
+
+          @if (showAllRecommendations) {
+            <div class="border-t border-neutral-100 p-4">
+              <ul class="space-y-2">
+                @for (recommendation of result.recommendations; track recommendation) {
+                  <li class="flex items-start gap-2 p-2 bg-neutral-50 rounded-md">
+                    <lucide-angular [img]="CheckCircleIcon" class="w-4 h-4 text-green-500 shrink-0 mt-0.5"></lucide-angular>
+                    <span class="text-sm text-neutral-700">{{ recommendation | translate }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        </div>
+      }
 
       @if (feedbackTarget) {
         <div class="mb-6">

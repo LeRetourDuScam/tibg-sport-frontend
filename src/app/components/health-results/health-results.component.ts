@@ -6,7 +6,7 @@ import { LucideAngularModule,
   Heart, Activity, Brain, Leaf, Dumbbell, Wind, Sparkles,
   AlertTriangle, CheckCircle, ArrowRight, RotateCcw, Clock,
   TrendingUp, Target, Flame, Download, Share2, ChevronDown, ChevronUp,
-  Play, Info, Twitter, Save, Loader
+  Play, Info, Twitter, Save, Loader, BarChart3
 } from 'lucide-angular';
 import { HealthScoreService } from '../../services/health-score.service';
 import { LanguageService } from '../../services/language.service';
@@ -58,6 +58,7 @@ export class HealthResultsComponent implements OnInit {
   readonly TwitterIcon = Twitter;
   readonly SaveIcon = Save;
   readonly LoaderIcon = Loader;
+  readonly BarChart3Icon = BarChart3;
 
   result: HealthQuestionnaireResult | null = null;
   aiExercises: ExerciseAi[] = [];
@@ -68,6 +69,8 @@ export class HealthResultsComponent implements OnInit {
   isSaved = false;
   isLoadingExercises = false;
   exercisesError: string | null = null;
+  showCategoriesAccordion = false;
+  showAllRecommendations = false;
 
   constructor(
     private healthScoreService: HealthScoreService,
@@ -81,15 +84,6 @@ export class HealthResultsComponent implements OnInit {
 
   get languages() {
     return this.languageService.getAvailableLanguages();
-  }
-
-  async changeLanguage(lang: string) {
-    await this.languageService.setLanguage(lang);
-    this.showLanguageMenu = false;
-  }
-
-  toggleLanguageMenu() {
-    this.showLanguageMenu = !this.showLanguageMenu;
   }
 
   ngOnInit(): void {
@@ -203,6 +197,19 @@ export class HealthResultsComponent implements OnInit {
 
   refreshExercises(): void {
     this.loadAiExercises();
+  }
+
+  toggleCategoriesAccordion(): void {
+    this.showCategoriesAccordion = !this.showCategoriesAccordion;
+  }
+
+  toggleAllRecommendations(): void {
+    this.showAllRecommendations = !this.showAllRecommendations;
+  }
+
+  getPriorityRecommendations(): string[] {
+    if (!this.result?.recommendations) return [];
+    return this.result.recommendations.slice(0, 3);
   }
 
   getCategoryLabel(category: HealthCategory): string {
