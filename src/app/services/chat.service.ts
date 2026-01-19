@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 import { environment } from '../../environment/environment';
-import { ChatResponse, HealthChatRequest } from '../models/ChatMessage.model';
+import { ChatResponse, HealthChatRequest, ExercisesRequest, ExercisesResponse } from '../models/ChatMessage.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,13 @@ export class ChatService {
     return this.http.post<ChatResponse>(`${this.apiUrl}/health`, request).pipe(
       retry(1),
       map(res => res.message),
+      catchError(this.handleError)
+    );
+  }
+
+  getRecommendedExercises(request: ExercisesRequest): Observable<ExercisesResponse> {
+    return this.http.post<ExercisesResponse>(`${this.apiUrl}/exercises`, request).pipe(
+      retry(1),
       catchError(this.handleError)
     );
   }

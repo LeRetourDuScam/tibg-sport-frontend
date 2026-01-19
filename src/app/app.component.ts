@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   constructor(private languageService: LanguageService) {}
 
   async ngOnInit() {
-    // Initialise les traductions au démarrage de l'application
     await this.languageService.initializeLanguage();
   }
 }

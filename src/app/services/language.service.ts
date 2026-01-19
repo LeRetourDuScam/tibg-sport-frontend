@@ -27,7 +27,6 @@ export class LanguageService {
     this.currentLanguage = lang;
     localStorage.setItem('language', lang);
 
-    // Attend que les traductions soient chargées
     await firstValueFrom(this.translate.use(lang));
   }
 

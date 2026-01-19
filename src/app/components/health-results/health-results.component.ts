@@ -6,20 +6,22 @@ import { LucideAngularModule,
   Heart, Activity, Brain, Leaf, Dumbbell, Wind, Sparkles,
   AlertTriangle, CheckCircle, ArrowRight, RotateCcw, Clock,
   TrendingUp, Target, Flame, Download, Share2, ChevronDown, ChevronUp,
-  Play, Info, Twitter, Save
+  Play, Info, Twitter, Save, Loader
 } from 'lucide-angular';
 import { HealthScoreService } from '../../services/health-score.service';
 import { LanguageService } from '../../services/language.service';
 import { ResultsStorageService } from '../../services/results-storage.service';
 import { SnackbarService } from '../../services/snackbar.service';
+import { ChatService } from '../../services/chat.service';
 import {
   HealthQuestionnaireResult,
   HealthCategory,
   HealthLevel,
   getCategoryLabel,
-  getHealthLevelLabel
+  getHealthLevelLabel,
+  HEALTH_QUESTIONS
 } from '../../models/HealthQuestionnaire.model';
-import { Exercise, ExerciseProgram } from '../../models/Exercice.model';
+import { ExerciseAi, ExercisesRequest, UserHealthProfile, CategoryScoreDetail } from '../../models/ChatMessage.model';
 import { HealthChatbotComponent } from '../health-chatbot/health-chatbot.component';
 import { FeedbackComponent } from '../feedback/feedback.component';
 import { FeedbackTarget } from '../../models/FeedbackTarget.model';
@@ -32,7 +34,6 @@ import { FeedbackTarget } from '../../models/FeedbackTarget.model';
   styleUrls: ['./health-results.component.css']
 })
 export class HealthResultsComponent implements OnInit {
-  // Icons
   readonly HeartIcon = Heart;
   readonly ActivityIcon = Activity;
   readonly BrainIcon = Brain;
@@ -56,18 +57,17 @@ export class HealthResultsComponent implements OnInit {
   readonly InfoIcon = Info;
   readonly TwitterIcon = Twitter;
   readonly SaveIcon = Save;
+  readonly LoaderIcon = Loader;
 
-  // Data
   result: HealthQuestionnaireResult | null = null;
-  recommendedExercises: Exercise[] = [];
-  exerciseProgram: ExerciseProgram | null = null;
+  aiExercises: ExerciseAi[] = [];
 
-  // UI State
   expandedExercises: Set<string> = new Set();
-  showAllExercises = false;
   activeTab: 'overview' | 'exercises' = 'overview';
   showLanguageMenu = false;
   isSaved = false;
+  isLoadingExercises = false;
+  exercisesError: string | null = null;
 
   constructor(
     private healthScoreService: HealthScoreService,
@@ -75,7 +75,8 @@ export class HealthResultsComponent implements OnInit {
     public languageService: LanguageService,
     private resultsStorageService: ResultsStorageService,
     private snackbarService: SnackbarService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private chatService: ChatService
   ) {}
 
   get languages() {
@@ -99,16 +100,111 @@ export class HealthResultsComponent implements OnInit {
     this.result = this.healthScoreService.getSavedResult();
 
     if (!this.result) {
-      // Pas de résultat, rediriger vers le questionnaire
       this.router.navigate(['/questionnaire-sante']);
       return;
     }
 
-    this.recommendedExercises = this.healthScoreService.getRecommendedExercises(this.result);
-    this.exerciseProgram = this.healthScoreService.generateExerciseProgram(this.result);
+    this.loadAiExercises();
   }
 
-  // Helper methods
+  private loadAiExercises(): void {
+    if (!this.result) return;
+
+    this.isLoadingExercises = true;
+    this.exercisesError = null;
+
+    const weakCategories = this.result.categoryScores
+      .filter(cs => cs.percentage < 70)
+      .map(cs => this.translateService.instant(this.getCategoryLabel(cs.category)));
+
+    const riskFactors = this.result.riskFactors
+      .map(rf => this.translateService.instant(rf.description));
+
+    const recommendations = this.result.recommendations
+      .map(rec => this.translateService.instant(rec));
+
+    const categoryScores: CategoryScoreDetail[] = this.result.categoryScores.map(cs => ({
+      category: cs.category,
+      categoryLabel: this.translateService.instant(this.getCategoryLabel(cs.category)),
+      score: cs.score,
+      maxScore: cs.maxScore,
+      percentage: cs.percentage
+    }));
+
+    const userProfile = this.buildUserHealthProfile();
+
+    const request: ExercisesRequest = {
+      scorePercentage: this.result.scorePercentage,
+      healthLevel: this.result.healthLevel,
+      weakCategories: weakCategories,
+      riskFactors: riskFactors,
+      recommendations: recommendations,
+      categoryScores: categoryScores,
+      userProfile: userProfile,
+      language: this.languageService.getCurrentLanguage()
+    };
+
+    this.chatService.getRecommendedExercises(request).subscribe({
+      next: (response) => {
+        this.aiExercises = response.exercises || [];
+        this.isLoadingExercises = false;
+      },
+      error: (error) => {
+        console.error('Error loading AI exercises:', error);
+        this.exercisesError = 'HEALTH.EXERCISES_LOAD_ERROR';
+        this.isLoadingExercises = false;
+      }
+    });
+  }
+
+  private buildUserHealthProfile(): UserHealthProfile {
+    const getAnswerValue = (questionId: string): string => {
+      const answer = this.result?.answers.find(a => a.questionId === questionId);
+      return answer ? String(answer.value) : 'unknown';
+    };
+
+    const getBooleanAnswer = (questionId: string): boolean => {
+      const answer = this.result?.answers.find(a => a.questionId === questionId);
+      return answer?.value === true || answer?.value === 'true';
+    };
+
+    return {
+      hasHeartCondition: getBooleanAnswer('cardio-1'),
+      hasHighBloodPressure: getAnswerValue('cardio-3'),
+      chestPainFrequency: getAnswerValue('cardio-4'),
+      breathlessnessFrequency: getAnswerValue('cardio-5'),
+
+      hasJointProblems: getBooleanAnswer('musculo-1'),
+      backPainFrequency: getAnswerValue('musculo-2'),
+      jointPainFrequency: getAnswerValue('musculo-3'),
+      mobilityLevel: getAnswerValue('musculo-4'),
+
+      hasRespiratoryCondition: getBooleanAnswer('respiratory-1'),
+      breathingDifficulty: getAnswerValue('respiratory-2'),
+
+      diabetesStatus: getAnswerValue('metabolic-1'),
+      weightCategory: getAnswerValue('metabolic-2'),
+
+      smokingStatus: getAnswerValue('lifestyle-1'),
+      sleepHours: getAnswerValue('lifestyle-2'),
+      alcoholConsumption: getAnswerValue('lifestyle-3'),
+      dietQuality: getAnswerValue('lifestyle-4'),
+
+      weeklyExerciseFrequency: getAnswerValue('activity-1'),
+      stairsCapacity: getAnswerValue('activity-2'),
+      lastRegularExercise: getAnswerValue('activity-3'),
+      dailySittingHours: getAnswerValue('activity-4'),
+
+      stressLevel: getAnswerValue('mental-1'),
+      anxietyFrequency: getAnswerValue('mental-2'),
+      motivationLevel: getAnswerValue('mental-3')
+    };
+  }
+
+  refreshExercises(): void {
+    this.loadAiExercises();
+  }
+
   getCategoryLabel(category: HealthCategory): string {
     return getCategoryLabel(category);
   }
@@ -194,22 +290,6 @@ export class HealthResultsComponent implements OnInit {
     return names[category] || category;
   }
 
-  getExerciseBenefitKey(exerciseId: string, index: number): string {
-    return `HEALTH.EXERCISES.${exerciseId}.BENEFITS.${index}`;
-  }
-
-  getExerciseInstructionKey(exerciseId: string, index: number): string {
-    return `HEALTH.EXERCISES.${exerciseId}.INSTRUCTIONS.${index}`;
-  }
-
-  getExerciseContraKey(exerciseId: string, index: number): string {
-    return `HEALTH.EXERCISES.${exerciseId}.CONTRAINDICATIONS.${index}`;
-  }
-
-  getExerciseEquipmentKey(exerciseId: string, index: number): string {
-    return `HEALTH.EXERCISES.${exerciseId}.EQUIPMENT.${index}`;
-  }
-
   toggleExercise(exerciseId: string): void {
     if (this.expandedExercises.has(exerciseId)) {
       this.expandedExercises.delete(exerciseId);
@@ -220,13 +300,6 @@ export class HealthResultsComponent implements OnInit {
 
   isExerciseExpanded(exerciseId: string): boolean {
     return this.expandedExercises.has(exerciseId);
-  }
-
-  get displayedExercises(): Exercise[] {
-    if (this.showAllExercises) {
-      return this.recommendedExercises;
-    }
-    return this.recommendedExercises.slice(0, 6);
   }
 
   get weakCategories(): string[] {
@@ -261,7 +334,7 @@ export class HealthResultsComponent implements OnInit {
       id: `health-${Date.now()}`,
       type: 'health' as const,
       healthResult: this.result,
-      exercises: this.recommendedExercises,
+      exercises: this.aiExercises,
       savedAt: new Date()
     };
 

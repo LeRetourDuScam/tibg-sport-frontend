@@ -5,8 +5,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LucideAngularModule, MessageCircle, Bot, X, Send, Maximize2, Minimize2, Trash2 } from 'lucide-angular';
 import { ChatService } from '../../services/chat.service';
 import { HealthQuestionnaireResult, getCategoryLabel } from '../../models/HealthQuestionnaire.model';
-import { Exercise } from '../../models/Exercice.model';
-import { ChatMessage, HealthChatRequest } from '../../models/ChatMessage.model';
+import { ChatMessage, HealthChatRequest, ExerciseAi } from '../../models/ChatMessage.model';
 
 @Component({
   selector: 'app-health-chatbot',
@@ -17,7 +16,7 @@ import { ChatMessage, HealthChatRequest } from '../../models/ChatMessage.model';
 })
 export class HealthChatbotComponent implements OnInit, OnDestroy, OnChanges {
   @Input() result!: HealthQuestionnaireResult;
-  @Input() exercises: Exercise[] = [];
+  @Input() exercises: ExerciseAi[] = [];
 
   isOpen = false;
   isFullscreen = false;
@@ -60,19 +59,16 @@ export class HealthChatbotComponent implements OnInit, OnDestroy, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['result'] && !changes['result'].firstChange) {
-      // Result changed, reinitialize chat for the new result
       this.initializeForResult();
     }
   }
 
   private initializeForResult(): void {
     if (this.result) {
-      // Generate unique ID based on result completedAt timestamp
       const resultId = this.result.completedAt
         ? new Date(this.result.completedAt).getTime().toString()
         : 'default';
 
-      // If this is a different result, reset the chat
       if (this.currentResultId !== resultId) {
         this.currentResultId = resultId;
         this.loadConversationHistory();
@@ -86,7 +82,6 @@ export class HealthChatbotComponent implements OnInit, OnDestroy, OnChanges {
 
   ngOnDestroy(): void {
     this.saveConversationHistory();
-    // Remove fullscreen class from body when component is destroyed
     if (this.isFullscreen) {
       document.body.classList.remove('chatbot-fullscreen-open');
     }
@@ -100,7 +95,6 @@ export class HealthChatbotComponent implements OnInit, OnDestroy, OnChanges {
       sessionStorage.setItem(this.BADGE_KEY, 'true');
     }
 
-    // Close fullscreen when closing chat
     if (!this.isOpen && this.isFullscreen) {
       this.toggleFullscreen();
     }
@@ -142,18 +136,17 @@ export class HealthChatbotComponent implements OnInit, OnDestroy, OnChanges {
     this.userInput = '';
     this.isLoading = true;
 
-    // Build request for backend
     const weakCategories = this.result.categoryScores
       .filter(cs => cs.percentage < 60)
-      .map(cs => getCategoryLabel(cs.category));
+      .map(cs => this.translate.instant(getCategoryLabel(cs.category)));
 
     const request: HealthChatRequest = {
       scorePercentage: this.result.scorePercentage,
       healthLevel: this.result.healthLevel,
       weakCategories: weakCategories,
-      riskFactors: this.result.riskFactors.map(r => r.description),
-      recommendedExercises: this.exercises.slice(0, 8).map(e => e.name),
-      recommendations: this.result.recommendations.slice(0, 5),
+      riskFactors: this.result.riskFactors.map(r => this.translate.instant(r.description)),
+      recommendedExercises: this.exercises.slice(0, 4).map(e => e.name),
+      recommendations: this.result.recommendations.slice(0, 5).map(r => this.translate.instant(r)),
       conversationHistory: this.messages.slice(-10).map(m => ({
         role: m.role,
         content: m.content
@@ -196,7 +189,6 @@ export class HealthChatbotComponent implements OnInit, OnDestroy, OnChanges {
           this.showSuggestedQuestions = false;
         }
       } else {
-        // Reset for new result
         this.messages = [];
         this.showSuggestedQuestions = true;
       }

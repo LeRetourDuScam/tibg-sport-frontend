@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HealthQuestionnaireResult } from '../models/HealthQuestionnaire.model';
-import { Exercise } from '../models/Exercice.model';
+import { ExerciseAi } from '../models/ChatMessage.model';
 
 export interface SavedResult {
   id: string;
@@ -11,7 +11,7 @@ export interface SavedHealthResult {
   id: string;
   type: 'health';
   healthResult: HealthQuestionnaireResult;
-  exercises: Exercise[];
+  exercises: ExerciseAi[];
   savedAt: Date;
 }
 
@@ -122,10 +122,6 @@ export class ResultsStorageService {
       return false;
     }
   }
-
-  // =====================
-  // Health Results Methods
-  // =====================
 
   /**
    * Sauvegarde un résultat de santé dans le localStorage

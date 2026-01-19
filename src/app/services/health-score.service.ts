@@ -10,15 +10,6 @@ import {
   HEALTH_QUESTIONS,
   getQuestionsByCategory
 } from '../models/HealthQuestionnaire.model';
-import {
-  Exercise,
-  ExerciseProgram,
-  ExerciseSession,
-  SessionExercise,
-  getExercisesForHealthLevel,
-  getRecommendedExercises,
-  EXERCISE_DATABASE
-} from '../models/Exercice.model';
 
 @Injectable({
   providedIn: 'root'
@@ -66,7 +57,6 @@ export class HealthScoreService {
       completedAt: new Date()
     };
 
-    // Sauvegarder le résultat
     this.saveResult(result);
 
     return result;
@@ -222,7 +212,6 @@ export class HealthScoreService {
   ): string[] {
     const recommendations: string[] = [];
 
-    // Recommandations basées sur le niveau global
     switch (healthLevel) {
       case 'at-risk':
         recommendations.push('HEALTH.RECOMMENDATIONS.LEVEL.at-risk.1');
@@ -246,7 +235,6 @@ export class HealthScoreService {
         break;
     }
 
-    // Recommandations basées sur les catégories faibles
     const weakCategories = categoryScores
       .filter(cs => cs.percentage < 60)
       .sort((a, b) => a.percentage - b.percentage);
@@ -255,7 +243,6 @@ export class HealthScoreService {
       recommendations.push(this.getCategoryRecommendation(cat.category));
     });
 
-    // Recommandations basées sur les facteurs de risque
     const highRisks = riskFactors.filter(r => r.severity === 'high');
     if (highRisks.length > 0) {
       recommendations.push('HEALTH.RECOMMENDATIONS.HIGH_RISK_WARNING');
@@ -279,194 +266,6 @@ export class HealthScoreService {
     };
 
     return keys[category];
-  }
-
-  /**
-   * Obtient les exercices recommandés basés sur les résultats
-   */
-  getRecommendedExercises(result: HealthQuestionnaireResult): Exercise[] {
-    const weakCategories = result.categoryScores
-      .filter(cs => cs.percentage < 70)
-      .map(cs => cs.category);
-
-    return getRecommendedExercises(result.healthLevel, weakCategories);
-  }
-
-  /**
-   * Génère un programme d'exercices personnalisé
-   */
-  generateExerciseProgram(result: HealthQuestionnaireResult): ExerciseProgram {
-    const weakCategories = result.categoryScores
-      .filter(cs => cs.percentage < 70)
-      .map(cs => cs.category);
-
-    const recommendedExercises = this.getRecommendedExercises(result);
-
-    // Déterminer la fréquence en fonction du niveau
-    let frequencyPerWeek: number;
-    let sessionsPerDay: number;
-
-    switch (result.healthLevel) {
-      case 'at-risk':
-        frequencyPerWeek = 3;
-        sessionsPerDay = 3;
-        break;
-      case 'needs-improvement':
-        frequencyPerWeek = 4;
-        sessionsPerDay = 4;
-        break;
-      case 'moderate':
-        frequencyPerWeek = 4;
-        sessionsPerDay = 5;
-        break;
-      case 'good':
-      case 'excellent':
-        frequencyPerWeek = 5;
-        sessionsPerDay = 6;
-        break;
-      default:
-        frequencyPerWeek = 3;
-        sessionsPerDay = 4;
-    }
-
-    // Créer les sessions
-    const sessions: ExerciseSession[] = [];
-    const days = [1, 3, 5, 2, 4, 6].slice(0, frequencyPerWeek);
-
-    days.forEach((day, index) => {
-      const sessionExercises: SessionExercise[] = [];
-      const exercisesForSession = this.selectExercisesForSession(
-        recommendedExercises,
-        sessionsPerDay,
-        index
-      );
-
-      exercisesForSession.forEach((exercise, order) => {
-        sessionExercises.push({
-          exercise,
-          order: order + 1,
-          sets: exercise.sets || 2,
-          reps: exercise.repetitions ? parseInt(exercise.repetitions.split('-')[0]) : undefined,
-          duration: exercise.duration ? this.parseDuration(exercise.duration) : undefined,
-          restBetweenSets: exercise.restTime ? parseInt(exercise.restTime) : 60
-        });
-      });
-
-      sessions.push({
-        day,
-        exercises: sessionExercises,
-        totalDuration: this.calculateSessionDuration(sessionExercises),
-        warmupIncluded: true,
-        cooldownIncluded: true
-      });
-    });
-
-    return {
-      id: `program-${Date.now()}`,
-      name: this.getProgramName(result.healthLevel),
-      description: this.getProgramDescription(result.healthLevel),
-      healthLevel: result.healthLevel,
-      targetCategories: weakCategories,
-      exercises: sessions,
-      durationWeeks: 8,
-      frequencyPerWeek,
-      createdAt: new Date()
-    };
-  }
-
-  /**
-   * Sélectionne les exercices pour une session
-   */
-  private selectExercisesForSession(
-    exercises: Exercise[],
-    count: number,
-    sessionIndex: number
-  ): Exercise[] {
-    // Rotation des exercices entre les sessions
-    const startIndex = (sessionIndex * 2) % exercises.length;
-    const selected: Exercise[] = [];
-
-    // Toujours inclure un exercice de respiration/relaxation
-    const breathingExercise = exercises.find(e => e.category === 'breathing' || e.category === 'relaxation');
-    if (breathingExercise) {
-      selected.push(breathingExercise);
-    }
-
-    // Ajouter les autres exercices
-    for (let i = 0; selected.length < count && i < exercises.length; i++) {
-      const exercise = exercises[(startIndex + i) % exercises.length];
-      if (!selected.includes(exercise)) {
-        selected.push(exercise);
-      }
-    }
-
-    return selected;
-  }
-
-  /**
-   * Parse la durée en secondes
-   */
-  private parseDuration(duration: string): number {
-    const match = duration.match(/(\d+)/);
-    if (match) {
-      const value = parseInt(match[1]);
-      if (duration.includes('min')) {
-        return value * 60;
-      }
-      return value;
-    }
-    return 60;
-  }
-
-  /**
-   * Calcule la durée totale d'une session
-   */
-  private calculateSessionDuration(exercises: SessionExercise[]): number {
-    let total = 5; // 5 minutes d'échauffement
-
-    exercises.forEach(ex => {
-      if (ex.duration) {
-        total += (ex.duration / 60) * (ex.sets || 1);
-      } else if (ex.reps) {
-        // Estimer 3 secondes par répétition
-        total += ((ex.reps * 3) / 60) * (ex.sets || 1);
-      }
-      // Ajouter le temps de repos
-      if (ex.restBetweenSets && ex.sets && ex.sets > 1) {
-        total += ((ex.restBetweenSets * (ex.sets - 1)) / 60);
-      }
-    });
-
-    total += 5; // 5 minutes de retour au calme
-    return Math.round(total);
-  }
-
-  /**
-   * Génère le nom du programme
-   */
-  private getProgramName(healthLevel: HealthLevel): string {
-    const names: Record<HealthLevel, string> = {
-      'at-risk': 'Programme Santé Première',
-      'needs-improvement': 'Programme Progression Douce',
-      'moderate': 'Programme Équilibre Actif',
-      'good': 'Programme Forme Optimale',
-      'excellent': 'Programme Performance'
-    };
-    return names[healthLevel];
-  }
-
-  /**
-   * Génère la description du programme
-   */
-  private getProgramDescription(healthLevel: HealthLevel): string {
-    const descriptions: Record<HealthLevel, string> = {
-      'at-risk': 'Programme très progressif conçu pour vous accompagner en toute sécurité vers une meilleure forme physique',
-      'needs-improvement': 'Programme adapté pour retrouver une condition physique satisfaisante à votre rythme',
-      'moderate': 'Programme équilibré combinant différents types d\'exercices pour une progression constante',
-      'good': 'Programme complet pour maintenir et améliorer votre bonne condition physique',
-      'excellent': 'Programme avancé pour optimiser vos performances et relever de nouveaux défis'
-    };
-    return descriptions[healthLevel];
   }
 
   /**
@@ -515,20 +314,6 @@ export class HealthScoreService {
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
 
     return result.completedAt > thirtyDaysAgo;
-  }
-
-  /**
-   * Obtient tous les exercices de la base de données
-   */
-  getAllExercises(): Exercise[] {
-    return EXERCISE_DATABASE;
-  }
-
-  /**
-   * Obtient les exercices par difficulté
-   */
-  getExercisesByDifficulty(difficulty: 'beginner' | 'intermediate' | 'advanced'): Exercise[] {
-    return EXERCISE_DATABASE.filter(e => e.difficulty === difficulty);
   }
 
   /**

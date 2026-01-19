@@ -1,8 +1,3 @@
-/**
- * Modèle du questionnaire de santé avec système de scoring
- * Basé sur des critères médicaux standard pour évaluer l'aptitude à l'activité physique
- */
-
 export interface HealthQuestion {
   id: string;
   category: HealthCategory;
@@ -12,15 +7,15 @@ export interface HealthQuestion {
   scaleMin?: number;
   scaleMax?: number;
   scaleLabels?: { min: string; max: string };
-  weight: number; // Importance de la question dans le score global
+  weight: number;
   required: boolean;
 }
 
 export interface HealthOption {
   value: string | number | boolean;
   label: string;
-  points: number; // Points attribués pour cette réponse
-  riskLevel?: 'low' | 'moderate' | 'high'; // Niveau de risque associé
+  points: number;
+  riskLevel?: 'low' | 'moderate' | 'high';
 }
 
 export interface HealthAnswer {
@@ -65,18 +60,17 @@ export type HealthCategory =
   | 'mental-health';
 
 export type HealthLevel =
-  | 'excellent'    // 90-100%
-  | 'good'         // 75-89%
-  | 'moderate'     // 60-74%
-  | 'needs-improvement' // 40-59%
-  | 'at-risk';     // 0-39%
+  | 'excellent'
+  | 'good'
+  | 'moderate'
+  | 'needs-improvement'
+  | 'at-risk';
 
 /**
  * Questions du questionnaire de santé
  * Score: Plus le score est élevé, meilleur est l'état de santé
  */
 export const HEALTH_QUESTIONS: HealthQuestion[] = [
-  // === CATÉGORIE CARDIOVASCULAIRE ===
   {
     id: 'cardio-1',
     category: 'cardiovascular',
@@ -144,7 +138,6 @@ export const HEALTH_QUESTIONS: HealthQuestion[] = [
     required: true
   },
 
-  // === CATÉGORIE MUSCULO-SQUELETTIQUE ===
   {
     id: 'musculo-1',
     category: 'musculoskeletal',
@@ -202,7 +195,6 @@ export const HEALTH_QUESTIONS: HealthQuestion[] = [
     required: true
   },
 
-  // === CATÉGORIE MÉTABOLIQUE ===
   {
     id: 'metabolic-1',
     category: 'metabolic',
@@ -234,8 +226,6 @@ export const HEALTH_QUESTIONS: HealthQuestion[] = [
     weight: 2,
     required: true
   },
-
-  // === CATÉGORIE STYLE DE VIE ===
   {
     id: 'lifestyle-1',
     category: 'lifestyle',
@@ -295,7 +285,6 @@ export const HEALTH_QUESTIONS: HealthQuestion[] = [
     required: true
   },
 
-  // === CATÉGORIE ACTIVITÉ PHYSIQUE ===
   {
     id: 'activity-1',
     category: 'physical-activity',
@@ -353,8 +342,6 @@ export const HEALTH_QUESTIONS: HealthQuestion[] = [
     weight: 1,
     required: true
   },
-
-  // === CATÉGORIE SANTÉ MENTALE ===
   {
     id: 'mental-1',
     category: 'mental-health',
@@ -397,11 +384,9 @@ export const HEALTH_QUESTIONS: HealthQuestion[] = [
     weight: 1,
     required: true
   },
-
-  // === INFORMATIONS DE BASE ===
   {
     id: 'info-age',
-    category: 'cardiovascular', // L'âge impacte le risque cardiovasculaire
+    category: 'cardiovascular',
     text: 'HEALTH.QUESTIONS.info-age.TEXT',
     type: 'single-choice',
     options: [

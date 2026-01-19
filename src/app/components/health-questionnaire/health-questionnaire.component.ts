@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { LucideAngularModule, ChevronLeft, ChevronRight, AlertCircle, CheckCircle, Heart, Activity, Brain, Leaf, Dumbbell, Wind, Sparkles } from 'lucide-angular';
+import { LucideAngularModule, ChevronLeft, ChevronRight, AlertCircle, CheckCircle, Heart, Activity, Brain, Leaf, Dumbbell, Wind, Sparkles, RotateCcw } from 'lucide-angular';
 import { HealthScoreService } from '../../services/health-score.service';
 import { LanguageService } from '../../services/language.service';
 import { SnackbarService } from '../../services/snackbar.service';
@@ -24,7 +24,6 @@ import {
   styleUrls: ['./health-questionnaire.component.css']
 })
 export class HealthQuestionnaireComponent implements OnInit {
-  // Icons
   readonly ChevronLeftIcon = ChevronLeft;
   readonly ChevronRightIcon = ChevronRight;
   readonly AlertCircleIcon = AlertCircle;
@@ -36,19 +35,16 @@ export class HealthQuestionnaireComponent implements OnInit {
   readonly DumbbellIcon = Dumbbell;
   readonly WindIcon = Wind;
   readonly SparklesIcon = Sparkles;
+  readonly RotateCcwIcon = RotateCcw;
 
-  // Questions data
   categories: HealthCategory[] = [];
   questionsByCategory: Map<HealthCategory, HealthQuestion[]> = new Map();
 
-  // Navigation
   currentCategoryIndex = 0;
   currentQuestionIndex = 0;
 
-  // Answers
   answers: Map<string, HealthAnswer> = new Map();
 
-  // UI State
   isSubmitting = false;
   showValidationError = false;
   showLanguageMenu = false;
@@ -108,7 +104,6 @@ export class HealthQuestionnaireComponent implements OnInit {
     localStorage.setItem('health_questionnaire_progress', JSON.stringify(progress));
   }
 
-  // Getters
   get currentCategory(): HealthCategory {
     return this.categories[this.currentCategoryIndex];
   }
@@ -144,6 +139,14 @@ export class HealthQuestionnaireComponent implements OnInit {
            this.currentQuestionIndex === this.currentCategoryQuestions.length - 1;
   }
 
+  get isQuestionnaireComplete(): boolean {
+    return this.getUnansweredRequiredQuestions().length === 0;
+  }
+
+  get remainingRequiredQuestions(): number {
+    return this.getUnansweredRequiredQuestions().length;
+  }
+
   get currentQuestionNumber(): number {
     let number = 0;
     for (let i = 0; i < this.currentCategoryIndex; i++) {
@@ -157,7 +160,6 @@ export class HealthQuestionnaireComponent implements OnInit {
     return answer?.value;
   }
 
-  // Methods
   getCategoryLabel(category: HealthCategory): string {
     return getCategoryLabel(category);
   }
@@ -195,10 +197,21 @@ export class HealthQuestionnaireComponent implements OnInit {
     this.showValidationError = false;
     this.saveProgress();
 
-    // Auto-advance après une courte pause
     setTimeout(() => {
+      // Si c'est la dernière question et tout est complet, ne pas avancer automatiquement
+      // pour laisser l'utilisateur valider
+      if (this.isLastQuestion && this.isQuestionnaireComplete) {
+        return;
+      }
+      // Sinon, passer à la question suivante ou à la première question non répondue
       if (!this.isLastQuestion) {
         this.nextQuestion();
+      } else if (!this.isQuestionnaireComplete) {
+        // Si on est à la fin mais il reste des questions, aller à la première non répondue
+        const unanswered = this.getUnansweredRequiredQuestions();
+        if (unanswered.length > 0) {
+          this.navigateToQuestion(unanswered[0]);
+        }
       }
     }, 300);
   }
@@ -210,7 +223,6 @@ export class HealthQuestionnaireComponent implements OnInit {
   nextQuestion(): void {
     if (!this.currentQuestion) return;
 
-    // Validation
     if (this.currentQuestion.required && !this.answers.has(this.currentQuestion.id)) {
       this.showValidationError = true;
       return;
@@ -246,11 +258,9 @@ export class HealthQuestionnaireComponent implements OnInit {
   }
 
   async submitQuestionnaire(): Promise<void> {
-    // Vérifier que toutes les questions requises sont répondues
     const unansweredRequired = this.getUnansweredRequiredQuestions();
     if (unansweredRequired.length > 0) {
       this.snackbarService.warning(this.translate.instant('HEALTH.ALERT_UNANSWERED_REQUIRED', { count: unansweredRequired.length }));
-      // Naviguer vers la première question non répondue
       this.navigateToQuestion(unansweredRequired[0]);
       return;
     }
@@ -261,10 +271,8 @@ export class HealthQuestionnaireComponent implements OnInit {
       const answersArray = Array.from(this.answers.values());
       const result = this.healthScoreService.calculateResults(answersArray);
 
-      // Nettoyer la progression sauvegardée
       localStorage.removeItem('health_questionnaire_progress');
 
-      // Naviguer vers les résultats
       this.router.navigate(['/resultats-sante']);
     } catch (error) {
       console.error('Error submitting questionnaire:', error);

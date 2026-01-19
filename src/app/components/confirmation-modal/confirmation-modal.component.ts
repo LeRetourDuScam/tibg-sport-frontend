@@ -10,15 +10,12 @@ import { ConfirmationModalService, ConfirmationModalConfig } from '../../service
   imports: [CommonModule, LucideAngularModule],
   template: `
     <div *ngIf="visible" class="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <!-- Backdrop -->
       <div
         class="absolute inset-0 bg-black/50 backdrop-blur-sm"
         (click)="cancel()">
       </div>
 
-      <!-- Modal -->
       <div class="relative bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-md w-full transform transition-all animate-modal-in">
-        <!-- Header -->
         <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
           <div class="flex items-center gap-3">
             <div [class]="getIconContainerClass()">
@@ -35,14 +32,12 @@ import { ConfirmationModalService, ConfirmationModalConfig } from '../../service
           </button>
         </div>
 
-        <!-- Body -->
         <div class="p-4">
           <p class="text-gray-600 dark:text-gray-300">
             {{ config?.message }}
           </p>
         </div>
 
-        <!-- Footer -->
         <div class="flex items-center justify-end gap-3 p-4 border-t border-gray-200 dark:border-gray-700">
           <button
             (click)="cancel()"
