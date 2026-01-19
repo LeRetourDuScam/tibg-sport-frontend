@@ -25,6 +25,19 @@
         <span class="text-sm font-medium text-neutral-600">
           {{ 'HEALTH.PROGRESS' | translate }}: {{ currentQuestionNumber }} / {{ totalQuestions }}
         </span>
+        <div class="flex items-center gap-3">
+          <!-- Indicateur sauvegarde auto -->
+          <span class="flex items-center gap-1 text-xs text-green-600">
+            <lucide-angular [img]="CheckCircleIcon" class="w-3 h-3"></lucide-angular>
+            {{ 'HEALTH.AUTO_SAVED' | translate }}
+          </span>
+          <!-- Temps estimé restant -->
+          <span class="text-xs text-neutral-500">
+            {{ 'HEALTH.ESTIMATED_TIME' | translate }}: ~{{ getEstimatedTimeRemaining() }} min
+          </span>
+        </div>
+      </div>
+      <div class="flex justify-between items-center mb-2">
         <span class="text-sm font-medium text-blue-600">
           {{ progressPercentage }}% {{ 'HEALTH.COMPLETED' | translate }}
         </span>
@@ -37,11 +50,11 @@
       </div>
     </div>
 
-    <div class="flex flex-wrap gap-2 mb-6 justify-center">
+    <div class="flex flex-wrap gap-2 mb-6 justify-center overflow-x-auto pb-2">
       @for (category of categories; track category; let i = $index) {
         <button
           (click)="goToCategory(i)"
-          class="relative flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 border"
+          class="relative flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-all duration-200 border min-w-[44px] whitespace-nowrap"
           [class.bg-blue-600]="i === currentCategoryIndex"
           [class.text-white]="i === currentCategoryIndex"
           [class.border-blue-600]="i === currentCategoryIndex"
@@ -52,9 +65,10 @@
           [class.hover:bg-neutral-50]="i !== currentCategoryIndex">
           <lucide-angular
             [img]="getCategoryIcon(category)"
-            class="w-4 h-4">
+            class="w-4 h-4 sm:w-4 sm:h-4">
           </lucide-angular>
           <span class="hidden sm:inline">{{ getCategoryLabel(category) | translate }}</span>
+          <span class="sm:hidden text-xs">{{ getCategoryShortLabel(category) }}</span>
 
           @if (getCategoryProgress(category) === 100) {
             <span class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">

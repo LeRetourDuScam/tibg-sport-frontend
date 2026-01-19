@@ -133,6 +133,14 @@
     "LOADING_EXERCISES": "L'IA génère vos exercices personnalisés...",
     "EXERCISES_LOAD_ERROR": "Erreur lors du chargement des exercices",
     "TRY_AGAIN": "Réessayer",
+    "AI_DISCLAIMER_TITLE": "Avertissement important",
+    "AI_DISCLAIMER_TEXT": "Ces exercices sont générés par une intelligence artificielle à titre informatif uniquement. Ils ne constituent pas un avis médical. Consultez un professionnel de santé avant de commencer tout programme d'exercices, particulièrement si vous avez des conditions médicales préexistantes.",
+    "ESTIMATED_TIME": "Temps estimé restant",
+    "ESTIMATED_TIME_VALUE": "~{{minutes}} min",
+    "AUTO_SAVED": "Sauvegardé",
+    "AUTO_SAVING": "Sauvegarde...",
+    "CHATBOT_CONTEXT_TITLE": "Votre assistant IA personnalisé",
+    "CHATBOT_CONTEXT_DESC": "Ce chatbot a accès à vos résultats et peut répondre à vos questions sur votre profil de santé.",
     "EXERCISE_CATEGORY": {
       "cardio": "Cardio",
       "strength": "Renforcement",
@@ -646,5 +654,23 @@
     "BACK_HOME": "Retour à l'accueil",
     "CONFIRM": "Confirmer",
     "CANCEL": "Annuler"
+  },
+  "PWA": {
+    "INSTALL_TITLE": "Installer FytAI",
+    "INSTALL_DESC": "Installez l'app sur votre appareil pour un accès rapide, même hors ligne.",
+    "INSTALL_BUTTON": "Installer",
+    "LATER": "Plus tard"
+  },
+  "THEME": {
+    "TOGGLE": "Changer de thème",
+    "LIGHT": "Mode clair",
+    "DARK": "Mode sombre",
+    "SYSTEM": "Système"
+  },
+  "REMINDER": {
+    "TITLE": "Temps de refaire votre évaluation !",
+    "DESC": "Cela fait {{days}} jours depuis votre dernier test. Refaites-le pour suivre vos progrès.",
+    "CTA": "Refaire l'évaluation",
+    "DISMISS": "Plus tard"
   }
 }

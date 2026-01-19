@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../services/language.service';
 import { LucideAngularModule } from 'lucide-angular';
+import { PwaInstallBannerComponent } from '../pwa-install-banner/pwa-install-banner.component';
+import { ReminderBannerComponent } from '../reminder-banner/reminder-banner.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule, TranslateModule, LucideAngularModule],
+  imports: [RouterLink, CommonModule, TranslateModule, LucideAngularModule, PwaInstallBannerComponent, ReminderBannerComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

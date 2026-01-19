@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -8,6 +8,7 @@ import { HealthScoreService } from '../../services/health-score.service';
 import { LanguageService } from '../../services/language.service';
 import { SnackbarService } from '../../services/snackbar.service';
 import { ConfirmationModalService } from '../../services/confirmation-modal.service';
+import { ReminderService } from '../../services/reminder.service';
 import {
   HealthQuestion,
   HealthAnswer,
@@ -48,6 +49,8 @@ export class HealthQuestionnaireComponent implements OnInit {
   isSubmitting = false;
   showValidationError = false;
   showLanguageMenu = false;
+
+  private reminderService = inject(ReminderService);
 
   constructor(
     private healthScoreService: HealthScoreService,
@@ -273,6 +276,9 @@ export class HealthQuestionnaireComponent implements OnInit {
 
       localStorage.removeItem('health_questionnaire_progress');
 
+      // Enregistrer la date de complétion pour le rappel 30 jours
+      this.reminderService.recordTestCompletion();
+
       this.router.navigate(['/resultats-sante']);
     } catch (error) {
       console.error('Error submitting questionnaire:', error);
@@ -304,6 +310,27 @@ export class HealthQuestionnaireComponent implements OnInit {
         break;
       }
     }
+  }
+
+  // Temps estimé restant (environ 15 secondes par question)
+  getEstimatedTimeRemaining(): number {
+    const remainingQuestions = this.totalQuestions - this.answeredQuestions;
+    const secondsPerQuestion = 15;
+    return Math.max(1, Math.ceil((remainingQuestions * secondsPerQuestion) / 60));
+  }
+
+  // Labels courts pour mobile
+  getCategoryShortLabel(category: HealthCategory): string {
+    const shortLabels: Record<HealthCategory, string> = {
+      'cardiovascular': 'Cardio',
+      'musculoskeletal': 'Muscles',
+      'respiratory': 'Respir.',
+      'metabolic': 'Métab.',
+      'lifestyle': 'Vie',
+      'physical-activity': 'Sport',
+      'mental-health': 'Mental'
+    };
+    return shortLabels[category] || category;
   }
 
   resetQuestionnaire(): void {

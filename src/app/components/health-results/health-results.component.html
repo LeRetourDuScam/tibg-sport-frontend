@@ -234,6 +234,17 @@
 
     @if (activeTab === 'exercises') {
       <div class="space-y-4">
+        <!-- Disclaimer juridique IA -->
+        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+          <div class="flex gap-3">
+            <lucide-angular [img]="AlertTriangleIcon" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></lucide-angular>
+            <div>
+              <h4 class="text-sm font-semibold text-amber-800 mb-1">{{ 'HEALTH.AI_DISCLAIMER_TITLE' | translate }}</h4>
+              <p class="text-sm text-amber-700">{{ 'HEALTH.AI_DISCLAIMER_TEXT' | translate }}</p>
+            </div>
+          </div>
+        </div>
+
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center gap-2">
             <lucide-angular [img]="SparklesIcon" class="w-5 h-5 text-blue-500"></lucide-angular>
@@ -383,6 +394,17 @@
         <lucide-angular [img]="ArrowRightIcon" class="w-4 h-4 rotate-180"></lucide-angular>
         {{ 'COMMON.BACK_HOME' | translate }}
       </a>
+    </div>
+
+    <!-- Contexte chatbot -->
+    <div class="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <div class="flex items-start gap-3">
+        <lucide-angular [img]="SparklesIcon" class="w-5 h-5 text-blue-600 shrink-0 mt-0.5"></lucide-angular>
+        <div>
+          <h4 class="text-sm font-semibold text-blue-800 mb-1">{{ 'HEALTH.CHATBOT_CONTEXT_TITLE' | translate }}</h4>
+          <p class="text-sm text-blue-700">{{ 'HEALTH.CHATBOT_CONTEXT_DESC' | translate }}</p>
+        </div>
+      </div>
     </div>
 
   </main>
