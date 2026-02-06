@@ -197,6 +197,27 @@
           "often": "Often"
         }
       },
+      "cardio-6": {
+        "TEXT": "How many minutes of moderate-intensity endurance activity do you do per week?",
+        "INFO": "<strong>WHO Recommendation:</strong> 150 to 300 minutes per week of moderate-intensity activity (e.g., brisk walking, leisurely cycling, slow swimming). At moderate intensity, you can talk but not sing.",
+        "OPTIONS": {
+          "exceeds": "More than 300 minutes (I exceed recommendations)",
+          "meets": "150 to 300 minutes (I meet WHO recommendations)",
+          "partial": "75 to 149 minutes (below recommendations)",
+          "minimal": "Less than 75 minutes",
+          "none": "No endurance activity"
+        }
+      },
+      "cardio-7": {
+        "TEXT": "How many minutes of vigorous-intensity activity do you do per week?",
+        "INFO": "<strong>WHO Recommendation:</strong> 75 to 150 minutes per week of vigorous-intensity activity (e.g., running, fast swimming, singles tennis, intense cycling). At vigorous intensity, you become breathless quickly. A mix of both intensities is also acceptable.",
+        "OPTIONS": {
+          "exceeds": "More than 150 minutes",
+          "meets": "75 to 150 minutes (WHO recommendation)",
+          "partial": "30 to 74 minutes",
+          "none": "No vigorous activity"
+        }
+      },
       "musculo-1": {
         "TEXT": "Do you have bone or joint problems that could be worsened by exercise?",
         "OPTIONS": { "no": "No", "yes": "Yes" }
@@ -230,6 +251,57 @@
           "not-tried": "I haven't tried"
         }
       },
+      "musculo-5": {
+        "TEXT": "Which of these functional strength tests can you perform?",
+        "INFO": "<strong>Physical assessment tests:</strong> These simple tests evaluate your everyday functional strength. They cover leg strength, back strength, and load-carrying capacity. Most people, even without pain, can still be physically deconditioned.",
+        "OPTIONS": {
+          "all": "All: 10 bodyweight squats + 5 squats with 10 kg + lift 10 kg overhead + carry groceries 100 m without stopping",
+          "most": "3 out of 4 tests",
+          "some": "1 or 2 of these tests",
+          "none": "None of these tests",
+          "not-tried": "I haven't tried"
+        }
+      },
+      "musculo-6": {
+        "TEXT": "Can you stand up from a chair on one leg?",
+        "OPTIONS": {
+          "easily": "Yes, easily on both sides",
+          "difficulty": "Yes, but with difficulty or only on one side",
+          "no": "No",
+          "not-tried": "I haven't tried"
+        }
+      },
+      "musculo-7": {
+        "TEXT": "Can you get up from the floor without using your hands? (Sitting Rising Test)",
+        "INFO": "<strong>Sitting Rising Test:</strong> This test evaluates overall mobility, strength, and balance. Sit on the floor cross-legged, then stand up without using your hands, knees, or any other support. This test is correlated with longevity and overall health.",
+        "OPTIONS": {
+          "no-hands": "Yes, without using hands or knees",
+          "one-hand": "Yes, with one support (a hand or a knee)",
+          "both-hands": "Yes, but with multiple supports",
+          "cannot": "No, I can't easily get up from the floor",
+          "not-tried": "I haven't tried"
+        }
+      },
+      "musculo-8": {
+        "TEXT": "How long can you hang from a bar (Dead Hang)?",
+        "INFO": "<strong>Dead Hang (Grip Strength):</strong> Hand grip strength is directly linked to heart and overall health. Hang from a bar with feet off the ground and hold as long as possible. Good health benchmark: 30 seconds (men) or 20 seconds (women).",
+        "OPTIONS": {
+          "yes-30s": "30 seconds or more",
+          "yes-15s": "15 to 29 seconds",
+          "less-10s": "Less than 15 seconds",
+          "no": "I can't hang from a bar",
+          "no-access": "I don't have access to a bar"
+        }
+      },
+      "musculo-9": {
+        "TEXT": "How many times per week do you do strength training?",
+        "INFO": "<strong>WHO Recommendation:</strong> At least 2 sessions per week of muscle-strengthening activities involving major muscle groups (gym training, bodyweight exercises, or any intense activity with load carrying).",
+        "OPTIONS": {
+          "twice-plus": "2 or more times per week (WHO recommendation)",
+          "once": "Once per week",
+          "no": "Never or rarely"
+        }
+      },
       "metabolic-1": {
         "TEXT": "Do you have diabetes?",
         "OPTIONS": {
@@ -242,6 +314,7 @@
       },
       "metabolic-2": {
         "TEXT": "What is your approximate Body Mass Index (BMI)?",
+        "INFO": "<strong>What is BMI?</strong> BMI = Weight (kg) / Height² (m). Example: 70 kg / (1.75 m)² = 22.9. <br>Categories: < 18.5 = underweight | 18.5-24.9 = normal | 25-29.9 = overweight | 30-34.9 = obesity class 1 | ≥ 35 = obesity class 2+. <br>BMI is a simple indicator but doesn't account for muscle mass. Consult your doctor for a complete assessment.",
         "OPTIONS": {
           "underweight": "Under 18.5 (underweight)",
           "normal": "18.5 - 24.9 (normal)",
@@ -282,11 +355,30 @@
       },
       "lifestyle-4": {
         "TEXT": "How would you rate your diet?",
+        "INFO": "<strong>Nutrition recommendations:</strong> A balanced diet includes at least 5 portions of fruits and vegetables per day, varied proteins (meat, fish, legumes), whole grains, and limiting ultra-processed foods, added sugar, and salt. WHO also recommends limiting saturated and trans fats.",
         "OPTIONS": {
           "excellent": "Excellent (balanced, rich in fruits and vegetables)",
           "good": "Good (generally healthy)",
           "average": "Average (could be improved)",
           "poor": "Poor (lots of fast food, few vegetables)"
+        }
+      },
+      "lifestyle-5": {
+        "TEXT": "How many portions of fruits and vegetables do you eat per day?",
+        "OPTIONS": {
+          "5-plus": "5 or more (WHO recommendation)",
+          "3-4": "3 to 4 portions",
+          "1-2": "1 to 2 portions",
+          "0": "Rarely or never"
+        }
+      },
+      "lifestyle-6": {
+        "TEXT": "How much water do you drink per day?",
+        "OPTIONS": {
+          "2l-plus": "2 liters or more",
+          "1-2l": "1 to 2 liters",
+          "less-1l": "Less than 1 liter",
+          "unknown": "I don't know"
         }
       },
       "activity-1": {
@@ -380,14 +472,24 @@
       "cardio-3": "Uncontrolled high blood pressure",
       "cardio-4": "Frequent dizziness",
       "cardio-5": "Shortness of breath during light effort",
+      "cardio-6": "Insufficient cardiovascular endurance (below WHO recommendations)",
+      "cardio-7": "Insufficient vigorous-intensity activity",
       "musculo-1": "Bone/joint issues",
       "musculo-2": "Chronic back pain",
       "musculo-3": "Knee pain",
+      "musculo-5": "Insufficient functional strength",
+      "musculo-6": "Difficulty standing on one leg (leg muscle weakness)",
+      "musculo-7": "Difficulty getting up from the floor (reduced mobility and strength)",
+      "musculo-8": "Insufficient grip strength (Dead Hang)",
+      "musculo-9": "Insufficient muscle strengthening (below WHO recommendations)",
       "metabolic-1": "Uncontrolled diabetes",
       "metabolic-2": "Overweight or obesity",
       "lifestyle-1": "Active smoking",
       "lifestyle-2": "Lack of sleep",
       "lifestyle-3": "Excessive alcohol consumption",
+      "lifestyle-4": "Unbalanced diet",
+      "lifestyle-5": "Insufficient fruit and vegetable intake",
+      "lifestyle-6": "Insufficient hydration",
       "activity-1": "Sedentary lifestyle",
       "activity-2": "Low walking capacity",
       "activity-3": "Long period of inactivity",

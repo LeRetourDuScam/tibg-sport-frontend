@@ -9,6 +9,7 @@ export interface HealthQuestion {
   scaleLabels?: { min: string; max: string };
   weight: number;
   required: boolean;
+  infoText?: string;
 }
 
 export interface HealthOption {
@@ -138,6 +139,39 @@ export const HEALTH_QUESTIONS: HealthQuestion[] = [
     required: true
   },
 
+  // Endurance cardiovasculaire - Recommandations OMS
+  {
+    id: 'cardio-6',
+    category: 'cardiovascular',
+    text: 'HEALTH.QUESTIONS.cardio-6.TEXT',
+    type: 'single-choice',
+    options: [
+      { value: 'exceeds', label: 'HEALTH.QUESTIONS.cardio-6.OPTIONS.exceeds', points: 10, riskLevel: 'low' },
+      { value: 'meets', label: 'HEALTH.QUESTIONS.cardio-6.OPTIONS.meets', points: 8, riskLevel: 'low' },
+      { value: 'partial', label: 'HEALTH.QUESTIONS.cardio-6.OPTIONS.partial', points: 5, riskLevel: 'moderate' },
+      { value: 'minimal', label: 'HEALTH.QUESTIONS.cardio-6.OPTIONS.minimal', points: 2, riskLevel: 'moderate' },
+      { value: 'none', label: 'HEALTH.QUESTIONS.cardio-6.OPTIONS.none', points: 0, riskLevel: 'high' }
+    ],
+    weight: 3,
+    required: true,
+    infoText: 'HEALTH.QUESTIONS.cardio-6.INFO'
+  },
+  {
+    id: 'cardio-7',
+    category: 'cardiovascular',
+    text: 'HEALTH.QUESTIONS.cardio-7.TEXT',
+    type: 'single-choice',
+    options: [
+      { value: 'exceeds', label: 'HEALTH.QUESTIONS.cardio-7.OPTIONS.exceeds', points: 10, riskLevel: 'low' },
+      { value: 'meets', label: 'HEALTH.QUESTIONS.cardio-7.OPTIONS.meets', points: 8, riskLevel: 'low' },
+      { value: 'partial', label: 'HEALTH.QUESTIONS.cardio-7.OPTIONS.partial', points: 5, riskLevel: 'moderate' },
+      { value: 'none', label: 'HEALTH.QUESTIONS.cardio-7.OPTIONS.none', points: 0, riskLevel: 'high' }
+    ],
+    weight: 2,
+    required: true,
+    infoText: 'HEALTH.QUESTIONS.cardio-7.INFO'
+  },
+
   {
     id: 'musculo-1',
     category: 'musculoskeletal',
@@ -195,6 +229,84 @@ export const HEALTH_QUESTIONS: HealthQuestion[] = [
     required: true
   },
 
+  // Tests fonctionnels musculaires
+  {
+    id: 'musculo-5',
+    category: 'musculoskeletal',
+    text: 'HEALTH.QUESTIONS.musculo-5.TEXT',
+    type: 'single-choice',
+    options: [
+      { value: 'all', label: 'HEALTH.QUESTIONS.musculo-5.OPTIONS.all', points: 10, riskLevel: 'low' },
+      { value: 'most', label: 'HEALTH.QUESTIONS.musculo-5.OPTIONS.most', points: 7, riskLevel: 'low' },
+      { value: 'some', label: 'HEALTH.QUESTIONS.musculo-5.OPTIONS.some', points: 4, riskLevel: 'moderate' },
+      { value: 'none', label: 'HEALTH.QUESTIONS.musculo-5.OPTIONS.none', points: 1, riskLevel: 'moderate' },
+      { value: 'not-tried', label: 'HEALTH.QUESTIONS.musculo-5.OPTIONS.not-tried', points: 5, riskLevel: 'low' }
+    ],
+    weight: 2,
+    required: true,
+    infoText: 'HEALTH.QUESTIONS.musculo-5.INFO'
+  },
+  {
+    id: 'musculo-6',
+    category: 'musculoskeletal',
+    text: 'HEALTH.QUESTIONS.musculo-6.TEXT',
+    type: 'single-choice',
+    options: [
+      { value: 'easily', label: 'HEALTH.QUESTIONS.musculo-6.OPTIONS.easily', points: 10, riskLevel: 'low' },
+      { value: 'difficulty', label: 'HEALTH.QUESTIONS.musculo-6.OPTIONS.difficulty', points: 5, riskLevel: 'moderate' },
+      { value: 'no', label: 'HEALTH.QUESTIONS.musculo-6.OPTIONS.no', points: 1, riskLevel: 'moderate' },
+      { value: 'not-tried', label: 'HEALTH.QUESTIONS.musculo-6.OPTIONS.not-tried', points: 5, riskLevel: 'low' }
+    ],
+    weight: 1,
+    required: true
+  },
+  {
+    id: 'musculo-7',
+    category: 'musculoskeletal',
+    text: 'HEALTH.QUESTIONS.musculo-7.TEXT',
+    type: 'single-choice',
+    options: [
+      { value: 'no-hands', label: 'HEALTH.QUESTIONS.musculo-7.OPTIONS.no-hands', points: 10, riskLevel: 'low' },
+      { value: 'one-hand', label: 'HEALTH.QUESTIONS.musculo-7.OPTIONS.one-hand', points: 7, riskLevel: 'low' },
+      { value: 'both-hands', label: 'HEALTH.QUESTIONS.musculo-7.OPTIONS.both-hands', points: 4, riskLevel: 'moderate' },
+      { value: 'cannot', label: 'HEALTH.QUESTIONS.musculo-7.OPTIONS.cannot', points: 0, riskLevel: 'high' },
+      { value: 'not-tried', label: 'HEALTH.QUESTIONS.musculo-7.OPTIONS.not-tried', points: 5, riskLevel: 'low' }
+    ],
+    weight: 2,
+    required: true,
+    infoText: 'HEALTH.QUESTIONS.musculo-7.INFO'
+  },
+  {
+    id: 'musculo-8',
+    category: 'musculoskeletal',
+    text: 'HEALTH.QUESTIONS.musculo-8.TEXT',
+    type: 'single-choice',
+    options: [
+      { value: 'yes-30s', label: 'HEALTH.QUESTIONS.musculo-8.OPTIONS.yes-30s', points: 10, riskLevel: 'low' },
+      { value: 'yes-15s', label: 'HEALTH.QUESTIONS.musculo-8.OPTIONS.yes-15s', points: 6, riskLevel: 'moderate' },
+      { value: 'less-10s', label: 'HEALTH.QUESTIONS.musculo-8.OPTIONS.less-10s', points: 3, riskLevel: 'moderate' },
+      { value: 'no', label: 'HEALTH.QUESTIONS.musculo-8.OPTIONS.no', points: 0, riskLevel: 'high' },
+      { value: 'no-access', label: 'HEALTH.QUESTIONS.musculo-8.OPTIONS.no-access', points: 5, riskLevel: 'low' }
+    ],
+    weight: 2,
+    required: true,
+    infoText: 'HEALTH.QUESTIONS.musculo-8.INFO'
+  },
+  {
+    id: 'musculo-9',
+    category: 'musculoskeletal',
+    text: 'HEALTH.QUESTIONS.musculo-9.TEXT',
+    type: 'single-choice',
+    options: [
+      { value: 'twice-plus', label: 'HEALTH.QUESTIONS.musculo-9.OPTIONS.twice-plus', points: 10, riskLevel: 'low' },
+      { value: 'once', label: 'HEALTH.QUESTIONS.musculo-9.OPTIONS.once', points: 6, riskLevel: 'moderate' },
+      { value: 'no', label: 'HEALTH.QUESTIONS.musculo-9.OPTIONS.no', points: 0, riskLevel: 'high' }
+    ],
+    weight: 2,
+    required: true,
+    infoText: 'HEALTH.QUESTIONS.musculo-9.INFO'
+  },
+
   {
     id: 'metabolic-1',
     category: 'metabolic',
@@ -224,7 +336,8 @@ export const HEALTH_QUESTIONS: HealthQuestion[] = [
       { value: 'unknown', label: 'HEALTH.QUESTIONS.metabolic-2.OPTIONS.unknown', points: 5, riskLevel: 'low' }
     ],
     weight: 2,
-    required: true
+    required: true,
+    infoText: 'HEALTH.QUESTIONS.metabolic-2.INFO'
   },
   {
     id: 'lifestyle-1',
@@ -280,6 +393,35 @@ export const HEALTH_QUESTIONS: HealthQuestion[] = [
       { value: 'good', label: 'HEALTH.QUESTIONS.lifestyle-4.OPTIONS.good', points: 8, riskLevel: 'low' },
       { value: 'average', label: 'HEALTH.QUESTIONS.lifestyle-4.OPTIONS.average', points: 5, riskLevel: 'moderate' },
       { value: 'poor', label: 'HEALTH.QUESTIONS.lifestyle-4.OPTIONS.poor', points: 2, riskLevel: 'moderate' }
+    ],
+    weight: 1,
+    required: true,
+    infoText: 'HEALTH.QUESTIONS.lifestyle-4.INFO'
+  },
+  {
+    id: 'lifestyle-5',
+    category: 'lifestyle',
+    text: 'HEALTH.QUESTIONS.lifestyle-5.TEXT',
+    type: 'single-choice',
+    options: [
+      { value: '5-plus', label: 'HEALTH.QUESTIONS.lifestyle-5.OPTIONS.5-plus', points: 10, riskLevel: 'low' },
+      { value: '3-4', label: 'HEALTH.QUESTIONS.lifestyle-5.OPTIONS.3-4', points: 7, riskLevel: 'low' },
+      { value: '1-2', label: 'HEALTH.QUESTIONS.lifestyle-5.OPTIONS.1-2', points: 4, riskLevel: 'moderate' },
+      { value: '0', label: 'HEALTH.QUESTIONS.lifestyle-5.OPTIONS.0', points: 0, riskLevel: 'high' }
+    ],
+    weight: 1,
+    required: true
+  },
+  {
+    id: 'lifestyle-6',
+    category: 'lifestyle',
+    text: 'HEALTH.QUESTIONS.lifestyle-6.TEXT',
+    type: 'single-choice',
+    options: [
+      { value: '2l-plus', label: 'HEALTH.QUESTIONS.lifestyle-6.OPTIONS.2l-plus', points: 10, riskLevel: 'low' },
+      { value: '1-2l', label: 'HEALTH.QUESTIONS.lifestyle-6.OPTIONS.1-2l', points: 7, riskLevel: 'low' },
+      { value: 'less-1l', label: 'HEALTH.QUESTIONS.lifestyle-6.OPTIONS.less-1l', points: 3, riskLevel: 'moderate' },
+      { value: 'unknown', label: 'HEALTH.QUESTIONS.lifestyle-6.OPTIONS.unknown', points: 5, riskLevel: 'low' }
     ],
     weight: 1,
     required: true

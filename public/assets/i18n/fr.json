@@ -197,6 +197,27 @@
           "often": "Souvent"
         }
       },
+      "cardio-6": {
+        "TEXT": "Combien de minutes d'activité d'endurance d'intensité modérée pratiquez-vous par semaine ?",
+        "INFO": "<strong>Recommandation OMS :</strong> 150 à 300 minutes par semaine d'activité d'intensité modérée (ex : marche rapide, vélo tranquille, nage lente). Lors d'une intensité modérée, vous pouvez parler mais pas chanter.",
+        "OPTIONS": {
+          "exceeds": "Plus de 300 minutes (je dépasse les recommandations)",
+          "meets": "150 à 300 minutes (je respecte les recommandations OMS)",
+          "partial": "75 à 149 minutes (en dessous des recommandations)",
+          "minimal": "Moins de 75 minutes",
+          "none": "Aucune activité d'endurance"
+        }
+      },
+      "cardio-7": {
+        "TEXT": "Combien de minutes d'activité d'intensité soutenue pratiquez-vous par semaine ?",
+        "INFO": "<strong>Recommandation OMS :</strong> 75 à 150 minutes par semaine d'activité d'intensité soutenue (ex : course à pied, natation rapide, tennis en simple, vélo intense). Lors d'une intensité soutenue, vous êtes essoufflé(e) rapidement. Un mix des deux intensités est également valable.",
+        "OPTIONS": {
+          "exceeds": "Plus de 150 minutes",
+          "meets": "75 à 150 minutes (recommandation OMS)",
+          "partial": "30 à 74 minutes",
+          "none": "Aucune activité intense"
+        }
+      },
       "musculo-1": {
         "TEXT": "Avez-vous des problèmes osseux ou articulaires qui pourraient être aggravés par l'exercice ?",
         "OPTIONS": { "no": "Non", "yes": "Oui" }
@@ -230,6 +251,57 @@
           "not-tried": "Je n'ai pas essayé"
         }
       },
+      "musculo-5": {
+        "TEXT": "Parmi ces tests de force fonctionnelle, lesquels pouvez-vous réaliser ?",
+        "INFO": "<strong>Tests d'évaluation physique :</strong> Ces tests simples permettent d'évaluer votre force fonctionnelle au quotidien. Ils couvrent la force des jambes, du dos et la capacité de port de charge. La majorité des gens, même sans douleurs, peuvent être déconditionnés physiquement.",
+        "OPTIONS": {
+          "all": "Tous : 10 squats au poids du corps + 5 squats avec 10 kg + soulever 10 kg au-dessus de la tête + porter les courses 100 m sans pause",
+          "most": "3 sur 4 de ces tests",
+          "some": "1 ou 2 de ces tests",
+          "none": "Aucun de ces tests",
+          "not-tried": "Je n'ai pas essayé"
+        }
+      },
+      "musculo-6": {
+        "TEXT": "Pouvez-vous vous lever d'une chaise sur une seule jambe ?",
+        "OPTIONS": {
+          "easily": "Oui, facilement des deux côtés",
+          "difficulty": "Oui, mais avec difficulté ou d'un seul côté",
+          "no": "Non",
+          "not-tried": "Je n'ai pas essayé"
+        }
+      },
+      "musculo-7": {
+        "TEXT": "Pouvez-vous vous relever du sol sans utiliser vos mains ? (Sitting Rising Test)",
+        "INFO": "<strong>Sitting Rising Test :</strong> Ce test évalue la mobilité, la force et l'équilibre global. Asseyez-vous au sol jambes croisées, puis relevez-vous sans utiliser les mains, les genoux ou toute autre aide. Ce test est corrélé à la longévité et à la santé globale.",
+        "OPTIONS": {
+          "no-hands": "Oui, sans utiliser les mains ni les genoux",
+          "one-hand": "Oui, avec un appui (une main ou un genou)",
+          "both-hands": "Oui, mais avec plusieurs appuis",
+          "cannot": "Non, je ne peux pas me relever du sol facilement",
+          "not-tried": "Je n'ai pas essayé"
+        }
+      },
+      "musculo-8": {
+        "TEXT": "Combien de temps pouvez-vous rester suspendu(e) à une barre (Dead Hang) ?",
+        "INFO": "<strong>Dead Hang (Force de préhension) :</strong> La force de la main est directement liée à la santé cardiaque et globale. Accrochez-vous à une barre, pieds dans le vide, et tenez le plus longtemps possible. Critère de bonne santé : 30 secondes (hommes) ou 20 secondes (femmes).",
+        "OPTIONS": {
+          "yes-30s": "30 secondes ou plus",
+          "yes-15s": "15 à 29 secondes",
+          "less-10s": "Moins de 15 secondes",
+          "no": "Je ne peux pas me suspendre",
+          "no-access": "Je n'ai pas accès à une barre"
+        }
+      },
+      "musculo-9": {
+        "TEXT": "Combien de fois par semaine faites-vous du renforcement musculaire ?",
+        "INFO": "<strong>Recommandation OMS :</strong> Au moins 2 séances par semaine de renforcement musculaire sollicitant les principaux groupes musculaires (musculation en salle, exercices au poids du corps, ou toute activité intense avec port de charge).",
+        "OPTIONS": {
+          "twice-plus": "2 fois ou plus par semaine (recommandation OMS)",
+          "once": "1 fois par semaine",
+          "no": "Jamais ou rarement"
+        }
+      },
       "metabolic-1": {
         "TEXT": "Avez-vous du diabète ?",
         "OPTIONS": {
@@ -242,6 +314,7 @@
       },
       "metabolic-2": {
         "TEXT": "Quel est votre Indice de Masse Corporelle (IMC) approximatif ?",
+        "INFO": "<strong>Qu'est-ce que l'IMC ?</strong> L'IMC = Poids (kg) / Taille² (m). Exemple : 70 kg / (1,75 m)² = 22,9. <br>Catégories : < 18,5 = insuffisance pondérale | 18,5-24,9 = normal | 25-29,9 = surpoids | 30-34,9 = obésité classe 1 | ≥ 35 = obésité classe 2+. <br>L'IMC est un indicateur simple mais ne tient pas compte de la masse musculaire. Consultez votre médecin pour une évaluation complète.",
         "OPTIONS": {
           "underweight": "Moins de 18,5 (insuffisance pondérale)",
           "normal": "18,5 - 24,9 (normal)",
@@ -282,11 +355,30 @@
       },
       "lifestyle-4": {
         "TEXT": "Comment évaluez-vous votre alimentation ?",
+        "INFO": "<strong>Recommandations nutritionnelles :</strong> Une alimentation équilibrée comprend au moins 5 portions de fruits et légumes par jour, des protéines variées (viande, poisson, légumineuses), des céréales complètes, et une limitation des aliments ultra-transformés, du sucre ajouté et du sel. L'OMS recommande également de limiter les acides gras saturés et trans.",
         "OPTIONS": {
           "excellent": "Excellente (équilibrée, riche en fruits et légumes)",
           "good": "Bonne (généralement saine)",
           "average": "Moyenne (pourrait être améliorée)",
           "poor": "Mauvaise (beaucoup de fast-food, peu de légumes)"
+        }
+      },
+      "lifestyle-5": {
+        "TEXT": "Combien de portions de fruits et légumes mangez-vous par jour ?",
+        "OPTIONS": {
+          "5-plus": "5 ou plus (recommandation OMS)",
+          "3-4": "3 à 4 portions",
+          "1-2": "1 à 2 portions",
+          "0": "Rarement ou jamais"
+        }
+      },
+      "lifestyle-6": {
+        "TEXT": "Combien d'eau buvez-vous par jour ?",
+        "OPTIONS": {
+          "2l-plus": "2 litres ou plus",
+          "1-2l": "1 à 2 litres",
+          "less-1l": "Moins d'1 litre",
+          "unknown": "Je ne sais pas"
         }
       },
       "activity-1": {
@@ -380,14 +472,24 @@
       "cardio-3": "Hypertension non contrôlée",
       "cardio-4": "Étourdissements fréquents",
       "cardio-5": "Essoufflement lors d'efforts légers",
+      "cardio-6": "Endurance cardiovasculaire insuffisante (en dessous des recommandations OMS)",
+      "cardio-7": "Activité d'intensité soutenue insuffisante",
       "musculo-1": "Problèmes osseux/articulaires",
       "musculo-2": "Douleurs chroniques au dos",
       "musculo-3": "Douleurs aux genoux",
+      "musculo-5": "Force fonctionnelle insuffisante",
+      "musculo-6": "Difficulté à se lever sur une jambe (faiblesse musculaire des jambes)",
+      "musculo-7": "Difficulté à se relever du sol (mobilité et force réduites)",
+      "musculo-8": "Force de préhension insuffisante (Dead Hang)",
+      "musculo-9": "Renforcement musculaire insuffisant (en dessous des recommandations OMS)",
       "metabolic-1": "Diabète non contrôlé",
       "metabolic-2": "Surpoids ou obésité",
       "lifestyle-1": "Tabagisme actif",
       "lifestyle-2": "Manque de sommeil",
       "lifestyle-3": "Consommation d'alcool excessive",
+      "lifestyle-4": "Alimentation déséquilibrée",
+      "lifestyle-5": "Apport insuffisant en fruits et légumes",
+      "lifestyle-6": "Hydratation insuffisante",
       "activity-1": "Mode de vie sédentaire",
       "activity-2": "Faible capacité de marche",
       "activity-3": "Période d'inactivité prolongée",

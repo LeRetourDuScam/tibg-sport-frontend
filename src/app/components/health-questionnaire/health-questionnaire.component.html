@@ -94,9 +94,18 @@
           }
         </div>
 
-        <h2 class="text-lg font-medium text-neutral-900 mb-6 leading-relaxed">
+        <h2 class="text-lg font-medium text-neutral-900 mb-4 leading-relaxed">
           {{ currentQuestion.text | translate }}
         </h2>
+
+        @if (currentQuestion.infoText) {
+          <div class="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <div class="flex gap-3">
+              <lucide-angular [img]="AlertCircleIcon" class="w-5 h-5 text-blue-600 shrink-0 mt-0.5"></lucide-angular>
+              <p class="text-sm text-blue-800 leading-relaxed" [innerHTML]="currentQuestion.infoText | translate"></p>
+            </div>
+          </div>
+        }
 
         <div class="space-y-3">
           @if (currentQuestion.type === 'boolean' || currentQuestion.type === 'single-choice') {
